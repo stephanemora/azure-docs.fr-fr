@@ -5,22 +5,18 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
-ms.openlocfilehash: 6953ffb5542e2a0d8acb9e404b2df0f923a08145
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 1b5ed1cd49ac4117dac6ff0a6e3bdb916299ec44
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744014"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457408"
 ---
-# <a name="frequently-asked-questions-about-azure-managed-instance-for-apache-cassandra-preview"></a>Questions fréquentes sur Azure Managed Instance pour Apache Cassandra (préversion)
+# <a name="frequently-asked-questions-about-azure-managed-instance-for-apache-cassandra"></a>Questions fréquentes sur Azure Managed Instance pour Apache Cassandra
 
 Cet article répond à certaines questions fréquentes sur Azure Managed Instance pour Apache Cassandra. Vous allez découvrir quand utiliser des instances managées, leurs avantages, les limites de débit, les régions prises en charge et leurs détails de configuration.
-
-> [!IMPORTANT]
-> Azure Managed Instance pour Apache Cassandra est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="general-faq"></a>FAQ général
 
@@ -40,7 +36,7 @@ Non, il n’y a aucune dépendance architecturale entre Azure Managed Instance p
 
 #### <a name="can-i-deploy-azure-managed-instance-for-apache-cassandra-in-any-region"></a>Puis-je déployer Azure Managed Instance pour Apache Cassandra dans toutes les régions ?
 
-Managed Instance sera disponible dans un nombre limité de régions durant la préversion.
+Actuellement, l’instance gérée est disponible dans un nombre limité de régions.
 
 ### <a name="what-are-the-storage-and-throughput-limits-of-azure-managed-instance-for-apache-cassandra"></a>Quelles sont les limites de stockage et de débit d’Azure Managed Instance pour Apache Cassandra ?
 
@@ -76,7 +72,7 @@ Oui, vous pouvez configurer un cluster hybride avec des centres de données inje
 
 ### <a name="where-can-i-give-feedback-on-azure-managed-instance-for-apache-cassandra-features"></a>Où envoyer mes commentaires sur les fonctionnalités d’Azure Managed Instance pour Apache Cassandra ?
 
-Partagez vos commentaires en les postant dans les [commentaires User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db?category_id=398548) dans la catégorie « Managed Apache Cassandra ».
+Partagez vos commentaires en les postant dans les [commentaires User Voice](https://feedback.azure.com/d365community/forum/3002b3be-0d25-ec11-b6e6-000d3a4f0858?c=e6e5c7c4-0d25-ec11-b6e6-000d3a4f0858#) dans la catégorie « Managed Apache Cassandra ».
 
 Pour résoudre un problème relatif à votre compte, enregistrez une [demande de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) sur le portail Azure.
 

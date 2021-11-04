@@ -3,7 +3,7 @@ title: Gérer Azure CDN avec PowerShell | Microsoft Docs
 description: Utilisez ce tutoriel afin d’apprendre à utiliser PowerShell pour gérer les aspects de vos profils de point de terminaison et points de terminaison Azure Content Delivery Network.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/20/2019
-ms.author: allensu
+ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 63ec9a2c83a8cc51479a0f8c00f044cc2fb9b5ee
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 985f6ad38e1a603f22e83b2863ebed869b6e5982
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696231"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461472"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Gérer Azure CDN avec PowerShell
 PowerShell fournit une des méthodes les plus flexibles pour gérer vos points de terminaison et profils Azure CDN.  Vous pouvez utiliser PowerShell de manière interactive ou en écrivant des scripts pour automatiser les tâches de gestion.  Ce didacticiel illustre plusieurs des tâches les plus courantes que vous pouvez accomplir avec PowerShell pour gérer vos points de terminaison et profils Azure CDN.

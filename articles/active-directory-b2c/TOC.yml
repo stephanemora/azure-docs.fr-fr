@@ -7,6 +7,7 @@
       href: overview.md
     - name: Vue d’ensemble technique et des fonctionnalités
       href: technical-overview.md
+      displayName: 'Azure AD B2C architecture, SLA, Azure AD B2C high availability, Azure AD B2C SLA, HA'
     - name: Fonctionnalités Azure AD prises en charge
       href: supported-azure-ad-features.md
     - name: Nouveautés dans la documentation
@@ -81,7 +82,7 @@
           href: custom-policy-overview.md
     - name: Connecteurs d’API
       href: api-connectors-overview.md
-      displayName: 'REST API, web API, API connectors'
+      displayName: 'REST API, web API, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration'
     - name: Comptes d'utilisateurs
       href: user-overview.md
     - name: Attributs de profil utilisateur
@@ -222,7 +223,7 @@
           displayName: 'AD-FS, ADFS'
         - name: Amazon
           href: identity-provider-amazon.md
-        - name: Apple (préversion)
+        - name: Apple
           href: identity-provider-apple-id.md
         - name: Azure AD (monolocataire)
           href: identity-provider-azure-ad-single-tenant.md
@@ -396,12 +397,13 @@
       items:
         - name: Modifier les expériences de connexion
           href: add-api-connector.md
-          displayName: 'rest claims validation, validate'
+          displayName: 'rest claims validation, validate, third-party integration, outbound webhook, third-party integration'
         - name: Enrichir des jetons avec des revendications externes
           href: add-api-connector-token-enrichment.md
-          displayName: rest claims exchange
+          displayName: 'rest claims exchange, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration'
         - name: Sécuriser un connecteur d’API
           href: secure-rest-api.md
+          displayName: 'API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration'
     - name: Dépannage
       items:
         - name: Collecter les journaux d’activité à l’aide d’Application Insights
@@ -607,6 +609,7 @@
       displayName: Page version
     - name: Disponibilité des régions et résidence des données
       href: data-residency.md
+      displayName: 'SLA, Azure AD B2C high availability, Azure AD B2C SLA, high availability, HA'
     - name: Créer pour la résilience
       items:
         - name: "Présentation de la résilience Azure\_AD B2C"
@@ -630,6 +633,7 @@
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Forum aux questions
       href: ./faq.yml
+      displayName: FAQ
     - name: Obtenir de l’aide
       href: ../active-directory/develop/developer-support-help-options.md
     - name: Tarifs

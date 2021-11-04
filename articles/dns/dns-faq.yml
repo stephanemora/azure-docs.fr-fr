@@ -8,12 +8,12 @@ metadata:
   ms.topic: article
   ms.date: 01/11/2021
   ms.author: rohink
-  ms.openlocfilehash: c596fadd972503311859f2561365cd4e56dff98f
-  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.openlocfilehash: bf8a2639887336349bbedd380a8e94a4ed4b3247
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "111907220"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131442765"
 title: FAQ Azure DNS
 summary: ''
 sections:
@@ -79,28 +79,28 @@ sections:
       Non. Azure DNS ne prend actuellement pas en charge la possibilité d’acheter des noms de domaine. Pour acheter des domaines, vous devez utiliser un bureau d’enregistrement de noms de domaine tiers. Le bureau d’enregistrement facture généralement des frais annuels peu élevés. Les domaines peuvent alors être hébergés dans Azure DNS pour la gestion des enregistrements DNS. Pour plus d’informations, voir [Délégation de domaine à Azure DNS](dns-domain-delegation.md).
 
 
-      La fonctionnalité permettant d’acheter des noms de domaine est suivie dans le backlog Azure. Utilisez le site de commentaires pour [inscrire votre support pour cette fonctionnalité](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
+      La fonctionnalité permettant d’acheter des noms de domaine est suivie dans le backlog Azure. Utilisez le site de commentaires pour [inscrire votre support pour cette fonctionnalité](https://feedback.azure.com/d365community/idea/9e9f97ea-8526-ec11-b6e6-000d3a4f0789).
   - question: >
       Azure DNS prend-il en charge DNSSEC ?
     answer: >
       Non. Azure DNS ne prend actuellement pas en charge les extensions de sécurité DNS (DNSSEC).
 
 
-      La fonctionnalité DNSSEC est suivie dans le backlog Azure DNS. Utilisez le site de commentaires pour [inscrire votre support pour cette fonctionnalité](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support).
+      La fonctionnalité DNSSEC est suivie dans le backlog Azure DNS. Utilisez le site de commentaires pour [inscrire votre support pour cette fonctionnalité](https://feedback.azure.com/d365community/idea/d403899e-8526-ec11-b6e6-000d3a4f0789).
   - question: >
       Azure DNS prend-il en charge les transferts de zone (AXFR/IXFR) ?
     answer: >
       Non. Azure DNS ne prend actuellement pas en charge les transferts de zone. Les zones DNS peuvent être [importées dans Azure DNS à l’aide de l’interface Azure CLI](dns-import-export.md). Les enregistrements DNS sont gérés par le biais du [portail de gestion Azure DNS](dns-operations-recordsets-portal.md), [l’API REST](/powershell/module/az.dns), le [SDK](dns-sdk.md), les [applets de commande PowerShell](dns-operations-recordsets.md) ou [l’outil CLI](dns-operations-recordsets-cli.md).
 
 
-      La fonctionnalité de transfert de zone est suivie dans le backlog Azure DNS. Utilisez le site de commentaires pour [inscrire votre support pour cette fonctionnalité](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
+      La fonctionnalité de transfert de zone est suivie dans le backlog Azure DNS. Utilisez le site de commentaires pour [inscrire votre support pour cette fonctionnalité](https://feedback.azure.com/d365community/idea/7992f535-8726-ec11-b6e6-000d3a4f0789).
   - question: >
       Azure DNS prend-il en charge les redirections d’URL ?
     answer: >
       Non. Les services de redirection d’URL ne sont pas un service DNS. Ils fonctionnent au niveau HTTP, et non pas au niveau DNS. Certains fournisseurs DNS incluent un service de redirection d’URL dans leur offre globale. Ce service n’est actuellement pas pris en charge par Azure DNS.
 
 
-      La fonctionnalité de redirection d’URL est suivie dans le backlog Azure DNS. Utilisez le site de commentaires pour [inscrire votre support pour cette fonctionnalité](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
+      La fonctionnalité de redirection d’URL est suivie dans le backlog Azure DNS. Utilisez le site de commentaires pour [inscrire votre support pour cette fonctionnalité](https://feedback.azure.com/d365community/idea/d8c8ab1c-8926-ec11-b6e6-000d3a4f0789).
   - question: >
       Azure DNS prend-il en charge le jeu de codage ASCII étendu (8 bits) pour les jeux d’enregistrements TXT ?
     answer: "Oui. Azure DNS prend en charge le jeu de codage ASCII étendu pour les jeux d’enregistrements TXT. Vous devez toutefois utiliser la dernière version des API REST Azure, des SDK, de PowerShell et de l’interface CLI. Les versions antérieures au 1er octobre 2017 ou au SDK 2.1 ne prennent pas en charge le jeu ASCII étendu. \n\nPar exemple, pour un enregistrement TXT comportant le caractère ASCII étendu \\128, vous pouvez fournir une chaîne en tant que valeur. Par exemple, « abcd\\128efgh ». Azure DNS utilise la valeur d’octet de ce caractère (128), dans la représentation interne. Au moment de la résolution DNS, cette valeur d’octet s’affiche dans la réponse. Notez également que « abc » et « \\097\\098\\099 » sont interchangeables en ce qui concerne la résolution. \n\nNous suivons les règles d’échappement de format maître de zone de fichiers [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt). Par exemple, `\\` échappe maintenant tous les éléments conformément à la RFC. Si vous spécifiez `A\\B` comme valeur d’enregistrement TXT, elle est représentée et résolue simplement comme `AB`. Si vous voulez vraiment que l’enregistrement TXT soit `A\\B` à la résolution, vous devez de nouveau échapper le caractère `\\`. Par exemple, spécifiez `A\\\\B`.\n\nCette prise en charge n’est actuellement pas disponible pour les enregistrements TXT créés à partir du portail Azure.\n"

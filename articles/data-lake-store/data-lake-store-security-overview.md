@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: normesta
-ms.openlocfilehash: f6ea097209666d75696203163b2b99b927344fdc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2a3f52cfaacf3912c250bbd99322ffa5b0b26a74
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128651177"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446198"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sécurité dans Azure Data Lake Storage Gen1
 
@@ -114,7 +114,7 @@ Pour plus d’informations sur l’utilisation des journaux de diagnostic avec D
 
 Les clients professionnels exigent une plateforme cloud d’analyse des données sécurisée et facile à utiliser. Data Lake Storage Gen1 est conçu pour répondre à ces exigences par le biais de la gestion des identités et l’authentification via l’intégration Azure Active Directory, l’autorisation basée sur les ACL, l’isolement réseau, le chiffrement des données en transit et au repos et l’audit.
 
-Si vous souhaitez voir de nouvelles fonctionnalités de Data Lake Storage Gen1, envoyez-nous vos commentaires sur notre [forum UserVoice Data Lake Storage Gen1](https://feedback.azure.com/forums/327234-data-lake).
+Si vous souhaitez voir de nouvelles fonctionnalités de Data Lake Storage Gen1, envoyez-nous vos commentaires sur notre [forum UserVoice Data Lake Storage Gen1](https://feedback.azure.com/d365community/forum/7fd97106-7326-ec11-b6e6-000d3a4f032c).
 
 ## <a name="see-also"></a>Voir aussi
 

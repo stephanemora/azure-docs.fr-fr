@@ -7,19 +7,17 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/18/2021
-ms.openlocfilehash: 70acef205aea35439e9b88e193c65a6e34ac0b7f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f8d32c97014e9e38f2ad5a3c6d6a1b96d4e190f5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124761471"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425466"
 ---
 # <a name="connect-azure-database-for-mysql-flexible-server-with-private-access-connectivity-method"></a>Connecter un serveur flexible Azure Database pour MySQL avec la méthode de connectivité d’accès privé
 
 Le serveur flexible Azure Database pour MySQL est un service managé qui vous permet d’exécuter, de gérer et de mettre à l’échelle des serveurs MySQL hautement disponibles dans le cloud. Ce guide de démarrage rapide explique comment créer un serveur flexible dans un réseau virtuel à l’aide du portail Azure.
 
-> [!IMPORTANT]
-> Le serveur flexible Azure Database pour MySQL est actuellement en préversion publique.
 
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
@@ -70,13 +68,13 @@ Pour créer un serveur flexible, procédez comme suit :
 
 ## <a name="create-azure-linux-virtual-machine"></a>Créer une machine virtuelle Azure Linux
 
-Étant donné que le serveur se trouve dans un réseau virtuel, vous pouvez uniquement vous connecter au serveur à partir d’autres services Azure dans le même réseau virtuel que le serveur. Pour vous connecter et gérer le serveur, nous allons créer une machine virtuelle Linux. La machine virtuelle doit être créée dans la **même région** et dans le **même abonnement**. La machine virtuelle Linux peut être utilisée en tant que tunnel SSH pour gérer votre serveur de base de données. 
+Étant donné que le serveur se trouve dans un réseau virtuel, vous pouvez uniquement vous connecter au serveur à partir d’autres services Azure dans le même réseau virtuel que le serveur. Pour vous connecter et gérer le serveur, nous allons créer une machine virtuelle Linux. La machine virtuelle doit être créée dans la **même région** et dans le **même abonnement**. La machine virtuelle Linux peut être utilisée en tant que tunnel SSH pour gérer votre serveur de base de données.
 
 1. Accédez à votre groupe de ressources dans lequel le serveur a été créé. Sélectionnez **Ajouter**.
 2. Sélectionnez **Ubuntu Server 18.04 LTS**
 3. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer** pour créer un groupe de ressources. Tapez *myResourceGroup* comme nom.
 
-   > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/project-details.png" alt-text="Capture d’écran de la section Détails du projet montrant où vous sélectionnez l’abonnement Azure et le groupe de ressources pour la machine virtuelle" lightbox="../../virtual-machines/linux/media/quick-create-portal/project-details.png"::: 
+   > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/project-details.png" alt-text="Capture d’écran de la section Détails du projet montrant où vous sélectionnez l’abonnement Azure et le groupe de ressources pour la machine virtuelle" lightbox="../../virtual-machines/linux/media/quick-create-portal/project-details.png":::
 
 2. Sous **Détails de l’instance**, tapez *myVM* comme **Identité de machine virtuelle**, choisissez la même **Région** que pour votre serveur de base de données.
 
@@ -104,7 +102,7 @@ Pour créer un serveur flexible, procédez comme suit :
 
 9. Ajoutez un nouveau sous-réseau pour la machine virtuelle.
 
-   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png" alt-text="Capture d’écran montrant l’ajout d’un nouveau sous-réseau pour la machine virtuelle" lightbox="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png"::: 
+   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png" alt-text="Capture d’écran montrant l’ajout d’un nouveau sous-réseau pour la machine virtuelle" lightbox="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png":::
 
 10. Une fois que le sous-réseau a été créé avec succès, fermez la page.
    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/subnetcreate-success.png" alt-text="Capture d’écran montrant l’ajout réussi d’un nouveau sous-réseau pour la machine virtuelle" lightbox="./media/quickstart-create-connect-server-vnet/subnetcreate-success.png":::

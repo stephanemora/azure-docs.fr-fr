@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 08/26/2021
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4c45c127710ff5a572a68531a1a5b3836d505e39
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6c89ad519489892cf2965054d0c331a6f5d9f8e6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124749521"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067696"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -238,7 +238,7 @@ Dans Metrics Explorer, les taux tels que le nombre de demandes et d’exceptions
 
 2. **Activez le module d’échantillonnage à débit fixe.** Ajoutez cet extrait de code à [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md) :
    
-    ```XML
+    ```xml
     <TelemetryProcessors>
         <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
             <!-- Set a percentage close to 100/N where N is an integer. -->
@@ -323,7 +323,7 @@ Par défaut, aucun échantillonnage n’est activé dans l’instrumentation aut
 
 2. **Activez le module d’échantillonnage à fréquence fixe** en ajoutant l’extrait de code suivant au fichier `ApplicationInsights.xml` :
 
-    ```XML
+    ```xml
     <TelemetryProcessors>
         <BuiltInProcessors>
             <Processor type="FixedRateSamplingTelemetryProcessor">
@@ -337,7 +337,7 @@ Par défaut, aucun échantillonnage n’est activé dans l’instrumentation aut
 
 3. Vous pouvez inclure ou exclure de l’échantillonnage des types de données de télémétrie en utilisant les étiquettes suivantes dans le `FixedRateSamplingTelemetryProcessor` de l’étiquette `Processor` :
    
-    ```XML
+    ```xml
     <ExcludedTypes>
         <ExcludedType>Request</ExcludedType>
     </ExcludedTypes>

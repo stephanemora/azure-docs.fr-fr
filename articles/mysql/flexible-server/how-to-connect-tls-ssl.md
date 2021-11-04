@@ -6,19 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 46a451fd41f460165435305f2abf5d56fca4837d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2f73d6c8969cd6915c1a571eb6196bcf8f901bd6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562687"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468135"
 ---
 # <a name="connect-to-azure-database-for-mysql---flexible-server-with-encrypted-connections"></a>Se connecter à Azure Database pour MySQL - Serveur flexible en utilisant des connexions chiffrées
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> La fonctionnalité Serveur flexible Azure Database pour MySQL est actuellement disponible en préversion publique
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Le serveur flexible Azure Database pour MySQL prend en charge la connexion de vos applications clientes au serveur MySQL en utilisant le protocole SSL (Secure Sockets Layer) avec le protocole TLS (Transport Layer Security). TLS est un protocole standard qui garantit la sécurité des connexions réseau entre votre serveur de base de données et vos applications clientes, ce qui vous permet de respecter les exigences de conformité.
 
@@ -58,7 +55,7 @@ Si votre application cliente ne prend pas en charge les connexions chiffrées, v
 L’exemple suivant montre comment vous connecter à votre serveur à l’aide de l’interface de ligne de commande mysql. Utilisez le paramètre de chaîne de connexion `--ssl-mode=DISABLED` pour désactiver la connexion TLS/SSL à partir du client mysql. Remplacez les valeurs par le nom et le mot de passe réels de votre serveur.
 
 ```bash
- mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED 
+ mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED
 ```
 
 Il est important de noter que le fait de définir require_secure_transport sur OFF ne signifie pas que les connexions chiffrées ne seront pas prises en charge côté serveur. Si vous définissez require_secure_transport sur OFF sur un serveur flexible, mais que le client se connecte avec une connexion chiffrée, il est toujours accepté. La connexion suivante utilisant le client mysql à un serveur flexible configuré avec require_secure_transport=OFF fonctionne également comme indiqué ci-dessous.

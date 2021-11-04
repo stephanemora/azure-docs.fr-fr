@@ -5,12 +5,12 @@ services: automation
 ms.date: 09/16/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
-ms.openlocfilehash: 436282ad8a2816e3307d2ad270209980b2fa0427
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 3813fa79fb6eaba5c61500d11d9b160c88d668d4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058434"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435393"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Résoudre les problèmes de runbook
 
@@ -266,7 +266,7 @@ Si l’authentification multifacteur est configurée sur votre compte Azure, vou
 
 ### <a name="resolution"></a>Résolution
 
-Pour utiliser un compte d’identification Classic avec les cmdlets du modèle de déploiement Azure Classic, consultez [Créer un compte d’identification Classic pour gérer les services Azure](../automation-create-standalone-account.md#create-a-classic-run-as-account). Pour utiliser un principal de service avec des applets de commande Azure Resource Manager, reportez-vous à [Création du principal du service à l’aide du portail Azure](../../active-directory/develop/howto-create-service-principal-portal.md) et [Authentification d’un principal du service à l’aide d’Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Pour utiliser un principal de service avec des applets de commande Azure Resource Manager, reportez-vous à [Création du principal du service à l’aide du portail Azure](../../active-directory/develop/howto-create-service-principal-portal.md) et [Authentification d’un principal du service à l’aide d’Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="scenario-runbook-fails-with-a-task-was-canceled-error-message"></a><a name="task-was-cancelled"></a>Scénario : Le runbook échoue avec le message d’erreur « Une tâche a été annulée »
 

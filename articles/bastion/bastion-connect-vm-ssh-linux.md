@@ -6,14 +6,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: 96edce1434665a5b49c35f8cc305ab4d2c417f8d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d0c852cf6df97619f7a319da4e13a406c572d4e7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602491"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069289"
 ---
 # <a name="create-an-ssh-connection-to-a-linux-vm-using-azure-bastion"></a>Créer une connexion SSH à une machine virtuelle Linux avec Azure Bastion
 
@@ -48,7 +49,7 @@ Pour vous connecter à la machine virtuelle Linux par le biais du protocole SSH,
 * Port d’entrée : valeur personnalisée (vous devez spécifier ce port personnalisé quand vous vous connectez à la machine virtuelle avec Azure Bastion)
 
    > [!NOTE]
-   > Si vous souhaitez spécifier une valeur de port personnalisée, vous devez configurer Azure Bastion avec le SKU Standard. Le SKU De base ne permet pas de spécifier des ports personnalisés. La référence SKU standard est actuellement en préversion.
+   > Si vous souhaitez spécifier une valeur de port personnalisée, vous devez configurer Azure Bastion avec le SKU Standard. Le SKU De base ne permet pas de spécifier des ports personnalisés.
    >
 
 ## <a name="connect-using-username-and-password"></a><a name="username"></a>Connexion : Utilisation du nom d’utilisateur et du mot de passe

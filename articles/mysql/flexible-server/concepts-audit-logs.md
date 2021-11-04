@@ -6,19 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 769f178a65ac096446cd98015050ad1a35b3ef09
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 8dc495f16fe205350f5eeeae7a8aee1e933c6a1c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129612443"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468230"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Suivre l’activité de la base de données avec les journaux d’audit dans le serveur flexible Azure Database pour MySQL
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Le serveur flexible Azure Database pour MySQL est actuellement disponible en préversion publique
 
 Le serveur flexible Azure Database pour MySQL offre aux utilisateurs la possibilité de configurer des journaux d’audit. Les journaux d’audit peuvent être utilisés pour suivre l’activité au niveau de la base de données, y compris les événements relatifs aux connexions, à l’administration, au langage de description de données et au langage de manipulation de données. Ces types de journaux sont couramment utilisés à des fins de conformité.
 
@@ -27,7 +24,7 @@ Le serveur flexible Azure Database pour MySQL offre aux utilisateurs la possibil
 >[!IMPORTANT]
 > Il est recommandé de ne consigner que les types d’événements et les utilisateurs requis à des fins d’audit pour garantir que les performances de votre serveur ne sont pas fortement affectées.
 
-Par défaut, les journaux d’audit sont désactivés. Pour les activer, définissez le paramètre serveur `audit_log_enabled` sur *ON* (Activé). Pour ce faire, utilisez le portail Azure ou l’interface Azure CLI <!-- add link to server parameter-->. 
+Par défaut, les journaux d’audit sont désactivés. Pour les activer, définissez le paramètre serveur `audit_log_enabled` sur *ON* (Activé). Pour ce faire, utilisez le portail Azure ou l’interface Azure CLI <!-- add link to server parameter-->.
 
 Les autres paramètres que vous pouvez ajuster pour contrôler le comportement de la journalisation d’audit sont les suivants :
 
@@ -153,8 +150,8 @@ Une fois vos journaux d’audit dirigés vers les journaux Azure Monitor par le 
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlAuditLogs' and event_class_s == "general_log"
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
-    | order by TimeGenerated asc nulls last 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | order by TimeGenerated asc nulls last
     ```
 
 - Lister les événements de connexion (CONNECTION) sur un serveur spécifique
@@ -163,7 +160,7 @@ Une fois vos journaux d’audit dirigés vers les journaux Azure Monitor par le 
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlAuditLogs' and event_class_s == "connection_log"
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
     ```
 
@@ -173,7 +170,7 @@ Une fois vos journaux d’audit dirigés vers les journaux Azure Monitor par le 
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | summarize count() by event_class_s, event_subclass_s, user_s, ip_s
     ```
 
@@ -183,9 +180,9 @@ Une fois vos journaux d’audit dirigés vers les journaux Azure Monitor par le 
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
-    | render timechart 
+    | render timechart
     ```
 
 - Lister les événements audités de tous les serveurs MySQL sur lesquels les journaux de diagnostic sont activés pour les journaux d’audit :
@@ -193,9 +190,9 @@ Une fois vos journaux d’audit dirigés vers les journaux Azure Monitor par le 
     ```kusto
     AzureDiagnostics
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
-    ``` 
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [journaux des requêtes lentes](concepts-slow-query-logs.md)

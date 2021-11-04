@@ -9,16 +9,19 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: yelevin
-ms.openlocfilehash: 9612b5aaaec10358609abba3878f6f09405ad076
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3eee251dee52d4f4a53f28c2cd19b4b6c4c89f72
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260122"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004324"
 ---
 # <a name="connect-azure-defender-alerts-from-azure-security-center"></a>Connecter les alertes Azure Defender à partir d’Azure Security Center
 
-## <a name="background"></a>Contexte
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+## <a name="background"></a>Arrière-plan
 
 [Azure Defender](../security-center/azure-defender.md), la plateforme cloud intégrée de protection de charge de travail (CWPP) d’[Azure Security Center](../security-center/security-center-introduction.md), est un outil de gestion de la sécurité qui vous permet de détecter les menaces et d’y répondre rapidement sur les charges de travail cloud hybride. 
 

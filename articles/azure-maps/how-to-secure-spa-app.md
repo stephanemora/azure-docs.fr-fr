@@ -2,19 +2,19 @@
 title: Guide pratique pour sécuriser une application web monopage à l’aide d’une connexion non interactive dans Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: Guide pratique pour configurer une application web monopage avec un contrôle d’accès en fonction du rôle Azure (Azure RBAC) non interactif et le kit SDK web Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/21/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ms.custom: devx-track-js, subject-rbac-steps
-ms.openlocfilehash: 9bf18a9122bbe8406b76cfd822cc2a5a86339a52
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8f3249cec073e7a1fd6fdabd6a7af24ce5a2c2d2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641226"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443582"
 ---
 # <a name="how-to-secure-a-single-page-web-application-with-non-interactive-sign-in"></a>Guide pratique pour sécuriser une application web monopage à l’aide d’une connexion non interactive
 
@@ -68,11 +68,11 @@ Pour créer une application de service web sécurisée, responsable de l’authe
    1. [Créer une clé d’accès à une fonction](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys)
    1. [Sécurisez le point de terminaison HTTP](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production) pour la fonction Azure en production.
 
-7. Configurez le kit SDK web Azure Maps d’une application web. 
+7. Configurez le kit SDK web Azure Maps d’une application web.
 
     ```javascript
     //URL to custom endpoint to fetch Access token
-    var url = 'https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>';
+    var url = 'https://{App-Name}.azurewebsites.net/api/{Function-Name}?code={API-Key}';
 
     var map = new atlas.Map('myMap', {
                 center: [-122.33, 47.6],

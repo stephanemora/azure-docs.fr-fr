@@ -3,7 +3,7 @@ title: Déboguer des en-têtes HTTP pour Azure CDN de Microsoft | Microsoft Docs
 description: Les en-têtes de demande de cache de débogage fournissent des informations supplémentaires sur la stratégie de cache appliquée à la ressource demandée. Ces en-têtes sont spécifiques à Azure CDN de Microsoft.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: allensu
-ms.openlocfilehash: 56f9b5b33600947920ff928eac53c0149afef682
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.author: duau
+ms.openlocfilehash: 5253d700f271ed18f6e1eae5488184da8ed6db7f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122564102"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450549"
 ---
 # <a name="debug-http-header-for-azure-cdn-from-microsoft"></a>Déboguer l’en-tête HTTP pour Azure CDN de Microsoft
 L’en-tête de réponse de débogage, `X-Cache`, fournit des détails sur la couche de la pile CDN à partir de laquelle le contenu a été servi. Cet en-tête est spécifique à Azure CDN de Microsoft.

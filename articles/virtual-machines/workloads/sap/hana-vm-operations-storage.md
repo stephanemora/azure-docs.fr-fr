@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/09/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79ab5722967c984907b61b1fc3e5a17bac6115fb
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 0017344d745b29162aa36a492c31c1c48e6dd4d6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073883"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466520"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
@@ -263,7 +263,7 @@ Les autres avantages du disque Ultra peuvent être la meilleure latence de lectu
 > Le disque Ultra n’est pas encore disponible dans toutes les régions Azure, ni pris en charge par tous les types de machines virtuelles listés ci-dessous. Pour plus d’informations sur la disponibilité du disque Ultra et sa prise en charge par les différentes familles de machines virtuelles, consultez l’article [Quels sont les types de disque disponibles dans Azure ?](../../disks-types.md#ultra-disks).
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>Solution de stockage recommandée pour la production avec une pure configuration de disque Ultra
-Dans cette configuration, vous conservez les volumes **hana/data** et **/hana/log** séparément. Les valeurs suggérées sont dérivées des indicateurs de performance clés que SAP doit certifier pour les configurations SAP HANA et de stockage, comme recommandé dans le [livre blanc sur le stockage SAP TDI](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf).
+Dans cette configuration, vous conservez les volumes **hana/data** et **/hana/log** séparément. Les valeurs suggérées sont dérivées des indicateurs de performance clés que SAP doit certifier pour les configurations SAP HANA et de stockage, comme recommandé dans le [livre blanc sur le stockage SAP TDI](https://archive.sap.com/kmuuid2/70c8e423-c8aa-3210-3fae-e043f5c1ca92/SAP%20HANA%20TDI%20-%20Storage%20Requirements.pdf).
 
 Les recommandations vont souvent au-delà des conditions minimales requise par SAP, comme indiqué plus haut dans cet article. Les recommandations listées sont un compromis entre les recommandations de taille de SAP et le débit de stockage maximal fourni par les différents types de machines virtuelles.
 

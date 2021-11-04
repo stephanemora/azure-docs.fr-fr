@@ -5,14 +5,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 10/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 08201fafa3f69803e15a02c1535159101a1ecfea
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5c6782c3b4644607f292587beafccb86fd7b8119
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128660991"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057796"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-gpu-using-azure-stack-hub-readiness-checker-tool"></a>Créer des certificats pour votre instance Azure Stack Edge Pro GPU avec l’outil Azure Stack Hub Readiness Checker 
 
@@ -128,7 +128,7 @@ Les fichiers de certificat que vous obtenez auprès de l’autorité de certific
 
 - Pour importer les certificats, suivez les étapes décrites dans [Importer des certificats sur les clients accédant à votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
-- Pour exporter les certificats, suivez les étapes décrites dans [Exporter des certificats du client accédant à l’appareil Azure Stack Edge Pro](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Pour exporter les certificats, suivez les étapes décrites dans [Exporter des certificats du client accédant à l’appareil Azure Stack Edge Pro](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key).
 
 
 ## <a name="validate-certificates"></a>Valider les certificats

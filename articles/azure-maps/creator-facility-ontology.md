@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 zone_pivot_groups: facility-ontology-schema
-ms.openlocfilehash: c08faefc795fd65c71163bd9f8c24a1f8cd939f8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3ef3d9dd9d992e17c66516de8d13978e6c7c4821
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524191"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450796"
 ---
 # <a name="facility-ontology"></a>Ontologie des installations
 
@@ -78,7 +78,7 @@ La classe de fonctionnalités `unit` définit une zone physique et sans chevauch
 |`name` |    string |    false |    Nom de la fonctionnalité dans la langue locale. La longueur maximale autorisée est de 1 000 caractères. |
 |`nameSubtitle` |    string |    false |   Sous-titre qui s’affiche sous la propriété `name` de la fonctionnalité. Peut servir à afficher le nom dans une autre langue, etc.  La longueur maximale autorisée est de 1 000 caractères.|
 |`nameAlt` |    string |    false |   Autre nom utilisé pour la fonctionnalité. La longueur maximale autorisée est de 1 000 caractères. |
-|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
+|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
 
 :::zone-end
 
@@ -98,7 +98,7 @@ La classe de fonctionnalités `unit` définit une zone physique et sans chevauch
 |`name` |    string |    false |    Nom de la fonctionnalité dans la langue locale.  La longueur maximale autorisée est de 1 000 caractères.|
 |`nameSubtitle` |    string |    false |   Sous-titre qui s’affiche sous la propriété `name` de la fonctionnalité. Peut servir à afficher le nom dans une autre langue, etc.  La longueur maximale autorisée est de 1 000 caractères.|
 |`nameAlt` |    string |    false |   Autre nom utilisé pour la fonctionnalité.  La longueur maximale autorisée est de 1 000 caractères.|
-|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
+|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
 
 :::zone-end
 
@@ -119,7 +119,7 @@ La classe de fonctionnalités `structure` définit une zone physique et non supe
 |`name` |    string |    false |    Nom de la fonctionnalité dans la langue locale. La longueur maximale autorisée est de 1 000 caractères. |
 |`nameSubtitle` |    string |    false |   Sous-titre qui s’affiche sous la propriété `name` de la fonctionnalité. Peut servir à afficher le nom dans une autre langue, etc. La longueur maximale autorisée est de 1 000 caractères. |
 |`nameAlt` |    string |    false |   Autre nom utilisé pour la fonctionnalité.  La longueur maximale autorisée est de 1 000 caractères.|
-|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
+|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
 
 :::zone-end
 
@@ -139,7 +139,7 @@ La classe de fonctionnalités `zone` définit une zone virtuelle, telle qu’une
 |`name` |    string |    false |    Nom de la fonctionnalité dans la langue locale.  La longueur maximale autorisée est de 1 000 caractères.|
 |`nameSubtitle` |    string |    false |   Sous-titre qui s’affiche sous la propriété `name` de la fonctionnalité. Peut servir à afficher le nom dans une autre langue, etc.  La longueur maximale autorisée est de 1 000 caractères.|
 |`nameAlt` |    string |    false |   Autre nom utilisé pour la fonctionnalité. La longueur maximale autorisée est de 1 000 caractères. |
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
 
 ## <a name="level"></a>niveau
 
@@ -159,7 +159,7 @@ La fonctionnalité de classe `level` définit une zone d’un immeuble à une ha
 |`name` |    string |    false |    Nom de la fonctionnalité dans la langue locale.  La longueur maximale autorisée est de 1 000 caractères.|
 |`nameSubtitle` |    string |    false |   Sous-titre qui s’affiche sous la propriété `name` de la fonctionnalité. Peut servir à afficher le nom dans une autre langue, etc.  La longueur maximale autorisée est de 1 000 caractères.|
 |`nameAlt` |    string |    false |   Autre nom utilisé pour la fonctionnalité.  La longueur maximale autorisée est de 1 000 caractères.|
-|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
+|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
 
 ## <a name="facility"></a>installation
 
@@ -177,7 +177,7 @@ La classe de fonctionnalités `facility` définit la zone du site, l’encombrem
 |`name` |    string |    false |    Nom de la fonctionnalité dans la langue locale. La longueur maximale autorisée est de 1 000 caractères. |
 |`nameSubtitle` |    string |    false |   Sous-titre qui s’affiche sous la propriété `name` de la fonctionnalité. Peut servir à afficher le nom dans une autre langue, etc. La longueur maximale autorisée est de 1 000 caractères. |
 |`nameAlt` |    string |    false |   Autre nom utilisé pour la fonctionnalité.  La longueur maximale autorisée est de 1 000 caractères.|
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
 |`anchorHeightAboveSeaLevel` |  double | false | Hauteur du point d’ancrage au-dessus du niveau de la mer, en mètres. Le niveau de la mer est défini par EGM 2008.|
 |`defaultLevelVerticalExtent` |  double| false | Valeur par défaut de l’étendue verticale des niveaux, en mètres.|
 
@@ -202,7 +202,7 @@ La fonctionnalité de classe `verticalPenetration` définit une zone qui, lorsqu
 |`name` |    string |    false |    Nom de la fonctionnalité dans la langue locale.  La longueur maximale autorisée est de 1 000 caractères.|
 |`nameSubtitle` |    string |    false |   Sous-titre qui s’affiche sous la propriété `name` de la fonctionnalité. Peut servir à afficher le nom dans une autre langue, etc.  La longueur maximale autorisée est de 1 000 caractères.|
 |`nameAlt` |    string |    false |   Autre nom utilisé pour la fonctionnalité. La longueur maximale autorisée est de 1 000 caractères. |
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
 
 :::zone-end
 
@@ -219,7 +219,7 @@ La fonctionnalité de classe `verticalPenetration` définit une zone qui, lorsqu
 |`name` |    string |    false |    Nom de la fonctionnalité dans la langue locale.  La longueur maximale autorisée est de 1 000 caractères.|
 |`nameSubtitle` |    string |    false |   Sous-titre qui s’affiche sous la propriété `name` de la fonctionnalité. Peut servir à afficher le nom dans une autre langue, etc.  La longueur maximale autorisée est de 1 000 caractères.|
 |`nameAlt` |    string |    false |   Autre nom utilisé pour la fonctionnalité. La longueur maximale autorisée est de 1 000 caractères. |
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
 
 :::zone-end
 
@@ -242,7 +242,7 @@ La fonctionnalité de classe `opening` définit une limite parcourue entre deux 
 | `accessRightToLeft`| enum [ "prohibited", "digitalKey", "physicalKey", "keyPad", "guard", "ticket", "fingerprint", "retina", "voice", "face", "palm", "iris", "signature", "handGeometry", "time", "ticketChecker", "other"] | false | Méthode d’accès lors du passage par l’ouverture de droite à gauche. La gauche et la droite sont déterminées par les vertex de la géométrie de la fonctionnalité, en cas de position sur le premier sommet et face au deuxième vertex. L’omission de cette propriété signifie qu’il n’existe aucune restriction d’accès.|
 | `accessLeftToRight`| enum [ "prohibited", "digitalKey", "physicalKey", "keyPad", "guard", "ticket", "fingerprint", "retina", "voice", "face", "palm", "iris", "signature", "handGeometry", "time", "ticketChecker", "other"] | false | Méthode d’accès lors du passage par l’ouverture de gauche à droite. La gauche et la droite sont déterminées par les vertex de la géométrie de la fonctionnalité, en cas de position sur le premier sommet et face au deuxième vertex. L’omission de cette propriété signifie qu’il n’existe aucune restriction d’accès.|
 | `isEmergency` | boolean | false | Si `true`, l’ouverture est navigable uniquement pendant les urgences. La valeur par défaut est `false` |
-|`anchorPoint` | [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
+|`anchorPoint` | [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
 
 :::zone-end
 
@@ -254,7 +254,7 @@ La fonctionnalité de classe `opening` définit une limite parcourue entre deux 
 |`externalId`        | string     |true      | ID utilisé par le client pour associer la fonctionnalité à une autre fonctionnalité dans un jeu de données différent, par exemple dans une base de données interne. La longueur maximale autorisée est de 1 000 caractères.|
 |`categoryId`        |[category.Id](#category)     |true      | ID d’une fonctionnalité de catégorie.|
 | `levelId`          | [level.Id](#level)        | true     | ID d’une fonctionnalité de niveau. |
-|`anchorPoint` | [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
+|`anchorPoint` | [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
 
 :::zone-end
 
@@ -313,8 +313,8 @@ La fonctionnalité de classe `lineElement` définit une fonctionnalité de ligne
 |`name` |    string |    false |    Nom de la fonctionnalité dans la langue locale. La longueur maximale autorisée est de 1 000 caractères. |
 |`nameSubtitle` |    string |    false |   Sous-titre qui s’affiche sous la propriété `name` de la fonctionnalité. Peut servir à afficher le nom dans une autre langue, etc. La longueur maximale autorisée est de 1 000 caractères. |
 |`nameAlt` |    string |    false |   Autre nom utilisé pour la fonctionnalité. La longueur maximale autorisée est de 1 000 caractères. |
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
-|`obstructionArea` |   [Polygon](/rest/api/maps/wfs/get-feature-preview#featuregeojson)| false | Géométrie simplifiée (lorsque la géométrie de ligne est compliquée) de la fonctionnalité qui doit être évitée lors du routage. Nécessite la définition de `isObstruction` sur true.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
+|`obstructionArea` |   [Polygon](/rest/api/maps/wfs/get-feature#featuregeojson)| false | Géométrie simplifiée (lorsque la géométrie de ligne est compliquée) de la fonctionnalité qui doit être évitée lors du routage. Nécessite la définition de `isObstruction` sur true.|
 
 ## <a name="areaelement"></a>areaElement
 
@@ -333,7 +333,7 @@ La fonctionnalité de classe `areaElement` définit une fonctionnalité de polyg
 |`name` |    string |    false |    Nom de la fonctionnalité dans la langue locale. La longueur maximale autorisée est de 1 000 caractères. |
 |`nameSubtitle` |    string |    false |   Sous-titre qui s’affiche sous la propriété `name` de la fonctionnalité. Peut servir à afficher le nom dans une autre langue, etc.  La longueur maximale autorisée est de 1 000 caractères.|
 |`nameAlt` |    string |    false |   Autre nom utilisé pour la fonctionnalité.  La longueur maximale autorisée est de 1 000 caractères.|
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature-preview#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | [Géométrie de point GeoJSON](/rest/api/maps/wfs/get-feature#featuregeojson) qui représente la fonctionnalité comme un point. Peut servir à positionner l’étiquette de la fonctionnalité.|
 
 ## <a name="category"></a>catégorie
 

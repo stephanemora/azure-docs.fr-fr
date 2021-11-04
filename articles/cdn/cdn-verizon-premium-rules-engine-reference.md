@@ -2,17 +2,17 @@
 title: Référence du moteur de règles Azure CDN | Microsoft Docs
 description: Documentation de référence sur les fonctionnalités et conditions de correspondance du moteur de règles Azure CDN.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
-ms.author: allensu
-ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: duau
+ms.openlocfilehash: 928e3fb96cd1acdbbfe7aceea5f5ab9ceca97909
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91362578"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461411"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Documentation de référence sur le moteur de règles Azure CDN de Verizon Premium
 

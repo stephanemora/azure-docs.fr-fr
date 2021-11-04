@@ -7,17 +7,19 @@ manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.custom: mvc, fasttrack-edit
+ms.custom: mvc, fasttrack-edit, ignite-fall-2021
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 4fb3b30a35d8f6d22668024a5fa08dbc7358c0ed
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fb01d57a7801b940ba9de2e8c939743070c57eaa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121784722"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004090"
 ---
 # <a name="visualize-collected-data"></a>Visualiser les données collectées
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Dans cet article, vous allez apprendre à être rapidement capable d’afficher et de superviser ce qui se passe dans votre environnement à l’aide d’Azure Sentinel. Une fois que vous avez connecté vos sources de données à Azure Sentinel, vous obtenez une visualisation et une analyse instantanées de ces données pour savoir ce qui se passe sur toutes vos sources de données connectées. Sentinel Azure vous propose des classeurs qui vous donnent accès à toute la puissance des outils déjà disponibles dans Azure, ainsi que des tables et des graphiques intégrés pour vous fournir l’analytique pour vos journaux et requêtes. Vous pouvez utiliser les classeurs intégrés ou en créer de nouveaux facilement, soit de toutes pièces ou soit en les basant sur un classeur existant. 
 

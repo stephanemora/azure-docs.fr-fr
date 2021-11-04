@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshah
 ms.author: iqshah
 ms.date: 09/28/2021
-ms.openlocfilehash: 6c08319037a06ff7bb1051fd41b40dc20ec37fb6
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 38eecfefab8bbb8690b8125ad034ca3c3b076a1a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219582"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076525"
 ---
 # <a name="configure-prices-for-usage-based-monthly-billing"></a>Configurer les prix pour une facturation mensuelle à l’usage
 
@@ -29,7 +29,7 @@ Voici quelques éléments à prendre en compte lors de la sélection d’une opt
 
 - Pour les quatre premières options, Microsoft effectue la conversion monétaire.
 - Microsoft suggère d’utiliser un tarif forfaitaire pour les solutions logicielles.
-- Les prix sont fixes. Par conséquent, une fois publiés, ils ne peuvent pas être ajustés. Toutefois, si vous souhaitez réduire les prix de vos offres de machine virtuelle, vous pouvez ouvrir un [ticket de support](/azure/marketplace/support).
+- Les prix sont fixes. Par conséquent, une fois publiés, ils ne peuvent pas être ajustés. Toutefois, si vous souhaitez réduire les prix de vos offres de machine virtuelle, vous pouvez ouvrir un [ticket de support](./support.md).
 
 ## <a name="new-offering-pricing"></a>Nouvelle offre de tarification
 
@@ -41,4 +41,4 @@ Si l’éditeur a choisi une taille Gratuit, Fixe ou Par cœur, alors le serveur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous avez des questions, ouvrez un ticket auprès du [support](/azure/marketplace/support).
+- Si vous avez des questions, ouvrez un ticket auprès du [support](./support.md).

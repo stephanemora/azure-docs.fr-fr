@@ -1,18 +1,18 @@
 ---
 title: Implémenter des styles dynamiques pour les cartes d’intérieur du Créateur Azure Maps
 description: Découvrez comment implémenter des styles dynamiques pour les cartes d’intérieur du Créateur
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 05/20/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 05e169667067033428d5fc995af4d866dc46d20b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9089ff5adda1eedd441fc221ae1d5a0d3401ae12
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525319"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462061"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implémenter des styles dynamiques pour les cartes d’intérieur du Créateur
 
@@ -74,7 +74,7 @@ Dans la section suivante, nous allons définir l’*état* d’occupation du bur
 4. Entrez l’URL suivante pour l’[API des états de mise à jour des fonctionnalités](/rest/api/maps/v2/feature-state/update-states) (remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale et `statesetId` par le `statesetId`) :
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 5. Sélectionnez l’onglet **En-têtes**.
@@ -107,7 +107,7 @@ Dans la section suivante, nous allons définir l’*état* d’occupation du bur
 10. Modifiez l’URL que vous avez utilisée à l’étape 7 en remplaçant `UNIT26` par `UNIT27` :
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 11. Copiez le style JSON suivant, puis collez-le dans la fenêtre **Body** (Corps) :
@@ -127,8 +127,9 @@ Dans la section suivante, nous allons définir l’*état* d’occupation du bur
 ### <a name="visualize-dynamic-styles-on-a-map"></a>Visualiser des styles dynamiques sur une carte
 
 L’application web que vous avez précédemment ouverte dans un navigateur doit maintenant refléter l’état mis à jour des caractéristiques de carte :
-- Le bureau `UNIT27` (142) doit apparaître en vert.
-- Le bureau `UNIT26` (143) doit apparaître en rouge.
+
+* Le bureau `UNIT27` (142) doit apparaître en vert.
+* Le bureau `UNIT26` (143) doit apparaître en rouge.
 
 ![Salle libre en vert et salle occupée en rouge](./media/indoor-map-dynamic-styling/room-state.png)
 

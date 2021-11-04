@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 89548cf1c98e360569255b9028b26230fedf5ed2
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: e67bdd11fc07c20d9f9dd660fa6aab936853015f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092335"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037907"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir des serveurs physiques avec l’outil de découverte et d’évaluation d’Azure Migrate
 
@@ -199,7 +199,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
 3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
 
-4. Exécutez le script nommé `AzureMigrateInstaller.ps1` via la commande suivante :
+4. Exécutez le script `AzureMigrateInstaller.ps1` à l’aide de la commande suivante :
 
    `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
@@ -301,7 +301,7 @@ Une fois la découverte terminée, vous pouvez vérifier que les serveurs appara
 Une fois la découverte lancée, vous pouvez supprimer tous les serveurs ajoutés du gestionnaire de configuration de l’appliance en recherchant le nom des serveurs dans le tableau **Add discovery source** (Ajouter la source de découverte) puis en cliquant sur **Supprimer**.
 
 >[!NOTE]
-> Si vous choisissez de supprimer un serveur sur lequel la découverte a été lancée, celui-ci arrêtera la découverte et l’évaluation en cours, ce qui pourra avoir un impact sur le niveau de confiance de l’évaluation qui inclut ce serveur. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2171565)
+> Si vous choisissez de supprimer un serveur sur lequel la découverte a été lancée, celui-ci arrêtera la découverte et l’évaluation en cours, ce qui pourra avoir un impact sur le niveau de confiance de l’évaluation qui inclut ce serveur. [En savoir plus](/azure/migrate/common-questions-discovery-assessment#why-is-the-confidence-rating-of-my-assessment-low)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

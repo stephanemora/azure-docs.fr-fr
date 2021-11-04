@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 918267b9dc2d7d8548d5406d590a03db13870749
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 5ac16491a03b783020e1d8898eb50f30eef98eea
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991828"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050904"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Découvrez comment l’approvisionnement s’intègre aux journaux Azure Monitor
 
@@ -34,7 +34,7 @@ Une fois que vous avez configuré l’analyse Azure, vous pouvez activer les jou
 
 > [!NOTE]
 > Si vous venez d’approvisionner un espace de travail, il peut falloir un certain temps avant de pouvoir y envoyer des journaux. Si vous recevez une erreur indiquant que l’abonnement n’est pas inscrit pour utiliser *microsoft.insights* revenez après quelques minutes.
- 
+
 ## <a name="understanding-the-data"></a>Vue d’ensemble des données
 Le flux de données sous-jacent que l’approvisionnement envoie aux visionneuses de journaux est presque identique. Les journaux Azure Monitor suivent quasiment le même flux que l’interface utilisateur du Portail Azure et l’API Azure. Il n’existe que quelques **différences** dans les champs du journal, comme indiqué dans le tableau suivant. Pour en savoir plus sur ces champs, consultez [Répertorier provisioningObjectSummary](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta).
 

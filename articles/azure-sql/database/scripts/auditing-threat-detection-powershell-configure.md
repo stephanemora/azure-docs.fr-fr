@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: mathoma, vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 2f5791b96b0b921175c0b6c2c7db7c8cdabf825c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cee0c010101c132cb8c4f105ccfd46a5cb8afcf6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735602"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "131465304"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Utiliser PowerShell pour configurer l’audit SQL Database et Advanced Threat Protection
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -51,8 +51,8 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Crée un serveur. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crée une base de données ou un pool élastique. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Crée un compte de stockage. |
-| [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | Définit la stratégie d’audit d’une base de données. |
-| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Définit une stratégie Advanced Threat Protection sur une base de données. |
+| [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseaudit) | Définit la stratégie d’audit d’une base de données. |
+| Set-AzSqlDatabaseThreatDetectionPolicy | Définit une stratégie Advanced Threat Protection sur une base de données. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 

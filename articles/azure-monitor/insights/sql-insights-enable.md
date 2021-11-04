@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: d2872d2293802c435eb4bbd67078e6d1e973a6b9
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: bbef6233a82e85ea849d3b637b5c0b83caddcd04
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004594"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447091"
 ---
 # <a name="enable-sql-insights-preview"></a>Activer SQL Insights (préversion)
 Cet article explique comment activer [SQL Insights](sql-insights-overview.md) pour analyser vos déploiements SQL. L’analyse est effectuée à partir d’une machine virtuelle Azure qui établit une connexion à vos déploiements SQL et utilise des vues de gestion dynamique (DMV) pour collecter les données d’analyse. Vous pouvez contrôler les jeux de données qui sont collectés et la fréquence de collecte à l’aide d’un profil d’analyse.
@@ -209,9 +209,9 @@ La chaîne de connexions varie en fonction de chaque type de ressource SQL :
 Entrer la chaîne de connexion dans le formulaire :
 
 ```
-sqlAzureConnections": [ 
+sqlAzureConnections": [
    "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
-}
+]
 ```
 
 Obtenez les détails de l’élément de menu **Chaînes de connexion** pour la base de données.
@@ -224,9 +224,9 @@ Pour analyser un secondaire accessible en lecture, incluez la valeur de clé `Ap
 Entrer la chaîne de connexion dans le formulaire :
 
 ```
-"sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
-    ] 
+"sqlManagedInstanceConnections": [
+   "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
+] 
 ```
 Obtenez les détails de l’élément de menu **Chaînes de connexion** pour l’instance gérée.
 
@@ -239,7 +239,7 @@ Pour analyser un secondaire accessible en lecture, incluez la valeur de clé `Ap
 Entrer la chaîne de connexion dans le formulaire :
 
 ```
-"sqlVmConnections": [ 
+"sqlVmConnections": [
    "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```

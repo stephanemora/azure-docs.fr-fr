@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 3c41a7b8efad5ab0235adb396d0170f5385e21c6
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 50958765e0ff582e630d5a78b3d17f871a0c41aa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437811"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072481"
 ---
 # <a name="tutorial-migrate-an-android-app-from-google-maps"></a>Tutoriel : Migrer une application Android à partir de Google Maps
 
@@ -261,14 +261,14 @@ Pour afficher une carte à l’aide du SDK Azure Maps pour Android, il est néce
         implementation "com.azure.android:azure-maps-control:1.0.0"
         ```
 
-        > [!Note]
+        > [!NOTE]
         > Vous pouvez définir le numéro de version sur « 0+ » afin que votre code pointe toujours vers la dernière version.
 
     4. Accédez à **Fichier** dans la barre d’outils, puis cliquez sur **Synchroniser le projet avec les fichiers Gradle**.
 
 3. Ajoutez un fragment de carte à l’activité principale (resources pwd\> layout \> activity\_main.xml) :
 
-    ```XML
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -546,7 +546,7 @@ Voici un exemple de Google Maps avec la langue définie sur « fr ».
 
 Azure Maps propose trois méthodes pour définir la langue et la vue locale de la carte. La première option consiste à transmettre les informations de la langue et de la vue locale à la classe `AzureMaps`. Cette option utilise les méthodes statiques `setLanguage` et `setView` globalement. Cela signifie que la langue et la vue locale par défaut sont définis pour tous les contrôles Azure Maps chargés dans votre application. Cet exemple spécifie le français à l’aide du code de langue « fr-FR ».
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot=&quot;programming-language-java-android&quot;
 
 ```java
 static {

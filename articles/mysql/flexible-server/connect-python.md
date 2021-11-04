@@ -8,19 +8,16 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: 8430fc401e8cbb6c526f5bdca9a0b6841447793b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1c8195ae8552e400ae9f95812bb7152c86d7a868
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128588767"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429543"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Démarrage rapide : Utiliser Python pour se connecter et interroger des données dans Azure Database pour MySQL - Serveur flexible
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database pour MySQL – Serveur flexible est actuellement en préversion publique.
 
 Dans ce guide de démarrage rapide, vous allez utiliser Python afin de vous connecter à Azure Database pour MySQL - Serveur flexible. Vous utilisez ensuite des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données depuis des plateformes Mac, Ubuntu Linux et Windows. 
 

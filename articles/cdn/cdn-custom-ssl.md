@@ -2,18 +2,18 @@
 title: 'Tutoriel : Configurer HTTPS sur un domaine personnalisé Azure CDN'
 description: Dans ce didacticiel, vous allez apprendre à activer et désactiver HTTPS sur votre domaine personnalisé de point de terminaison Microsoft Azure CDN.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: tutorial
 ms.date: 03/26/2021
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: d9520f3a6c6ffadf7186b0b3c5c83fe872711316
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: d6a56aecaf8110118081e8c79e86bae5c277d992
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007784"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458681"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Azure CDN
 
@@ -104,7 +104,7 @@ Pour activer HTTPS sur un domaine personnalisé, suivez ces étapes :
 > Cette option n’est disponible qu’avec les profils **Azure CDN de Microsoft** et **Azure CDN de Verizon**. 
 >
  
-Vous pouvez utiliser votre propre certificat pour activer la fonctionnalité HTTPS. Ce processus s’effectue via une intégration à Azure Key Vault, ce qui vous permet de stocker vos certificats en toute sécurité. Azure Front Door utilise ce mécanisme sécurisé pour obtenir le certificat, et quelques étapes supplémentaires sont nécessaires. Quand vous créez votre certificat TLS/SSL, vous devez créer une chaîne de certificats complète avec une autorité de certification autorisée qui fait partie de la [liste des autorités de certification de confiance Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). Si vous utilisez une autorité de certification non autorisée, votre requête est rejetée.  Si un certificat sans chaîne complète est présenté, il n’est pas garanti que les requêtes qui impliquent ce certificat fonctionnent comme prévu. Pour Azure CDN de Verizon, toute autorité de certification valide est acceptée.
+Vous pouvez utiliser votre propre certificat pour activer la fonctionnalité HTTPS. Ce processus s’effectue via une intégration à Azure Key Vault, ce qui vous permet de stocker vos certificats en toute sécurité. Azure Front Door utilise ce mécanisme sécurisé pour obtenir le certificat, et quelques étapes supplémentaires sont nécessaires. Quand vous créez votre certificat TLS/SSL, vous devez créer une chaîne de certificats complète avec une autorité de certification (AC) autorisée figurant dans la [liste des autorités de certification de confiance Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). Si vous utilisez une autorité de certification non autorisée, votre demande sera rejetée.  Si un certificat sans chaîne complète est présenté, il n’est pas garanti que les requêtes qui impliquent ce certificat fonctionnent comme prévu. Pour Azure CDN de Verizon, toute autorité de certification valide est acceptée.
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Préparer votre compte et votre certificat Azure Key Vault
  

@@ -5,16 +5,13 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: cachai
-ms.custom:
-- references_regions
-- fasttrack-edit
-- devx-track-azurecli
-ms.openlocfilehash: c549f29e729eec4403f2943f51e8acb4a9f21b37
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: references_regions, fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: 583b1545adbc8542923104eb96dd33b744c43c06
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130248390"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039180"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 
@@ -202,10 +199,6 @@ Consultez la disponibilité régionale complète de Functions sur le [site web A
 |Gouvernement des États-Unis - Arizona| 100 | 20 |
 |Gouvernement des États-Unis - Texas| 100 | Non disponible |
 |USGov Virginia| 100 | 20 |
-|USNat East| 100 | Non disponible |
-|USNat West| 100 | Non disponible |
-|USSec Est| 100 | 20 |
-|USSec Ouest| 100 | 20 |
 |Centre-USA Ouest| 100 | 20 |
 |Europe Ouest| 100 | 20 |
 |Inde Ouest| 100 | 20 |

@@ -3,12 +3,12 @@ title: Aide et bonnes pratiques
 description: Découvrez les meilleures pratiques et des conseils pour la sauvegarde de la charge de travail Cloud et locale dans le Cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: ecac56034c78cba09133fc12ca4ac8827afb0ea2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 462b71170bbd0534a15a54f0eacc53ff08e09f69
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806723"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439383"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Sauvegardez des charges de travail Cloud et locales vers le Cloud
 
@@ -225,7 +225,7 @@ En tant qu’administrateur ou utilisateur de sauvegarde, vous devez être en me
 
 ### <a name="monitoring"></a>Surveillance
 
-* Azure Backup fournit une **surveillance intégrée des tâches** pour les opérations telles que la configuration de la sauvegarde, la sauvegarde, la restauration, la suppression de la sauvegarde, etc. Cela est étendue au coffre et idéal pour la surveillance d’un coffre unique. [En savoir plus ici](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
+* Azure Backup fournit une **surveillance intégrée des tâches** pour les opérations telles que la configuration de la sauvegarde, la sauvegarde, la restauration, la suppression de la sauvegarde, etc. Cela est étendue au coffre et idéal pour la surveillance d’un coffre unique. [En savoir plus ici](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center).
 
 * Si vous avez besoin de surveiller les activités opérationnelles à l’échelle, **l’Explorateur de sauvegarde** fournit une vue agrégée de l’ensemble de votre espace de sauvegarde, ce qui permet une analyse détaillée et une résolution des problèmes. Il s'agit d'un classeur intégré à Azure Monitor qui offre un emplacement unique et central pour vous aider à surveiller les activités opérationnelles dans l'ensemble du parc de sauvegarde sur Azure, couvrant les locataires, les emplacements, les abonnements, les groupes de ressources et les coffres. [En savoir plus ici](monitor-azure-backup-with-backup-explorer.md).
   * Utilisez-le pour identifier les ressources qui ne sont pas configurées pour la sauvegarde, et assurez-vous que vous ne manquez jamais la protection des données critiques dans votre patrimoine.

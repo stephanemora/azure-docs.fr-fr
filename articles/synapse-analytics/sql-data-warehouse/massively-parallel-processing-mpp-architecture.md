@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 0e87451531750e502f67dc30e6fbd26c8c944d22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f0a472540435c4c3bb04ab9143f0818dc312b8d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678591"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456838"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Architecture de pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
@@ -111,9 +111,9 @@ Maintenant que vous en savez un peu plus sur Azure Synapse, apprenez à [créer 
 
 - [Témoignages de clients](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-- [Demandes de fonctionnalités](https://feedback.azure.com/forums/307516-sql-data-warehouse)
+- [Demandes de fonctionnalités](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)
 - [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Création d’un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md)
-- [Page de questions Microsoft Q&R](/answers/topics/azure-synapse-analytics.html)
+- [Page de questions Microsoft Q&A](/answers/topics/azure-synapse-analytics.html)
 - [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 05/25/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0ac3a2dccecf50b53917d878535ce62e124f8f8e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 68283077d63b7a796b51da45ef005584c6c792a1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479545"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477266"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Vue d’ensemble de Start/Stop VMs during off-hours
 
@@ -81,7 +81,6 @@ Afin d’activer des machines virtuelles pour la fonctionnalité Start/Stop VMs 
 
 Vous pouvez activer des machines virtuelles pour la fonctionnalité Start/Stop VMs during off-hours à l’aide d’un compte Automation et d’un espace de travail Log Analytics nouvellement créés. Dans ce cas, vous avez non seulement besoin des autorisations définies dans la section précédente, mais aussi de celles définies dans cette section. Vous avez également besoin des rôles suivants :
 
-- Coadministrateur pour l’abonnement. Ce rôle est requis pour créer le compte d’identification Classic si vous comptez gérer des machines virtuelles classiques. Les [comptes d’identification Classic](automation-create-standalone-account.md#create-a-classic-run-as-account) ne sont plus créés par défaut.
 - Appartenance au rôle Développeur d’applications [Azure AD](../active-directory/roles/permissions-reference.md). Pour plus d’informations sur la configuration de comptes d’identification, voir [Autorisations pour configurer des comptes d’identification](automation-security-overview.md#permissions).
 - Contributeur sur l’abonnement ou les autorisations suivantes.
 
@@ -140,7 +139,7 @@ Le tableau suivant répertorie les variables créées dans votre compte Automati
 |External_AutoStop_Threshold | Seuil de la règle d’alerte Azure spécifiée dans la variable `External_AutoStop_MetricName`. Les valeurs de pourcentage vont de 1 à 100.|
 |External_AutoStop_TimeAggregationOperator | Opérateur d’agrégation de temps appliqué à la taille de la fenêtre sélectionnée pour évaluer la condition. Les valeurs possibles sont `Average`, `Minimum`, `Maximum`, `Total` et `Last`.|
 |External_AutoStop_TimeWindow | Taille de la fenêtre durant laquelle Azure analyse la métrique sélectionnée pour déclencher une alerte. Ce paramètre accepte une entrée au format d’un intervalle de temps. Les valeurs possibles sont comprises entre 5 minutes et 6 heures.|
-|External_EnableClassicVMs| Valeur spécifiant si les machines virtuelles classiques sont ciblées par la fonctionnalité. La valeur par défaut est True. Définissez cette variable sur False pour les abonnements de fournisseurs de solutions Azure Cloud (CSP). Un [compte d’identification Classic](automation-create-standalone-account.md#create-a-classic-run-as-account) est nécessaire pour les machines virtuelles Classic.|
+|External_EnableClassicVMs| Valeur spécifiant si les machines virtuelles classiques sont ciblées par la fonctionnalité. La valeur par défaut est True. Définissez cette variable sur False pour les abonnements de fournisseurs de solutions Azure Cloud (CSP).|
 |External_ExcludeVMNames | Liste séparée par des virgules des noms de machines virtuelles à exclure, limitée à 140 machines virtuelles. Si vous ajoutez plus de 140 machines virtuelles à la liste, les machines virtuelles spécifiées pour l’exclusion pourraient être démarrées ou arrêtées par inadvertance.|
 |External_Start_ResourceGroupNames | Liste séparée par des virgules d’un ou de plusieurs groupes de ressources ciblés pour des actions de démarrage.|
 |External_Stop_ResourceGroupNames | Liste séparée par des virgules d’un ou de plusieurs groupes de ressources ciblés pour des actions d’arrêt.|
@@ -173,8 +172,6 @@ N’activez pas toutes les planifications, car sinon des actions de planificatio
 ## <a name="use-the-feature-with-classic-vms"></a>Utiliser la fonctionnalité avec des machines virtuelles classiques
 
 Si vous utilisez la fonctionnalité Start/Stop VMs during off-hours pour des machines virtuelles classiques, Automation traite toutes vos machines virtuelles de manière séquentielle par service cloud. Les machines virtuelles sont toujours traitées en parallèle à travers les différents services cloud. 
-
-Pour utiliser la fonctionnalité avec des machines virtuelles classiques, vous avez besoin d’un compte d’identification Classic, lequel n’est pas créé par défaut. Pour savoir comment créer un compte d’identification Classic, consultez [Créer un compte d’identification Classic](automation-create-standalone-account.md#create-a-classic-run-as-account).
 
 Si vous avez plus de 20 machines virtuelles par service cloud, voici quelques recommandations :
 

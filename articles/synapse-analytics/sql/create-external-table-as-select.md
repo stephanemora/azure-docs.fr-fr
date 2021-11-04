@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 83c3fd114ab7ed3bf04d47ef3be2fc563b6b43d5
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: ba93588dc686a57c05371b86d8f9e058f2bd2cf2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110586181"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460030"
 ---
 # <a name="store-query-results-to-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Stocker des résultats de requêtes en utilisant le pool SQL serverless dans Azure Synapse Analytics
 
@@ -100,12 +100,12 @@ ORDER BY
 ## <a name="remarks"></a>Notes
 
 Une fois vos résultats stockés, vous ne pouvez pas modifier les données dans la table externe. Vous ne pouvez pas répéter ce script, car CETAS ne remplace pas les données sous-jacentes créées lors de l’exécution précédente. Votez pour les éléments de commentaires suivants si certains d’entre eux sont requis dans vos scénarios, ou proposez-en d’autres sur le site de commentaires Azure :
-- [Activer l’insertion de nouvelles données dans une table externe](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/32981347-polybase-allow-insert-new-data-to-existing-exteran)
-- [Activer la suppression des données de la table externe](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/15158034-polybase-delete-from-external-tables)
-- [Spécifier des partitions dans CETAS](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/19520860-polybase-partitioned-by-functionality-when-creati)
-- [Spécifier une taille de fichier et un nombre de fichiers](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/42263617-cetas-specify-number-of-parquet-files-file-size)
+- [Activer l’insertion de nouvelles données dans une table externe](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)
+- [Activer la suppression des données de la table externe](https://feedback.azure.com/d365community/idea/fb5a00c9-0a25-ec11-b6e6-000d3a4f07b8)
+- [Spécifier des partitions dans CETAS](https://feedback.azure.com/d365community/idea/e28278db-0a25-ec11-b6e6-000d3a4f07b8)
+- [Spécifier une taille de fichier et un nombre de fichiers](https://feedback.azure.com/d365community/idea/262048b9-0925-ec11-b6e6-000d3a4f07b8)
 
-Les seuls types de sortie pris en charge sont Parquet et CSV. Vous pouvez voter pour les autres types sur le [site de commentaires Azure](https://feedback.azure.com/forums/307516-azure-synapse-analytics/).
+Les seuls types de sortie pris en charge sont Parquet et CSV. Vous pouvez voter pour les autres types sur le [site de commentaires Azure](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,12 @@ title: Résoudre des problèmes de réseau avec un registre
 description: Symptômes, causes et résolution de problèmes courants lors de l’accès à un registre de conteneurs Azure dans un réseau virtuel ou derrière un pare-feu
 ms.topic: article
 ms.date: 05/10/2021
-ms.openlocfilehash: 7ea4eb698f855a98df22e2e0426a0004c890290c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f5c51f14eb5ed5a950272e43e701ec7bcc44b901
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562121"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446483"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Résoudre des problèmes de réseau avec un registre
 
@@ -124,7 +124,7 @@ Depuis janvier 2021, vous pouvez configurer un registre dont l’accès réseau
 Liens connexes :
 
 * [Analyse d’images Azure Container Registry par Security Center](../security-center/defender-for-container-registries-introduction.md)
-* Fournir des [commentaires](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* Fournir des [commentaires](https://feedback.azure.com/d365community/idea/cbe6351a-0525-ec11-b6e6-000d3a4f07b8)
 * [Permettre à des services de confiance d’accéder en toute sécurité à un registre de conteneurs ayant un accès réseau restreint](allow-access-trusted-services.md)
 
 

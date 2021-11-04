@@ -2,13 +2,13 @@
 title: 'Démarrage rapide : créer une application web sur Azure Arc'
 description: Commencez à utiliser App Service sur Azure Arc en déployant votre première application web.
 ms.topic: quickstart
-ms.date: 06/02/2021
-ms.openlocfilehash: 30d310aa1170cf4c28d76e0299b23a90a3f599d9
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 11/02/2021
+ms.openlocfilehash: 356e1b5f13d2a4b7e00c3e1c11b5dcbf295d6fd3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129709807"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455857"
 ---
 # <a name="create-an-app-service-app-on-azure-arc-preview"></a>Créer une application App Service sur Azure Arc (préversion)
 
@@ -33,30 +33,19 @@ az group create --name myResourceGroup --location eastus
 [!INCLUDE [app-service-arc-get-custom-location](../../includes/app-service-arc-get-custom-location.md)]
 
 
-## <a name="3-create-an-app-service-plan"></a>3. Créer un plan App Service
-
-Exécutez la commande suivante en remplaçant `$customLocationId` obtenu à l’étape précédente.
-
-```azurecli-interactive
-az appservice plan create -g myResourceGroup -n myPlan \
-    --custom-location $customLocationId \
-    --per-site-scaling --is-linux --sku K1
-``` 
-
-## <a name="4-create-an-app"></a>4. Créer une application
+## <a name="3-create-an-app"></a>3. Créer une application
 
 L’exemple suivant crée une application Node.js. Remplacez `<app-name>` par un nom unique au sein de votre cluster (les caractères valides sont `a-z`, `0-9` et `-`). Pour voir tous les runtimes, exécutez [`az webapp list-runtimes --linux`](/cli/azure/webapp).
 
 ```azurecli-interactive
  az webapp create \
-    --plan myPlan \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \
     --runtime 'NODE|12-lts'
 ```
 
-## <a name="5-deploy-some-code"></a>5. Déployer du code
+## <a name="4-deploy-some-code"></a>4. Déployer du code
 
 > [!NOTE]
 > `az webapp up` n’est pas pris en charge pendant la préversion publique.
@@ -70,7 +59,7 @@ zip -r package.zip .
 az webapp deployment source config-zip --resource-group myResourceGroup --name <app-name> --src package.zip
 ```
 
-## <a name="6-get-diagnostic-logs-using-log-analytics"></a>6. Récupérer des journaux de diagnostic à l’aide de Log Analytics
+## <a name="5-get-diagnostic-logs-using-log-analytics"></a>5. Récupérer des journaux de diagnostic à l’aide de Log Analytics
 
 > [!NOTE]
 > Pour utiliser Log Analytics, vous devez l’avoir activé lors de l’[installation de l’extension App Service](manage-create-arc-environment.md#install-the-app-service-extension). Si vous avez installé l’extension sans Log Analytics, ignorez cette étape.
@@ -99,7 +88,6 @@ Par exemple, essayez :
 
 ```azurecli-interactive
 az webapp create \
-    --plan myPlan \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \

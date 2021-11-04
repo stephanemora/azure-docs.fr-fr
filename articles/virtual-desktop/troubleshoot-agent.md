@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 12132e5143546abc2b12a83e3e6cd92a43069e1e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 3bb81f3fd29e68e04607e4f0252ccd8f0308dc67
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130263038"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471798"
 ---
 # <a name="troubleshoot-common-azure-virtual-desktop-agent-issues"></a>Résoudre des problèmes courants liés à l’Agent Azure Virtual Desktop
 
@@ -106,7 +106,7 @@ Pour résoudre ce problème, vérifiez que vous pouvez atteindre BrokerURI et Br
    > ![Capture d’écran de l’échec d’accès à l’URI global du répartiteur chargé](media/unsuccessful-broker-global.png)
 
 8. Si le réseau bloque ces URL, vous devez débloquer les URL requises. Pour plus d’informations, consultez [Liste des URL requises](safe-url-list.md).
-9. Si cela ne résout pas votre problème, assurez-vous que vous n’avez pas de stratégie de groupe avec des chiffrements qui bloquent la connexion de l’agent au répartiteur. Azure Virtual Desktop utilise les mêmes chiffrements TLS 1.2 qu’[Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). Pour plus d’informations, consultez [Sécurité de la connexion](network-connectivity.md#connection-security).
+9. Si cela ne résout pas votre problème, assurez-vous que vous n’avez pas de stratégie de groupe avec des chiffrements qui bloquent la connexion de l’agent au répartiteur. Azure Virtual Desktop utilise les mêmes chiffrements TLS 1.2 qu’[Azure Front Door](../frontdoor/concept-end-to-end-tls.md#supported-cipher-suites). Pour plus d’informations, consultez [Sécurité de la connexion](network-connectivity.md#connection-security).
 
 ## <a name="error-3703"></a>Erreur : 3703
 

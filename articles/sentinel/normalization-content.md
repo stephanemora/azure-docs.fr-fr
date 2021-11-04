@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: deb5377aef61736a14ce8110e96c16e5352096cd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 49711b1d056ecc57b64544374461c1f2963b88d2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128552252"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064446"
 ---
 # <a name="azure-sentinel-information-model-asim-security-content--public-preview"></a>Contenu de sécurité d’Azure Sentinel Information Model (ASIM) (préversion publique)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Le contenu de sécurité normalisé dans Azure Sentinel comprend des règles d’analyse, des requêtes de chasse et des classeurs qui fonctionnent avec des analyseurs de normalisation indépendantes du code source.
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 4d36bee80a69895d2ca000106bbb05753dc74384
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 8913f9b83021742aa91836f0d09d0fb3f0648fd0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122641097"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438053"
 ---
 # <a name="azure-database-for-mysql-videos"></a>Vidéos Azure Database pour MySQL
 
@@ -21,7 +21,7 @@ Cette page fournit du contenu vidéo pour en savoir plus sur Azure Database pour
 
 ## <a name="overview-azure-database-for-postgresql-and-mysql"></a>Vue d’ensemble : Azure Database pour PostgreSQL et MySQL
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player] 
+>[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
 [Ouvrir dans Channel 9](https://channel9.msdn.com/Events/Connect/2017/T147)
 
 Azure Database pour PostgreSQL et Azure Database pour MySQL allient les moteurs de base de données Community Edition aux fonctionnalités d’un service totalement managé, afin que vous puissiez vous concentrer sur vos applications au lieu de gérer une base de données. Cette vidéo présente rapidement les avantages de l’utilisation du service et montre certaines fonctionnalités en action.

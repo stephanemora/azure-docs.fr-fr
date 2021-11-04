@@ -8,12 +8,13 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.author: jencook
-ms.openlocfilehash: 757ce9b7502316bbc8a5b8f27ba672048b7bbace
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 51432b2d5de800cbfc3748da82f7b9fe26220731
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563419"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024502"
 ---
 # <a name="fortanix-confidential-computing-manager-in-an-azure-managed-application"></a>Fortanix Confidential Computing Manager dans une application managée Azure
 
@@ -33,7 +34,7 @@ Fortanix est un fournisseur de logiciels tiers dont les produits et services rep
 
 1. Accédez au [portail Azure](https://portal.azure.com/).
 
-    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/azure-portal.png" alt-text="Portail Azure.":::
+    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/Azure-portal.png" alt-text="Portail Azure.":::
 
 2. Dans la barre de recherche, recherchez « Fortanix Confidential Computing Manager » et vous trouverez l’offre du marketplace pour Fortanix CCM. Sélectionnez **Fortanix Confidential Computing Manager sur Azure**.
 
@@ -117,9 +118,8 @@ L’utilisateur peut également supprimer un agent de nœud CCM à partir de la 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez inscrit un nœud à l’aide d’une application managée Azure auprès de Confidential Computing Manager de Fortanix. L’inscription de nœud vous permet de convertir l’image de votre application afin qu’elle s’exécute sur une machine virtuelle de l’informatique confidentielle. Pour plus d’informations sur les machines virtuelles d’informatique confidentielle sur Azure, consultez [Solutions sur les machines virtuelles](virtual-machine-solutions.md).
+Dans ce démarrage rapide, vous avez inscrit un nœud à l’aide d’une application managée Azure auprès de Confidential Computing Manager de Fortanix. L’inscription de nœud vous permet de convertir l’image de votre application afin qu’elle s’exécute sur une machine virtuelle de l’informatique confidentielle. Pour plus d’informations sur les machines virtuelles d’informatique confidentielle sur Azure, consultez [Solutions sur les machines virtuelles](virtual-machine-solutions-sgx.md).
 
 Pour en savoir plus sur les offres d’Azure en matière d’informatique confidentielle, consultez [Informatique confidentielle Azure](overview.md).
 
 Apprenez à effectuer des tâches similaires à l'aide d'autres offres de tiers disponibles sur Azure, comme [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) et [Scone](https://sconedocs.github.io).
-

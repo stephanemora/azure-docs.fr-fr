@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2021
 ms.author: yelevin
-ms.openlocfilehash: c08b346e5ab6dad939b441d60f9f68908568c840
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 27e6a78ec66b3427aa911abba5d7f4cdda20d876
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730629"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023079"
 ---
 # <a name="manage-template-versions-for-your-scheduled-analytics-rules-in-azure-sentinel"></a>Gérer des versions de modèles pour vos règles d’analyse planifiée dans Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
@@ -33,7 +36,7 @@ Azure Sentinel est fourni avec les [modèles de règle d’analyse](detect-threa
 
 Toutefois, les règles créées à partir de modèles ***se souviennent*** des modèles dont elles sont issues, ce qui présente deux avantages :
 
-- Si vous avez modifié une règle lors de sa création à partir d’un modèle (ou à tout moment par la suite), vous pouvez toujours rétablir la version originale de la règle (sous la forme d’une copie du modèle).
+- Si vous avez apporté des modifications à une règle lors de sa création à partir d’un modèle (ou à tout moment par la suite), vous pouvez toujours rétablir la règle dans sa version originale (en tant que copie du modèle).
 
 - Vous pouvez être averti de la mise à jour d’un modèle et vous aurez le choix de mettre à jour vos règles avec la nouvelle version de leurs modèles ou de les laisser telles quelles.
 

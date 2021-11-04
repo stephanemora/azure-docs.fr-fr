@@ -3,12 +3,12 @@ title: Comment migrer des serveurs avec Azure Arc entre différentes régions
 description: Découvrez comment migrer un serveur avec Azure Arc d’une région à une autre.
 ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: ea44fbf060588ca3859e7f0d51b7d7449dc318fa
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5039ff2d00b83a8f93cf32caa27eee2032ee35dd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807391"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462042"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>Comment migrer des serveurs avec Azure Arc entre différentes régions
 
@@ -24,7 +24,7 @@ Pour migrer un serveur avec Azure Arc d’une région Azure vers une autre, vous
 > [!NOTE]
 > Cette opération entraîne un temps d’arrêt au cours de la migration.
 
-1. Supprimez les extensions de machine virtuelle installées du [portail Azure](manage-vm-extensions-portal.md#uninstall-extensions) à l’aide d’[Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension) ou d’[Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
+1. Supprimez les extensions de machine virtuelle installées du [portail Azure](manage-vm-extensions-portal.md#remove-extensions) à l’aide d’[Azure CLI](manage-vm-extensions-cli.md#remove-extensions) ou d’[Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions).
 
 2. Utilisez l’outil **azcmagent** avec le paramètre [Disconnect](manage-agent.md#disconnect) pour déconnecter la machine d’Azure Arc et supprimer la ressource machine d’Azure. La déconnexion de la machine des serveurs avec Azure Arc n’a pas pour effet de supprimer l’agent Connected Machine et vous n’avez pas besoin de supprimer l’agent dans le cadre de ce processus. Vous pouvez effectuer cette opération manuellement quand vous êtes connecté de manière interactive, l’automatiser à l’aide du principal de service utilisé pour intégrer plusieurs agents ou utiliser un [jeton d’accès](../../active-directory/develop/access-tokens.md) de la plateforme d’identités Microsoft. Si vous n’avez pas utilisé de principal de service pour inscrire la machine auprès des serveurs avec Azure Arc, consultez l’[article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) suivant pour créer un principal de service.
 

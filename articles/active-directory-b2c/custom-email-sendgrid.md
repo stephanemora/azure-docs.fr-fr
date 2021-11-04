@@ -3,21 +3,21 @@ title: Vérification des e-mails personnalisée avec SendGrid
 titleSuffix: Azure AD B2C
 description: Découvrez comment intégrer avec SendGrid pour personnaliser les e-mails de vérification envoyés à vos clients lorsqu'ils s'inscrivent pour utiliser vos applications Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 67c5c15b81bf2007494cb78496a655e4e0d833fb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 304b7056fda06e017be445b57a4b75aef6a17ffc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128568484"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007410"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Vérification des e-mails personnalisée avec SendGrid
 
@@ -147,7 +147,6 @@ Avec un compte SendGrid créé et une clé API SendGrid stockée dans une clé d
                        <td width="24" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
                        <td id="PageFooterContainer" width="585" valign="top" colspan="6" style="border-bottom:1px solid #e3e3e3;padding:0px;">
 
-
                        </td>
 
                        <td width="29" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
@@ -206,7 +205,7 @@ La structure de l'objet JSON est définie par les ID en notation par points des 
 Ajoutez la transformation de revendications suivante à l'élément `<ClaimsTransformations>` dans `<BuildingBlocks>`. Effectuez les mises à jour suivantes dans le code XML de la transformation de revendications :
 
 * Mettez à jour la valeur InputParameter `template_id` avec l'ID du modèle transactionnel SendGrid que vous avez créé précédemment dans [Créer un modèle SendGrid](#create-sendgrid-template).
-* Mettez à jour la valeur de l'adresse `from.email`. Utilisez une adresse e-mail valide pour éviter que l’e-mail de vérification ne soit considéré comme un courrier indésirable. 
+* Mettez à jour la valeur de l'adresse `from.email`. Utilisez une adresse e-mail valide pour éviter que l’e-mail de vérification ne soit considéré comme un courrier indésirable.
    > [!NOTE]
    > Cette adresse de messagerie doit être vérifiée dans SendGrid sous Authentification de l’expéditeur avec une authentification de domaine ou une authentification d’expéditeur unique.
 * Mettez à jour la valeur du paramètre de saisie de la ligne d’objet `personalizations.0.dynamic_template_data.subject` avec une ligne d’objet appropriée pour votre organisation.
@@ -502,7 +501,7 @@ Pour localiser l’e-mail, vous devez envoyer des chaînes localisées à SendGr
 
 1. Ajoutez des références aux éléments LocalizedResources en mettant à jour l’élément [ContentDefinitions](contentdefinitions.md).
 
-    ```XML
+    ```xml
     <!--
     <BuildingBlocks> -->
       <ContentDefinitions>
@@ -527,17 +526,17 @@ Pour localiser l’e-mail, vous devez envoyer des chaînes localisées à SendGr
 
 1. Enfin, ajoutez la transformation de revendications d’entrée suivante aux profils techniques `LocalAccountSignUpWithLogonEmail` et `LocalAccountDiscoveryUsingEmailAddress`.
 
-    ```XML
+    ```xml
     <InputClaimsTransformations>
       <InputClaimsTransformation ReferenceId="GetLocalizedStringsForEmail" />
     </InputClaimsTransformations>
     ```
-    
+
 ## <a name="optional-localize-the-ui"></a>[Facultatif] Localiser l’interface utilisateur
 
-L’élément Localization vous permet de prendre en charge plusieurs paramètres régionaux ou langues dans la stratégie pour les parcours utilisateur. La prise en charge de la localisation dans les stratégies vous permet de fournir des chaînes spécifiques à la langue à la fois pour les [Éléments de l’interface utilisateur du contrôle de l’affichage de vérification](localization-string-ids.md#verification-display-control-user-interface-elements) et les [Messages d’erreur du mot de passe à usage unique](localization-string-ids.md#one-time-password-error-messages). Ajoutez la LocalizedString suivante à vos LocalizedResources. 
+L’élément Localization vous permet de prendre en charge plusieurs paramètres régionaux ou langues dans la stratégie pour les parcours utilisateur. La prise en charge de la localisation dans les stratégies vous permet de fournir des chaînes spécifiques à la langue à la fois pour les [Éléments de l’interface utilisateur du contrôle de l’affichage de vérification](localization-string-ids.md#verification-display-control-user-interface-elements) et les [Messages d’erreur du mot de passe à usage unique](localization-string-ids.md#one-time-password-error-messages). Ajoutez la LocalizedString suivante à vos LocalizedResources.
 
-```XML
+```xml
 <LocalizedResources Id="api.custom-email.en">
   <LocalizedStrings>
     ...

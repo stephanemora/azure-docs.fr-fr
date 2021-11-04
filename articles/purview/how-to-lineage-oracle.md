@@ -1,18 +1,18 @@
 ---
 title: Métadonnées et traçabilité d’Oracle
 description: Cet article décrit l’extraction des données de traçabilité depuis une source Oracle.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/11/2021
-ms.openlocfilehash: cf415250868c74aa95e22b12d8980987f0c9dc48
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 4f790487e910c279723c38e725e6b0ee1549e0bc
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525397"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425061"
 ---
 # <a name="how-to-get-lineage-from-oracle-into-azure-purview"></a>Comment obtenir la traçabilité depuis Oracle dans Azure Purview
 

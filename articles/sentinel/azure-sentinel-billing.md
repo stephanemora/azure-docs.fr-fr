@@ -5,17 +5,19 @@ services: sentinel
 author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
-ms.custom: subject-cost-optimization
+ms.custom: subject-cost-optimization, ignite-fall-2021
 ms.topic: how-to
-ms.date: 09/02/2021
-ms.openlocfilehash: bd3ff870952701901f432660ec0069afa5151916
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/17/2021
+ms.openlocfilehash: 8997a8a3d06fb14c4ad76fe01517a7f59c0944eb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275351"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060855"
 ---
 # <a name="plan-and-manage-costs-for-azure-sentinel"></a>Planifier et gérer les coûts pour Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Cet article explique comment planifier et gérer les coûts pour Azure Sentinel. Vous devez d’abord utiliser la calculatrice de prix Azure pour planifier les coûts Azure Sentinel avant d’ajouter des ressources pour le service. Ensuite, lorsque vous ajoutez les ressources Azure, passez en revue les coûts estimés.
 
@@ -62,7 +64,7 @@ Il existe deux façons de payer pour le service Azure Sentinel : le **paiement
 
 - Log Analytics et Azure Sentinel proposent également des tarifs par **niveau d’engagement**, anciennement appelés Réservations de capacité, qui sont plus prévisibles et permettent d’économiser jusqu’à 65 % par rapport au tarif de paiement à l’utilisation.
 
-    Avec la tarification par niveau d’engagement, vous pouvez acheter un engagement à partir de 100 Go/jour. Toute utilisation dépassant le niveau d’engagement est facturée au tarif du niveau d’engagement que vous avez sélectionné. Par exemple, un niveau d’engagement de 100 Go/jour vous facture le volume de données engagé de 100 Go/jour, plus tout Go/jour supplémentaire au tarif réduit pour ce niveau.
+    Avec la tarification par niveau d’engagement, vous pouvez acheter un engagement à partir de 100 Go/jour. Toute utilisation dépassant le niveau d’engagement est facturée au tarif du niveau d’engagement que vous avez sélectionné. Par exemple, un niveau d’engagement de 100 Go vous facture le volume de données engagé de 100 Go, plus tout Go/jour supplémentaire au tarif réduit pour ce niveau.
 
     Vous pouvez augmenter votre niveau d’engagement à tout moment et le réduire tous les 31 jours, afin d’optimiser les coûts à mesure que votre volume de données augmente ou diminue. Pour voir votre niveau tarifaire Azure Sentinel actuel, sélectionnez **Paramètres** dans le volet de navigation gauche d’Azure Sentinel, puis sélectionnez l’onglet **Tarification**. Votre niveau tarifaire actuel est marqué **Niveau actuel**.
 
@@ -123,8 +125,23 @@ La suppression d’Azure Sentinel n’entraîne pas la suppression de l’espace
 
 ### <a name="free-trial"></a>Essai gratuit
 
-Vous pouvez activer Azure Sentinel sur un espace de travail Log Analytics nouveau ou existant sans frais supplémentaires pendant les 31 premiers jours. Les frais liés à Log Analytics, Automation et BYOML s’appliquent toujours pendant l’essai gratuit. L’utilisation au-delà des 31 premiers jours est facturée selon la [tarification d’Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel). 
+Essayez Azure Sentinel gratuitement pendant les 31 premiers jours. Azure Sentinel peut être activé sans coût supplémentaire sur un espace de travail Azure Monitor Log Analytics, selon les limites indiquées ci-dessous :
 
+- Les **nouveaux espaces de travail log Analytics** peuvent ingérer gratuitement jusqu’à 10 Go/jour de données de journal pour les 31 derniers jours. Les nouveaux espaces de travail incluent des espaces de travail datant de moins de trois jours.
+
+   L’ingestion des données Log Analytics et les frais Azure Sentinel sont exclus au cours de la période d’évaluation de 31 jours. Cette version d’essai gratuite est soumise à une limite de 20 espaces de travail par locataire Azure.
+
+- Les **espaces de travail log Analytics existants** peuvent activer Azure Sentinel sans coût supplémentaire. Les espaces de travail existants incluent tous les espaces de travail créés il y a plus de trois jours.
+
+   Seuls les frais Azure Sentinel sont exclus pendant la période d’essai de 31 jours.
+
+L’utilisation au-delà de ces limites sera facturée en fonction de la tarification indiquée sur la page de [Tarification Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel) . Les frais liés aux fonctionnalités supplémentaires [d’automatisation](automation-in-azure-sentinel.md) et de[ BYOML (apportez votre propre machine learning)](bring-your-own-ml.md) sont toujours applicables durant l’essai gratuit.
+
+> [!TIP]
+> Pendant la période d’essai gratuit, recherchez des ressources pour la gestion des coûts, la formation et bien plus encore sur l’onglet **Nouveautés & guides > Essai gratuit** dans Azure Sentinel.
+>
+> Cet onglet affiche également des détails sur les dates de votre version d’évaluation gratuite et le nombre de jours restants jusqu’à leur expiration.
+>
 ### <a name="free-data-sources"></a>Sources de données gratuites
 
 Les sources de données suivantes sont gratuites avec Azure Sentinel :
@@ -259,7 +276,7 @@ Pour activer le classeur Rapport sur l’utilisation de l’espace de travail :
 
 ## <a name="export-cost-data"></a>Exporter des données de coûts
 
-Vous pouvez également [exporter vos données de coûts](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) vers un compte de stockage. C’est utile quand vous ou d’autres personnes avez besoin d’effectuer des analyses supplémentaires des données concernant les coûts. Par exemple, une équipe Finance peut analyser les données avec Excel ou Power BI. Vous pouvez exporter vos coûts selon une planification quotidienne, hebdomadaire ou mensuelle, et définir une plage de dates personnalisée. L’exportation des données des coûts est la méthode recommandée pour récupérer les jeux de données des coûts.
+Vous pouvez également [exporter vos données de coûts](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) vers un compte de stockage. C’est utile quand vous ou d’autres personnes avez besoin d’effectuer une analyse supplémentaire des données concernant les coûts. Par exemple, une équipe Finance peut analyser les données avec Excel ou Power BI. Vous pouvez exporter vos coûts selon une planification quotidienne, hebdomadaire ou mensuelle, et définir une plage de dates personnalisée. L’exportation des données des coûts est la méthode recommandée pour récupérer les jeux de données des coûts.
 
 ## <a name="create-budgets"></a>Créer des budgets
 

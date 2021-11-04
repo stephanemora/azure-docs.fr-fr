@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 10/11/2021
-ms.openlocfilehash: 68f3bb388f003162786a6ce4f50e0f2dd00d48d0
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: e70970336a5e32d1edef9f336cf31e48f71aff9f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856654"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033244"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory ou Azure Synapse Analytics
 
@@ -187,7 +187,7 @@ Pour utiliser l’authentification par identité managée affectée par l’util
     - **En tant que source** : Dans l’**Explorateur de données** > **Accès**, accordez au moins l’autorisation **Exécution** à l’ensemble des dossiers en amont (y compris le dossier racine) et l’autorisation **Lecture** pour les fichiers à copier. Vous pouvez choisir d’ajouter l’autorisation à **ce dossier et tous ses enfants** pour les récurrences et de l’ajouter en tant qu’**autorisation d’accès et entrée d’autorisation par défaut**. Il n’existe aucune exigence sur le contrôle d’accès au niveau du compte (IAM).
     - **En tant que récepteur** : Dans l’**Explorateur de données** > **Accès**, accordez au moins l’autorisation **Exécution** à l’ensemble des dossiers en amont (y compris le dossier racine) et l’autorisation **Écriture** pour le dossier récepteur. Vous pouvez choisir d’ajouter l’autorisation à **ce dossier et tous ses enfants** pour les récurrences et de l’ajouter en tant qu’**autorisation d’accès et entrée d’autorisation par défaut**.
     
-2. Attribuez une ou plusieurs identités managées affectées par l’utilisateur à votre fabrique de données et [créez des informations d’identification](data-factory-service-identity.md#credentials) pour chaque identité managée affectée par l’utilisateur. 
+2. Attribuez une ou plusieurs identités managées affectées par l’utilisateur à votre fabrique de données et [créez des informations d’identification](credentials.md) pour chaque identité managée affectée par l’utilisateur. 
 
 La propriété suivante est prise en charge :
 

@@ -4,15 +4,13 @@ description: Ce guide de démarrage rapide montre comment utiliser un modèle Re
 ms.date: 03/13/2020
 ms.topic: quickstart
 ms.service: hdinsight
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: bf5b2a437d6c6165d6a95ea135d91f4f183ab4e2
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: a7d530dacaf6aab035d2dfd2817cbe120b86b3eb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558617"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077626"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-arm-template"></a>Démarrage rapide : Créer un cluster Apache Spark dans Azure HDInsight à l’aide d’un modèle Resource Manager
 

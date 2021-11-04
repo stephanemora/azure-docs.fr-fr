@@ -5,14 +5,16 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 05/26/2021
-ms.openlocfilehash: 5b60f65de72de0a039ec806a06f00145867c7648
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 0637b2b02032b87b9c51aa171868b50164ce5c69
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073351"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448839"
 ---
 # <a name="nd-a100-v4-series"></a>ND A100 v4-series
+
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
 La série de machines virtuelles A100 v4 est un nouvel ajout à la famille de GPU Azure, conçue pour un apprentissage Deep Learning de pointe et des de charges de travail HPC de montée en puissance parallèle et montée en charge. 
 
@@ -36,7 +38,7 @@ Ces instances offrent d’excellentes performances pour de nombreux outils d’I
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 2<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Non pris en charge<br>
-[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge ([en préversion](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge<br>
 InfiniBand : pris en charge, GPUDirect RDMA, 8 x 200 Gigabit HDR<br>
 Interconnexion Nvidia/NVLink : Pris en charge<br>
 <br>

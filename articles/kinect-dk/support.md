@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: azure, kinect, rvb, ir, enregistrement, capteur, sdk, accès, profondeur, vidéo, caméra, imu, mouvement, capteur, audio, microphone, matroska, kit de développement logiciel (sdk) de capteur, téléchargement, corps, suivi, support
-ms.openlocfilehash: 9bb6e0ad8ebbb763389f13e317036eacc5c7d074
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a79519ec70ca85aa1e9c59559298cc27aa6df56a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97587092"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472956"
 ---
 # <a name="azure-kinect-support-options-and-resources"></a>Options et ressources de support Azure Kinect
 
@@ -24,7 +24,7 @@ Il existe plusieurs façons d’obtenir des réponses à vos questions via des f
 
 - [StackOverflow](https://stackoverflow.com/search?q=azurekinect&s=3b855ed0-8564-4961-856f-9614aeab4c0d&s=fd9ea920-622c-4d8e-b908-ec996e1f1403), où vous pouvez poser des questions ou effectuer des recherches dans la bibliothèque de questions existante.
 - [GitHub](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK), où vous pouvez poser des questions, ouvrir de nouveaux bogues ou contribuer au développement du kit de développement logiciel (SDK) de capteur Kinect Azure.
-- [Fournir des commentaires](https://feedback.azure.com/forums/920053-azure-kinect-dk), où vous pouvez partager vos idées sur l’avenir du produit et voter pour une idée existante.
+- [Fournir des commentaires](https://feedback.azure.com/d365community/forum/fdaad9c5-f624-ec11-b6e6-000d3a4f0da0), où vous pouvez partager vos idées sur l’avenir du produit et voter pour une idée existante.
 
 ## <a name="assisted-support"></a>Support assisté
 

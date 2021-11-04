@@ -7,22 +7,22 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 5/21/2021
-ms.openlocfilehash: d095eddf150990ac5ab76f0753cae2bc44537c88
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e66940b74110e5870acfffb255e7de4942ad1b71
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471807"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131453399"
 ---
 # <a name="commonly-encountered-errors-during-or-post-migration-to-azure-database-for-mysql"></a>Erreurs généralement rencontrées pendant ou après la migration vers Azure Database pour MySQL
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 Azure Database pour MySQL est un service complètement managé, reposant sur MySQL Community Edition. L’expérience MySQL dans un environnement de service managé peut différer de l’exécution de MySQL dans votre environnement spécifique. Dans cet article, vous verrez certaines des erreurs courantes que les utilisateurs peuvent rencontrer en migrant vers Azure Database pour MySQL ou en y développant pour la première fois.
 
 ## <a name="common-connection-errors"></a>Erreurs de connexion courantes
 
-#### <a name="error-1184-08s01-aborted-connection-22-to-db-db-name-user-user-host-hostip-init_connect-command-failed"></a>ERREUR 1184 (08S01) : La connexion 22 à la base de connaissances a été abandonnée : 'db-name' user: 'user' host: 'hostIP' (échec de la commande init_connect)
+### <a name="error-1184-08s01-aborted-connection-22-to-db-db-name-user-user-host-hostip-init_connect-command-failed"></a>ERREUR 1184 (08S01) : La connexion 22 à la base de connaissances a été abandonnée : 'db-name' user: 'user' host: 'hostIP' (échec de la commande init_connect)
 
 L’erreur ci-dessus se produit après la réussite de la connexion mais avant l’exécution de toute commande quand la session est établie. Le message ci-dessus indique que vous avez affecté une valeur incorrecte au paramètre de serveur `init_connect`, qui provoque l’échec de l’initialisation de la session.
 
@@ -36,7 +36,7 @@ mysql> show databases; ERREUR 2006 (HY000) : Le serveur MySQL a disparu. Aucune
 
 Le SUPER privilège et le rôle DBA ne sont pas pris en charge sur ce service. Par conséquent, vous pouvez rencontrer certaines erreurs courantes listées ci-dessous :
 
-#### <a name="error-1419-you-do-not-have-the-super-privilege-and-binary-logging-is-enabled-you-might-want-to-use-the-less-safe-log_bin_trust_function_creators-variable"></a>ERREUR 1419 : Vous n’avez pas le SUPER privilège et la journalisation binaire est activée (vous *pouvez* utiliser la variable log_bin_trust_function_creators moins sécurisée)
+### <a name="error-1419-you-do-not-have-the-super-privilege-and-binary-logging-is-enabled-you-might-want-to-use-the-less-safe-log_bin_trust_function_creators-variable"></a>ERREUR 1419 : Vous n’avez pas le SUPER privilège et la journalisation binaire est activée (vous *pouvez* utiliser la variable log_bin_trust_function_creators moins sécurisée)
 
 L’erreur ci-dessus peut se produire lors de la création d’une fonction, d’un déclencheur comme ci-dessous ou de l’importation d’un schéma. Les instructions DDL telles que CREATE FUNCTION ou CREATE TRIGGER sont écrites dans le journal binaire, de sorte que le réplica secondaire peut les exécuter. Le thread SQL de réplica a des privilèges complets, qui peuvent être exploités pour élever les privilèges. Pour vous protéger contre ce danger sur les serveurs où la journalisation binaire est activée, le moteur MySQL exige que les créateurs de fonction stockée aient le privilège SUPER en plus du privilège CREATE ROUTINE habituel.
 
@@ -102,7 +102,7 @@ SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN ; SET @@SESSION.SQL_LOG_BIN
 
 Quand un serveur Azure Database pour MySQL est créé, une connexion d’administrateur de serveur est fournie par l’utilisateur final lors de la création du serveur. La connexion d’administrateur du serveur vous permet de créer des bases de données, d’ajouter de nouveaux utilisateurs et d’accorder des autorisations. Si la connexion d’administrateur du serveur est supprimée, ses autorisations sont révoquées ou son mot de passe est changé, vous pouvez commencer à voir des erreurs de connexion dans votre application pendant les connexions. Voici quelques erreurs parmi les plus courantes :
 
-#### <a name="error-1045-28000-access-denied-for-user-usernameip-address-using-password-yes"></a>ERREUR 1045 (28000) : Accès refusé pour l’utilisateur 'nom_utilisateur'@'adresse IP' (utilisant le mot de passe : OUI)
+### <a name="error-1045-28000-access-denied-for-user-usernameip-address-using-password-yes"></a>ERREUR 1045 (28000) : Accès refusé pour l’utilisateur 'nom_utilisateur'@'adresse IP' (utilisant le mot de passe : OUI)
 
 L’erreur ci-dessus se produit dans les cas suivants :
 
@@ -127,4 +127,4 @@ Si vous n’avez pas trouvé la réponse que vous recherchez, envisagez les opti
 * Publiez votre question sur la [page de questions Microsoft Q&A](/answers/topics/azure-database-mysql.html) ou sur [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
 * Envoyez un e-mail à l’équipe Azure Database pour MySQL [@Ask Azure Database pour MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). Cette adresse e-mail n’est pas un alias du support technique.
 * Contactez le support Azure et [créez un ticket à partir du portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Pour résoudre un problème relatif à votre compte, enregistrez une [demande de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) sur le portail Azure.
-* Pour donner votre avis ou demander de nouvelles fonctionnalités, créez une entrée via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+* Pour donner votre avis ou demander de nouvelles fonctionnalités, créez une entrée via [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0).

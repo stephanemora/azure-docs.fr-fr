@@ -5,12 +5,12 @@ keywords: app service, azure app service, diagnostics, prise en charge, applicat
 ms.topic: article
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: cf044baf233c159ff271221522f0f9faf15cc1ed
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: e912e1794f789ff2b670f512c3d575e95715d0ae
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114451585"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465836"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Présentation des diagnostics Azure App Service
 
@@ -111,4 +111,4 @@ Dans une grande équipe avec intégration continue où votre application a de no
 
 L’analyse des modifications d’application est accessible par le biais des raccourcis de vignettes **Modifications d’application** et **Blocages de l’application **dans** Disponibilité et performances** ; ainsi, vous pouvez l’utiliser en même temps que d’autres métriques. Avant d’utiliser la fonctionnalité, vous devez l’activer. Pour plus d’informations, consultez [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
 
-Publiez vos questions ou vos commentaires sur [UserVoice](https://feedback.azure.com/forums/169385-web-apps) en ajoutant « [Diag] » dans le titre.
+Publiez vos questions ou vos commentaires sur [UserVoice](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c) en ajoutant « [Diag] » dans le titre.

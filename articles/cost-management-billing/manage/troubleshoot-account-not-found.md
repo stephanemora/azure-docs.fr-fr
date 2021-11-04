@@ -1,20 +1,20 @@
 ---
 title: Résoudre les problèmes d’affichage de votre compte de facturation dans le portail Azure
 description: Cet article vous aide à résoudre les problèmes que vous pouvez rencontrer quand vous essayez d’afficher votre compte de facturation dans le portail Azure.
-author: amberbhargava
-ms.reviewer: banders
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 5b712ad275ece9293aca5f4fbe01bbc590958aff
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 64d577f72765cfe87ada9d7c30c2a1b69b373c73
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711071"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433930"
 ---
 # <a name="troubleshoot-viewing-your-billing-account-in-the-azure-portal"></a>Résoudre les problèmes d’affichage de votre compte de facturation dans le portail Azure
 

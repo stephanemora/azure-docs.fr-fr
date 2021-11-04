@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4c71ddbf1d2b435697b2707acf0b1262f2c5dc31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8094fc0eaf646a026371db3726706f92c763f6d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94517187"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460543"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Déployer des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à prendre en compte lorsque vous déployez des applications pour le cloud. Les questions et concepts de sécurité à prendre en compte pendant les phases de mise en production et de réponse du [Microsoft Security Development Lifecycle](/previous-versions/windows/desktop/cc307891(v=msdn.10)) y sont abordés. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour déployer une application plus sécurisée.
@@ -29,8 +29,7 @@ Les phases de Microsoft Security Development Lifecycle suivantes sont traitées 
 - response
 
 ## <a name="release"></a>Libérer
-La phase de mise en production consiste à préparer un projet pour la version publique.
-Il s’agit notamment de planifier des méthodes permettant d’effectuer efficacement des tâches de maintenance post-lancement et de corriger les failles de sécurité susceptibles de se produire plus tard.
+La phase de mise en production consiste à préparer un projet pour la version publique. Il s’agit notamment de planifier des méthodes permettant d’effectuer efficacement des tâches de maintenance post-lancement et de corriger les failles de sécurité susceptibles de se produire plus tard.
 
 ### <a name="check-your-applications-performance-before-you-launch"></a>Vérifier les performances de l’application avant de procéder à son lancement
 
@@ -55,6 +54,7 @@ Examiner délibérément toutes les activités de sécurité qui ont été effec
 La certification logicielle avant une mise en production permet de s’assurer que les exigences de sécurité et de confidentialité sont satisfaites. L’archivage de toutes les données pertinentes est essentiel pour la réalisation des tâches de maintenance post-lancement. Il contribue également à réduire les coûts à long terme associés au génie logiciel soutenu.
 
 ## <a name="response"></a>response
+
 La phase post-lancement de réponse se concentre sur l’équipe de développement disponible et à même de répondre correctement à tous les rapports des nouvelles menaces et vulnérabilités logicielles.
 
 ### <a name="execute-the-incident-response-plan"></a>Exécuter le plan de réponse aux incidents
@@ -64,6 +64,7 @@ Pouvoir implémenter le plan de réponse aux incidents créé dans la phase de m
 ### <a name="monitor-application-performance"></a>Analyse des performances d’une application
 
 La surveillance continue de l’application après son déploiement vous aide potentiellement à détecter les problèmes de performances ainsi que les failles de sécurité.
+
 Services Azure permettant d’aider à la surveillance des applications :
 
   - Azure Application Insights

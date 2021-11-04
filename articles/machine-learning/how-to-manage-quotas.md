@@ -10,12 +10,12 @@ ms.author: siarora
 ms.date: 06/14/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: bbfcf7fd3edb483415041a4706e7a5cd22e2d76a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 6da58d3f37af146c2cb1371cd8b18f134c24d0a2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997116"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067429"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning
 
@@ -202,4 +202,4 @@ Lorsque vous demandez une augmentation du quota, sélectionnez le service auquel
 
 + [Planifier et gérer les coûts d’Azure Machine Learning](concept-plan-manage-cost.md)
 + [Limites de service dans Azure Machine Learning](resource-limits-quotas-capacity.md)
-+ [Résolution des problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](how-to-troubleshoot-managed-online-endpoints.md)
++ [Résolution des problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](./how-to-troubleshoot-online-endpoints.md)

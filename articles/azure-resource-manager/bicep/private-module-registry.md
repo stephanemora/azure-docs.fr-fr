@@ -3,12 +3,12 @@ title: Créer un registre privé pour le module Bicep
 description: Découvrez comment configurer un registre de conteneurs Azure pour les modules Bicep privés
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.openlocfilehash: 1f14b29fb9d6740d661f74328c82758a74427355
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f09b4d65c43cbd0f73543322488e56985a16aa9e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130224065"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470316"
 ---
 # <a name="create-private-registry-for-bicep-modules-preview"></a>Créer un registre privé pour les modules Bicep (préversion)
 
@@ -29,13 +29,13 @@ Un registre Bicep est hébergé sur [Azure Container Registry (ACR)](../../conta
    Pour obtenir le nom du serveur de connexion, utilisez [Get-AzContainerRegistry](/powershell/module/az.containerregistry/get-azcontainerregistry).
 
    ```azurepowershell
-   Get-AzContainerRegistry -ResourceGroupName "<resource-group-name>" -Name "<registry-name>"
+   Get-AzContainerRegistry -ResourceGroupName "<resource-group-name>" -Name "<registry-name>"  | Select-Object LoginServer
    ```
 
    Ou utilisez [az acr show](/cli/azure/acr#az_acr_show).
 
    ```azurecli
-   az acr show --resource-group <resource-group-name> --name <registry-name>
+   az acr show --resource-group <resource-group-name> --name <registry-name> --query loginServer
    ```
 
    Le format du nom du serveur de connexion est : `<registry-name>.azurecr.io`.

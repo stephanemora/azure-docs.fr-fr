@@ -1,22 +1,29 @@
 ---
-title: Comment enregistrer et analyser les fichiers Azure
-description: Ce guide pratique décrit en détail comment analyser les fichiers Azure dans Azure Purview.
+title: Se connecter à et gérer Azure Files
+description: Ce guide explique comment se connecter à Azure Files dans Azure Purview et utiliser les fonctionnalités de Purview pour analyser et gérer votre source Azure Files.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/22/2021
-ms.openlocfilehash: 2db2b5343b8a55e29881bf0908fded0a48b90b78
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: e91e435ca2d8050a0c6d9728c4d010f9e9c844c4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209905"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076260"
 ---
-# <a name="register-and-scan-azure-files"></a>Inscription et analyse de fichiers Azure Files
+# <a name="connect-to-and-manage-azure-files-in-azure-purview"></a>Se connecter à et gérer Azure Files dans Azure Purview
+
+Cet article explique comment inscrire Azure Files et comment s’authentifier et interagir avec Azure Files dans Azure Purview. Pour plus d’informations sur Azure Purview, consultez l’[article d’introduction](overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
+
+|**Extraction des métadonnées**|  **Analyse complète**  |**Analyse incrémentielle**|**Analyse délimitée**|**Classification**|**Stratégie d'accès**|**Traçabilité**|
+|---|---|---|---|---|---|---|
+| [Oui](#register) | [Oui](#scan) | [Oui](#scan) | [Oui](#scan) | [Oui](#scan) | Non | Non |
 
 Azure Files prend en charge les analyses complètes et incrémentielles pour capturer les métadonnées et les classifications, basées sur un système par défaut et des règles de classification personnalisées.
 
@@ -28,16 +35,23 @@ Pour les types de fichiers comme CSV, TSV, PSV et SSV, le schéma est extrait qu
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Avant d’inscrire des sources de données, créez un compte Azure Purview. Pour plus d’informations sur la création d’un compte Purview, consultez [Démarrage rapide : Créer un compte Azure Purview](create-catalog-portal.md).
-- Vous devez être administrateur de la source de données pour pouvoir configurer et planifier des analyses. Pour plus d’informations, consultez [Autorisations du catalogue](catalog-permissions.md).
+* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="setting-up-authentication-for-a-scan"></a>Configuration de l’authentification pour une analyse
+* Une [ressource Purview](create-catalog-portal.md) active.
+
+* Vous devez être un administrateur de source de données et un lecteur de données pour inscrire une source et la gérer dans Purview Studio. Pour plus d’informations, consultez notre [page d’autorisations Azure Purview](catalog-permissions.md).
+
+## <a name="register"></a>Inscrire
+
+Cette section explique comment inscrire Azure Files dans Azure Purview à l’aide de [Purview Studio](https://web.purview.azure.com/).
+
+### <a name="authentication-for-registration"></a>Authentification pour l’inscription
 
 Actuellement, il n’existe qu’une seule façon de configurer l’authentification pour le partage de fichiers Azure :
 
 - Clé du compte
 
-### <a name="account-key"></a>Clé du compte
+#### <a name="account-key-to-register"></a>Clé de compte à inscrire
 
 Lorsque la méthode d’authentification sélectionnée est **Clé de compte**, vous devez récupérer votre clé d’accès et la stocker dans le coffre de clés :
 
@@ -51,7 +65,7 @@ Lorsque la méthode d’authentification sélectionnée est **Clé de compte**, 
 1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide de la clé pour configurer votre analyse.
 
-## <a name="register-an-azure-files-storage-account"></a>Inscription d’un compte de stockage Azure Files
+### <a name="steps-to-register"></a>Procédure d’inscription
 
 Pour inscrire un nouveau compte Azure Files dans votre catalogue de données, suivez ces étapes :
 
@@ -73,7 +87,11 @@ Sur l’écran **Inscrire des sources (Azure Files)** , suivez ces étapes :
 
 :::image type="content" source="media/register-scan-azure-files/azure-file-register-source.png" alt-text="options pour inscrire des sources" border="true":::
 
-## <a name="creating-and-running-a-scan"></a>Création et exécution d’une analyse
+## <a name="scan"></a>Analyser
+
+Suivez les étapes ci-dessous pour analyser Azure Files pour identifier automatiquement les ressources et classer vos données. Pour plus d’informations sur l’analyse en général, consultez notre [Présentation des analyses et de l’ingestion](concept-scans-and-ingestion.md)
+
+### <a name="create-and-run-scan"></a>Créer et exécuter des scripts
 
 Pour créer et exécuter une nouvelle analyse, procédez comme suit :
 
@@ -83,7 +101,7 @@ Pour créer et exécuter une nouvelle analyse, procédez comme suit :
 
 1. Sélectionnez **Nouvelle analyse**.
 
-1. Sélectionnez les informations d’identification de la clé de compte pour vous connecter à votre source de données. 
+1. Sélectionnez les informations d’identification de la clé de compte pour vous connecter à votre source de données.
 
    :::image type="content" source="media/register-scan-azure-files/set-up-scan-azure-file.png" alt-text="Configurer l’analyse":::
 
@@ -101,10 +119,12 @@ Pour créer et exécuter une nouvelle analyse, procédez comme suit :
 
 1. Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
 
-
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Navigation dans le catalogue de données Azure Purview](how-to-browse-catalog.md)
-- [Recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)
+Maintenant que vous avez inscrit votre source, suivez les guides ci-dessous pour en savoir plus sur Purview et sur vos données.
+
+- [Insights de données dans Azure Purview](concept-insights.md)
+- [Lignage dans Azure Purview](catalog-lineage-user-guide.md)
+- [Rechercher dans un catalogue de données](how-to-search-catalog.md)

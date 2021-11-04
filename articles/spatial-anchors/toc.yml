@@ -1,141 +1,142 @@
-- name: Documentation Spatial Anchors
-  href: index.yml
-- name: Vue d’ensemble
-  items:
-    - name: À propos de Spatial Anchors
-      href: overview.md
-- name: Démarrages rapides
-  expanded: true
-  items:
-    - name: Créer une application Unity
-      expanded: true
-      items:
-        - name: Vue d’ensemble de Unity
-          href: unity-overview.md
-        - name: HoloLens
-          href: quickstarts/get-started-unity-hololens.md
-          displayName: 'Azure CLI, az spatial-anchors-account'
-        - name: Android
-          href: quickstarts/get-started-unity-android.md
-          displayName: 'Azure CLI, az spatial-anchors-account'
-        - name: iOS
-          href: quickstarts/get-started-unity-ios.md
-          displayName: 'Azure CLI, az spatial-anchors-account'
-    - name: Créer une application HoloLens
-      href: quickstarts/get-started-hololens.md
-      displayName: 'Azure CLI, az spatial-anchors-account'
-    - name: Créer une application Android
-      href: quickstarts/get-started-android.md
-      displayName: 'Azure CLI, az spatial-anchors-account'
-    - name: Créer une application iOS
-      href: quickstarts/get-started-ios.md
-      displayName: 'Azure CLI, az spatial-anchors-account'
-    - name: Créer une application Xamarin
-      items:
-        - name: Android
-          href: quickstarts/get-started-xamarin-android.md
-          displayName: 'Azure CLI, az spatial-anchors-account'
-        - name: iOS
-          href: quickstarts/get-started-xamarin-ios.md
-          displayName: 'Azure CLI, az spatial-anchors-account'
-- name: Tutoriels
-  items:
-    - name: Partage entre les sessions et les appareils
-      href: tutorials/tutorial-share-anchors-across-devices.md
-      displayName: 'Azure CLI, az spatial-anchors-account'
-      items:
-        - name: Partage persistant avec Azure Cosmos DB
-          href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
-    - name: Démarrage d’une nouvelle application Unity HoloLens
-      href: tutorials/tutorial-new-unity-hololens-app.md
-      displayName: 'Azure CLI, az spatial-anchors-account'
-    - name: Démarrage d’une nouvelle application Android
-      href: tutorials/tutorial-new-android-app.md
-      displayName: 'Azure CLI, az spatial-anchors-account'
-- name: Procédures
-  items:
-    - name: Créer et localiser des ancres
-      href: create-locate-anchors-overview.md
-      items:
-        - name: En Unity
-          href: how-tos/create-locate-anchors-unity.md
-        - name: En Objective-C
-          href: how-tos/create-locate-anchors-objc.md
-        - name: En Swift
-          href: how-tos/create-locate-anchors-swift.md
-        - name: En Java
-          href: how-tos/create-locate-anchors-java.md
-        - name: En C++/NDK
-          href: how-tos/create-locate-anchors-cpp-ndk.md
-        - name: En C++/WinRT
-          href: how-tos/create-locate-anchors-cpp-winrt.md
-    - name: Utiliser la relocalisation grossière pour découvrir des ancres à proximité
-      items:
-        - name: En C#/Unity
-          href: how-tos/set-up-coarse-reloc-unity.md
-        - name: En Objective-C
-          href: how-tos/set-up-coarse-reloc-objc.md
-        - name: En Swift
-          href: how-tos/set-up-coarse-reloc-swift.md
-        - name: En Java
-          href: how-tos/set-up-coarse-reloc-java.md
-        - name: En C++/NDK
-          href: how-tos/set-up-coarse-reloc-cpp-ndk.md
-        - name: En C++/WinRT
-          href: how-tos/set-up-coarse-reloc-cpp-winrt.md
-    - name: Utiliser la relocalisation approximative sans session d’ancre
-      href: how-tos/use-coarse-relocalization-without-anchor-session.md
-    - name: Configuration du projet
-      items:
-        - name: C++/WinRT
-          href: how-tos/setup-cpp-winrt-project.md
-        - name: Unity
-          href: how-tos/setup-unity-project.md
-- name: Exemples
-  items:
-    - name: Exemples Azure Spatial Anchors (GitHub)
-      href: 'https://github.com/Azure/azure-spatial-anchors-samples'
-- name: Concepts
-  items:
-    - name: Authentification
-      href: concepts/authentication.md
-    - name: Relations entre les ancres
-      href: concepts/anchor-relationships-way-finding.md
-    - name: Recommandations d’expérience
-      href: concepts/guidelines-effective-anchor-experiences.md
-    - name: Journalisation et diagnostics
-      href: concepts/logging-diagnostics.md
-    - name: Relocalisation grossière
-      href: concepts/coarse-reloc.md
-    - name: Stratégie de localisation d’ancre
-      href: concepts/anchor-locate-strategy.md
-- name: References
-  items:
-    - name: Kit SDK pour Unity
-      href: /dotnet/api/Microsoft.Azure.SpatialAnchors/
-    - name: Kit SDK pour iOS Objective-C
-      href: /objectivec/api/spatial-anchors/
-    - name: Kit SDK pour Android Java
-      href: /java/api/com.microsoft.azure.spatialanchors/
-    - name: Kit SDK pour Android NDK
-      href: /cpp/api/spatial-anchors/ndk/
-    - name: Kit SDK pour HoloLens C++/WinRT
-      href: /cpp/api/spatial-anchors/winrt/
-    - name: Azure CLI
-      href: /cli/azure/spatial-anchors-account
-    - name: Azure PowerShell
-      href: /powershell/module/az.mixedreality
-- name: Ressources
-  items:
-    - name: Notes de publication
-      href: 'https://github.com/Azure/azure-spatial-anchors-samples/releases'
-    - name: API REST pour la gestion des ressources Azure Mixed Reality
-      href: /rest/api/mixedreality/
-    - name: Questions fréquentes (FAQ)
-      href: spatial-anchor-faq.yml
-    - name: Indiquer des commentaires sur le produit
-      href: 'https://feedback.azure.com/forums/919252-azure-spatial-anchors'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-spatial-anchors'
-    - name: Support
-      href: spatial-anchor-support.md
+items:
+  - name: Documentation Spatial Anchors
+    href: index.yml
+  - name: Vue d'ensemble
+    items:
+      - name: À propos de Spatial Anchors
+        href: overview.md
+  - name: Démarrages rapides
+    expanded: true
+    items:
+      - name: Créer une application Unity
+        expanded: true
+        items:
+          - name: Vue d’ensemble de Unity
+            href: unity-overview.md
+          - name: HoloLens
+            href: quickstarts/get-started-unity-hololens.md
+            displayName: 'Azure CLI, az spatial-anchors-account'
+          - name: Android
+            href: quickstarts/get-started-unity-android.md
+            displayName: 'Azure CLI, az spatial-anchors-account'
+          - name: iOS
+            href: quickstarts/get-started-unity-ios.md
+            displayName: 'Azure CLI, az spatial-anchors-account'
+      - name: Créer une application HoloLens
+        href: quickstarts/get-started-hololens.md
+        displayName: 'Azure CLI, az spatial-anchors-account'
+      - name: Créer une application Android
+        href: quickstarts/get-started-android.md
+        displayName: 'Azure CLI, az spatial-anchors-account'
+      - name: Créer une application iOS
+        href: quickstarts/get-started-ios.md
+        displayName: 'Azure CLI, az spatial-anchors-account'
+      - name: Créer une application Xamarin
+        items:
+          - name: Android
+            href: quickstarts/get-started-xamarin-android.md
+            displayName: 'Azure CLI, az spatial-anchors-account'
+          - name: iOS
+            href: quickstarts/get-started-xamarin-ios.md
+            displayName: 'Azure CLI, az spatial-anchors-account'
+  - name: Tutoriels
+    items:
+      - name: Partage entre les sessions et les appareils
+        href: tutorials/tutorial-share-anchors-across-devices.md
+        displayName: 'Azure CLI, az spatial-anchors-account'
+        items:
+          - name: Partage persistant avec Azure Cosmos DB
+            href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+      - name: Démarrage d’une nouvelle application Unity HoloLens
+        href: tutorials/tutorial-new-unity-hololens-app.md
+        displayName: 'Azure CLI, az spatial-anchors-account'
+      - name: Démarrage d’une nouvelle application Android
+        href: tutorials/tutorial-new-android-app.md
+        displayName: 'Azure CLI, az spatial-anchors-account'
+  - name: Procédures
+    items:
+      - name: Créer et localiser des ancres
+        href: create-locate-anchors-overview.md
+        items:
+          - name: En Unity
+            href: how-tos/create-locate-anchors-unity.md
+          - name: En Objective-C
+            href: how-tos/create-locate-anchors-objc.md
+          - name: En Swift
+            href: how-tos/create-locate-anchors-swift.md
+          - name: En Java
+            href: how-tos/create-locate-anchors-java.md
+          - name: En C++/NDK
+            href: how-tos/create-locate-anchors-cpp-ndk.md
+          - name: En C++/WinRT
+            href: how-tos/create-locate-anchors-cpp-winrt.md
+      - name: Utiliser la relocalisation grossière pour découvrir des ancres à proximité
+        items:
+          - name: En C#/Unity
+            href: how-tos/set-up-coarse-reloc-unity.md
+          - name: En Objective-C
+            href: how-tos/set-up-coarse-reloc-objc.md
+          - name: En Swift
+            href: how-tos/set-up-coarse-reloc-swift.md
+          - name: En Java
+            href: how-tos/set-up-coarse-reloc-java.md
+          - name: En C++/NDK
+            href: how-tos/set-up-coarse-reloc-cpp-ndk.md
+          - name: En C++/WinRT
+            href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+      - name: Utiliser la relocalisation approximative sans session d’ancre
+        href: how-tos/use-coarse-relocalization-without-anchor-session.md
+      - name: Configuration du projet
+        items:
+          - name: C++/WinRT
+            href: how-tos/setup-cpp-winrt-project.md
+          - name: Unity
+            href: how-tos/setup-unity-project.md
+  - name: Exemples
+    items:
+      - name: Exemples Azure Spatial Anchors (GitHub)
+        href: 'https://github.com/Azure/azure-spatial-anchors-samples'
+  - name: Concepts
+    items:
+      - name: Authentification
+        href: concepts/authentication.md
+      - name: Relations entre les ancres
+        href: concepts/anchor-relationships-way-finding.md
+      - name: Recommandations d’expérience
+        href: concepts/guidelines-effective-anchor-experiences.md
+      - name: Journalisation et diagnostics
+        href: concepts/logging-diagnostics.md
+      - name: Relocalisation grossière
+        href: concepts/coarse-reloc.md
+      - name: Stratégie de localisation d’ancre
+        href: concepts/anchor-locate-strategy.md
+  - name: References
+    items:
+      - name: Kit SDK pour Unity
+        href: /dotnet/api/Microsoft.Azure.SpatialAnchors/
+      - name: Kit SDK pour iOS Objective-C
+        href: /objectivec/api/spatial-anchors/
+      - name: Kit SDK pour Android Java
+        href: /java/api/com.microsoft.azure.spatialanchors/
+      - name: Kit SDK pour Android NDK
+        href: /cpp/api/spatial-anchors/ndk/
+      - name: Kit SDK pour HoloLens C++/WinRT
+        href: /cpp/api/spatial-anchors/winrt/
+      - name: Azure CLI
+        href: /cli/azure/spatial-anchors-account
+      - name: Azure PowerShell
+        href: /powershell/module/az.mixedreality
+  - name: Ressources
+    items:
+      - name: Notes de publication
+        href: 'https://github.com/Azure/azure-spatial-anchors-samples/releases'
+      - name: API REST pour la gestion des ressources Azure Mixed Reality
+        href: /rest/api/mixedreality/
+      - name: Questions fréquentes (FAQ)
+        href: spatial-anchor-faq.yml
+      - name: Indiquer des commentaires sur le produit
+        href: 'https://feedback.azure.com/d365community/forum/f47d9b25-0725-ec11-b6e6-000d3a4f07b8'
+      - name: Stack Overflow
+        href: 'https://stackoverflow.com/questions/tagged/azure-spatial-anchors'
+      - name: Support
+        href: spatial-anchor-support.md

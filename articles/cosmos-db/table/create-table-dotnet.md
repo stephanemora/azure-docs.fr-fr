@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/26/2021
 ms.author: daberry
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b13ac1d3d72a28538a2bdbdc149017848105562c
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 3a815fe51815a967c23de9b0d95a0411e70dbd35
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619668"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423315"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec le SDK .NET et Azure Cosmos DB
 
@@ -298,7 +298,7 @@ public TablesService(TableClient tableClient)
 
 La classe [TableClient](/dotnet/api/azure.data.tables.tableclient) contient une méthode nommée [Query](/dotnet/api/azure.data.tables.tableclient.query) qui vous permet de sélectionner des lignes de la table.  Dans cet exemple, étant donné qu’aucun paramètre n’est passé à la méthode, toutes les lignes sont sélectionnées dans la table.
 
-La méthode accepte également un paramètre générique de type [ITableEntity](/dotnet/api/azure.data.tables.itableentity) qui spécifie que les données de la classe de modèle seront retournées en tant que telles. En l’occurrence, la classe intégrée [TableEntity](/dotnet/api/azure.data.tables.itableentity) est utilisée, ce qui signifie que la méthode `Query` retournera une collection `Pageable\<TableEntity\>` comme résultats.
+La méthode accepte également un paramètre générique de type [ITableEntity](/dotnet/api/azure.data.tables.itableentity) qui spécifie que les données de la classe de modèle seront retournées en tant que telles. En l’occurrence, la classe intégrée [TableEntity](/dotnet/api/azure.data.tables.itableentity) est utilisée, ce qui signifie que la méthode `Query` retournera une collection `Pageable<TableEntity>` comme résultats.
 
 ```csharp
 public IEnumerable<WeatherDataModel> GetAllRows()

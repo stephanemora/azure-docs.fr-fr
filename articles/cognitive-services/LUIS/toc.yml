@@ -402,7 +402,7 @@ items:
             href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
           - name: API Vérification orthographique Bing
             href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
-          - name: Analyse de texte
+          - name: Service Language
             href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
           - name: Texte de reconnaissances
             href: 'https://github.com/Microsoft/Recognizers-Text'

@@ -1,18 +1,18 @@
 ---
 title: Détails sur les formats de données pris en charge | Microsoft Azure Maps
 description: Découvrez comment les données spatiales délimitées sont analysées dans le module d’E/S spatiales.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 03/03/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 278dae8b3569dd0ff92d3ba12197d1049070167a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0d8c4d1a3521598e8b42b26af8af917cd180954b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562995"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473867"
 ---
 # <a name="supported-data-format-details"></a>Détails sur les formats de données pris en charge
 
@@ -23,7 +23,7 @@ Cet article fournit des détails sur la prise en charge de la lecture et de l’
 Le module d’E/S spatiales prend en charge les balises XML des espaces de noms suivants.
 
 | Préfixe d’espace de noms | URI d’espace de noms   | Notes                                                                    |
-|:------------------|:-----------------|:----------------------------------------|
+|:-----------------|:----------------|:----------------------------------------|
 | `atom`           | `http://www.w3.org/2005/Atom`   |                                         |
 | `geo`            | `http://www.w3.org/2003/01/geo/wgs84_pos#`  | Prise en charge de la lecture seule dans les fichiers GeoRSS.           |
 | `georss`         | `http://www.georss.org/georss`  |                                                |
@@ -44,87 +44,87 @@ Le module d’E/S spatiales prend en charge les éléments XML suivants. Les bal
 
 Le module d’E/S spatiales prend en charge les éléments KML suivants.
 
-| Nom de l’élément         | Lire    | Write   | Notes                                                                                                                      |
-|----------------------|---------|---------|----------------------------------------------------------------------------------------------------------------------------|
+| Nom de l’élément         | Lire    | Write   | Notes                                                                   |
+|----------------------|---------|---------|-------------------------------------------------------------------------|
 | `address`            | partial | Oui     | L’objet est analysé, mais n’est pas utilisé pour le positionnement de la forme.                                                                    |
 | `AddressDetails`     | partial | non      | L’objet est analysé, mais n’est pas utilisé pour le positionnement de la forme.                                                                    |
-| `atom:author`        | Oui     | Oui     |                                                                                                                            |
-| `atom:link`          | Oui     | Oui     |                                                                                                                            |
+| `atom:author`        | Oui     | oui     |                                                                                                                            |
+| `atom:link`          | Oui     | oui     |                                                                                                                            |
 | `atom:name`          | Oui     | Oui     |                                                                                                                            |
 | `BalloonStyle`       | partial | partial | `displayMode` n’est pas pris en charge. Converti en `PopupTemplate`. Pour écrire, ajoutez une propriété `popupTemplate` en tant que propriété de la fonctionnalité pour laquelle vous souhaitez écrire. |
-| `begin`              | Oui     | Oui     |                                                                                                                            |
+| `begin`              | Oui     | oui     |                                                                                                                            |
 | `color`              | Oui     | Oui     | Inclut `#AABBGGRR` et `#BBGGRR`. Analysé dans une chaîne de couleur CSS                                                           |
-| `colorMode`          | Oui     | Non      |                                                                                                                            |
-| `coordinates`        | Oui     | Oui     |                                                                                                                            |
-| `Data`               | Oui     | Oui     |                                                                                                                            |
-| `description`        | Oui     | Oui     |                                                                                                                            |
-| `displayName`        | Oui     | Oui     |                                                                                                                            |
-| `Document`           | Oui     | Oui     |                                                                                                                            |
+| `colorMode`          | Oui     | non      |                                                                                                                            |
+| `coordinates`        | oui     | Oui     |                                                                                                                            |
+| `Data`               | oui     | Oui     |                                                                                                                            |
+| `description`        | oui     | Oui     |                                                                                                                            |
+| `displayName`        | oui     | Oui     |                                                                                                                            |
+| `Document`           | oui     | Oui     |                                                                                                                            |
 | `drawOrder`          | partial | non      | Lecture pour les superpositions de sol et utilisées pour les trier. 
-| `east`               | Oui     | Oui     |                                                                                                                            |
-| `end`                | Oui     | Oui     |                                                                                                                            |
+| `east`               | Oui     | oui     |                                                                                                                            |
+| `end`                | Oui     | oui     |                                                                                                                            |
 | `ExtendedData`       | Oui     | Oui     | Prend en charge les éléments `Data`, `SimpleData` ou `Schema` non typés, ainsi que les remplacements d’entité du formulaire `$[dataName]`.                      |
 | `extrude`            | partial | partial | Uniquement pris en charge pour les polygones. Les polygéométries qui comportent des polygones de différentes hauteurs seront décomposées en fonctionnalités individuelles. Les styles de ligne ne sont pas pris en charge. Les polygones dont l’altitude est égale à 0 sont rendus sous forme de polygone plat. Lors de la lecture, l’altitude de la première coordonnée dans l’anneau extérieur est ajoutée en tant que propriété de hauteur du polygone. Ensuite, l’altitude de la première coordonnée sera utilisée pour restituer le polygone sur la carte. |
-| `fill`               | Oui     | Oui     |                                                                                                                            |
-| `Folder`             | Oui     | Oui     |                                                                                                                            |
+| `fill`               | Oui     | oui     |                                                                                                                            |
+| `Folder`             | Oui     | oui     |                                                                                                                            |
 | `GroundOverlay`      | Oui     | Oui     | `color` n’est pas pris en charge                                                                                                   |
 | `heading`            | partial | non      | Analysé mais non restitué par `SimpleDataLayer`. Écrit uniquement si les données sont stockées dans la propriété de la forme.                 |
 | `hotSpot`            | Oui     | partial | Écrit uniquement si les données sont stockées dans la propriété de la forme. Les unités sont envoyées en tant que « pixels » uniquement.                         |
 | `href`               | Oui     | Oui     |                                                                                                                            |
 | `Icon`               | partial | partial | Analysé mais non restitué par `SimpleDataLayer`. Écrit uniquement la propriété Icon de la forme si elle contient des données URI. Seul `href` est pris en charge. |
 | `IconStyle`          | partial | partial | Les valeurs `icon`, `heading`, `colorMode` et `hotspots` sont analysées, mais elles ne sont pas rendues par `SimpleDataLayer`         |
-| `innerBoundaryIs`    | Oui     | Oui     |                                                                                                                            |
-| `kml`                | Oui     | Oui     |                                                                                                                            |
-| `LabelStyle`         | Non      | Non      |                                                                                                                            |
-| `LatLonBox`          | Oui     | Oui     |                                                                                                                            |
-| `gx:LatLonQuad`      | Oui     | Oui     |                                                                                                                            |
-| `LinearRing`         | Oui     | Oui     |                                                                                                                            |
-| `LineString`         | Oui     | Oui     |                                                                                                                            |
-| `LineStyle`          | Oui     | Oui     | `colorMode` n’est pas pris en charge.                                                                                         |
+| `innerBoundaryIs`    | Oui     | oui     |                                                                                                                            |
+| `kml`                | oui     | oui     |                                                                                                                            |
+| `LabelStyle`         | non      | non      |                                                                                                                            |
+| `LatLonBox`          | Oui     | oui     |                                                                                                                            |
+| `gx:LatLonQuad`      | oui     | oui     |                                                                                                                            |
+| `LinearRing`         | oui     | oui     |                                                                                                                            |
+| `LineString`         | oui     | oui     |                                                                                                                            |
+| `LineStyle`          | oui     | Oui     | `colorMode` n’est pas pris en charge.                                                                                         |
 | `Link`               | Oui     | non      | Seule la propriété `href` est prise en charge pour les liens réseau.                                                                   |
 | `MultiGeometry`      | partial | partial | Peut être décomposée en fonctionnalités individuelles lors de la lecture.                                                                     |
-| `name`               | Oui     | Oui     |                                                                                                                            |
-| `NetworkLink`        | Oui     | non      | Les liens doivent se trouver dans le même domaine que le document.                                                                  |
-| `NetworkLinkControl` | non      | Non      |                                                                                                                            |
-| `north`              | Oui     | Oui     |                                                                                                                            |
-| `open`               | Oui     | Oui     |                                                                                                                            |
-| `outerBoundaryIs`    | Oui     | Oui     |                                                                                                                            |
-| `outline`            | Oui     | Oui     |                                                                                                                            |
-| `overlayXY`          | Non      | non      |                                                                                                                            |
+| `name`               | Oui     | oui     |                                                                                                                            |
+| `NetworkLink`        | oui     | non      | Les liens doivent se trouver dans le même domaine que le document.                                                                  |
+| `NetworkLinkControl` | non      | non      |                                                                                                                            |
+| `north`              | Oui     | oui     |                                                                                                                            |
+| `open`               | oui     | oui     |                                                                                                                            |
+| `outerBoundaryIs`    | oui     | oui     |                                                                                                                            |
+| `outline`            | oui     | oui     |                                                                                                                            |
+| `overlayXY`          | non      | non      |                                                                                                                            |
 | `Pair`               | partial | non      | Seul le style `normal` dans un `StyleMap` est pris en charge. `highlight` n’est pas pris en charge.                                   |
-| `phoneNumber`        | Oui     | Oui     |                                                                                                                            |
-| `PhotoOverlay`       | Non      | Non      |                                                                                                                            |
-| `Placemark`          | Oui     | Oui     |                                                                                                                            |
-| `Point`              | Oui     | Oui     |                                                                                                                            |
-| `Polygon`            | Oui     | Oui     |                                                                                                                            |
-| `PolyStyle`          | Oui     | Oui     |                                                                                                                            |
+| `phoneNumber`        | Oui     | oui     |                                                                                                                            |
+| `PhotoOverlay`       | non      | non      |                                                                                                                            |
+| `Placemark`          | Oui     | oui     |                                                                                                                            |
+| `Point`              | oui     | oui     |                                                                                                                            |
+| `Polygon`            | oui     | oui     |                                                                                                                            |
+| `PolyStyle`          | oui     | Oui     |                                                                                                                            |
 | `Region`             | partial | partial | `LatLongBox` est pris en charge au niveau du document.                                                                      |
-| `rotation`           | non      | Non      |                                                                                                                            |
-| `rotationXY`         | Non      | Non      |                                                                                                                            |
-| `scale`              | Non      | Non      |                                                                                                                            |
-| `Schema`             | Oui     | Oui     |                                                                                                                            |
-| `SchemaData`         | Oui     | Oui     |                                                                                                                            |
+| `rotation`           | non      | non      |                                                                                                                            |
+| `rotationXY`         | non      | non      |                                                                                                                            |
+| `scale`              | non      | non      |                                                                                                                            |
+| `Schema`             | Oui     | oui     |                                                                                                                            |
+| `SchemaData`         | oui     | Oui     |                                                                                                                            |
 | `schemaUrl`          | partial | Oui     | Ne prend pas en charge le chargement de styles à partir de documents externes qui ne sont pas inclus dans un KMZ.                             |
-| `ScreenOverlay`      | non      | Non      |                                                                                                                            |
-| `screenXY`           | Non      | Non      |                                                                                                                            |
-| `SimpleData`         | Oui     | Oui     |                                                                                                                            |
-| `SimpleField`        | Oui     | Oui     |                                                                                                                            |
-| `size`               | Non      | non      |                                                                                                                            |
+| `ScreenOverlay`      | non      | non      |                                                                                                                            |
+| `screenXY`           | non      | non      |                                                                                                                            |
+| `SimpleData`         | Oui     | oui     |                                                                                                                            |
+| `SimpleField`        | oui     | oui     |                                                                                                                            |
+| `size`               | non      | non      |                                                                                                                            |
 | `Snippet`            | partial | partial | L’attribut `maxLines` est ignoré.                                                                                  |
-| `south`              | Oui     | Oui     |                                                                                                                            |
-| `Style`              | Oui     | Oui     |                                                                                                                            |
+| `south`              | Oui     | oui     |                                                                                                                            |
+| `Style`              | oui     | Oui     |                                                                                                                            |
 | `StyleMap`           | partial | non      | Seul le style normal dans un `StyleMap` est pris en charge.                                                                        |
 | `styleUrl`           | partial | Oui     | Les URL de style externe ne sont pas prises en charge.                                                                         |
 | `text`               | Oui     | Oui     | Le remplacement de `$[geDirections]` n’est pas pris en charge                                                                          |
 | `textColor`          | Oui     | Oui     |                                                                                                                            |
-| `TimeSpan`           | Oui     | Oui     |                                                                                                                            |
-| `TimeStamp`          | Oui     | Oui     |                                                                                                                            |
-| `value`              | Oui     | Oui     |                                                                                                                            |
-| `viewRefreshMode`    | partial | non      |  Si vous pointez vers un service WMS, seul `onStop` est pris en charge pour les superpositions de sol. Ajoute `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` à l’URL et se met à jour au fur et à mesure du déplacement de la carte.  |
+| `TimeSpan`           | oui     | oui     |                                                                                                                            |
+| `TimeStamp`          | oui     | oui     |                                                                                                                            |
+| `value`              | oui     | Oui     |                                                                                                                            |
+| `viewRefreshMode`    | partial | non      |  Si vous pointez vers un service WMS, seul `onStop` est pris en charge pour les superpositions de sol. Ajoute `BBOX={bboxWest},{bboxSouth},{bboxEast},{bboxNorth}` à l’URL et se met à jour au fur et à mesure du déplacement de la carte.  |
 | `visibility`         | Oui     | Oui     |                                                                                                                            |
-| `west`               | Oui     | Oui     |                                                                                                                            |
-| `when`               | Oui     | Oui     |                                                                                                                            |
-| `width`              | Oui     | Oui     |                                                                                                                            |
+| `west`               | oui     | oui     |                                                                                                                            |
+| `when`               | oui     | oui     |                                                                                                                            |
+| `width`              | oui     | Oui     |                                                                                                                            |
 
 ### <a name="georss-elements"></a>Éléments GeoRSS
 
@@ -132,39 +132,39 @@ Le module d’E/S spatiales prend en charge les éléments GeoRSS suivants.
 
 | Nom de l’élément             | Lire    | Write | Notes                                                                                          |
 |--------------------------|---------|-------|------------------------------------------------------------------------------------------------|
-| `atom:author`            | Oui     | Oui   |                                                                                                |
-| `atom:category`          | Oui     | Oui   |                                                                                                |
-| `atom:content`           | Oui     | Oui   |                                                                                                |
-| `atom:contributor`       | Oui     | Oui   |                                                                                                |
-| `atom:email`             | Oui     | Oui   |                                                                                                |
-| `atom:entry`             | Oui     | Oui   |                                                                                                |
-| `atom:feed`              | Oui     | Oui   |                                                                                                |
-| `atom:icon`              | Oui     | Oui   |                                                                                                |
-| `atom:id`                | Oui     | Oui   |                                                                                                |
-| `atom:link`              | Oui     | Oui   |                                                                                                |
-| `atom:logo`              | Oui     | Oui   |                                                                                                |
-| `atom:name`              | Oui     | Oui   |                                                                                                |
-| `atom:published`         | Oui     | Oui   |                                                                                                |
-| `atom:rights`            | Oui     | Oui   |                                                                                                |
-| `atom:source`            | Oui     | Oui   |                                                                                                |
-| `atom:subtitle`          | Oui     | Oui   |                                                                                                |
-| `atom:summary`           | Oui     | Oui   |                                                                                                |
-| `atom:title`             | Oui     | Oui   |                                                                                                |
-| `atom:updated`           | Oui     | Oui   |                                                                                                |
-| `atom:uri`               | Oui     | Oui   |                                                                                                |
-| `geo:lat`                | Oui     | non    | Écrit sous la forme d’un `georss:point`.                                                                   |
+| `atom:author`            | Oui     | oui   |                                                                                                |
+| `atom:category`          | oui     | oui   |                                                                                                |
+| `atom:content`           | oui     | oui   |                                                                                                |
+| `atom:contributor`       | oui     | oui   |                                                                                                |
+| `atom:email`             | oui     | oui   |                                                                                                |
+| `atom:entry`             | oui     | oui   |                                                                                                |
+| `atom:feed`              | oui     | oui   |                                                                                                |
+| `atom:icon`              | oui     | oui   |                                                                                                |
+| `atom:id`                | oui     | oui   |                                                                                                |
+| `atom:link`              | oui     | oui   |                                                                                                |
+| `atom:logo`              | oui     | oui   |                                                                                                |
+| `atom:name`              | oui     | oui   |                                                                                                |
+| `atom:published`         | oui     | oui   |                                                                                                |
+| `atom:rights`            | oui     | oui   |                                                                                                |
+| `atom:source`            | oui     | oui   |                                                                                                |
+| `atom:subtitle`          | oui     | oui   |                                                                                                |
+| `atom:summary`           | oui     | oui   |                                                                                                |
+| `atom:title`             | oui     | oui   |                                                                                                |
+| `atom:updated`           | oui     | oui   |                                                                                                |
+| `atom:uri`               | oui     | oui   |                                                                                                |
+| `geo:lat`                | oui     | non    | Écrit sous la forme d’un `georss:point`.                                                                   |
 | `geo:lon`                | Oui     | non    | Écrit sous la forme d’un `georss:point`.                                                                   |
 | `geo:long`               | Oui     | non    | Écrit sous la forme d’un `georss:point`.                                                                   |
 | `georss:box`             | Oui     | non    | Lu comme un polygone et doté d’une propriété `subType` de « Rectangle ».                                |
 | `georss:circle`          | Oui     | Oui   |                                                                                                |
-| `georss:elev`            | Oui     | Oui   |                                                                                                |
-| `georss:featurename`     | Oui     | Oui   |                                                                                                |
-| `georss:featuretypetag`  | Oui     | Oui   |                                                                                                |
-| `georss:floor`           | Oui     | Oui   |                                                                                                |
-| `georss:line`            | Oui     | Oui   |                                                                                                |
-| `georss:point`           | Oui     | Oui   |                                                                                                |
-| `georss:polygon`         | Oui     | Oui   |                                                                                                |
-| `georss:radius`          | Oui     | Oui   |                                                                                                |
+| `georss:elev`            | oui     | oui   |                                                                                                |
+| `georss:featurename`     | oui     | oui   |                                                                                                |
+| `georss:featuretypetag`  | oui     | oui   |                                                                                                |
+| `georss:floor`           | oui     | oui   |                                                                                                |
+| `georss:line`            | oui     | oui   |                                                                                                |
+| `georss:point`           | oui     | oui   |                                                                                                |
+| `georss:polygon`         | oui     | oui   |                                                                                                |
+| `georss:radius`          | oui     | oui   |                                                                                                |
 | `georss:relationshiptag` | Oui     | Oui   |                                                                                                |
 | `georss:where`           | Oui     | Oui   |                                                                                                |
 | `geourl:latitude`        | Oui     | non    | Écrit sous la forme d’un `georss:point`.                                                                   |
@@ -173,74 +173,74 @@ Le module d’E/S spatiales prend en charge les éléments GeoRSS suivants.
 | `rss`                    | Oui     | non    | GeoRSS écrit au format ATOM.                                                                 |
 | `rss:author`             | Oui     | partial | Écrit sous la forme d’un `atom:author`.                                                                 |
 | `rss:category`           | Oui     | partial | Écrit sous la forme d’un `atom:category`.                                                               |
-| `rss:channel`            | Oui     | Non    |                                                                                                |
-| `rss:cloud`              | Oui     | Non    |                                                                                                |
-| `rss:comments`           | Oui     | Non    |                                                                                                |
+| `rss:channel`            | Oui     | non    |                                                                                                |
+| `rss:cloud`              | oui     | non    |                                                                                                |
+| `rss:comments`           | oui     | non    |                                                                                                |
 | `rss:copyright`          | Oui     | partial | Écrit comme un `atom:rights` si la forme n’avait pas déjà une propriété `rights` `properties`.       |
 | `rss:description`        | Oui     | partial | Écrit comme un `atom:content` si la forme n’avait pas déjà une propriété `content` `properties`.      |
-| `rss:docs`               | Oui     | Non    |                                                                                                |
-| `rss:enclosure`          | Oui     | Non    |                                                                                                |
-| `rss:generator`          | Oui     | Non    |                                                                                                |
+| `rss:docs`               | Oui     | non    |                                                                                                |
+| `rss:enclosure`          | oui     | non    |                                                                                                |
+| `rss:generator`          | oui     | non    |                                                                                                |
 | `rss:guid`               | Oui     | partial | Écrit comme un `atom:id` si la forme n’avait pas déjà une propriété `id` `properties`.         |
 | `rss:image`              | Oui     | partial | Écrit comme un `atom:logo` si la forme n’avait pas déjà une propriété `logo` `properties`.      |
 | `rss:item`               | Oui     | partial | Écrit sous la forme d’un `atom:entry`.                                                                  |
-| `rss:language`           | Oui     | Non    |                                                                                                |
+| `rss:language`           | Oui     | non    |                                                                                                |
 | `rss:lastBuildDate`      | Oui     | partial | Écrit comme un `atom:updated` si la forme n’avait pas déjà une propriété `updated` `properties`.     |
 | `rss:link`               | Oui     | partial | Écrit sous la forme d’un `atom:link`.                                                                   |
 | `rss:managingEditor`     | Oui     | partial | Écrit sous la forme d’un `atom:contributor`.                                                            |
 | `rss:pubDate`            | Oui     | partial | Écrit comme un `atom:published` si la forme n’avait pas déjà une propriété `published` `properties`.  |
-| `rss:rating`             | Oui     | Non    |                                                                                                |
-| `rss:skipDays`           | Oui     | Non    |                                                                                                |
-| `rss:skipHours`          | Oui     | Non    |                                                                                                |
+| `rss:rating`             | Oui     | non    |                                                                                                |
+| `rss:skipDays`           | oui     | non    |                                                                                                |
+| `rss:skipHours`          | oui     | non    |                                                                                                |
 | `rss:source`             | Oui     | partial | Écrit sous la forme d’un `atom:source` contenant un `atom:link`.                                       |
-| `rss:textInput`          | Oui     | Non    |                                                                                                |
+| `rss:textInput`          | Oui     | non    |                                                                                                |
 | `rss:title`              | Oui     | partial | Écrit sous la forme d’un `atom:title`.                                                                  |
-| `rss:ttl`                | Oui     | Non    |                                                                                                |
-| `rss:webMaster`          | Oui     | non    |                                                                                                |
+| `rss:ttl`                | Oui     | non    |                                                                                                |
+| `rss:webMaster`          | oui     | non    |                                                                                                |
 
 ### <a name="gml-elements"></a>Éléments GML
 
-Le module d’E/S spatiales prend en charge les éléments GML suivants. 
+Le module d’E/S spatiales prend en charge les éléments GML suivants.
 
 | Nom de l’élément            | Lire | Write | Notes                                                                                  |
 |-------------------------|------|-------|----------------------------------------------------------------------------------------|
 | `gml:coordinates`       | Oui  | non    | Écrit sous la forme d’un `gml:posList`.                                                              |
-| `gml:curveMember`       | Oui  | Non    |                                                                                        |
-| `gml:curveMembers`      | Oui  | Non    |                                                                                        |
-| `gml:Box`               | Oui  | non    | Écrit sous la forme d’un `gml:Envelope`.                                                             |
-| `gml:description`       | Oui  | Oui   |                                                                                        |
-| `gml:Envelope`          | Oui  | Oui   |                                                                                        |
-| `gml:exterior`          | Oui  | Oui   |                                                                                        |
-| `gml:Feature`           | Oui  | non    | Écrit comme une forme.                                                                    |
+| `gml:curveMember`       | Oui  | non    |                                                                                        |
+| `gml:curveMembers`      | oui  | non    |                                                                                        |
+| `gml:Box`               | oui  | non    | Écrit sous la forme d’un `gml:Envelope`.                                                             |
+| `gml:description`       | Oui  | oui   |                                                                                        |
+| `gml:Envelope`          | oui  | oui   |                                                                                        |
+| `gml:exterior`          | oui  | oui   |                                                                                        |
+| `gml:Feature`           | oui  | non    | Écrit comme une forme.                                                                    |
 | `gml:FeatureCollection` | Oui  | non    | Écrit sous la forme d’une collection de géométries.                                                      |
 | `gml:featureMember`     | Oui  | non    | Écrit sous la forme d’une collection de géométries.                                                      |
 | `gml:geometry`          | Oui  | non    | Écrit comme une forme.                                                                    |
-| `gml:geometryMember`    | Oui  | Oui   |                                                                                        |
-| `gml:geometryMembers`   | Oui  | Oui   |                                                                                        |
-| `gml:identifier`        | Oui  | Oui   |                                                                                        |
-| `gml:innerBoundaryIs`   | Oui  | non    | Écrit à l’aide de `gml.interior`.                                                          |
-| `gml:interior`          | Oui  | Oui   |                                                                                        |
-| `gml:LinearRing`        | Oui  | Oui   |                                                                                        |
-| `gml:LineString`        | Oui  | Oui   |                                                                                        |
-| `gml:lineStringMember`  | Oui  | Oui   |                                                                                        |
-| `gml:lineStringMembers` | Oui  | Non    |                                                                                        |
+| `gml:geometryMember`    | Oui  | oui   |                                                                                        |
+| `gml:geometryMembers`   | oui  | oui   |                                                                                        |
+| `gml:identifier`        | oui  | oui   |                                                                                        |
+| `gml:innerBoundaryIs`   | oui  | non    | Écrit à l’aide de `gml.interior`.                                                          |
+| `gml:interior`          | Oui  | oui   |                                                                                        |
+| `gml:LinearRing`        | oui  | oui   |                                                                                        |
+| `gml:LineString`        | oui  | oui   |                                                                                        |
+| `gml:lineStringMember`  | oui  | oui   |                                                                                        |
+| `gml:lineStringMembers` | oui  | non    |                                                                                        |
 | `gml:MultiCurve`        | Oui  | non    | Lit uniquement les membres de `gml:LineString`. Écrit sous la forme d’un `gml.MultiLineString`.                  |
 | `gml:MultiGeometry`     | partial  | partial   | Lecture uniquement en tant que FeatureCollection.                                              |
-| `gml:MultiLineString`   | Oui  | Oui   |                                                                                        |
-| `gml:MultiPoint`        | Oui  | Oui   |                                                                                        |
-| `gml:MultiPolygon`      | Oui  | Oui   |                                                                                        |
-| `gml:MultiSurface`      | Oui  | non    | Lit uniquement les membres de `gml:Polygon`. Écrit sous la forme d’un `gml.MultiPolygon`.                        |
-| `gml:name`              | Oui  | Oui   |                                                                                        |
-| `gml:outerBoundaryIs`   | Oui  | non    | Écrit à l’aide de `gml.exterior`.                                                          |
-| `gml:Point`             | Oui  | Oui   |                                                                                        |
-| `gml:pointMember`       | Oui  | Oui   |                                                                                        |
-| `gml:pointMembers`      | Oui  | Non    |                                                                                        |
+| `gml:MultiLineString`   | Oui  | oui   |                                                                                        |
+| `gml:MultiPoint`        | oui  | oui   |                                                                                        |
+| `gml:MultiPolygon`      | oui  | oui   |                                                                                        |
+| `gml:MultiSurface`      | oui  | non    | Lit uniquement les membres de `gml:Polygon`. Écrit sous la forme d’un `gml.MultiPolygon`.                        |
+| `gml:name`              | Oui  | oui   |                                                                                        |
+| `gml:outerBoundaryIs`   | oui  | non    | Écrit à l’aide de `gml.exterior`.                                                          |
+| `gml:Point`             | Oui  | oui   |                                                                                        |
+| `gml:pointMember`       | oui  | oui   |                                                                                        |
+| `gml:pointMembers`      | oui  | non    |                                                                                        |
 | `gml:Polygon`           | Oui  | Oui   |                                                                                        |
-| `gml:polygonMember`     | Oui  | Oui   |                                                                                        |
-| `gml:polygonMembers`    | Oui  | Non    |                                                                                        |
+| `gml:polygonMember`     | oui  | oui   |                                                                                        |
+| `gml:polygonMembers`    | oui  | non    |                                                                                        |
 | `gml:pos`               | Oui  | Oui   |                                                                                        |
-| `gml:posList`           | Oui  | Oui   |                                                                                        |
-| `gml:surfaceMember`     | Oui  | Oui   |                                                                                        |
+| `gml:posList`           | oui  | oui   |                                                                                        |
+| `gml:surfaceMember`     | oui  | Oui   |                                                                                        |
 
 #### <a name="additional-notes"></a>Remarques supplémentaires
 
@@ -255,16 +255,16 @@ Le module d’E/S spatiales prend en charge les éléments GPX suivants.
 
 | Nom de l’élément             | Lire    | Write   | Notes                                                                                       |
 |--------------------------|---------|---------|---------------------------------------------------------------------------------------------|
-| `gpx:ageofdgpsdata`      | Oui     | Oui     |                                                                                             |
-| `gpx:author`             | Oui     | Oui     |                                                                                             |
-| `gpx:bounds`             | Oui     | Oui     | Converti en LocationRect lors de la lecture.                                                    |
-| `gpx:cmt`                | Oui     | Oui     |                                                                                             |
-| `gpx:copyright`          | Oui     | Oui     |                                                                                             |
+| `gpx:ageofdgpsdata`      | Oui     | oui     |                                                                                             |
+| `gpx:author`             | oui     | oui     |                                                                                             |
+| `gpx:bounds`             | oui     | Oui     | Converti en LocationRect lors de la lecture.                                                    |
+| `gpx:cmt`                | Oui     | oui     |                                                                                             |
+| `gpx:copyright`          | oui     | oui     |                                                                                             |
 | `gpx:desc`               | Oui     | Oui     | Copié dans une propriété Description lors de la lecture pour s’aligner avec d’autres formats XML.               |
-| `gpx:dgpsid`             | Oui     | Oui     |                                                                                             |
+| `gpx:dgpsid`             | Oui     | oui     |                                                                                             |
 | `gpx:ele`                | Oui     | Oui     |                                                                                             |
 | `gpx:extensions`         | partial | partial | Lors de la lecture, les informations de style sont extraites. Toutes les autres extensions seront aplaties en objet JSON simple. Seules les informations de style de la forme sont écrites. |
-| `gpx:geoidheight`        | Oui     | Oui     |                                                                                             |
+| `gpx:geoidheight`        | Oui     | oui     |                                                                                             |
 | `gpx:gpx`                | Oui     | Oui     |                                                                                             |
 | `gpx:hdop`               | Oui     | Oui     |                                                                                             |
 | `gpx:link`               | Oui     | Oui     |                                                                                             |
@@ -276,8 +276,8 @@ Le module d’E/S spatiales prend en charge les éléments GPX suivants.
 | `gpx:rtept`              | Oui     | Oui     |                                                                                             |
 | `gpx:sat`                | Oui     | Oui     |                                                                                             |
 | `gpx:src`                | Oui     | Oui     |                                                                                             |
-| `gpx:sym`                | Oui     | Oui     | La valeur est capturée, mais elle n’est pas utilisée pour modifier l’icône de punaise.                               |
-| `gpx:text`               | Oui     | Oui     |                                                                                             |
+| `gpx:sym`                | Oui     | Oui     | La valeur est capturée, mais elle n’est pas utilisée pour modifier l’icône de punaise.                             |
+| `gpx:text`               | Oui     | oui     |                                                                                             |
 | `gpx:time`               | Oui     | Oui     |                                                                                             |
 | `gpx:trk`                | Oui     | Oui     |                                                                                             |
 | `gpx:trkpt`              | Oui     | Oui     |                                                                                             |
@@ -286,14 +286,14 @@ Le module d’E/S spatiales prend en charge les éléments GPX suivants.
 | `gpx:vdop`               | Oui     | Oui     |                                                                                             |
 | `gpx:wpt`                | Oui     | Oui     |                                                                                             |
 | `gpx_style:color`        | Oui     | Oui     |                                                                                             |
-| `gpx_style:line`         | partial | partial | `color`, `opacity`, `width` et `lineCap` sont pris en charge.                                           |
-| `gpx_style:opacity`      | Oui     | Oui     |                                                                                             |
+| `gpx_style:line`         | partial | partial | `color`, `opacity`, `width` et `lineCap` sont pris en charge.                                       |
+| `gpx_style:opacity`      | Oui     | oui     |                                                                                             |
 | `gpx_style:width`        | Oui     | Oui     |                                                                                             |
-| `gpxx:DisplayColor`      | Oui     | non      | Utilisé pour spécifier la couleur d’une forme. Lors de l’écriture, la couleur `gpx_style:line` est utilisée à la place.  |
+| `gpxx:DisplayColor`      | Oui     | non      | Utilisé pour spécifier la couleur d’une forme. Lors de l’écriture, la couleur `gpx_style:line` est utilisée à la place.|
 | `gpxx:RouteExtension`    | partial | non      | Toutes les propriétés sont lues dans `properties`. Seul `DisplayColor` est utilisé.                     |
 | `gpxx:TrackExtension`    | partial | non      | Toutes les propriétés sont lues dans `properties`. Seul `DisplayColor` est utilisé.                     |
 | `gpxx:WaypointExtension` | partial | non      | Toutes les propriétés sont lues dans `properties`. Seul `DisplayColor` est utilisé.                     |
-| `gpx:keywords`           | Oui     | Oui     |                                                                                             |
+| `gpx:keywords`           | Oui     | oui     |                                                                                             |
 | `gpx:fix`                | Oui     | Oui     |                                                                                             |
 
 #### <a name="additional-notes"></a>Remarques supplémentaires
@@ -301,40 +301,40 @@ Le module d’E/S spatiales prend en charge les éléments GPX suivants.
 Lors de l’écriture ;
 
 - Les multipoints sont divisés en points de cheminement individuels.
-- Les polygones et les multipolygones sont écrits sous forme de chemins. 
+- Les polygones et les multipolygones sont écrits sous forme de chemins.
   
 ## <a name="supported-well-known-text-geometry-types"></a>Types de géométrie Well Known Text pris en charge
 
 | Type de géométrie | Lire | Write |
 |--------------|:----:|:-----:|
 | POINT | x | x |
-| POINT Z | x | x | 
+| POINT Z | x | x |
 | POINT M | x | x<sup>[2]</sup> |
-| POINT ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| POINT ZM | x<sup>[1]</sup><sup>[2]</sup> | |
 | LINESTRING | x | x |
 | LINESTRING Z | x | x | 
 | LINESTRING M | x | x<sup>[2]</sup> |
-| LINESTRING ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| LINESTRING ZM | x<sup>[1]</sup><sup>[2]</sup> | |
 | POLYGON | x | x |
 | POLYGON Z | x | x |
 | POLYGON M | x | x<sup>[2]</sup> |
-| POLYGON ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| POLYGON ZM | x<sup>[1]</sup><sup>[2]</sup> | |
 | MULTIPOINT | x | x |
-| MULTIPOINT Z | x | x | 
+| MULTIPOINT Z | x | x |
 | MULTIPOINT M | x | x<sup>[2]</sup> |
-| POMULTIPOINTINT ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| POMULTIPOINTINT ZM | x<sup>[1]</sup><sup>[2]</sup> | |
 | MULTILINESTRING | x | x |
-| MULTILINESTRING Z | x | x | 
+| MULTILINESTRING Z | x | x |
 | MULTILINESTRING M | x | x<sup>[2]</sup> |
-| MULTILINESTRING ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| MULTILINESTRING ZM | x<sup>[1]</sup><sup>[2]</sup> | |
 | MULTIPOLYGON | x | x |
 | MULTIPOLYGON Z | x | x | 
 | MULTIPOLYGON M | x | x<sup>[2]</sup> |
-| MULTIPOLYGON ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| MULTIPOLYGON ZM | x<sup>[1]</sup><sup>[2]</sup> | |
 | GEOMETRYCOLLECTION | x | x |
 | GEOMETRYCOLLECTION Z | x | x | 
-| GEOMETRYCOLLECTION M | x | x<sup>[2]</sup> | 
-| GEOMETRYCOLLECTION ZM | x<sup>[1]</sup><sup>[2]</sup> | x | 
+| GEOMETRYCOLLECTION M | x | x<sup>[2]</sup> |
+| GEOMETRYCOLLECTION ZM | x<sup>[1]</sup><sup>[2]</sup> | x |
 
 \[1\] Seul le paramètre Z est capturé et ajouté en tant que troisième valeur dans la valeur Position.
 

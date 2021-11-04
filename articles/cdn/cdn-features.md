@@ -3,18 +3,18 @@ title: Comparer les fonctionnalités des produits d’Azure Content Delivery Net
 description: Apprenez-en davantage sur les fonctionnalités prises en charge par chaque produit de réseau de distribution de contenu Azure (Content Delivery Network, CDN).
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: overview
 ms.date: 11/15/2019
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: cce999ad4a66428d69cd88f72e88d049af6301b7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 84a3361d7962ffa57e3b8f9a015e15a96218c13a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128600776"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434842"
 ---
 # <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Quelles sont les comparaisons entre les fonctionnalités des produits d’Azure CDN ?
 

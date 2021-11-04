@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 762ab1e62adc81ba4e4098167c65e19e405890d7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ff590e8c3835c78e59921b6ba96c83786c0bf289
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624782"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074363"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tailles de machines virtuelles des générations précédentes
 
@@ -54,6 +54,8 @@ Premium Storage :  Prise en charge
 
 Mise en cache du Stockage Premium :  Prise en charge
 
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge
+
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
 |---|---|---|---|---|---|---|---|
 | Standard_F1s  | 1  | 2  | 4  | 4  | 4 000/32 (12)    | 3 200/48   | 2/750   |
@@ -74,6 +76,8 @@ MBps = 10^6 octets par seconde, et Gio = 1024^3 octets.
 Les machines virtuelles de la série NVv2 sont pilotées par des GPU [Tesla M60 de NVIDIA](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) et la technologie NVIDIA GRID avec des processeurs Intel Broadwell. Ces machines virtuelles sont destinées aux bureaux virtuels et aux applications graphiques avec accélération par GPU sur lesquels les clients souhaitent visualiser leurs données, simuler des résultats à afficher, travailler en CAO ou effectuer la restitution ou la diffusion du contenu. Par ailleurs, ces machines virtuelles peuvent exécuter des charges de travail de précision unique, telles que le codage et le rendu. Les machines virtuelles NVv2 prennent en charge le Stockage Premium et offrent deux fois plus de mémoire RAM que la série NV précédente.  
 
 Chaque GPU dans les instances NVv2 est fourni avec une licence GRID. Cette licence vous donne la possibilité d’utiliser une instance NV comme station de travail virtuelle pour un seul utilisateur. 25 utilisateurs simultanés peuvent aussi se connecter à la machine virtuelle pour un scénario d’application virtuelle.
+
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max de cartes réseau | Stations de travail virtuelles | Applications virtuelles |
 |---|---|---|---|---|---|---|---|---|---|
@@ -220,6 +224,8 @@ Premium Storage : Prise en charge
 
 Mise en cache du Stockage Premium : Prise en charge
 
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge
+
 La série DC utilise le processeur Intel XEON E-2176G 3,7 GHz de dernière génération avec la technologie SGX et peut atteindre 4,7 GHz avec Intel Turbo Boost Technology. 
 
 | Taille          | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
@@ -289,6 +295,8 @@ Premium Storage :  Prise en charge
 
 Mise en cache du Stockage Premium :  Non pris en charge
 
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge
+
 | Taille | Processeurs virtuels | Mémoire (Gio) | Stockage temporaire (Gio) | Disques de données max. | Débit de stockage temporaire maximal (IOPS/Mbits/s) | Débit de disque maximal sans mise en cache (IOPS/Mbits/s) | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
 |---|---|---|---|---|---|---|---|
 | Standard_L4s   | 4  | 32  | 678  | 16 | 20 000/200 | 5 000/125  | 2/4 000  |
@@ -309,6 +317,8 @@ ACU : 180 - 240 <sup>1</sup>
 Premium Storage :  Prise en charge
 
 Mise en cache du Stockage Premium :  Prise en charge
+
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
 |---|---|---|---|---|---|---|---|
@@ -409,7 +419,8 @@ La configuration NC24rs v2 fournit une interface réseau à haut débit et à fa
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
-[Génération de machine virtuelle prise en charge](generation-2.md) : Générations 1 et 2<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge<br>
 
 > Pour cette série de machines virtuelles, le quota de processeurs virtuels (cœurs) dans votre abonnement est initialement défini sur 0 dans chaque région. [Demandez une augmentation du quota de processeurs virtuels](../azure-portal/supportability/regional-quota-requests.md) pour cette série dans une [région disponible](https://azure.microsoft.com/regions/services/).
 >
@@ -436,6 +447,7 @@ Les machines virtuelles de la série ND sont nouvelles dans la famille de GPU et
 [Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge<br>
 
 > Pour cette série de machines virtuelles, le quota de processeurs virtuels (cœurs) par région dans votre abonnement est initialement défini sur 0. [Demandez une augmentation du quota de processeurs virtuels](../azure-portal/supportability/regional-quota-requests.md) pour cette série dans une [région disponible](https://azure.microsoft.com/regions/services/).
 >

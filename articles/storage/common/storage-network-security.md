@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 82f860b78a8c0c4114a2250912fb6ec22e040d71
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8ffa380ec55dfcf96368782a3345ce3d13fe5f4f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606073"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474834"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -385,9 +385,6 @@ Les types d’opérations qu’une instance de ressource peut effectuer sur les 
 
 > [!NOTE]
 > Cette fonctionnalité est en préversion publique et est disponible dans toutes les régions de cloud public.
-
-> [!NOTE]
-> Les règles d’instance de ressource sont actuellement prises en charge uniquement pour Microsoft Azure Synapse Analytics. La prise en charge d’autres services Azure listés dans la section [Accès approuvé basé sur l’identité managée affectée par le système](#trusted-access-system-assigned-managed-identity) de cet article sera disponible dans les semaines à venir.
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 

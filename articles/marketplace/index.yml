@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Bienvenue sur la place de marché commerciale
-summary: Découvrez la Place de marché commerciale, une place de marché d’applications et de services en ligne qui permet à des entreprises de toutes tailles de proposer des solutions à leurs clients partout dans le monde.
+summary: Découvrez la place de marché commerciale, place de marché d’applications et de services en ligne qui permet à des entreprises de toutes tailles de proposer des solutions à leurs clients partout dans le monde.
 metadata:
   title: Bienvenue sur la place de marché commerciale
   description: Découvrez la Place de marché commerciale, une place de marché d’applications et de services en ligne qui permet à des entreprises de toutes tailles de proposer des solutions à leurs clients partout dans le monde.
@@ -10,12 +10,12 @@ metadata:
   author: mingshen-ms
   ms.author: mingshen
   ms.date: 06/01/2021
-  ms.openlocfilehash: bdc11ff11503c9b661d470eabb404de7093d960c
-  ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+  ms.openlocfilehash: dd346b0bed5ea7ecbc8be848c525d63c1ea3e96c
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/07/2021
-  ms.locfileid: "113430157"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131442404"
 landingContent:
 - title: Utilisation de la place de marché commerciale
   linkLists:

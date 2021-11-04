@@ -1,17 +1,17 @@
 ---
 title: Présentation d’Azure HPC Cache
 description: Cet article décrit Azure HPC Cache, un accélérateur d’accès aux fichiers pour le calcul haute performance.
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: overview
 ms.date: 03/11/2021
-ms.author: v-erkel
-ms.openlocfilehash: 2085efc5f38b2252e40f4aeb1ebfa16bf38147b4
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.author: femila
+ms.openlocfilehash: 9a750884c28d9ad74c07106c4d55be4a896b8ea6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256138"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011179"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Qu’est-ce qu’Azure HPC Cache ?
 

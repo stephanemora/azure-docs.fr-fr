@@ -4,15 +4,19 @@ description: Ce guide de démarrage rapide montre comment créer une application
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/14/2021
-ms.openlocfilehash: 3de83151aa00d589c470eb7ac772f4c9b5f7eda2
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.date: 10/20/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 70972607788568fbc06f9efe06fe083fd8d8ac01
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107948336"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073621"
 ---
 # <a name="quickstart-build-your-app-in-luis-portal"></a>Démarrage rapide : Créer votre application dans le portail LUIS
+
+> [!NOTE]
+> Une version plus récente des fonctionnalités Language Understanding est maintenant disponible dans le cadre d’Azure Cognitive Service for Language. Pour plus d’informations, consultez [Documentation Azure Cognitive Service for Language](../language-service/index.yml). Pour obtenir des fonctionnalités de compréhension du langage dans le service Language, consultez [Compréhension du langage courant](../language-service/conversational-language-understanding/overview.md), [Reconnaissance d’entité nommée personnalisée](../language-service/custom-named-entity-recognition/overview.md) et [Classification personnalisée](../language-service/custom-classification/overview.md).
 
 Dans ce guide de démarrage rapide, vous créez une application LUIS qui utilise le domaine de domotique prédéfini pour allumer et éteindre des lumières et des appareils. Ce domaine prédéfini vous fournit les intentions, les entités et des exemples d’énoncés. Ensuite, essayez de personnaliser votre application en ajoutant des intentions et des entités supplémentaires. À la fin du processus, vous disposerez d’un point de terminaison LUIS exécuté dans le cloud.
 

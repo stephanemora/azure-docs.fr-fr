@@ -110,7 +110,7 @@
     - name: Forum aux questions
       href: faq.yml
     - name: Commentaires
-      href: 'https://feedback.azure.com/forums/906100-azure-database-migration-service'
+      href: 'https://feedback.azure.com/d365community/forum/2dd7eb75-ef24-ec11-b6e6-000d3a4f0da0'
     - name: Tarifs
       href: 'https://aka.ms/dms-pricing'
     - name: Mises à jour de service

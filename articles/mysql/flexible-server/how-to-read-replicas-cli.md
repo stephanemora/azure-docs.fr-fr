@@ -5,14 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 06/17/2021
+ms.date: 10/23/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 77e9d66af8a03f9d1a55a59d9a355499a3019f29
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 7188cb16d6718fddb049a518b56b32c84ea66ec1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233898"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422745"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Comment créer et gérer des réplicas en lecture dans Azure Database pour MySQL – Serveur flexible à l’aide d’Azure CLI
 
@@ -25,8 +25,7 @@ Dans cet article, vous allez apprendre à créer et à gérer des réplicas en l
 
 > [!Note]
 >
-> * Le réplica n’est pas pris en charge sur les serveurs à une haute disponibilité. 
->* La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs flexibles Azure Database pour MySQL dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur source se trouve dans l’un de ces niveaux tarifaires.
+> * Le réplica n’est pas pris en charge sur les serveurs à une haute disponibilité.
 >
 > * Si le GTID est activé sur un serveur primaire (`gtid_mode` = ON), il sera également activé sur les réplicas nouvellement créés, et ceux-ci utiliseront la réplication basée sur GTID. Pour en savoir plus, reportez-vous à [Identificateur de transaction global (GTID ](concepts-read-replicas.md#global-transaction-identifier-gtid)
 
@@ -48,7 +47,7 @@ Un serveur réplica en lecture peut être créé en utilisant la commande suivan
 
 ```azurecli-interactive
 az mysql flexible-server replica create --replica-name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup
-``` 
+```
 
 > [!NOTE]
 > Les réplicas en lecture sont créés avec la même configuration de serveur que le serveur source. La configuration du serveur réplica peut être modifiée après la création de ce dernier. Le serveur réplica est toujours créé dans le même groupe de ressources, le même emplacement et le même abonnement que le serveur source. Si vous souhaitez créer un serveur réplica dans un autre groupe de ressources ou un autre abonnement, vous pouvez [déplacer le serveur réplica](../../azure-resource-manager/management/move-resource-group-and-subscription.md) après sa création. Il est recommandé de maintenir la configuration du serveur réplica à des valeurs égales ou supérieures à celles du serveur source pour garantir que le réplica sera à la hauteur du serveur source.
@@ -56,7 +55,7 @@ az mysql flexible-server replica create --replica-name mydemoreplicaserver --sou
 
 ### <a name="list-replicas-for-a-source-server"></a>Répertorier les réplicas d'un serveur source
 
-Pour afficher tous les réplicas d'un serveur source donné, exécutez la commande suivante : 
+Pour afficher tous les réplicas d'un serveur source donné, exécutez la commande suivante :
 
 ```azurecli-interactive
 az mysql flexible-server replica list --server-name mydemoserver --resource-group myresourcegroup

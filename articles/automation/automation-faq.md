@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dfe04bb2fcb7022934ac699bb5c3bd90005bf3b3
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 9a245c858c15a8a33b6347c86124a7b45f0c4290
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356605"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450891"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Automation
 
@@ -84,4 +84,4 @@ Consultez [Gérer les packages Python 3](python-3-packages.md).
 Si vous ne trouvez pas de réponse à votre question ici, vous pouvez consulter les sources suivantes pour plus de questions et réponses.
 
 - [Azure Automation](/answers/topics/azure-automation.html)
-- [Forum de commentaires](https://feedback.azure.com/forums/905242-update-management)
+- [Forum de commentaires](https://feedback.azure.com/d365community/forum/721a322e-bd25-ec11-b6e6-000d3a4f0f1c)

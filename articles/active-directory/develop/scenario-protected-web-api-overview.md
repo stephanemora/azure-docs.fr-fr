@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 10/26/2021
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 434c255f0b9634e0d17bad1627ddd92af9498bfe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d34d8a361e22f25e82daf0576e65e35af192bdcd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99582432"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462762"
 ---
 # <a name="scenario-protected-web-api"></a>Scénario : API web protégée
 
@@ -29,7 +29,7 @@ Pour utiliser votre API web, vous autorisez les utilisateurs authentifiés dispo
 
 Voici des informations spécifiques que vous devez connaître pour protéger les API web :
 
-- L’inscription de votre application doit exposer au moins une *étendue d’application* ou un *rôle d’application*.
+- L’inscription de votre application doit exposer au moins une _étendue d’application_ ou un _rôle d’application_.
   - Les étendues sont exposées par les API web appelées au nom d’un utilisateur.
   - Les rôles d’application sont exposés par les API web qui sont appelées par les applications démons (qui appellent votre API web en leur propre nom).
 - Si vous créez une inscription d’application API web, choisissez la [version du jeton d’accès](reference-app-manifest.md#accesstokenacceptedversion-attribute) acceptée par votre API web pour `2`. Pour les API web héritées, la version du jeton acceptée peut être `null`. Toutefois, cette valeur limite l’audience de connexion aux organisations uniquement, et les comptes MSA (comptes Microsoft personnels) ne sont pas pris en charge.

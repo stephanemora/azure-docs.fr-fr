@@ -2,14 +2,14 @@
 title: Azure Event Hubs - Visualiser les anomalies des données dans les événements en temps réel
 description: 'Tutoriel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Microsoft Azure Event Hubs'
 ms.topic: tutorial
-ms.date: 09/29/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e89cf8f501576b18144e28b8b042948cdcb408ee
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/20/2021
+ms.custom: devx-track-azurepowershell, ignite-fall-2021
+ms.openlocfilehash: 057c1df4cbb83078f9514776bd2821869327b8a4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129276465"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086319"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutoriel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Azure Event Hubs
 

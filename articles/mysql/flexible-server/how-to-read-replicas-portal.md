@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/17/2021
-ms.openlocfilehash: 711b35ec11d42ae16a4b4db08d17e85b5217d41f
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 26e93c85a6968a994a7f4e3a14df1e0910442def
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129387509"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429493"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-portal"></a>Comment créer et gérer des réplicas en lecture dans Azure Database pour MySQL – Serveur flexible à l’aide du portail Azure
 
@@ -24,9 +24,8 @@ Dans cet article, vous allez apprendre à créer et à gérer des réplicas en l
 
 > [!Note]
 >
-> * Le réplica n’est pas pris en charge sur les serveurs à une haute disponibilité. 
-> 
-> * La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs flexibles Azure Database pour MySQL dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur source se trouve dans l’un de ces niveaux tarifaires.
+> * Le réplica n’est pas pris en charge sur les serveurs à une haute disponibilité.
+>
 > * Si le GTID est activé sur un serveur primaire (`gtid_mode` = ON), il sera également activé sur les réplicas nouvellement créés, et ceux-ci utiliseront la réplication basée sur GTID. Pour en savoir plus, reportez-vous à [Identificateur de transaction global (GTID ](concepts-read-replicas.md#global-transaction-identifier-gtid)
 
 ## <a name="prerequisites"></a>Prérequis
@@ -70,7 +69,7 @@ Une fois le serveur réplica créé, il est affiché dans le panneau **Réplicat
 
 Pour arrêter la réplication entre un serveur source et un serveur réplica à partir du portail Azure, effectuez les étapes suivantes :
 
-1. Dans le portail Azure, sélectionnez votre serveur flexible Azure Database pour MySQL source. 
+1. Dans le portail Azure, sélectionnez votre serveur flexible Azure Database pour MySQL source.
 
 2. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES**.
 
@@ -102,7 +101,7 @@ Pour supprimer un serveur réplica en lecture du portail Azure, utilisez les ét
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-replica.png" alt-text="Azure Database pour MySQL : Supprimer le réplica":::
 
-5. Tapez le nom du réplica, puis cliquez sur **Supprimer** pour confirmer la suppression de ce dernier.  
+5. Tapez le nom du réplica, puis cliquez sur **Supprimer** pour confirmer la suppression de ce dernier.
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-replica-confirm.png" alt-text="Azure Database pour MySQL - Confirmation de la suppression du réplica":::
 
@@ -119,7 +118,7 @@ Pour supprimer un serveur source du portail Azure, procédez comme suit :
 
    [:::image type="content" source="./media/how-to-read-replica-portal/delete-master-overview.png" alt-text="Azure Database pour MySQL : Supprimer la source":::](./media/how-to-read-replica-portal/delete-master-overview.png#lightbox)
 
-3. Saisissez le nom du serveur source, puis cliquez sur **Supprimer** pour confirmer la suppression de ce dernier.  
+3. Saisissez le nom du serveur source, puis cliquez sur **Supprimer** pour confirmer la suppression de ce dernier.
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database pour MySQL – Confirmer la suppression de la source":::
 

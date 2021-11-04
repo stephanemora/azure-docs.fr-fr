@@ -3,20 +3,20 @@ title: Exemples de transformation de revendications booléennes pour les straté
 titleSuffix: Azure AD B2C
 description: Exemples de transformations de revendications booléennes pour le schéma Identity Experience Framework (IEF) d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/06/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 7c292f939339add06168c55236f8666651e4aace
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ec9e12d8418845e163bd1cc2e578814720c96f2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85201274"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131008120"
 ---
 # <a name="boolean-claims-transformations"></a>Transformations de revendications booléennes
 

@@ -1,20 +1,20 @@
 ---
 title: API dédiées à l’automatisation de la réservation Azure | Microsoft Docs
 description: Découvrez les API Azure que vous pouvez utiliser pour obtenir par programmation les informations de réservation.
-author: yashesvi
-ms.reviewer: yashesvi
+author: bandersmsft
+ms.reviewer: primittal
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 74539bc58e3b0b7261792f492a6ea2cc151b8964
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a82c0ffa8f4396af409624083a945e8b53847a96
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666606"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430512"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API dédiées à l’automatisation de la réservation Azure
 
@@ -36,7 +36,7 @@ Voici un exemple de demande d’achat effectué à l’aide de l’API REST :
 PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
 ```
 
-Corps de la demande :
+Corps de la requête :
 
 ```
 {
@@ -59,7 +59,7 @@ Corps de la demande :
 }
 ```
 
-Vous pouvez également acheter une réservation sur le portail Azure. Pour plus d’informations, consultez les articles suivants :
+Vous pouvez également acheter une réservation sur le portail Azure. Pour plus d’informations, consultez les articles suivants :
 
 Plans de service :
 - [Machine virtuelle](../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fbilling%2fTOC.json)

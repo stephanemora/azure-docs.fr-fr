@@ -11,12 +11,12 @@ metadata:
   ms.date: 11/04/2019
   ms.author: martinle
   ms.reviewer: igorstan
-  ms.openlocfilehash: 1038f368dba1beae7efa5982021f49976f4053f1
-  ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+  ms.openlocfilehash: 2fd30cfc8682b6afea3dcdc9d02fb0dfedf01908
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/17/2021
-  ms.locfileid: "112306008"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131474777"
 title: Questions fréquentes sur le pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 summary: ''
 sections:
@@ -63,7 +63,7 @@ sections:
   - question: >
       J’ai une suggestion de fonctionnalité, où dois-je l’envoyer ?
     answer: >
-      Si vous souhaitez faire une demande de fonctionnalité, envoyez-la sur notre page [UserVoice](https://feedback.azure.com/forums/307516-sql-data-warehouse).
+      Si vous souhaitez faire une demande de fonctionnalité, envoyez-la sur notre page [UserVoice](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8).
   - question: >
       Comment faire x ?
     answer: >

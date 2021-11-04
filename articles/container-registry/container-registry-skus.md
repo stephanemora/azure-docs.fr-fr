@@ -3,12 +3,12 @@ title: Niveaux de service et fonctionnalités du registre
 description: Découvrez les fonctionnalités et les limites (quotas) des niveaux de service (SKU) De base, Standard et Premium d’Azure Container Registry.
 ms.topic: article
 ms.date: 08/12/2021
-ms.openlocfilehash: e15824ec342ffd21f1a0f40dcc87c34c015112a1
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 8cda435193e5a54216a562bdac51f036f93829f1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003266"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473342"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Niveaux de service Azure Container Registry
 
@@ -125,7 +125,7 @@ Proposez et votez pour des suggestions de fonctionnalités dans [ACR UserVoice][
 <!-- LINKS - External -->
 [acr-roadmap]: https://aka.ms/acr/roadmap
 [container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry/
-[container-registry-uservoice]: https://feedback.azure.com/forums/903958-azure-container-registry
+[container-registry-uservoice]: https://feedback.azure.com/d365community/forum/180a533d-0d25-ec11-b6e6-000d3a4f0858
 
 <!-- LINKS - Internal -->
 [az-acr-update]: /cli/azure/acr#az_acr_update
