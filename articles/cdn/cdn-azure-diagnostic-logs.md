@@ -3,7 +3,7 @@ title: Journaux de diagnostic
 titleSuffix: Azure Content Delivery Network
 description: Découvrez comment utiliser les journaux de diagnostic Azure pour enregistrer des analyses de base, ce qui vous permet d’exporter des métriques d’utilisation à partir de votre point de terminaison Azure Content Delivery Network.
 services: cdn
-author: asudbring
+author: duongau
 manager: KumudD
 ms.assetid: ''
 ms.service: azure-cdn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
-ms.author: allensu
+ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2b4db3701ee5d66616d6e3888a12cb73232f62b5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c1324bfd321f501eced9bb2e27405ed38c2b2808
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128603084"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458643"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Journaux de diagnostic – Azure Content Delivery Network
 

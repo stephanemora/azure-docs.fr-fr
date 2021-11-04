@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, azla
 ms.topic: conceptual
 ms.date: 07/14/2021
-ms.openlocfilehash: 4f49e0fbbfa4c2a98b86c96dc3b0e650d6ff6bc9
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 30fa05a4aad2108ac96de820ac2ea86357cd17b6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204823"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457522"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
@@ -63,7 +63,7 @@ Vous pouvez aussi créer des [connecteurs personnalisés](../logic-apps/custom-c
   * Vos application logique et ressource de passerelle n’ont pas besoin d’exister dans le même abonnement Azure. Dans les déclencheurs et les actions dans lesquels vous pouvez utiliser la ressource de passerelle, vous pouvez sélectionner un autre abonnement Azure qui possède une ressource de passerelle, mais seulement si cet abonnement existe dans le même locataire ou répertoire Azure AD que votre application logique. Vous devez également disposer d’autorisations d’administrateur sur la passerelle, qu’un autre administrateur peut configurer pour vous. Pour plus d’informations, consultez [Passerelle de données : Automatisation à l’aide de PowerShell – Partie 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) et [PowerShell : Passerelle de données – Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
 
     > [!NOTE]
-    > Actuellement, vous ne pouvez pas partager une ressource ou une installation de passerelle entre plusieurs abonnements. Pour envoyer des commentaires sur le produit, consultez [Forum de commentaires Microsoft Azure](https://feedback.azure.com/forums/34192--general-feedback).
+    > Actuellement, vous ne pouvez pas partager une ressource ou une installation de passerelle entre plusieurs abonnements. Pour envoyer des commentaires sur le produit, consultez [Forum de commentaires Microsoft Azure](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 
 <a name="create-gateway-resource"></a>
 

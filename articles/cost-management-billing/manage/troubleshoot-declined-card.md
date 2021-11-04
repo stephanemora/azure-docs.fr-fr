@@ -1,19 +1,19 @@
 ---
 title: Résoudre les problèmes de refus de carte lors de l'inscription à Azure
 description: Résolvez les problèmes de refus de carte de crédit lors de l'inscription à Azure sur le portail Azure.
-author: v-miegge
-ms.reviewer: judupont
+author: bandersmsft
+ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 05/13/2021
+ms.date: 10/28/2021
 ms.author: banders
-ms.openlocfilehash: e2295a974baec9a841e79873568f3f3c7c835544
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0cfe2d88cc8d6a6373459127ab454b2f1e44cfca
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470846"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454100"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Résoudre les problèmes de refus de carte lors de l'inscription à Azure
 

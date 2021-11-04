@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: chat
-ms.openlocfilehash: 54a04db65c94adb1200000d027cdd9177c228297
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 49fb9db94ceeaef94dc6c255002f392232ca820c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672131"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434158"
 ---
 # <a name="chat-concepts"></a>Concepts relatifs aux conversations 
 
@@ -35,8 +35,6 @@ Les conversations ont lieu au sein de **fils de conversation**. Les fils de conv
 
 ### <a name="user-access"></a>Accès utilisateur
 En général, le créateur et les participants du fil de conversation ont le même niveau d’accès au fil de conversation ; ils peuvent exécuter toutes les opérations associées, disponibles dans le kit SDK, y compris la suppression du fil. Un participant ne dispose pas de l’accès en écriture aux messages envoyés par d’autres participants, ainsi seul l’expéditeur du message peut mettre à jour ou supprimer les messages qu’il envoie. Si un autre participant tente de le faire, il obtiendra une erreur. 
-
-Si vous souhaitez limiter l’accès aux fonctionnalités de conversation pour un ensemble d’utilisateurs, vous pouvez configurer l’accès au niveau de votre service approuvé. Votre service approuvé est le service qui orchestre l’authentification et l’autorisation des participants aux conversations. Nous explorerons cela plus en détail ci-dessous.  
 
 ### <a name="chat-data"></a>Données de conversation 
 Communication Services stocke l’historique de conversation jusqu’à ce qu’il soit explicitement supprimé. Les participants aux fils de conversation peuvent utiliser `ListMessages` pour afficher l’historique des messages d’un fil particulier. Les utilisateurs supprimés d’un fil de conversation peuvent afficher l’historique des messages précédents, mais ils ne peuvent pas envoyer ni recevoir de nouveaux messages au sein de ce fil de conversation. Un fil totalement inactif, sans aucun participant, est automatiquement supprimé au bout de 30 jours. Pour en savoir plus sur les données stockées par Communication Services, consultez la documentation sur la [confidentialité](../privacy.md).  

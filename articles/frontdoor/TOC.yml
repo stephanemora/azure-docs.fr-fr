@@ -56,6 +56,8 @@
       href: front-door-health-probes.md
     - name: Exploitation du routage pour une requête par Front Door
       href: front-door-route-matching.md
+    - name: Chiffrement TSL de bout en bout
+      href: concept-end-to-end-tls.md
     - name: Assistance HTTP/2
       href: front-door-http2.md
     - name: Prise en charge de protocole d’en-têtes HTTP

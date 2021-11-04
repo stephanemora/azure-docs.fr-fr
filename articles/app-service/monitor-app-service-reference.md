@@ -7,12 +7,12 @@ ms.author: msangapu
 ms.service: app-service
 ms.custom: subject-monitoring
 ms.date: 04/16/2021
-ms.openlocfilehash: 330629c958e036db382bed63b9ae0b9642e14bad
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: bf48bd5fd5155b7409d3868635ee3529cfd97b92
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114227875"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471057"
 ---
 # <a name="monitoring-app-service-data-reference"></a>Informations de référence sur les données de surveillance App Service
 
@@ -41,10 +41,6 @@ Pour plus d’informations sur les dimensions de métrique, consultez [Métrique
 App Service n’a pas de métriques qui contiennent des dimensions.
 
 ## <a name="resource-logs"></a>Journaux d’activité de ressources
-
-> [!NOTE]
-> L’intégration d’Azure Monitor à App Service est proposée en [préversion](https://aka.ms/appsvcblog-azmon).
->
 
 Cette section répertorie les types de journaux de ressources que vous pouvez collecter pour App Service. 
 

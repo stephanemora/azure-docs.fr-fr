@@ -1,20 +1,20 @@
 ---
 title: Ajouter un calque de vignettes au visuel Power BI Azure Maps | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à utiliser le calque de vignettes dans le visuel Microsoft Azure Maps pour Power BI.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/26/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
+manager: eriklind
 ms.custom: ''
-ms.openlocfilehash: 0edb31901950da22c321af2d6c41966465f916f9
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 7811174ce91de74f5fbc3f433c44e2aed223d01c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430411"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477000"
 ---
 # <a name="add-a-tile-layer"></a>Ajouter un calque de vignettes
 
@@ -45,21 +45,21 @@ Le cadre englobant et la plage de zoom indiquant où un service de vignettes est
 
 Trois conventions de nommage du service de vignettes sont prises en charge par le visuel Azure Maps :
 
--   **X, Y et notation de zoom** : X correspond à la position de colonne et Y à la position de ligne de la vignette dans la grille de vignettes, et la valeur de la notation de zoom est basée sur le niveau de zoom.
--   **Notation Quadkey** : combine les informations x, y et de zoom en une valeur de chaîne unique. Cette valeur de chaîne devient un identificateur unique pour une seule mosaïque.
--   **Cadre englobant** : spécifiez une image au format de coordonnées du cadre englobant : `{west},{south},{east},{north}`. Ce format est couramment utilisé par les [services de mappage web (WMS)](https://www.opengeospatial.org/standards/wms).
+* **X, Y et notation de zoom** : X correspond à la position de colonne et Y à la position de ligne de la vignette dans la grille de vignettes, et la valeur de la notation de zoom est basée sur le niveau de zoom.
+* **Notation Quadkey** : combine les informations x, y et de zoom en une valeur de chaîne unique. Cette valeur de chaîne devient un identificateur unique pour une seule mosaïque.
+* **Cadre englobant** : spécifiez une image au format de coordonnées du cadre englobant : `{west},{south},{east},{north}`. Ce format est couramment utilisé par les [services de mappage web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 URL de la vignette : URL HTTPS vers un modèle d’URL de vignette qui utilise les paramètres suivants :
 
--   `{x}` - position X de la mosaïque. Nécessite également `{y}` et `{z}`.
--   `{y}` - position Y de la mosaïque. Nécessite également `{x}` et `{z}`.
--   `{z}` - niveau de zoom de la mosaïque. Nécessite également `{x}` et `{y}`.
--   `{quadkey}` : identificateur `quadkey` de la vignette basé sur la convention de nommage du système de vignettes de Bing Maps.
--   `{bbox-epsg-3857}` : chaîne de cadre englobant au format `{west},{south},{east},{north}` du système SRID EPSG 3857.
+* `{x}` - position X de la mosaïque. Nécessite également `{y}` et `{z}`.
+* `{y}` - position Y de la mosaïque. Nécessite également `{x}` et `{z}`.
+* `{z}` - niveau de zoom de la mosaïque. Nécessite également `{x}` et `{y}`.
+* `{quadkey}` : identificateur `quadkey` de la vignette basé sur la convention de nommage du système de vignettes de Bing Maps.
+* `{bbox-epsg-3857}` : chaîne de cadre englobant au format `{west},{south},{east},{north}` du système SRID EPSG 3857.
 
 En guise d’exemple, voici une URL de vignette mise en forme pour le [service de vignettes de radar météo](/rest/api/maps/render-v2/get-map-tile) dans Azure Maps. Notez que `[subscription-key]` est un espace réservé pour votre clé d’abonnement Azure Maps.
 
-> `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
+> `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}`
 
 Pour plus d’informations sur le système de mosaïques Azure Maps, consultez [Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
 

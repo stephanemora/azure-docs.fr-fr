@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: azure
   ms.date: 05/27/2021
-  ms.openlocfilehash: 82d4003e13cf68d9777e2bcdfd57551d9ef478f4
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: c43e0e17884025904d56cb5b24badc3972f93937
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122254118"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131422023"
 title: Questions générales sur Azure Site Recovery
 summary: >
   Cet article résume les questions fréquentes sur Azure Site Recovery. Pour des scénarios spécifiques, veuillez consulter les articles suivants
@@ -232,11 +232,11 @@ sections:
   - question: >
       Puis-je étendre la réplication depuis un site de récupération existant à un site tiers ?
     answer: >
-      La réplication étendue ou chaînée n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+      La réplication étendue ou chaînée n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/d365community/forum/3ccca344-2d25-ec11-b6e6-000d3a4f0f84).
   - question: >
       Puis-je effectuer une réplication hors connexion la première fois que je réplique vers Azure ?
     answer: >
-      Ceci n’est pas pris en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+      Ceci n’est pas pris en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/d365community/idea/7c09c396-2e25-ec11-b6e6-000d3a4f0f84).
   - question: >
       Puis-je exclure des disques spécifiques de la réplication ?
     answer: >

@@ -11,12 +11,12 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/06/2021
-ms.openlocfilehash: a125ee289f9f3ea87f1015136b07ec2ad76cef32
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 423dae8f84e43900ad84a49423b7d2ff00fb8c76
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003039"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429790"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
@@ -245,12 +245,9 @@ labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
 labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
 ```
 
-### <a name="partition-data-preview"></a>Données de partition (préversion)
+### <a name="partition-data"></a>Données de partition
 
 Vous pouvez partitionner un jeu de données en incluant le paramètre `partitions_format` lors de la création d’un TabularDataset ou d’un FileDataset. 
-
-> [!IMPORTANT]
-> La création de partitions de jeu de données est une fonctionnalité [expérimentale](/python/api/overview/azure/ml/#stable-vs-experimental) en préversion et peut changer à tout moment. 
 
 Lorsque vous partitionnez un jeu de données, les informations de partition de chaque chemin d’accès de fichier sont extraites dans des colonnes en fonction du format spécifié. Le format doit commencer à partir de la position de la première clé de partition et se poursuivre jusqu’à la fin du chemin d’accès au fichier. 
 

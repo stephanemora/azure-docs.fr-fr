@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/24/2021
-ms.openlocfilehash: e66333fa1174eb9a614f2028641a83a8391e39e0
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 97cf7977d6e867d0c3bbc106f599bc69db4d987b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047995"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465228"
 ---
 # <a name="known-issues-with-azure-sql-managed-instance"></a>Problèmes connus avec Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Cet article répertorie les problèmes actuellement connus avec [Azure SQL Manag
 |[La modification du type de connexion n’affecte pas les connexions via le point de terminaison du groupe de basculement](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Janvier 2021|Solution de contournement||
 |[La procédure sp_send_dbmail peut échouer de façon transitoire lorsque le paramètre @query est utilisé](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Janvier 2021|Solution de contournement||
 |[Les transactions distribuées peuvent être exécutées après la suppression de l’instance gérée du groupe d’approbation de serveurs](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Octobre 2020|Solution de contournement||
-|[Les transactions distribuées ne peuvent pas être exécutées après l’opération de mise à l’échelle de l’instance gérée](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Octobre 2020|Solution de contournement||
+|[Les transactions distribuées ne peuvent pas être exécutées après l’opération de mise à l’échelle de l’instance gérée](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Octobre 2020|Résolu|Mai 2021|
 |[Impossible de créer l’Instance managée SQL avec le même nom que le serveur logique précédemment supprimé](#cannot-create-sql-managed-instance-with-the-same-name-as-logical-server-previously-deleted)|Août 2020|Solution de contournement||
 |L’instruction [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql)/[OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) dans Azure SQL et l’instruction `BACKUP`/`RESTORE` dans SQL Managed Instance ne peuvent pas utiliser Azure AD Manage Identity pour s’authentifier auprès du service Stockage Azure|Septembre 2020|Solution de contournement||
 |[Le principal du service ne peut pas accéder à Azure AD et à AKV](#service-principal-cannot-access-azure-ad-and-akv)|Août 2020|Solution de contournement||

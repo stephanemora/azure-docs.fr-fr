@@ -1,18 +1,18 @@
 ---
 title: Module de fonction ABAP d’extraction des métadonnées dans SAP R3 – Azure Purview
 description: Cet article décrit les étapes pour déployer le module de fonction ABAP dans le serveur SAP
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: f235e4b293c47c9d2833732fa6333a350a1fd272
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: b8d67c3c5b596627fc1795cf97d807d7f582e326
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210342"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131442157"
 ---
 # <a name="deploy-the-metadata-extraction-abap-function-module-for-the-sap-r3-family-of-bridges"></a>Déployer le module de fonction ABAP d’extraction des métadonnées pour la famille de ponts SAP R3
 

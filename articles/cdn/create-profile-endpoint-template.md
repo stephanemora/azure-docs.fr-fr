@@ -3,7 +3,7 @@ title: 'Démarrage rapide : Créer un profil et un point de terminaison - Mod�
 titleSuffix: Azure Content Delivery Network
 description: Dans ce guide de démarrage rapide, découvrez comment créer un profil et un point de terminaison Azure Content Delivery Network à l’aide d’un modèle Resource Manager
 services: cdn
-author: asudbring
+author: duongau
 manager: KumudD
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/10/2021
-ms.author: allensu
-ms.openlocfilehash: ee199aaf13763f735607943eb51b848aecde54ff
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.author: duau
+ms.openlocfilehash: d0f160a068e8f9205a9659e34de6033b6690f520
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005534"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426351"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Démarrage rapide : Créer un profil et un point de terminaison Azure CDN - Modèle ARM
 

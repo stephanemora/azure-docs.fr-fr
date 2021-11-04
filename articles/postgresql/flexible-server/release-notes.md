@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2021
-ms.openlocfilehash: f5b1caaef90a25e6635c30d1e3272438a408393b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 24b5db0411241778ce9afd63a4a167b9d6d483eb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589622"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433414"
 ---
 # <a name="release-notes---azure-database-for-postgresql---flexible-server"></a>Notes de publication - Azure Database pour PostgreSQL - Serveur flexible
 
@@ -77,7 +77,7 @@ En outre, tenez compte des points de contact suivants le cas échéant :
 
 - Pour contacter le support technique Azure, [émettez un ticket à partir du Portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Pour résoudre un problème relatif à votre compte, enregistrez une [demande de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) sur le portail Azure.
-- Pour donner votre avis ou demander de nouvelles fonctionnalités, créez une entrée via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+- Pour donner votre avis ou demander de nouvelles fonctionnalités, créez une entrée via [UserVoice](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).
   
 
 ## <a name="next-steps"></a>Étapes suivantes

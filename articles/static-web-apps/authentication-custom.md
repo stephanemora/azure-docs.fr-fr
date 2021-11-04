@@ -7,12 +7,12 @@ ms.author: aapowell
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 10/08/2021
-ms.openlocfilehash: 49921eba1a7f4c6c898eaadf1d8743d8d210057a
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 8b7fe1fc5c291f02abff88cb3e5ace2607cf32f5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729802"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428137"
 ---
 # <a name="custom-authentication-in-azure-static-web-apps"></a>Authentification personnalisée dans Azure Static Web Apps
 
@@ -29,11 +29,11 @@ Azure Static Web Apps fournit une [authentification managée](authentication-
 
 Les fournisseurs d’identité personnalisés sont configurés dans la section `auth` du [fichier config](configuration.md).
 
-Pour éviter de placer des secrets dans le contrôle de code source, la configuration recherche dans les [paramètres d’application](application-settings.md) un nom correspondant dans le fichier config. Vous pouvez également choisir de stocker vos secrets dans [Azure Key Vault](./key-vault-secrets.md).
+Pour éviter de placer des secrets dans le contrôle de code source, la configuration recherche dans les [paramètres d’application](application-settings.md#configure-application-settings) un nom correspondant dans le fichier config. Vous pouvez également choisir de stocker vos secrets dans [Azure Key Vault](./key-vault-secrets.md).
 
 # <a name="azure-active-directory"></a>[Azure Active Directory](#tab/aad)
 
-Pour créer l’inscription, commencez par créer les [paramètres d’application](application-settings.md) suivants :
+Pour créer l’inscription, commencez par créer les [paramètres d’application](application-settings.md#configure-application-settings) suivants :
 
 | Nom du paramètre | Valeur |
 | --- | --- |

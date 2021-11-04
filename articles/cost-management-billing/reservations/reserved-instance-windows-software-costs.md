@@ -1,20 +1,20 @@
 ---
 title: Coûts des logiciels de réservations pour Azure
 description: Découvrez les compteurs de logiciels qui ne sont pas inclus dans les coûts d’instance Azure Reserved VM Instance.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 10/28/2021
 ms.author: banders
-ms.openlocfilehash: 464e129314a369c14dcc6bc6c16eadf5f8bcf01f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 4980c779c5b3301a0e15b77b21230d14af04271b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052987"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425744"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Coûts des logiciels non inclus dans les instances Azure Reserved VM Instances
 

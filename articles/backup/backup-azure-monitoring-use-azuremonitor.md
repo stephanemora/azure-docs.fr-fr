@@ -4,12 +4,12 @@ description: Supervisez les charges de travail de Sauvegarde Azure et créez des
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2e1466d3f7f8130cfe8b12ad23f2bf1f9dd61b54
-ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
+ms.openlocfilehash: f1c729a9a724bb397b01a74c2f5853c1b2a74e25
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111565515"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455014"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Superviser à grande échelle avec Azure Monitor
 
@@ -18,7 +18,7 @@ Sauvegarde Azure fournit [des fonctionnalités intégrées de supervision et d�
 - Si vous supervisez des données de plusieurs coffres Recovery Services sur différents abonnements
 - Si le canal de notification favori n’est *pas* l’e-mail
 - Si les utilisateurs veulent des alertes pour d’autres scénarios
-- Si vous voulez voir des informations provenant de composants locaux comme System Center Data Protection Manager (SC-DPM) dans Azure qui ne sont pas visibles dans [**Travaux de sauvegarde**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) ou dans [**Alertes de sauvegarde**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
+- Si vous voulez voir des informations provenant de composants locaux comme System Center Data Protection Manager (SC-DPM) dans Azure qui ne sont pas visibles dans [**Travaux de sauvegarde**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center) ou dans [**Alertes de sauvegarde**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
 
 ## <a name="using-log-analytics-workspace"></a>Utilisation d’un espace de travail Log Analytics
 

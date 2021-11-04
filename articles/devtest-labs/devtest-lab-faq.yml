@@ -6,12 +6,12 @@ metadata:
   ms.service: azure
   ms.date: 07/17/2020
   ms.custom: devx-track-azurepowershell, references_regions
-  ms.openlocfilehash: 1bd63686c5dc726a238723991132e93c1b13863c
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: f8ef53c79632091644365836000d719055852674
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130226411"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131453798"
 title: FAQ d’Azure DevTest Labs
 summary: "\nObtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.\n\n## <a name=\"blog-post\"></a>Billet de blog\nNotre blog de l'équipe DevTest Labs est fermé depuis 20 mars 2019. \n\n### <a name=\"where-can-i-track-feature-updates-from-now-on\"></a>Où puis-je suivre les mises à jour des fonctionnalités à présent ?\nÀ partir de maintenant, nous publierons des mises à jour de fonctionnalités et des billets de blog informatifs sur le blog Azure et le site Mises à jour Azure. Ces billets de blog contiendront également des liens vers notre documentation si nécessaire.\n        \nAbonnez-vous au [Blog Azure DevTest Labs](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) et aux mises à jour [Azure DevTest Labs](https://azure.microsoft.com/updates/?product=devtest-lab) pour rester informé sur les nouvelles fonctionnalités dans DevTest Labs.\n        \n### <a name=\"what-happens-to-the-existing-blog-posts\"></a>Qu’advidendra-t-il des billets de blog existants ?\nNous travaillons actuellement sur la migration des billets de blog existants (à l’exclusion des informations relatives aux pannes et autres défaillances) vers notre [Documentation DevTest Labs](devtest-lab-overview.md). Lorsque le blog MSDN sera obsolète, il redirigera vers la documentation DevTest Labs. Une fois redirigé, vous pouvez rechercher le titre de l’article de votre choix en utilisant le champ « Filtrer par titre ». Nous n’avons pas encore migré tous les billets pour le moment, mais nous devrions avoir terminé cette opération d’ici la fin du mois. \n        \n### <a name=\"where-do-i-see-outage-updates\"></a>Où voir les informations relatives aux pannes et autres défaillances ?\nDésormais, nous publierons ces informations sur notre compte Twitter. Suivez-nous sur Twitter pour obtenir les dernières informations relatives aux pannes et autres défaillances connues.\n\n### <a name=\"twitter\"></a>Twitter\nNotre compte Twitter : [@azlabservices](https://twitter.com/azlabservices)\n"
 sections:
@@ -27,7 +27,7 @@ sections:
 
       - Pour atteindre un public plus large, postez une question dans la [page de questions Microsoft Q&A sur Azure DevTest Labs](/answers/topics/azure-devtestlabs.html). Dialoguez avec l’équipe d’Azure DevTest Labs et les autres membres de la communauté.
 
-      - Concernant les demandes et idées de fonctionnalité, envoyez-les à [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
+      - Concernant les demandes et idées de fonctionnalité, envoyez-les à [Azure DevTest Labs User Voice](https://feedback.azure.com/d365community/forum/502dba10-7726-ec11-b6e6-000d3a4f032c).
   - question: >
       Qu’est-ce qu’un compte Microsoft ?
     answer: >

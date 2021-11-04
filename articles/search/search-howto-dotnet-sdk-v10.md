@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11102d95bc2aba65e6bc3cba71805a67f195947b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c58e6ffd9b3b74ee465c5e2e5c05f688252d1173
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92681282"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467545"
 ---
 # <a name="how-to-use-microsoftazuresearch-in-a-c-net-application"></a>Utilisation de Microsoft.Azure.Search dans une application .NET C#
 
@@ -43,7 +43,7 @@ Les différentes bibliothèques clientes définissent des classes comme `Index`,
 * [Microsoft.Azure.Search](/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models.](/dotnet/api/microsoft.azure.search.models)
 
-Si vous souhaitez formuler des commentaires pour une prochaine mise à jour du Kit de développement logiciel (SDK), consultez notre [page de commentaires](https://feedback.azure.com/forums/263029-azure-search/) ou créez un problème sur [GitHub](https://github.com/azure/azure-sdk-for-net/issues) en mentionnant « Recherche cognitive Azure » dans le titre.
+Si vous souhaitez formuler des commentaires pour une prochaine mise à jour du Kit de développement logiciel (SDK), consultez notre [page de commentaires](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8) ou créez un problème sur [GitHub](https://github.com/azure/azure-sdk-for-net/issues) en mentionnant « Recherche cognitive Azure » dans le titre.
 
 Le SDK .NET cible la version [`2019-05-06` de l’API REST de Recherche cognitive Azure](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/data-plane/Microsoft.Azure.Search.Data/stable/2019-05-06). Cette version inclut la prise en charge des [types complexes](search-howto-complex-data-types.md), de l’[enrichissement par IA](cognitive-search-concept-intro.md), de la [saisie semi-automatique](/rest/api/searchservice/autocomplete) et du [mode d’analyse JsonLines](search-howto-index-json-blobs.md) lors de l’indexation d’objets blob Azure. 
 

@@ -1,18 +1,18 @@
 ---
 title: Métadonnées et traçabilité à partir de SAP S/4HANA
 description: Cet article décrit l’extraction de la traçabilité des données à partir d’une source SAP S/4HANA.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/12/2021
-ms.openlocfilehash: 52ae0f629bc863f604133e3c0f0e3c6256556a89
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 122b7a0b826c43f43b5e43d4ba2cb5e42fd52a16
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525473"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422479"
 ---
 # <a name="how-to-get-lineage-from-sap-s4hana-into-azure-purview"></a>Comment obtenir la traçabilité de SAP S/4HANA dans Azure Purview
 

@@ -3,12 +3,12 @@ title: Matrice de prise en charge pour la récupération d’urgence VMware ou p
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles et des serveurs physiques VMware sur Azure en utilisant Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: 2557292af835f13792673c2cfbb1eb82542b7725
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 084e0b9b0b42bbe2ba3632d54811e738197899f3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129994477"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441473"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -251,7 +251,7 @@ NFS invité/serveur | Non
 iSCSI invité/serveur | Pour la migration : Oui<br/>Pour la récupération d’urgence : Non. iSCSI est automatiquement restauré en tant que disque attaché à la machine virtuelle
 SMB 3.0 invité/serveur | Non
 RDM invité/serveur | Oui<br/><br/> N/A pour les serveurs physiques
-Disque invité/serveur > 1 To | Oui, le disque doit être d’une taille supérieure à 1024 Mo<br/><br/>Jusqu'à 8 192 Go lors de la réplication sur des disques managés (à partir de la version 9.26)<br></br> Jusqu'à 4 095 Go lors de la réplication vers des comptes de stockage
+Disque invité/serveur > 1 To | Oui, le disque doit être d’une taille supérieure à 1024 Mo<br/><br/>Jusqu'à 32 767 Go lors de la réplication sur un disque managé (à partir de la version 9.41)<br></br> Jusqu'à 4 095 Go lors de la réplication vers des comptes de stockage
 Disque invité/serveur avec une taille de secteur logique de 4 Ko et une taille de secteur physique de 4 K | Non
 Disque invité/serveur avec une taille de secteur logique de 4 K et une taille de secteur physique de 512 octets | Non
 Volume invité/serveur avec disque à bandes > 4 To | Oui
@@ -314,7 +314,7 @@ Taille du disque du système d’exploitation | Jusqu'à 2 048 Go pour les mac
 Nombre de disques du système d’exploitation | 1 </br> une partition système et de démarrage sur différents disques n’est pas prise en charge | La vérification est mise en échec en cas de défaut de prise en charge.
 Nombre de disques de données | 64 ou moins. | La vérification est mise en échec en cas de défaut de prise en charge.
 Taille de disque de données | Jusqu'à 32 767 Go lors de la réplication sur un disque managé (à partir de la version 9.41)<br> Jusqu'à 4 095 Go lors de la réplication vers un compte de stockage </br> Taille minimale requise pour les disques : au moins 1 024 Mo </br> L’architecture en préversion prend en charge les tailles de disque allant jusqu’à 8 To.  | La vérification est mise en échec en cas de défaut de prise en charge.
-Mémoire vive (RAM) | Le pilote ASR consomme 6 % de la RAM.
+RAM | Le pilote ASR consomme 6 % de la RAM.
 Adaptateurs réseau | Prise en charge de plusieurs adaptateurs réseau. |
 Disque dur virtuel partagé | Non pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge.
 Disque FC | Non pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge.

@@ -1,18 +1,19 @@
 ---
 title: Comprendre la remise sur les instances réservées aux hôtes dédiés Azure
 description: Découvrez comment la remise sur les instances de machine virtuelle réservées Azure est appliquée aux hôtes dédiés Azure.
-author: yashesvi
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 3e0f6bc30ca86653ff7a05f2874236a51d359955
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c6b4f4fbb37cf360dc235408e0ff54925492fade
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128631093"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131453817"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-azure-dedicated-hosts"></a>Comment la remise de réservation Azure est appliquée aux hôtes dédiés Azure
 

@@ -7,12 +7,12 @@ ms.service: healthcare-apis
 ms.topic: overview
 ms.date: 07/09/2021
 ms.author: ginle
-ms.openlocfilehash: 01d808813d944d243582cc631f960a241061b46f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8078dcb2cc0db6786881a834540922e66f47eac8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121783955"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468872"
 ---
 # <a name="what-is-azure-healthcare-apis-preview"></a>Qu’est-ce qu’Azure Healthcare API (préversion) ?
 
@@ -46,7 +46,7 @@ Les API Azure Healthcare incluent désormais la prise en charge des services DIC
 
 **Modifications incrémentielles apportées au service FHIR**
 
-Pour l’échange sécurisé de données FHIR, les API de santé offrent quelques fonctionnalités incrémentielles disponibles dans l’API Azure pour FHIR. 
+Pour l’échange sécurisé de données FHIR, les API de santé offrent quelques fonctionnalités incrémentielles qui ne sont pas disponibles dans l’API Azure pour FHIR. 
 * Prise en charge des transactions : dans les API de santé, le service FHIR prend en charge les offres groupées de transactions. Pour plus d’informations sur les offres groupées de transactions, visitez HL7.org et reportez-vous aux interactions par lots/transactions.
 * Améliorations de la recherche chaînée : la recherche chaînée & la recherche chaînée de réserve n’est plus limitée par 100 éléments par sous-requête.
 

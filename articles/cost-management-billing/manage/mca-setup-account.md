@@ -1,19 +1,20 @@
 ---
 title: Configurer la facturation pour un Contrat client Microsoft - Azure
 description: Découvrez comment configurer votre compte de facturation associé à un contrat client Microsoft. Consultez les prérequis de configuration ainsi que les autres ressources disponibles.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 982bb3719de66d880f635dbb7c95e9ae2c4590c2
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 74f49b2df909c157555390fedd280d1d51615530
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711156"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433949"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Découvrez comment configurer votre compte de facturation associé à un contrat client Microsoft
 

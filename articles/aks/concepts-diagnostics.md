@@ -6,12 +6,12 @@ author: yunjchoi
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: yunjchoi
-ms.openlocfilehash: ee11221e5484a796b8dbbcb10a323288d3e74756
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 838eb4b7abfc5a2fba3fd16d0259bfad2cc13e08
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011556"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455964"
 ---
 # <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Vue d’ensemble des diagnostics d’Azure Kubernetes Service
 
@@ -97,4 +97,4 @@ Gestion des identités et de la sécurité détecte les erreurs d’authentifica
 
 * Consultez la [section relative aux pratiques de triage](/azure/architecture/operator-guides/aks/aks-triage-practices) du Guide des opérations AKS (2e journée).
 
-* Publiez vos questions ou vos commentaires sur [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) en ajoutant « [Diag] » dans le titre.
+* Publiez vos questions ou vos commentaires sur [UserVoice](https://feedback.azure.com/d365community/forum/aabe212a-f724-ec11-b6e6-000d3a4f0da0) en ajoutant « [Diag] » dans le titre.
