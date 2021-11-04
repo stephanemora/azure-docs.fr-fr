@@ -8,34 +8,25 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
-ms.openlocfilehash: 9c6b80897908bf73c21e9bf8b358216c3fd23b1f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 36f7c08cec7375d8b8a78519752c572357e6525a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806650"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073526"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Prise en charge linguistique pour une ressource QnA Maker et bases de connaissances
 
 Cet article décrit les options de prise en charge linguistique pour les ressources QnA Maker et les bases de connaissances. 
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 La langue du service est sélectionnée lorsque vous créez la première base de connaissances dans la ressource. Toutes les bases de connaissances supplémentaires de la ressource doivent être dans la même langue. 
 
 La langue détermine la pertinence des résultats que QnA Maker fournit en réponse aux requêtes de l’utilisateur. La ressource QnA Maker et toutes les bases de connaissances à l’intérieur de celle-ci prennent en charge une seule langue. L’unilinguisme est nécessaire pour produire des résultats de réponse optimaux à une requête.
 
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
-
-Le service Réponses aux questions personnalisées vous permet d’ajouter des bases de connaissances dans différentes langues au sein du même service. Une fois que vous avez choisi d’activer le paramètre de langue par base de connaissances, vous ne pouvez le pas désactiver. Vous devrez choisir une langue pour chaque base de connaissances que vous créez au sein du service.
-
-Ce paramètre permet aux utilisateurs d’avoir, au sein du même service, plusieurs bases de connaissances avec un paramètre de langue différent pour chacune d’elles.
-
----
-
 ## <a name="single-language-per-resource"></a>Une seule langue par ressource
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 Tenez compte des éléments suivants :
 
@@ -45,39 +36,15 @@ Tenez compte des éléments suivants :
 * Il n’est pas possible de changer la langue pour d’autres bases de connaissances du service.
 * Les services Recherche cognitive (ranker n° 1) et QnA Maker (ranker n° 2) utilisent la langue pour générer la meilleure réponse à une requête.
 
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
-> [!div class="mx-imgBorder"]
-> ![Sélection de base de connaissances multilingue](../media/language-support/language-support-custom-qna.png)
-
-Si vous **n’activez pas la case à cocher pour activer des bases de connaissances dans plusieurs langues**, tenez compte de ce qui suit : 
-* Un service Analyse de texte et toutes ses bases de connaissances ne prennent en charge qu’une seule langue.
-* La langue est définie explicitement lors de la création de la première base de connaissances du service.
-* La langue est déterminée à partir des fichiers et URL ajoutés lors de la création de la base de connaissances.
-* Il n’est pas possible de modifier la langue pour d’autres bases de connaissances du service.
-* Les services Recherche cognitive (ranker n°1) et Réponses aux questions personnalisées (ranker n°2) utilisent la langue pour générer la meilleure réponse à une requête.
-
----
-
 ## <a name="supporting-multiple-languages-in-one-qna-maker-resource"></a>Prise en charge de plusieurs langues dans une seule ressource QnA Maker
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 Cette fonctionnalité n’est pas prise en charge dans notre version stable en disponibilité générale (GA). Consultez QnA Maker managé pour tester cette fonctionnalité. 
-
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
-* Quand vous créez la première base de connaissances dans votre service, vous pouvez choisir d’activer plusieurs langues par service. Cochez la case pour créer des bases de connaissances appartenant à des langues différentes au sein d’un même service.
-* L’option du paramètre de langue n’est pas modifiable pour le service, une fois la première base de connaissances créée.
-* Si vous activez plusieurs langues pour la base de connaissances, au lieu d’avoir un seul index de test pour le service, vous aurez un index de test par base de connaissances. 
-
-> [!div class="mx-imgBorder"]
-> ![Paramètre de base de connaissances multilingue](../media/language-support/language-support-custom-qna-chkd.png)
-
----
 
 ## <a name="supporting-multiple-languages-in-one-knowledge-base"></a>Prise en charge de plusieurs langues dans une seule base de connaissances
 
 Pour prendre en charge un système de base de connaissances comprenant plusieurs langues, vous pouvez :
 
-* Utiliser le [service Translator](../../translator/translator-overview.md) pour traduire une question dans une langue individuelle avant de l’envoyer à votre base de connaissances. Cela vous permet de vous concentrer sur la qualité d’une seule langue et la qualité des autres questions et réponses.
+* Utiliser le [service Translator](../../translator/translator-info-overview.md) pour traduire une question dans une langue individuelle avant de l’envoyer à votre base de connaissances. Cela vous permet de vous concentrer sur la qualité d’une seule langue et la qualité des autres questions et réponses.
 * Créez une ressource QnA Maker, ainsi qu’une base de connaissances à l’intérieur de cette ressource, pour chaque langue. Cela vous permet de gérer d’autres questions et du texte de réponse plus nuancé pour chaque langue. Vous bénéficiez ainsi d’une flexibilité sensiblement accrue, mais devez exposer des frais de maintenance bien plus élevés lorsque les questions ou réponses changent dans toutes les langues.
 
 

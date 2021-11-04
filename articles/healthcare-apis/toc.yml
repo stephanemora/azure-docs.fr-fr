@@ -45,7 +45,9 @@ items:
   - name: Ressources
     expanded: true
     items:
-      - name: FAQ
+      - name: Notes de publication
+        href: release-notes.md
+      - name: Foire aux questions
         href: healthcare-apis-faqs.md
       - name: projets GitHub
         href: github-projects.md

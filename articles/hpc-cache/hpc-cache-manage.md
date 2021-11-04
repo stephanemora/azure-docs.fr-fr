@@ -1,17 +1,17 @@
 ---
 title: Gérer et mettre à jour Azure HPC Cache
 description: Comment gérer et mettre à jour Azure HPC Cache à l’aide du portail Azure ou d’Azure CLI
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2021
-ms.author: v-erkel
-ms.openlocfilehash: 4fb5bcc0ae5be35f740bc39bc0cf4a9221363358
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.author: femila
+ms.openlocfilehash: 46d891172c3290b4ce21723561f0689bedd7b22d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274365"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087796"
 ---
 # <a name="manage-your-cache"></a>Gérer votre cache
 

@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: e0cab6a9d2d4c341cf326383e11b289bf606d37a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9b692046f0e812b903570ecd6e788ba83db6b96b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755186"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075407"
 ---
 # <a name="azure-sentinel-authentication-normalization-schema-reference-public-preview"></a>Informations de référence sur le schéma de normalisation de l’authentification Azure Sentinel (préversion publique)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Le modèle d’informations de l’authentification est utilisé pour décrire les événements liés à l’authentification des utilisateurs, à la connexion et à la déconnexion. Les événements d’authentification sont envoyés par de nombreux appareils de création de rapports, généralement dans le cadre du flux d’événements en même temps que d’autres événements.
 
@@ -80,7 +82,7 @@ Les champs suivants sont générés par Log Analytics pour chaque enregistrement
 |---------|---------|---------|
 |<a name ="timegenerated"></a>**TimeGenerated**     |  DATETIME       |Heure à laquelle l’événement a été généré par l’appareil de création de rapports.         |
 |**_ResourceId**     | guid        |  ID de ressource Azure de l’appareil ou du service de création de rapports, ou l’ID de ressource de redirecteur de journal pour les événements transférés avec Syslog, CEF ou WEF.       |
-| **Type** | String | La table d’origine à partir de laquelle l’enregistrement a été récupéré. Ce champ est utile lorsque le même événement peut être reçu via plusieurs canaux vers différentes tables, et ont les mêmes valeurs EventVendor et EventProduct.<br><br>Par exemple, un événement Sysmon peut être collecté dans la table Event ou dans la table WindowsEvent. |
+| **Type** | String | Table d’origine à partir de laquelle l’enregistrement a été extrait. Ce champ est utile lorsque le même événement peut être reçu via plusieurs canaux vers différentes tables, et ont les mêmes valeurs EventVendor et EventProduct.<br><br>Par exemple, un événement Sysmon peut être collecté dans la table Event ou dans la table WindowsEvent. |
 |     |         |         |
 
 > [!NOTE]
@@ -193,5 +195,5 @@ Pour plus d'informations, consultez les pages suivantes :
 - [Normalisation dans Azure Sentinel](normalization.md)
 - [Informations de référence sur le schéma de normalisation du DNS Azure Sentinel](dns-normalization-schema.md)
 - [Informations de référence sur le schéma de normalisation des événements de fichier Azure Sentinel (préversion publique)](file-event-normalization-schema.md)
-- [Informations de référence sur le schéma de normalisation du réseau Azure Sentinel](normalization-schema.md)
+- [Informations de référence sur le schéma de normalisation du réseau Azure Sentinel](./network-normalization-schema.md)
 - [Informations de référence sur le schéma de normalisation des événements de processus Azure Sentinel (préversion publique)](process-events-normalization-schema.md)

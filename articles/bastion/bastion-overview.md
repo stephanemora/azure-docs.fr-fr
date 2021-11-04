@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 07/12/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.custom: contperf-fy2q1-portal
-ms.openlocfilehash: fe1cc48b3106d4874e151ed8be114e6a98e51720
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.custom: contperf-fy2q1-portal, ignite-fall-2021
+ms.openlocfilehash: ea5fb6c17346059ab35467c654a17815e711d213
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434181"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087188"
 ---
 # <a name="what-is-azure-bastion"></a>Qu’est-ce qu’Azure Bastion ?
 
@@ -34,7 +34,7 @@ Bastion fournit une connectivité RDP et SSH sécurisée à toutes les machines 
 
 ## <a name="skus"></a><a name="sku"></a>Références SKU
 
-Azure Bastion présente deux références SKU disponibles : de base et standard. La référence SKU standard est actuellement en préversion. Pour plus d’informations, notamment sur la mise à niveau d’une référence SKU, consultez l’article [Paramètres de configuration](configuration-settings.md#skus). 
+Azure Bastion présente deux références SKU disponibles : de base et standard. Pour plus d’informations, notamment sur la mise à niveau d’une référence SKU, consultez l’article [Paramètres de configuration](configuration-settings.md#skus).
 
 La table suivante présente les fonctionnalités et les références SKU correspondantes.
 

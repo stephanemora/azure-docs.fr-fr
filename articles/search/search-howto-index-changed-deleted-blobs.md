@@ -2,18 +2,18 @@
 title: Blobs modifiés et supprimés
 titleSuffix: Azure Cognitive Search
 description: Après création d’un index de recherche initial qui importe à partir du service Stockage Blob Azure, l’indexation qui suit peut récupérer uniquement les blobs modifiés ou supprimés. Cet article explique cela en détail.
+author: nitinme
+ms.author: nitinme
 manager: nitinme
-author: MarkHeff
-ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: d06a63c91c25f97e9d1a10b6b72a33b2fc7d859d
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 48a421f2e95e06a61ac4bee734046c043906035e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558959"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023440"
 ---
 # <a name="change-and-deletion-detection-in-blob-indexing-azure-cognitive-search"></a>Détection des modifications et des suppressions dans l’indexation d’objets blob (Recherche cognitive Azure)
 
@@ -34,7 +34,7 @@ Il existe deux façons d’implémenter l’approche de suppression réversible�
 Pour cette approche de la détection de la suppression, le service Recherche cognitive s’appuie sur la fonctionnalité de [suppression réversible native de blobs](../storage/blobs/soft-delete-blob-overview.md) du service Stockage Blob Azure pour déterminer si les objets blob ont migré vers un état de suppression réversible. Quand des objets blob sont détectés dans cet état, un indexeur de recherche utilise ces informations pour supprimer le document correspondant de l’index.
 
 > [!IMPORTANT]
-> La prise en charge de la suppression réversible native de blobs est disponible en préversion. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2020-06-30-Preview](./search-api-preview.md) fournit cette fonctionnalité. Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
+> La prise en charge de la suppression réversible native de blobs est disponible en préversion. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2020-06-30-Preview](./search-api-preview.md) fournit cette fonctionnalité. Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
 
 ### <a name="prerequisites"></a>Prérequis
 
