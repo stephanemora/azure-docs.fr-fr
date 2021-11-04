@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9bc641d680d927c44814f6814ebf6a6dde958c9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4d7b9d272f097f5be332c8ff0acdf7cb30395ea
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98900911"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131571024"
 ---
 Azure Functions permet de créer des tâches de réplication destinées uniquement à la configuration qui s’appuient sur un point d’entrée prédéfini. Les [exemples de réplication basée sur la configuration pour Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) illustrent comment tirer parti de l’[assistance prégénérée](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) dans votre propre code ou comment éviter de manipuler du code et utiliser simplement la configuration.
 
@@ -22,7 +22,7 @@ Pour créer une tâche de réplication de ce type, commencez par créer un nouve
 
 Ensuite, créez un fichier `function.json` dans le dossier. Le fichier configure la fonction. Commencez par le contenu suivant :
 
-``` JSON
+```json
 {
     "configurationSource": "config",
     "bindings" : [
@@ -64,7 +64,7 @@ Si vous souhaitez recevoir des événements d’un Event Hub, ajoutez des inform
 * **eventHubName** : nom du Event Hub dans l’espace de noms identifié par la chaîne de connexion.
 * **consumerGroup** : nom du groupe de consommateurs. Notez que le nom est placé entre signes de pourcentage et qu’il fait donc également référence à une valeur des paramètres de l’application.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -86,7 +86,7 @@ Si vous souhaitez recevoir des événements d’une file d’attente Service Bus
 * **connection** : nom de la valeur des paramètres de l’application pour la chaîne de connexion de Service Bus.
 * **queueName** : nom de la file d’attente Service Bus dans l’espace de noms identifié par la chaîne de connexion.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -108,7 +108,7 @@ Si vous souhaitez recevoir des événements d’une rubrique Service Bus, ajoute
 * **topicName** : nom de la rubrique Service Bus dans l’espace de noms identifié par la chaîne de connexion.
 * **subscriptionName** : nom de l’abonnement Service Bus sur la rubrique donnée dans l’espace de noms identifié par la chaîne de connexion.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -132,7 +132,7 @@ Si vous souhaitez transférer des événements vers un Event Hub, ajoutez des in
 * **connection** : nom de la valeur des paramètres de l’application pour la chaîne de connexion du Event Hub. 
 * **eventHubName** : nom du Event Hub dans l’espace de noms identifié par la chaîne de connexion.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -156,7 +156,7 @@ Si vous souhaitez transférer des événements vers une file d’attente Service
 * **connection** : nom de la valeur des paramètres de l’application pour la chaîne de connexion de Service Bus. 
 * **queueName** : nom de la file d’attente Service Bus dans l’espace de noms identifié par la chaîne de connexion.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -180,7 +180,7 @@ Si vous souhaitez transférer des événements vers une rubrique Service Bus, aj
 * **connection** : nom de la valeur des paramètres de l’application pour la chaîne de connexion de Service Bus. 
 * **topicName** : nom de la rubrique Service Bus dans l’espace de noms identifié par la chaîne de connexion.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -200,7 +200,7 @@ Si vous souhaitez transférer des événements vers une rubrique Service Bus, aj
 
 La configuration du point d’entrée choisit l’une des tâches de réplication standard. Si vous modifiez le projet `Azure.Messaging.Replication`, vous pouvez également ajouter des tâches et y faire référence ici. Exemple :
 
-```JSON
+```json
     ...
     "scriptFile": "../dotnet/bin/Azure.Messaging.Replication.dll",
     "entryPoint": "Azure.Messaging.Replication.EventHubReplicationTasks.ForwardToEventHub"

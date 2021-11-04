@@ -1,20 +1,19 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier include
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
 ms.date: 09/30/2020
 ms.author: dacoulte
-ms.openlocfilehash: e9ba8efefd2238b1aadc2fbeaf17a286e0714bcd
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 1c63d79c82f667fbd7cfc9a62a741eab275757dd
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123485092"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131571272"
 ---
-Il existe un nombre maximal pour chaque type d'objet concernant Azure Policy. Pour les définitions, une entrée d’_étendue_ désigne le [groupe d’administration](../articles/governance/management-groups/overview.md) ou l’abonnement.
-Pour les affectations et les exemptions, une entrée d’_étendue_ signifie le [groupe d’administration](../articles/governance/management-groups/overview.md), l’abonnement, le groupe de ressources ou la ressource individuelle.
+Il existe un nombre maximal pour chaque type d'objet concernant Azure Policy. Pour les définitions, une entrée d’_étendue_ désigne le [groupe d’administration](../articles/governance/management-groups/overview.md) ou l’abonnement. Pour les affectations et les exemptions, une entrée d’_étendue_ signifie le [groupe d’administration](../articles/governance/management-groups/overview.md), l’abonnement, le groupe de ressources ou la ressource individuelle.
 
 | Where | Quoi | Nombre maximal |
 |---|---|---|

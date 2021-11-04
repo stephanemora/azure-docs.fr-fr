@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 03/18/2019
+ms.date: 11/03/2021
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6542272fd39e4b79edaecebcfc2e9ec54ab64fb7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 47d0862eefd713aa814ab7da2737565c33160cd3
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562270"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559292"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API .NET Standard Table Azure Cosmos DB : Téléchargement et notes de publication
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "122562270"
 
 |   | Liens  |
 |---|---|
-|**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
+|**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Azure.Data.Tables/)|
 |**Exemple**|[Exemple .NET d'API Table Cosmos DB](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Démarrage rapide**|[Démarrage rapide](create-table-dotnet.md)|
 |**Didacticiel**|[Didacticiel](tutorial-develop-table-dotnet.md)|

@@ -3,14 +3,14 @@ title: Enregistrer et streamer des métadonnées d’inférence avec une vidéo 
 description: Dans ce tutoriel, vous allez apprendre à utiliser Azure Video Analyzer pour enregistrer des métadonnées de vidéo et d’inférence dans le cloud et lire l’enregistrement avec les métadonnées d’inférence visuelle.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9e91b9ed8e73f2834165b012654e567a6f219a81
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 77b920f52f699cb4492764aaf5ecb8b5f8ee2a7e
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131098192"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559406"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>Tutoriel : Enregistrer et streamer des métadonnées d’inférence avec une vidéo
 
@@ -343,7 +343,7 @@ Comme son nom l’indique, l’événement RecordingStarted est envoyé lorsque 
 
 Cet événement indique que suffisamment de données ont été écrites dans la ressource vidéo pour que les lecteurs ou les clients commencent la lecture de la vidéo.
 
-La section subject dans applicationProperties fait référence au nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
+La section subject dans applicationProperties référence le nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
 
 La section body contient des informations sur l’emplacement de sortie. Dans ce cas, il s’agit du nom de la ressource Video Analyzer dans laquelle la vidéo est enregistrée.
 
@@ -370,7 +370,7 @@ Quand vous désactivez le pipeline en direct, le nœud récepteur vidéo cesse d
 
 Cet événement indique que l’enregistrement s’est arrêté.
 
-La section subject dans applicationProperties fait référence au nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
+La section subject dans applicationProperties référence le nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
 
 La section body contient des informations sur l’emplacement de sortie, qui est dans ce cas le nom de la ressource Video Analyzer dans laquelle la vidéo est enregistrée.
 

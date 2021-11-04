@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier include
 services: virtual-network
 author: asudbring
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 769c3c5e720486c2c6d590f6feea55de5e0f4b88
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f76408314f65409d21d163f34efc7da3d6e86f68
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130288217"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131570944"
 ---
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Ajouter des adresses IP à un système d’exploitation de machine virtuelle
 
@@ -34,10 +34,10 @@ Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plu
     * **Masque de sous-réseau** : définissez cette option en fonction de votre sous-réseau. Par exemple, si le sous-réseau est un sous-réseau /24, le masque de sous-réseau est 255.255.255.0.
     * **Passerelle par défaut** : première adresse IP du sous-réseau. Si votre sous-réseau est 10.0.0.0/24, l’adresse IP de la passerelle est 10.0.0.1.
     * Sélectionnez **Utiliser l’adresse de serveur DNS suivante** et saisissez les valeurs ci-dessous :
-        * **Serveur DNS préféré** : saisissez 168.63.129.16 si vous n’utilisez pas votre propre serveur DNS.  Si vous utilisez votre propre serveur DNS, entrez l’adresse IP de votre serveur.  (Pour Serveur DNS auxiliaire, vous pouvez choisir n’importe quelle adresse de serveur DNS public libre.)
+      * **Serveur DNS préféré** : saisissez 168.63.129.16 si vous n’utilisez pas votre propre serveur DNS.  Si vous utilisez votre propre serveur DNS, entrez l’adresse IP de votre serveur.  (Pour Serveur DNS auxiliaire, vous pouvez choisir n’importe quelle adresse de serveur DNS public libre.)
     * Sélectionnez le bouton **Avancé** et ajoutez des adresses IP supplémentaires. Ajoutez chaque adresse IP privée secondaire que vous avez ajoutée à l’interface réseau Azure dans une étape précédente, à l’interface réseau Windows à laquelle est attribuée l’adresse IP principale assignée à l’interface réseau Azure.
 
-        Vous ne devez jamais assigner manuellement l’adresse IP publique assignée à une machine virtuelle Azure au sein du système d’exploitation de la machine virtuelle. Lorsque vous définissez manuellement l’adresse IP dans le système d’exploitation, assurez-vous qu’il s’agit de la même adresse que l’adresse IP privée assignée à [l’interface réseau](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure, ou vous pouvez perdre la connectivité à la machine virtuelle. En savoir plus sur les paramètres [d’adresse IP privée](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#private). Vous ne devez jamais attribuer une adresse IP publique Azure au sein du système d’exploitation.
+      Vous ne devez jamais assigner manuellement l’adresse IP publique assignée à une machine virtuelle Azure au sein du système d’exploitation de la machine virtuelle. Lorsque vous définissez manuellement l’adresse IP dans le système d’exploitation, assurez-vous qu’il s’agit de la même adresse que l’adresse IP privée assignée à [l’interface réseau](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure, ou vous pouvez perdre la connectivité à la machine virtuelle. En savoir plus sur les paramètres [d’adresse IP privée](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#private). Vous ne devez jamais attribuer une adresse IP publique Azure au sein du système d’exploitation.
 
     * Cliquez sur **OK** pour fermer les paramètres TCP/IP, puis sur **OK** à nouveau pour fermer les paramètres de la carte réseau. Votre connexion RDP est rétablie.
 
@@ -142,9 +142,9 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 ```
 
 - Veillez à remplacer :
-    - **10.0.0.5** par l’adresse IP privée à laquelle une adresse IP publique est associée
-    - **10.0.0.1** par votre passerelle par défaut
-    - **eth2 par le nom de votre carte réseau secondaire**
+  - **10.0.0.5** par l’adresse IP privée à laquelle une adresse IP publique est associée
+  - **10.0.0.1** par votre passerelle par défaut
+  - **eth2 par le nom de votre carte réseau secondaire**
 
 </details>
 
@@ -246,9 +246,9 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 ```
 
 - Veillez à remplacer :
-    - **10.0.0.5** par l’adresse IP privée à laquelle une adresse IP publique est associée
-    - **10.0.0.1** par votre passerelle par défaut
-    - **eth2 par le nom de votre carte réseau secondaire**
+  - **10.0.0.5** par l’adresse IP privée à laquelle une adresse IP publique est associée
+  - **10.0.0.1** par votre passerelle par défaut
+  - **eth2 par le nom de votre carte réseau secondaire**
 
 </details>
 
@@ -335,9 +335,9 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 ```
 
 - Veillez à remplacer :
-    - **10.0.0.5** par l’adresse IP privée à laquelle une adresse IP publique est associée
-    - **10.0.0.1** par votre passerelle par défaut
-    - **eth2 par le nom de votre carte réseau secondaire**
+  - **10.0.0.5** par l’adresse IP privée à laquelle une adresse IP publique est associée
+  - **10.0.0.1** par votre passerelle par défaut
+  - **eth2 par le nom de votre carte réseau secondaire**
 
 
 </details>
@@ -357,18 +357,18 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 1. Mettez à jour le fichier de configuration de l’interface réseau (en supposant que « eth0 » est utilisé).
 
    * Ouvrez le fichier d’interface réseau à l’aide de la commande ci-dessous :
-     
+
      ```bash
      vi /etc/network/interfaces
      ```
-    
+
    * Les lignes suivantes doivent figurer à la fin du fichier :
-    
+
       ```bash
       auth eth0
       iface eth0 inet dhcp
       ```
-    
+
    * Conservez tel quel l’élément de ligne existant pour dhcp. L’adresse IP principale reste configurée telle qu’elle était précédemment.
    * Ajoutez les lignes suivantes après les lignes qui existent dans ce fichier :
 
@@ -390,7 +390,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
    systemctl restart networking
    ```
    Pour les versions antérieures de Debian, vous pouvez utiliser les commandes suivantes :
-    
+
    ```bash
    service networking restart
    ```

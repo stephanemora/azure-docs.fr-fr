@@ -1,15 +1,15 @@
 ---
-author: v-demjoh
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
-ms.author: v-demjoh
-ms.openlocfilehash: a5796dfb066ea8ac7c59c02b29ef67b184c67edb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: eric-urban
+ms.openlocfilehash: 7600bae5191c5230764b4f75cb93f20049c4b963
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94425037"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506843"
 ---
 L’une des principales fonctionnalités du service Speech est la possibilité de reconnaître la parole humaine et de la traduire dans d’autres langues. Dans ce démarrage rapide, vous allez apprendre à utiliser le Kit de développement logiciel (SDK) Speech dans vos applications et produits afin d’effectuer une traduction vocale de qualité. Ce guide de démarrage rapide convertit la parole du microphone en texte dans une autre langue.
 

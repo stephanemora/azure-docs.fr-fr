@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/30/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ebd61d57e79864c1af8a583de349eb5a6706fce8
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 55473848a8c8e8e7f9c6072566eb73d823feaba2
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273929"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561306"
 ---
 # <a name="add-faceted-navigation-to-a-search-app"></a>Ajouter la navigation à facettes à une application de recherche
 
@@ -302,7 +302,3 @@ Les didacticiels et les exemples en [C#](tutorial-csharp-overview.md), [Python](
 ### <a name="nycjobs-sample-code-and-demo-ajax"></a>Exemple de code et démonstration NYCJobs (Ajax)
 
 L’exemple NYCJobs est une application MVC ASP.NET qui utilise Ajax dans la couche de présentation. Elle est disponible en tant qu' [application de démonstration en direct](https://aka.ms/azjobsdemo) et en tant que code source dans le [référentiel Azure-Samples sur GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
-
-### <a name="video-demonstration"></a>Démonstration vidéo
-
-À 45:25 dans [Présentation approfondie de Recherche cognitive Azure](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410) se trouve une démonstration de la façon d’implémenter des facettes.
