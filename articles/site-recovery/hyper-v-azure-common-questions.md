@@ -3,12 +3,12 @@ title: Questions courantes sur la récupération d’urgence pour Hyper-V avec A
 description: Cet article récapitule les questions courantes sur la configuration de la reprise d’activité de machines virtuelles Hyper-V locales sur Azure à l’aide du site Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 649bd69f14cdf8d81fe05d3a5f5cac3389419fc3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 46061013844ecc6e41a0329641fd5d81b68656c4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879442"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475081"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Questions courantes sur la reprise d’activité d’Hyper-V sur Azure
 
@@ -170,10 +170,10 @@ Les machines virtuelles Hyper-V peuvent être répliquées toutes les 30 second
 Oui, Azure Site Recovery et le réplica Hyper-V peuvent être configurés ensemble pour un ordinateur. Toutefois, l’ordinateur doit être protégé comme une machine physique et sera répliqué sur Azure à l’aide d’un serveur de configuration/traitement. En savoir plus sur la protection des machines physiques [ici](./physical-azure-architecture.md).
 
 ### <a name="can-i-extend-replication"></a>Puis-je étendre la réplication ?
-La réplication étendue ou chaînée n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+La réplication étendue ou chaînée n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/d365community/forum/3ccca344-2d25-ec11-b6e6-000d3a4f0f84).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Puis-je effectuer une réplication initiale hors connexion ?
-Ceci n’est pas pris en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Ceci n’est pas pris en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/d365community/idea/7c09c396-2e25-ec11-b6e6-000d3a4f0f84).
 
 ### <a name="can-i-exclude-disks"></a>Puis-je exclure des disques ?
 Oui, vous pouvez exclure des disques de la réplication. 

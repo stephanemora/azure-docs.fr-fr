@@ -6,26 +6,23 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: bf3aa8b675e242952f32678059b8b2c89d5b95e0
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 15757c3a7e394dcc52c83e8eeef54d8b44b97a34
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129612424"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468192"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Journaux des requêtes lentes dans le serveur flexible Azure Database pour MySQL (préversion)
+# <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server"></a>Journaux des requêtes lentes dans le serveur flexible Azure Database pour MySQL
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database pour MySQL – Serveur flexible est actuellement en préversion publique.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Dans le serveur flexible Azure Database pour MySQL, le journal des requêtes lentes disponible peut être configuré et consulté par les utilisateurs. Les journaux des requêtes lentes sont désactivés par défaut et peuvent être activés pour faciliter l’identification de goulots d’étranglement des performances lors de la résolution des problèmes.
 
 Pour plus d’informations sur le journal des requêtes lentes MySQL, consultez la [section sur le journal des requêtes lentes](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) dans la documentation du moteur MySQL.
 
-## <a name="configure-slow-query-logging"></a>Configurer la journalisation des requêtes lentes 
-Par défaut, le journal des requêtes lentes est désactivé. Pour activer les journaux, définissez le paramètre de serveur `slow_query_log` sur *ACTIVÉ*. Vous pouvez configurer ce paramètre à l’aide du portail Azure ou d’Azure CLI <!-- add link to server parameter-->. 
+## <a name="configure-slow-query-logging"></a>Configurer la journalisation des requêtes lentes
+Par défaut, le journal des requêtes lentes est désactivé. Pour activer les journaux, définissez le paramètre de serveur `slow_query_log` sur *ACTIVÉ*. Vous pouvez configurer ce paramètre à l’aide du portail Azure ou d’Azure CLI <!-- add link to server parameter-->.
 
 Les autres paramètres que vous pouvez ajuster pour contrôler le comportement de la journalisation des requêtes lentes sont les suivants :
 
@@ -86,7 +83,7 @@ Une fois vos journaux des requêtes lentes canalisés vers des journaux Azure Mo
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | where query_time_d > 10
     ```
 
@@ -96,7 +93,7 @@ Une fois vos journaux des requêtes lentes canalisés vers des journaux Azure Mo
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | order by query_time_d desc
     | take 5
     ```
@@ -107,7 +104,7 @@ Une fois vos journaux des requêtes lentes canalisés vers des journaux Azure Mo
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
     ```
 
@@ -117,7 +114,7 @@ Une fois vos journaux des requêtes lentes canalisés vers des journaux Azure Mo
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
     | render timechart
     ```
@@ -127,10 +124,10 @@ Une fois vos journaux des requêtes lentes canalisés vers des journaux Azure Mo
     ```Kusto
     AzureDiagnostics
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s
     | where query_time_d > 10
-    ```    
-    
+    ```
+
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [journaux d'audit](concepts-audit-logs.md)
 - [Analyse des performances des requêtes](tutorial-query-performance-insights.md)

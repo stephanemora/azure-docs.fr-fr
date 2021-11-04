@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 12bbaeddadb925cc6057c902a528121c16e05cd7
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: f40ac573e8abb20e7d4eb4b11a0d9e09f251d9c8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546789"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022015"
 ---
 # <a name="np-series"></a>Série NP 
 
@@ -26,7 +26,7 @@ Les machines virtuelles de la série NP sont alimentées par des FPGA [Xilinx U2
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 Génération de machine virtuelle prise en charge : Génération 1<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
-[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge ([en préversion](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge<br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | FPGA | Mémoire FPGA : Gio | Disques de données max. | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. | 

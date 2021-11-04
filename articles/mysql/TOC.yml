@@ -388,7 +388,7 @@
           href: sample-scripts-azure-cli.md
         - name: Configurer le regroupement de connexions Java
           href: sample-scripts-java-connection-pooling.md
-- name: Serveur flexible (préversion)
+- name: Serveur flexible
   items:
     - name: Documentation Serveur flexible
       href: flexible-server/index.yml
@@ -681,7 +681,7 @@
             - name: Créer et déployer des applications Web Apps
               href: 'https://aka.ms/mysql-webapps-vid'
     - name: Demander une fonctionnalité
-      href: 'https://feedback.azure.com/forums/597982-azure-database-for-mysql'
+      href: 'https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0'
     - name: Disponibilité des régions
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Options de support

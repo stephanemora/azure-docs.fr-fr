@@ -4,19 +4,20 @@ description: Ce document décrit les configurations avancées de vos ressources 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/04/2021
-ms.openlocfilehash: 0eaff84368327da7ebef11d53338f13ee6f8cdb4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 08/25/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e8e6cf62e2d6c09059af00fc7fa3d5f2c447ae2a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376360"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069213"
 ---
 # <a name="configure-qna-maker-resources"></a>Configurer des ressources QnA Maker
 
 L’utilisateur peut configurer QnA Maker pour utiliser une autre ressource Recherche cognitive. Il peut également configurer les paramètres App service s’il utilise QnA Maker en disponibilité générale.
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ## <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>Configurer QnA Maker pour utiliser une autre ressource de Recherche cognitive
 
@@ -50,30 +51,7 @@ Si vous créez un service QnA par le biais de modèles Azure Resource Manager, v
 
 En savoir plus sur la configuration des [paramètres de l’application](../../../app-service/configure-common.md#configure-app-settings) App Service .
 
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
-
-### <a name="configure-text-analytics-resource-with-custom-question-answering-feature-to-use-a-different-cognitive-search-resource"></a>Configurer une Analyse de texte avec une fonctionnalité de réponses aux questions personnalisées pour utiliser une autre ressource Recherche cognitive
-
-> [!NOTE]
-> Si vous modifiez le service de recherche Azure associé à Analyse de texte, vous allez perdre l’accès à toutes les bases de connaissances déjà présentes dans celui-ci. Veillez à exporter les bases de connaissances existantes avant de modifier le service de recherche Azure.
-
-
-Si vous créez une ressource Analyse de texte et ses dépendances (par exemple, la recherche) via le portail, un service de recherche est créé pour vous et lié à la ressource Analyse de texte. Une fois ces ressources créées, vous pouvez mettre à jour la ressource de recherche sous l’onglet **Configuration**.
-
-1.  Accédez à votre ressource Analyse de texte dans le portail Azure.
-
-2.  Sélectionnez **Fonctionnalités**, puis le service Recherche cognitive Azure à lier à votre ressource Analyse de texte.
-
-> [!div class="mx-imgBorder"]
-> ![Ajouter QnA à Analyse de texte](../media/qnamaker-how-to-upgrade-qnamaker/update-custom-qna-feature.png)
-
-3.  Cliquez sur **Enregistrer**.
-
----
-
 ## <a name="get-the-latest-runtime-updates"></a>Téléchargement des dernières mises à jour du Runtime
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 Le runtime QnAMaker fait partie de l’instance Azure App Service, qui est déployé quand vous [créez un service QnAMaker](./set-up-qnamaker-service-azure.md) dans le portail Azure. Des mises à jour du runtime sont effectuées régulièrement. L’instance QnA Maker App Service est en mode de mise à jour automatique à partir de la publication de l’extension de site d’avril 2019 (version 5+). Cette mise à jour a déjà été conçue pour éviter le moindre temps d’arrêt pendant les mises à niveau.
 
@@ -93,16 +71,8 @@ Vous pouvez vérifier votre version actuelle à l’adresse https://www.qnamaker
 1. Redémarrez App Service. Le processus de mise à jour doit se terminer en quelques secondes. Les applications ou bots dépendants qui utilisent ce service QnAMaker ne sont pas disponibles pour les utilisateurs finaux durant le redémarrage.
 
     ![Redémarrage de l’instance d’App Service de QnAMaker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
-    
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
-
-App Service n’est pas déployé avec des réponses aux questions personnalisées.
-
----
 
 ## <a name="configure-app-service-idle-setting-to-avoid-timeout"></a>Configurer le paramètre d’inactivité d’App Service pour éviter le délai d’expiration
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 Le service d’application, qui sert le runtime de prédiction QnA Maker d’une base de connaissances publiée, a une configuration de délai d’inactivité, laquelle utilise par défaut le délai d’expiration automatique si le service est inactif. Pour QnA Maker, cela signifie que votre API generateAnswer de runtime des prédictions expire parfois après des périodes sans trafic.
 
@@ -121,15 +91,7 @@ Pour que l’application de point de terminaison de prédiction soit chargée m�
 
 En savoir plus sur la configuration des [Paramètres généraux](../../../app-service/configure-common.md#configure-general-settings) de l’App Service .
 
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
-
-App Service n’est pas déployé avec des réponses aux questions personnalisées.
-
----
-
 ## <a name="business-continuity-with-traffic-manager"></a>Continuité d'activité avec Traffic Manager
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 L’objectif principal du plan de continuité d’activité est de créer un point de terminaison de base de connaissances résilient qui garantit qu’il n’y a aucun temps d’arrêt du bot ou de l’application qui la consomme.
 
@@ -151,9 +113,3 @@ L’idée générale représentée plus haut est la suivante :
 1. Vous devez créer un certificat Transport Layer Security (TLS), anciennement Secure Sockets Layer (SSL), pour le point de terminaison de votre gestionnaire de trafic. [Liez le certificat TLS/SSL](../../../app-service/configure-ssl-bindings.md) dans vos services d’application.
 
 1. Enfin, utilisez le point de terminaison du gestionnaire de trafic dans votre bot ou dans votre application.
-
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
-
-App Service n’est pas déployé avec des réponses aux questions personnalisées.
-
----

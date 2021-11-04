@@ -3,12 +3,12 @@ title: Glossaire du service Sauvegarde Azure
 description: Cet article définit des termes qui peuvent être utiles lors de l’utilisation du service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 774fc63002677aa9fbb986d40a5d8fe2b3e99f7d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502023"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465190"
 ---
 # <a name="azure-backup-glossary"></a>Glossaire du service Sauvegarde Azure
 
@@ -186,7 +186,7 @@ Restauration de fichiers ou dossiers individuels à l’intérieur de la machine
 
 ## <a name="job"></a>Travail
 
-Tâche liée à la sauvegarde qui est créée par un utilisateur ou le service Sauvegarde Azure. Les travaux peuvent être planifiés ou effectués à la demande (ad-hoc). Il existe différents types de travaux : sauvegarde, restauration, configuration de la protection, etc. [Découvrez-en plus sur les travaux](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
+Tâche liée à la sauvegarde qui est créée par un utilisateur ou le service Sauvegarde Azure. Les travaux peuvent être planifiés ou effectués à la demande (ad-hoc). Il existe différents types de travaux : sauvegarde, restauration, configuration de la protection, etc. [Découvrez-en plus sur les travaux](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center).
 
 ## <a name="mabs--azure-backup-server"></a>MABS / Serveur de sauvegarde Azure
 

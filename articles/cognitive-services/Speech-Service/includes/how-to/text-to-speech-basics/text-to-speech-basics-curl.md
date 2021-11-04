@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/09/2020
 ms.author: v-jawe
-ms.openlocfilehash: 6df6fc7e4c2cc7a1271d3ca01e34fe6802e7abde
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 2272fbe18ac4d2241618f650fd3dab223ef242ee
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109719258"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510831"
 ---
 Dans ce guide de démarrage rapide, vous allez apprendre à convertir du texte en parole à l’aide du service Speech et de cURL.
 

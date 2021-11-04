@@ -1,18 +1,18 @@
 ---
 title: Demander des données d’élévation à l’aide du service Elevation d’Azure Maps
 description: Découvrez comment demander des données d’élévation à l’aide du service Elevation d’Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 05/18/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: 6562af274455297e12084353926478f1954c2407
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a9920d3b512bda0b2710ad9c0c6daf5c5801602a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031401"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432165"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service"></a>Demander des données d’élévation à l’aide du service Elevation d’Azure Maps
 
@@ -45,7 +45,7 @@ Pour demander des données d’élévation dans un format de vignette raster à 
 4. Sous l’onglet **Builder**, sélectionnez la méthode HTTP **GET** et entrez l’URL suivante pour demander la vignette raster.
 
     ```http
-    https://atlas.microsoft.com/map/tile?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&tilesetId=microsoft.dem&zoom=13&x=6074&y=3432
+    https://atlas.microsoft.com/map/tile?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0&tilesetId=microsoft.dem&zoom=13&x=6074&y=3432
     ```
 
     >[!Important]
@@ -86,7 +86,7 @@ Pour créer la requête :
 4. Sous l’onglet **Générateur**, sélectionnez la méthode HTTP **GET**, puis entrez l’URL suivante (`{Azure-Maps-Primary-Subscription-key}` à remplacer par votre clé d’abonnement principale) :
 
     ```http
-    https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&points=-73.998672,40.714728|150.644,-34.397
+    https://atlas.microsoft.com/elevation/point/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&points=-73.998672,40.714728|150.644,-34.397
     ```
 
 5. Sélectionnez le bouton **Envoyer**.  Vous recevrez la réponse JSON suivante :
@@ -115,7 +115,7 @@ Pour créer la requête :
 6. Ensuite, nous allons appeler l’[API Post Data for Points](/rest/api/maps/elevation/postdataforpoints) afin d’obtenir des données d’élévation pour les deux mêmes points. Sous l’onglet **Générateur**, sélectionnez la méthode HTTP **POST**, puis entrez l’URL suivante (`{Azure-Maps-Primary-Subscription-key}` à remplacer par votre clé d’abonnement principale) :
 
     ```http
-    https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
+    https://atlas.microsoft.com/elevation/point/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
 7. Dans le champ **En-têtes** de la requête **POST**, définissez `Content-Type` sur `application/json`. 
@@ -161,7 +161,7 @@ Pour créer la requête :
 4. Sous l’onglet **Générateur**, sélectionnez la méthode HTTP **GET**, puis entrez l’URL suivante (`{Azure-Maps-Primary-Subscription-key}` à remplacer par votre clé d’abonnement principale) :
 
    ```http
-    https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&lines=-73.998672,40.714728|150.644,-34.397&samples=5
+    https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&lines=-73.998672,40.714728|150.644,-34.397&samples=5
     ```
 
 5. Sélectionnez le bouton **Envoyer**.  Vous recevrez la réponse JSON suivante :
@@ -251,7 +251,7 @@ Pour créer la requête :
 9. Ensuite, nous allons appeler l’[API Post Data For Polyline](/rest/api/maps/elevation/postdataforpolyline) afin d’obtenir des données d’élévation pour les trois mêmes points.  Sous l’onglet **Générateur**, sélectionnez la méthode HTTP **POST**, puis entrez l’URL suivante (`{Azure-Maps-Primary-Subscription-key}` à remplacer par votre clé d’abonnement principale) :
 
     ```http
-    https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&samples=5
+    https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&samples=5
     ```
 
 10. Dans le champ **En-têtes** de la requête **POST**, définissez `Content-Type` sur `application/json`. 
@@ -296,7 +296,7 @@ Pour créer la requête :
 4. Sous l’onglet **Générateur**, sélectionnez la méthode HTTP **GET**, puis entrez l’URL suivante (`{Azure-Maps-Primary-Subscription-key}` à remplacer par votre clé d’abonnement principale) :
 
     ```http
-    https://atlas.microsoft.com/elevation/lattice/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3
+    https://atlas.microsoft.com/elevation/lattice/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3
     ```
 
 5. Sélectionnez **Envoyer**.  La réponse retourne 18 exemples de données d’élévation, un pour chaque vertex de la grille.

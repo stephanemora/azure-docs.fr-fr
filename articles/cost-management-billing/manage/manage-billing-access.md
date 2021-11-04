@@ -1,7 +1,7 @@
 ---
 title: Gérer l’accès à la facturation Azure
 description: Découvrez comment donner accès à vos informations de facturation Azure aux membres de votre équipe.
-author: vikramdesai01
+author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 06/27/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 2aae9775c884f8ccedc1f3ce70025c5331030133
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: 5f325b0e8adb0a20389bfc09cc37f42fbddbd477
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112987848"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450017"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gérer l’accès aux informations de facturation pour Azure
 

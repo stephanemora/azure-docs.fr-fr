@@ -3,12 +3,12 @@ title: Activer l’identité managée dans le groupe de conteneurs
 description: Découvrez comment utiliser une identité managée pour s’authentifier auprès d’autres services Azure dans Azure Container Instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 44f4e15e6e11fac884c2d117aae351615420ba43
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: 03b129b3aa986bb9858280e08c2532ef73806e91
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114219277"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057853"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Comment utiliser une identité managée avec Azure Container Instances
 
@@ -358,7 +358,7 @@ Une identité attribuée par l’utilisateur est un ID de ressource qui se prés
 
 Vous pouvez activer une ou plusieurs identités attribuées par l’utilisateur.
 
-```YAML
+```yaml
 identity:
   type: UserAssigned
   userAssignedIdentities:
@@ -367,7 +367,7 @@ identity:
 
 ### <a name="system-assigned-identity"></a>Identité attribuée par le système
 
-```YAML
+```yaml
 identity:
   type: SystemAssigned
 ```
@@ -376,7 +376,7 @@ identity:
 
 Sur un groupe de conteneurs, vous pouvez activer à la fois une identité attribuée par le système, et une ou plusieurs identités attribuées par l’utilisateur.
 
-```YAML
+```yml
 identity:
   type: SystemAssigned, UserAssigned
   userAssignedIdentities:

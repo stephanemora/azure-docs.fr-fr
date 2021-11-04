@@ -2,25 +2,28 @@
 title: Nouveautés d’Azure Defender pour IoT pour les fabricants d’appareils
 description: Découvrez les dernières versions et fonctionnalités de Defender pour les fabricants d’appareils IoT.
 ms.topic: overview
-ms.date: 06/06/2021
-ms.openlocfilehash: cde850ba6e5dedddea9d74a8232bc20e8a634c59
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.date: 10/20/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c420fddad0332b2a83907dd564bf977c31ea6d4d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011111"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086281"
 ---
 # <a name="whats-new-in-azure-defender-for-iot-for-device-builders"></a>Nouveautés d’Azure Defender pour IoT pour les fabricants d’appareils  
+
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 Cet article répertorie les nouvelles fonctionnalités et améliorations apportées à Defender pour IoT.
 
 Ces fonctionnalités sont en PRÉVERSION. Les [conditions supplémentaires pour les préversions Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluent d’autres conditions juridiques qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou qui ne sont pas encore en disponibilité générale.
 
-## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Versioning et support d’Azure Defender pour IoT 
+## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Versioning et support d’Azure Defender pour IoT
 
-La liste ci-dessous inclut la prise en charge, les stratégies avec modification cassante pour Defender pour IoT et les versions d’Azure Defender pour IoT actuellement disponibles. 
+La liste ci-dessous inclut la prise en charge, les stratégies avec modification cassante pour Defender pour IoT et les versions d’Azure Defender pour IoT actuellement disponibles.
 
-### <a name="servicing-information-and-timelines"></a>Informations de maintenance et chronologies 
+### <a name="servicing-information-and-timelines"></a>Informations de maintenance et chronologies
 
 Microsoft prévoit de publier des mises à jour pour Azure Defender pour IoT au moins une fois par trimestre. Chaque version en disponibilité générale (GA) d’Azure Defender pour le capteur IoT et la console de gestion locale est prise en charge jusqu’à neuf mois après sa publication. Les correctifs et les nouvelles fonctionnalités seront appliqués aux versions en disponibilité générale actuellement prises en charge, mais ne seront pas appliqués aux versions en disponibilité générale plus anciennes.
 
@@ -30,6 +33,7 @@ Microsoft prévoit de publier des mises à jour pour Azure Defender pour IoT au 
 |--|--|--|
 | 10.0 | 01/2021 | 10/2021 |
 | 10.3 | 04/2021 | 02/2022 |
+| 10.5.2 | 11/2021 | 07/2022 |
 
 ## <a name="april-2021"></a>Avril 2021
 
@@ -37,7 +41,9 @@ Microsoft prévoit de publier des mises à jour pour Azure Defender pour IoT au 
 
 De nouveaux packages Threat Intelligence peuvent désormais être automatiquement envoyés aux capteurs connectés au cloud, car ils sont publiés par Microsoft Defender pour IoT. Ceci s’ajoute au téléchargement des packages Threat Intelligence, puis à leur chargement sur les capteurs.
 
-L’utilisation des mises à jour automatiques permet de réduire les travaux opérationnels et de garantir une plus grande sécurité. Activez la mise à jour automatique en intégrant votre capteur connecté au cloud sur le portail Defender pour IoT avec **Mises à jour automatiques de Threat Intelligence** activé.
+L’utilisation des mises à jour automatiques permet de réduire les travaux opérationnels et de garantir une plus grande sécurité.
+
+Activez la mise à jour automatique en intégrant votre capteur connecté au cloud sur le portail Defender pour IoT avec **Mises à jour automatiques de Threat Intelligence** activé.
 
 Si vous voulez adopter une approche plus conservatrice pour mettre à jour vos données Threat Intelligence, vous pouvez envoyer manuellement les packages à partir du portail Azure Defender pour IoT vers des capteurs connectés au cloud seulement quand vous l’estimez nécessaire.
 Ceci vous donne la possibilité de contrôler le moment où un package est installé, sans devoir le télécharger, puis le charger sur vos capteurs. Envoyez manuellement les mises à jour aux capteurs à partir de la page **Sites et capteurs** de Defender pour IoT.
@@ -65,7 +71,7 @@ De nouveaux champs sont disponibles pour les utilisateurs qui travaillent avec l
 - Adresses source et de destination
 - Étapes de correction
 - Le nom du capteur défini par l’utilisateur
-- Le nom de la zone associée au capteur 
+- Le nom de la zone associée au capteur
 - Le nom du site associé au capteur
 
 **Capteur**
@@ -124,6 +130,7 @@ Cet ensemble de fonctionnalités est disponible avec la version cloud de la pré
 - [Intégration](#onboarding)
 - [Usage](#usability)
 - [Autres mises à jour](#other-updates)
+
 ### <a name="security"></a>Sécurité
 
 Des améliorations ont été apportées à la récupération des certificats et des mots de passe pour cette version.

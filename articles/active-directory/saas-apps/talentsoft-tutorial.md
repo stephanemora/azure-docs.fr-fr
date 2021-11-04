@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: d17ae5e0f8f506a1ab7e72dfe1905a23f68ba1fe
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a31516f2907cf123f74a3d6e57b563b0688dce45
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124772388"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510487"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-talentsoft"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Talentsoft
 
@@ -81,7 +81,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenant>.talentsoft.com`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenant>.talent-soft.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support client de Talentsoft](mailto:advancedservices@talentsoft.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 10/28/2021
 ms.author: aahi
-ms.openlocfilehash: f8c20e9da69c9b4a6f1a301e11d73e39853662e1
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 8ab4c205daaec32b3799d4c6cdccd4f9ddef093a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123467805"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473468"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurer des réseaux virtuels Azure Cognitive Services
 
@@ -50,8 +50,8 @@ Les réseaux virtuels (VNET) sont pris en charge dans les [régions où les serv
 > * Face
 > * Language Understanding (LUIS)
 > * Personalizer
-> * Services Speech
-> * Analyse de texte
+> * Service Speech
+> * Service Language
 > * QnA Maker
 > * Traduction de texte Translator Text
 

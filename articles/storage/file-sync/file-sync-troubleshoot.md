@@ -4,16 +4,16 @@ description: Résolvez les problèmes courants d’un déploiement sur Azure Fil
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 8/24/2021
+ms.date: 11/2/2021
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0ba4fe4968a54be0ee9f19e2df6db242c149a7ee
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 3069ffa1fc7e32d2ac683ecbc90f14f39625ddf4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080560"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424814"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -506,6 +506,9 @@ Cette erreur se produit car l’agent Azure File Sync n’est pas autorisé à a
     ```
 2. [Vérifiez l’existence du compte de stockage.](#troubleshoot-storage-account)
 3. [Vérifiez que les paramètres de pare-feu et de réseau virtuel sur le compte de stockage sont configurés correctement (si activés)](file-sync-deployment-guide.md?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+> [!Note]  
+> Une fois la connectivité réseau avec le service Azure File Sync restaurée, la synchronisation peut ne pas reprendre immédiatement. Par défaut, Azure File Sync lance une session de synchronisation toutes les 30 minutes si aucune modification n’est détectée au sein de l’emplacement du point de terminaison de serveur. Pour forcer une session de synchronisation, redémarrez le service d’agent de synchronisation de stockage (FileSyncSvc) ou apportez une modification à un fichier ou à un répertoire dans l’emplacement du point de terminaison du serveur.
 
 <a id="-2134364022"></a><a id="storage-unknown-error"></a>**Une erreur inconnue s’est produite lors de l’accès au compte de stockage.**  
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0151f4de30c3bf96fa8c0dca77c90282115c70d7
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: b15ccb564fe2c3551103e71b8c1ca2a901ec03e0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864370"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440754"
 ---
 # <a name="how-to-investigate-risk"></a>Procédure : Examiner les risques
 
@@ -93,7 +93,6 @@ Les administrateurs peuvent ensuite choisir de revenir au rapport des risques ou
 
 > [!NOTE] 
 > Notre système peut détecter que l’événement à risque qui a contribué à la note de risque de l’utilisateur est un faux positif ou que le risque de l’utilisateur a été corrigé par l’application d’une stratégie, par exemple en effectuant une demande d’authentification multifacteur (MFA) ou une modification sécurisée du mot de passe. Par conséquent, notre système ignorera l’état de risque et le détail de risque « L’intelligence artificielle a confirmé que la connexion est sécurisée » apparaîtra et ne contribuera plus au risque de l’utilisateur. 
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
