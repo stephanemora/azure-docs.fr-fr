@@ -12,12 +12,12 @@ author: vladai78
 ms.author: vladiv
 ms.reviewer: mathoma, vladiv, sachinp, wiassaf
 ms.date: 10/18/2021
-ms.openlocfilehash: 77548bc86c98815174b2319a58554d4beee894c3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5014c0b22d14f43baa99ad9eac3eb27ed6526c5b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131072177"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473563"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -55,11 +55,12 @@ Les générations de matériel de la série Premium (préversion publique) ne so
 
 | Région | **Série Premium** | **Série Premium à mémoire optimisée** | 
 |:--- |:--- |:--- |
-| USA Centre | Oui | Oui | 
+| USA Centre | Oui |  | 
+| USA Est  | Oui |  | 
 | USA Est 2 | Oui | Oui | 
-| Europe Nord | Oui | Oui | 
+| Europe Nord |  | Oui | 
 | Europe Ouest | Oui | Oui | 
-| USA Ouest | Oui | Oui | 
+| USA Ouest |  | Oui |  
 | USA Ouest 2 | Oui | Oui | 
 
 
@@ -76,7 +77,7 @@ La quantité d’espace OLTP en mémoire au niveau de service [Critique pour l�
 | 32 vCores | 37,94 Go | 53,09 Go | 128,61 Go |
 | 40 vCores | 52,23 Go | 73,09 Go | 164,13 Go |
 | 64 vCores | 99,9 Go | 139,82 Go | 288,61 Go |
-| 80 vCores | 131,68 Go| 184,30 Go | - |
+| 80 vCores | 131,68 Go| 184,30 Go | N/A |
 
 ## <a name="service-tier-characteristics"></a>Caractéristiques du niveau de service
 

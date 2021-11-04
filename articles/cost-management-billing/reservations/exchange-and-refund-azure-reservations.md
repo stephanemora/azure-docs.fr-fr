@@ -1,18 +1,19 @@
 ---
 title: Échanges et remboursements en libre-service de réservations Azure
 description: Découvrez comment vous pouvez échanger des réservations Azure ou en obtenir le remboursement. Vous devez avoir un accès propriétaire à l’ordre de réservation pour échanger ou rembourser des réservations.
-author: yashesvi
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 10/28/2021
 ms.author: banders
-ms.openlocfilehash: 56ebba760defcb47d336874294255e2e97e5a151
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 3a750e41ec5d422107dc091fb0965ed07da6a88b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546225"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469480"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Échanges et remboursements en libre-service de réservations Azure
 

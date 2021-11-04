@@ -44,6 +44,8 @@
       href: chaos-studio-fault-library.md
     - name: Fournisseurs d’erreur
       href: chaos-studio-fault-providers.md
+    - name: Limitations et problèmes connus dans la préversion
+      href: chaos-studio-limitations.md
     - name: Limites du service
       href: chaos-studio-service-limits.md
     - name: Documentation des API REST

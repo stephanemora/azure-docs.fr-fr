@@ -2,18 +2,18 @@
 title: 'Démarrage rapide : Intégrer un compte de stockage Azure à Azure CDN'
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le réseau de distribution de contenu (CDN) Azure pour diffuser du contenu haut débit en mettant en cache les objets blob à partir de Stockage Azure.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.date: 04/30/2020
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: ec614f74a0b7894be8b8d0d867056d0506d3ef9d
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: a420432e52e584fbcac85d8801d025ac1fee80e0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113596350"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439326"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Démarrage rapide : Intégrer un compte de stockage Azure à Azure CDN
 

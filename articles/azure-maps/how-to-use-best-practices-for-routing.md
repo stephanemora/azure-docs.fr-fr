@@ -1,18 +1,18 @@
 ---
 title: Bonnes pratiques pour le service Route Azure Maps de Microsoft Azure Maps
 description: Découvrez comment définir un itinéraire efficace pour les véhicules à l’aide du service Route de Microsoft Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 09/02/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 31a5a7f37ef61103a0e70b3daca076e62a16eaaf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 327747b731bfb26192f22631e23b4f3f7dc49cf3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524908"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447167"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Meilleures pratiques d’utilisation du service Route Azure Maps
 
@@ -86,7 +86,7 @@ Les sections suivantes montrent comment effectuer des appels aux API d’itinér
 Dans le premier exemple ci-dessous, l’heure de départ est définie sur le futur au moment de l’écriture.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
 ```
 
 La réponse contient un élément Summary, comme celui ci-dessous. Étant donné que l’heure de départ est définie sur le futur, la valeur **trafficDelayInSeconds** est égale à zéro. La valeur **travelTimeInSeconds** est calculée à l’aide des données de trafic historiques en fonction d’un horaire donné. Ainsi, dans ce cas, la valeur **travelTimeInSeconds** est égale à la valeur **historicTrafficTravelTimeInSeconds**.
@@ -109,7 +109,7 @@ La réponse contient un élément Summary, comme celui ci-dessous. Étant donné
 Dans le deuxième exemple ci-dessous, nous disposons d’une demande d’itinéraire en temps réel, où le départ est immédiat. Ce n’est pas explicitement spécifié dans l’URL, car il s’agit de la valeur par défaut.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
 La réponse contient un résumé comme indiqué ci-dessous. En raison des embouteillages, la valeur **trafficDelaysInSeconds** est supérieure à zéro. Elle est également supérieure à **historicTrafficTravelTimeInSeconds**.
@@ -160,7 +160,7 @@ Les API Routing d’Azure Maps prennent en charge les itinéraires des véhicule
 L’exemple de demande ci-dessous interroge un itinéraire pour un camion. Le camion transporte des déchets dangereux de classe 1.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
 L’API Route retourne des directions qui prennent en compte les dimensions du camion et les déchets dangereux. Vous pouvez lire les instructions d’itinéraire en développant l’élément `guidance`.
@@ -172,7 +172,7 @@ L’API Route retourne des directions qui prennent en compte les dimensions du c
 Si vous modifiez la classe US Hazmat dans la requête ci-dessus, vous obtenez un itinéraire différent reflétant cette modification.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass9&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass9&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
 La réponse ci-dessous concerne un camion transportant une substance dangereuse de classe 9, qui est moins dangereuse qu’un matériau dangereux de classe 1. Lorsque vous développez l’élément `guidance` pour lire les directions, vous remarquez que les directions ne sont pas les mêmes. Il existe davantage d’instructions d’itinéraire pour le camion qui transporte un matériau dangereux de classe 1.
@@ -192,7 +192,7 @@ Avec les API Route Directions d’Azure Maps, les développeurs peuvent demander
 La requête suivante définit `sectionType` sur `traffic`. Elle demande les sections qui contiennent des informations sur le trafic entre Seattle et San Diego.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
 ```
 
 La réponse contient les sections qui conviennent au trafic le long des coordonnées données.
@@ -220,7 +220,7 @@ Si vous souhaitez optimiser le meilleur ordre pour visiter les étapes données,
 La requête suivante demande le trajet pour six étapes, avec le paramètre `computeBestOrder` défini sur `false`. Il s’agit également de la valeur par défaut pour le paramètre `computeBestOrder`.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
+https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
 ```
 
 La réponse décrit une longueur de trajet de 140 851 mètres et une durée de trajet de 9 991 secondes.
@@ -231,8 +231,6 @@ L’image ci-dessous illustre le trajet résultant de cette requête. Ce trajet 
 
 ![Image non optimisée](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
 
-
-
 L’ordre des étapes de cet itinéraire est le suivant : 0, 1, 2, 3, 4, 5 et 6.
 
 ### <a name="sample-query"></a>Exemple de requête
@@ -240,7 +238,7 @@ L’ordre des étapes de cet itinéraire est le suivant : 0, 1, 2, 3, 4, 5 et 6
 La requête suivante demande le trajet pour les six mêmes étapes, comme dans l’exemple ci-dessus. Cette fois-ci, le paramètre `computeBestOrder` est défini sur `true` (optimisation du voyageur de commerce).
 
 ```http
-https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=true&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
+https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&computeBestOrder=true&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
 ```
 
 La réponse décrit une longueur de trajet de 91 814 mètres et une durée de trajet de 7 797 secondes. La distance de déplacement et le temps de trajet sont inférieurs ici, car l’API a retourné l’itinéraire optimisé.

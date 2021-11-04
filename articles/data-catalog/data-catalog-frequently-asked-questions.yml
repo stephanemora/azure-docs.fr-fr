@@ -7,12 +7,12 @@ metadata:
   ms.service: data-catalog
   ms.topic: conceptual
   ms.date: 08/01/2019
-  ms.openlocfilehash: fc39c9a8cdc447a9a38b75aa30de3990aaa8516d
-  ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+  ms.openlocfilehash: dd498c1a0f9f3ef62435986415bfde35eb7112c3
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/04/2021
-  ms.locfileid: "123479061"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131461035"
 title: Forum Aux Questions Azure Data Catalog
 summary: >
   [!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
@@ -77,7 +77,7 @@ sections:
   - question: >
       Comment demander la prise en charge d’une autre source de données ?
     answer: >
-      Pour demander des fonctionnalités et envoyer d’autres commentaires, rendez-vous dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
+      Pour demander des fonctionnalités et envoyer d’autres commentaires, rendez-vous dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/d365community/forum/3bedd14b-6b26-ec11-b6e6-000d3a4f032c?c=47edd14b-6b26-ec11-b6e6-000d3a4f032c#).
   - question: >
       Pourquoi l’erreur « Catalog already exists » (Ce catalogue existe déjà) s’affiche-t-elle quand j’essaie de créer un catalogue ?
     answer: "Lorsque vous achetez Office 365 E5 avec une licence Power BI Pro, Microsoft crée automatiquement un catalogue par défaut dans la région de l'abonnement. Ce catalogue utilise la référence SKU gratuite. La licence utilisateur Office 365 / Power BI est gérée dans la page Administration. \n\nCependant, ce type de catalogue de données n’inclut pas d'option **Administrateur** et n'est pas visible dans le portail **Azure**. Vous ne pouvez pas supprimer ce type de catalogue de données. De même, vous n'êtes pas autorisé à renommer le catalogue de données et vous ne pouvez pas le déplacer vers une autre région. \n\nLes comptes d’utilisateurs auxquels une licence Power BI Pro a été attribuée automatiquement ont accès au catalogue de données en raison du contrat de licence lorsqu'ils se sont inscrits à Office 365 E5 avec la licence Power BI Pro. Ce type d'utilisateur dispose d’un accès complet aux ressources du catalogue de données sans privilèges d'administration. Ce type d’utilisateur ne fait *pas* partie du rôle **Utilisateur de catalogue** dans Azure Data Catalog.\n"
@@ -117,7 +117,7 @@ sections:
   - question: >
       Le catalogue fonctionne-t-il avec une autre source de données qui m’intéresse ?
     answer: >
-      Nous travaillons activement à l’ajout de sources de données supplémentaires à Data Catalog. Si vous souhaitez qu’une source de données spécifique soit prise en charge, suggérez-la (ou faites part de votre accord si elle a déjà été suggérée) en vous rendant dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog).
+      Nous travaillons activement à l’ajout de sources de données supplémentaires à Data Catalog. Si vous souhaitez qu’une source de données spécifique soit prise en charge, suggérez-la (ou faites part de votre accord si elle a déjà été suggérée) en vous rendant dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/d365community/forum/3bedd14b-6b26-ec11-b6e6-000d3a4f032c).
   - question: >
       Quelles sont les autorisations dont j’ai besoin pour inscrire des ressources auprès de Data Catalog ?
     answer: >
@@ -131,7 +131,7 @@ sections:
       Data Catalog est un service cloud qui peut fonctionner avec des sources de données cloud et locales, offrant ainsi une solution de détection de sources de données hybrides. Aucune version du service Data Catalog s’exécutant localement n’est actuellement prévue.
   - question: >
       Est-il possible d’extraire davantage de métadonnées/des métadonnées plus riches à partir de sources de données que j’inscris ?
-    answer: "Nous travaillons activement au développement des fonctionnalités de Data Catalog. Si vous souhaitez que des métadonnées supplémentaires soient extraites à partir de la source de données pendant l’inscription, suggérez-les (ou votez en leur faveur si elles ont déjà été suggérées) dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog). \n\nSi vous souhaitez inclure des métadonnées de colonne/schéma, des aperçus ou des profils de données pour les sources de données dans lesquelles ces métadonnées ne sont pas extraites par l’outil d’inscription, vous pouvez utiliser l’API Data Catalog pour ajouter ces métadonnées. Pour plus d’informations, consultez [API REST Azure Data Catalog](/rest/api/datacatalog/).\n"
+    answer: "Nous travaillons activement au développement des fonctionnalités de Data Catalog. Si vous souhaitez que des métadonnées supplémentaires soient extraites à partir de la source de données pendant l’inscription, suggérez-les (ou votez en leur faveur si elles ont déjà été suggérées) dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/d365community/forum/3bedd14b-6b26-ec11-b6e6-000d3a4f032c). \n\nSi vous souhaitez inclure des métadonnées de colonne/schéma, des aperçus ou des profils de données pour les sources de données dans lesquelles ces métadonnées ne sont pas extraites par l’outil d’inscription, vous pouvez utiliser l’API Data Catalog pour ajouter ces métadonnées. Pour plus d’informations, consultez [API REST Azure Data Catalog](/rest/api/datacatalog/).\n"
   - question: >
       Comment restreindre la visibilité des ressources de données inscrites, afin que seules certaines personnes puissent les découvrir ?
     answer: >

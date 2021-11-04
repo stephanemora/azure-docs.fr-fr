@@ -1,23 +1,22 @@
 ---
 title: Rechercher un emplacement à l’aide des services Search d’Azure Maps
 description: Apprenez-en plus sur le service Search Azure Maps. Découvrez comment utiliser cet ensemble d’API pour le géocodage, le géocodage inversé, les recherches approximatives et les recherches de rues inverses.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 01/19/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: ec92bb8bbfdc0f1598148b674f8e5de17e69afe3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 65bb5e9ee9e4001aee73e8ac3c73af8aff702ccf
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031429"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450815"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Rechercher un emplacement à l’aide des services Search d’Azure Maps
 
 Le [service de recherche d’Azure Maps](/rest/api/maps/search) est un ensemble d’API RESTful conçu pour aider les développeurs à rechercher des adresses, des lieux et des listes d’entreprises par nom, catégorie et autre information géographique. En plus de prendre en charge le géocodage traditionnel, les services peuvent aussi géocoder en sens inverse les adresses et intersections en fonction des latitudes et longitudes. Les valeurs de latitude et de longitude renvoyées par la recherche peuvent être utilisées comme paramètres dans d’autres services d’Azure Maps, tels que les services [Itinéraire](/rest/api/maps/route) et [Météo](/rest/api/maps/weather).
-
 
 Dans cet article, vous allez apprendre à :
 
@@ -45,7 +44,7 @@ Dans cet exemple, nous utilisons l’[API Get Search Address](/rest/api/maps/sea
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Dans cette requête, nous recherchons une adresse spécifique : `400 Braod St, Seattle, WA 98109`. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
 
     ```http
-    https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
+    https://atlas.microsoft.com/search/address/json?&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
     ```
 
 3. Cliquez sur le bouton bleu **Envoyer**. Le corps de la réponse contient les données d’un emplacement unique.
@@ -77,7 +76,7 @@ Dans cet exemple, nous allons utiliser la recherche approximative pour recherche
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
 
     ```http
-    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza
+    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza
     ```
 
     >[!NOTE]
@@ -125,7 +124,7 @@ Dans cet exemple, nous allons effectuer des recherches inversées à l’aide de
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale. La requête doit ressembler à l’URL suivante :
 
     ```http
-    https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700&number=1
+    https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700&number=1
     ```
 
 3. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. Vous devez voir un résultat de requête. La réponse inclut des informations d’adresse clés sur Safeco Field.
@@ -161,7 +160,7 @@ Dans cet exemple, nous allons rechercher une intersection en nous basant sur les
 2. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale. La requête doit ressembler à l’URL suivante :
   
     ```http
-    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
+    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
     :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Rechercher une intersection.":::
