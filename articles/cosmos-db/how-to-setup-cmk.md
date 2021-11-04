@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2021
 ms.author: thweiss
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d22b299cca557774ed47ecf6d8309f780f32fee8
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 2a052b7137ac29fae6203c10d3951c60bcbf4bcd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133060"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131041038"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurer des clés gérées par le client pour votre compte Azure Cosmos avec Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -363,7 +363,7 @@ Lorsque vous utilisez des clés gérées par le client, les [unités de requête
 | Type d'opération | Augmentation des RU |
 |---|---|
 | Lectures de points (extraction d’éléments par ID) | +5 % par opération |
-| Toute opération d’écriture | +6 % par opération<br/>environ + 0,06 RU par propriété indexée |
+| Toute opération d’écriture | +6 % par opération <br/> Environ + 0,06 RU par propriété indexée |
 | Requêtes, lecture de flux de modification ou flux de conflits | +15 % par opération |
 
 ### <a name="what-data-gets-encrypted-with-the-customer-managed-keys"></a>Quelles données sont-elles chiffrées avec les clés gérées par le client ?

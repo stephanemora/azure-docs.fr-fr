@@ -12,12 +12,12 @@ ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: e6148f10ad257fcac79b0c2a355b16aca4c9a484
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: afe63c06f52ba8c7b81ca46b49461d147c3f6f5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044001"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036150"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutoriel : Inscrire une application web dans Azure Active Directory B2C
 
@@ -79,6 +79,9 @@ Pour inscrire une application web dans votre locataire Azure AD B2C, vous pouvez
 1. Sélectionnez **Créer** pour terminer l’inscription de l’application.
 
 * * *
+
+> [!TIP]
+> Si vous ne voyez pas la ou les applications que vous avez créées sous **Inscriptions d’applications**, actualisez le portail.
 
 ## <a name="create-a-client-secret"></a>Créer une clé secrète client
 

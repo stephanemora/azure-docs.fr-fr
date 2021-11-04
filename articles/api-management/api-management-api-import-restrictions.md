@@ -12,22 +12,31 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/24/2021
+ms.date: 10/26/2021
 ms.author: danlep
-ms.openlocfilehash: 3f16961ec4774708fa55a2a49e408a6b980cdb31
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 5ddb4d615dc3d1bd7c9830d11a27341baf57edb3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057603"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031809"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrictions et problèmes connus relatifs à l’importation d’API
 
-## <a name="about-this-list"></a>À propos de cette liste
-
 Lors de l'importation d'une API, il se peut que vous rencontriez certaines restrictions ou que vous deviez identifier et rectifier des problèmes avant de pouvoir réussir l'importation. Cet article porte sur les points suivants :
-* Toutes les limitations, organisées par format d'importation de l'API. 
+* Comportement de Gestion des API pendant l’importation OpenAPI. 
+* Limitations d’importation, organisées par le format d'importation de l'API. 
 * Fonctionnement de l’exportation OpenAPI.
+
+## <a name="api-management-during-openapi-import"></a>Gestion des API lors de l’importation OpenAPI
+
+Lors de l’importation OpenAPI, Gestion des API :
+* Vérifie spécifiquement les paramètres de chaîne de requête marqués comme obligatoires.
+* Convertit les paramètres de chaîne de requête en paramètres de modèle. 
+
+Si vous préférez un comportement différent, vous pouvez : 
+* Le modifier manuellement via l’éditeur basé sur des formulaires, ou 
+* Supprimer l’attribut « required » de la définition OpenAPI, pour que les paramètres ne soient pas convertis en paramètres de modèle.
 
 ## <a name="openapiswagger-import-limitations"></a><a name="open-api"> </a>Limitations relatives à l’importation OpenAPI/Swagger
 
@@ -37,44 +46,85 @@ Si vous recevez des erreurs lors de l’importation de votre document OpenAPI, v
 
 ### <a name="general"></a><a name="open-api-general"> </a>Généralités
 
-- Les paramètres requis pour le chemin d'accès et la requête doivent avoir des noms uniques.
-    - Dans OpenAPI, un nom de paramètre doit être unique seulement dans un emplacement, par exemple, pour un chemin, une requête, un en-tête. 
-    - Dans Gestion des API, nous permettons aux opérations d'être différenciées à la fois par le chemin d'accès et les paramètres de la requête. 
-        - Étant donné qu’OpenAPI ne prend pas en charge cela, les noms de paramètres doivent être uniques dans l’ensemble du modèle d’URL.
-- En cas d’importation incluse dans Gestion des API, une spécification OpenAPI peut avoir une taille maximale de 4 Mo. 
-    - La limite de taille ne s’applique pas quand un document OpenAPI est fourni via l’URL d’un emplacement accessible à partir de votre service Gestion des API.
-- Les pointeurs `\$ref` ne peuvent pas référencer des fichiers externes.
-- Les seules extensions prises en charge sont :
-    - `x-ms-paths` 
-    - `x-servers` 
-- Extensions personnalisées :
-    - Ignorées lors de l’importation.
-    - Non enregistrées ou conservées pour l’exportation.
-- Les définitions de sécurité sont ignorées.
-- `Recursion`: 
-    - Gestion des API ne prend pas en charge les définitions définies de manière récursive.
-    - Par exemple, les schémas qui font référence à eux-mêmes.
-- L’objet `server` n’est pas pris en charge au niveau des opérations de l’API.
-- Le mot clé `Produces` (qui décrit les types MIME retournés par une API) n’est pas pris en charge. 
-- L’URL de fichier source disponible est appliquée aux URL de serveur relatives.
-- Les définitions de schéma Inline pour les opérations d’API ne sont pas prises en charge. Définitions de schéma :
-    - Définies dans l’étendue de l’API.
-    - Peuvent être référencées dans les étendues de requête ou de réponse des opérations de l’API.
-- Un paramètre d’URL défini doit faire partie du modèle d’URL.
+#### <a name="url-template-requirements"></a>Spécifications de modèle URL
+
+| Condition requise | Description |
+| ----------- | ----------- |
+| **Noms uniques pour le chemin d’accès et les paramètres de requête requis** | Dans OpenAPI : <ul><li>Un nom de paramètre doit être unique seulement dans un emplacement, par exemple, pour un chemin, une requête, un en-tête.</li></ul>Dans Gestion des API :<ul><li>Nous permettons aux opérations d'être différenciées à la fois par le chemin d'accès et les paramètres de la requête.</li><li>Étant donné qu’OpenAPI ne prend pas en charge cette différenciation, les noms de paramètres doivent être uniques dans l’ensemble du modèle d’URL.</li></ul>  |
+| **Paramètre d’URL défini** | Doit faire partie du modèle d’URL. |
+| **URL du fichier source disponible** | Appliquée aux URL de serveur relatives. |
+| **`\$ref` pointeurs** | Ne peuvent pas référencer des fichiers externes. |
+
+
+#### <a name="openapi-specifications"></a>Spécifications OpenAPI
+
+**Versions prises en charge**
+
+Gestion des API prend en charge uniquement les éléments suivants :
+* OpenAPI version 2.
+* OpenAPI version 3.0.x (jusqu’à la version 3.0.3).
+
+La version 3.1 d’OpenAPI n’est actuellement pas prise en charge dans Gestion des API.
+
+**Limitations de taille**
+
+| Taille maximale | Description |
+| ---------- | ----------- |
+| **Jusqu’à 4 Mo** | Lorsqu’une spécification OpenAPI est importée en ligne dans Gestion des API. |
+| **La limite de taille ne s’applique pas** | Quand un document OpenAPI est fourni via l’URL d’un emplacement accessible à partir de votre service Gestion des API. |
+
+#### <a name="supported-extensions"></a>Extensions prises en charge
+Les seules extensions prises en charge sont :
+
+| Extension | Description |
+| ----------- | ----------- |
+| **`x-ms-paths`** | <ul><li>Vous permet de définir des chemins qui se différencient par des paramètres de requête dans l’URL.</li><li>Sujets abordés dans les [documents AutoRest](https://github.com/Azure/autorest/tree/main/docs/extensions#x-ms-paths).</li></ul> |
+| **`x-servers`** | Un rétroportage de l’objet [OpenAPI 3 `servers` ](https://swagger.io/docs/specification/api-host-and-base-path/) pour OpenAPI 2. |
+
+#### <a name="unsupported-extensions"></a>Extensions non prises en charge
+| Extension | Description |
+| ----------- | ----------- |
+| **`Recursion`** | Gestion des API ne prend pas en charge les définitions définies de manière récursive.<br />Par exemple, les schémas qui font référence à eux-mêmes. |
+| **`Server` objet** | Non pris en charge au niveau des opérations de l’API. |
+| **`Produces` mot clé** | Décrit les types MIME retournés par une API. <br />Non pris en charge. |
+
+#### <a name="custom-extensions"></a>Extensions personnalisées
+- Ignorées lors de l’importation.
+- Non enregistrées ou conservées pour l’exportation.
+
+#### <a name="unsupported-definitions"></a>Définitions non prises en charge 
+Les définitions de schéma Inline pour les opérations d’API ne sont pas prises en charge. Définitions de schéma :
+- Définies dans l’étendue de l’API.
+- Peuvent être référencées dans les étendues de requête ou de réponse des opérations de l’API.
+
+#### <a name="ignored-definitions"></a>Définitions ignorées
+Les définitions de sécurité sont ignorées.
 
 ### <a name="openapi-version-2"></a><a name="open-api-v2"> </a>OpenAPI version 2
 
 La prise en charge d’OpenAPI version 2 est limitée au format JSON uniquement.
 
-### <a name="openapi-version-3"></a><a name="open-api-v3"> </a>OpenAPI version 3
+### <a name="openapi-version-30x"></a><a name="open-api-v3"> </a>OpenAPI version 3.0.x
 
--   Si plusieurs `servers` sont spécifiés, Gestion des API utilise la première URL HTTPS trouvée. 
+La dernière version d’OpenAPI 3.0 prise en charge est 3.0.3.
+
+#### <a name="https-urls"></a>URL HTTPS
+- Si plusieurs `servers` sont spécifiés, Gestion des API utilise la première URL HTTPS trouvée. 
 - S’il n’y a pas d’URL HTTPS, l’URL du serveur est vide.
-- `Examples` n’est pas pris en charge, contrairement à `example`.
-- Les champs suivants sont inclus dans OpenAPI version 3.x, mais ne sont pas pris en charge :
-    - `explode`
-    - `style`
-    - `allowReserved`
+
+#### <a name="supported"></a>Prise en charge
+- `example`
+
+#### <a name="unsupported"></a>Non pris en charge
+Les champs suivants sont inclus dans [OpenAPI version 3.0.x](https://swagger.io/specification/), mais ne sont pas pris en charge :
+
+| Object | Champ |
+| ----------- | ----------- |
+| **OpenAPI** | `externalDocs` |
+| **Composants** | <ul><li>`responses`</li><li>`parameters`</li><li>`examples`</li><li>`requestBodies`</li><li>`headers`</li><li>`securitySchemes`</li><li>`links`</li><li>`callbacks`</li></ul> |
+| **PathItem** | <ul><li>`trace`</li><li>`servers`</li></ul> |
+| **opération** | <ul><li>`externalDocs`</li><li>`callbacks`</li><li>`security`</li><li>`servers`</li></ul> |
+| **Paramètre** | <ul><li>`allowEmptyValue`</li><li>`style`</li><li>`explode`</li><li>`allowReserved`</li></ul> |
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>Mécanismes d’importation, de mise à jour et d’exportation OpenAPI
 
@@ -88,11 +138,17 @@ Pour la gestion de la configuration des définitions d’API dans différents se
 
 ### <a name="add-new-api-via-openapi-import"></a>Ajouter une nouvelle API via l’importation OpenAPI
 
-Pour chaque opération trouvée dans le document OpenAPI, une nouvelle opération est créée avec le nom de ressource Azure et le nom d’affichage définis sur `operationId` et `summary` respectivement. 
-* La valeur `operationId` est normalisée.
-    *  Si `operationId` n’est pas spécifié (non présent, `null` ou vide), la valeur du nom de ressource Azure sera générée en combinant la méthode HTTP et le modèle de chemin d’accès, par exemple, `get-foo`.
-* La valeur `summary` est importée telle quelle et sa longueur est limitée à 300 caractères.
-    * Si `summary` n’est pas spécifié (non présent, `null` ou vide), la valeur `display name` est définie sur `operationId`. 
+Pour chaque opération trouvée dans le document OpenAPI, une nouvelle opération est créée avec :
+* Nom de la ressource Azure définie sur `operationId`.
+    * La valeur `operationId` est normalisée.
+    *  Si `operationId` n’est pas spécifié (non présent, `null` ou vide), la valeur du nom de la ressource Azure sera générée en combinant la méthode HTTP et le modèle de chemin d’accès.
+        * Par exemple : `get-foo`.
+
+* Nom complet défini sur `summary`. 
+    * valeur `summary` :
+        * Importée telle quelle.
+        * La longueur est limitée à 300 caractères.
+    * Si `summary` n’est pas spécifié (non présent, `null` ou vide), la valeur du nom complet est définie sur `operationId`. 
 
 ### <a name="update-an-existing-api-via-openapi-import"></a>Mettre à jour une API existante via l’importation OpenAPI
 
@@ -131,29 +187,35 @@ Pour chaque opération :
 
 Vous pouvez créer des API SOAP pass-through et SOAP-à-REST avec des fichiers WSDL.
 
-- **Liaisons SOAP**  
-    - Seules les liaisons SOAP de style d’encodage « document » et « literal » sont prises en charge.
-    - Les encodages SOAP ou de style « rpc » ne sont pas pris en charge.
-- **WSDL:Import**
-    - Non pris en charge. Au lieu de cela, fusionnez les importations dans un document.
-- **Messages avec plusieurs parties** 
-    - Ce type de message n’est pas pris en charge.
-- **WCF wsHttpBinding** 
-    - Les services SOAP créés avec Windows Communication Foundation doivent utiliser `basicHttpBinding`.
-    - `wsHttpBinding` n’est pas pris en charge.
-- **MTOM** 
-    - Les services utilisant `MTOM` *pourraient* fonctionner. 
-    - Aucune prise en charge officielle n’est disponible pour l’instant.
-- **Récursivité** 
-    - Les types définis de manière récursive ne sont pas pris en charge par Gestion des API.
-    - Par exemple, s’ils font référence à un tableau d’eux-mêmes.
-- **Espaces de noms multiples** 
-    - Si plusieurs espaces de noms peuvent être utilisés dans un schéma, seul l’espace de noms cible peut être utilisé pour définir des parties de message. 
-    - Les espaces de noms autres que la cible ne sont pas préservés. 
-        - Ces espaces de noms sont utilisés pour définir d’autres éléments d’entrée ou de sortie.
-        - Même si un tel document WSDL peut être importé, lors de l’exportation, toutes les parties de message auront l’espace de noms cible du WSDL.
-- **Tableaux** 
-    - La transformation SOAP à REST prend uniquement en charge les tableaux encapsulés indiqués dans l’exemple ci-dessous :
+### <a name="soap-bindings"></a>Liaisons SOAP 
+- Seules les liaisons SOAP de style d’encodage « document » et « literal » sont prises en charge.
+- Les encodages SOAP ou de style « rpc » ne sont pas pris en charge.
+
+### <a name="wsdlimport"></a>WSDL:Import
+Non pris en charge. Au lieu de cela, fusionnez les importations dans un document.
+
+### <a name="messages-with-multiple-parts"></a>Messages avec plusieurs parties 
+Ce type de message n’est pas pris en charge.
+
+### <a name="wcf-wshttpbinding"></a>WCF wsHttpBinding 
+- Les services SOAP créés avec Windows Communication Foundation doivent utiliser `basicHttpBinding`.
+- `wsHttpBinding` n’est pas pris en charge.
+
+### <a name="mtom"></a>MTOM 
+- Les services utilisant `MTOM` *pourraient* fonctionner. 
+- Aucune prise en charge officielle n’est disponible pour l’instant.
+
+### <a name="recursion"></a>Récursivité
+- Les types définis de manière récursive ne sont pas pris en charge par Gestion des API.
+- Par exemple, s’ils font référence à un tableau d’eux-mêmes.
+
+### <a name="multiple-namespaces"></a>Espaces de noms multiples
+Si plusieurs espaces de noms peuvent être utilisés dans un schéma, seul l’espace de noms cible peut être utilisé pour définir des parties de message. Ces espaces de noms sont utilisés pour définir d’autres éléments d’entrée ou de sortie.
+
+Les espaces de noms autres que la cible ne sont pas préservés lors de l’exportation. Bien que vous puissiez importer un document WSDL qui définit des parties de message avec d’autres espaces de noms, toutes les parties de message disposent de l’espace de noms cible WSDL lors de l’exportation.
+
+### <a name="arrays"></a>Tableaux 
+La transformation SOAP à REST prend uniquement en charge les tableaux encapsulés indiqués dans l’exemple ci-dessous :
 
 ```xml
     <complexType name="arrayTypeName">

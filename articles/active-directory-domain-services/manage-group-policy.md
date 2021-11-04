@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/26/2021
 ms.author: justinha
-ms.openlocfilehash: 67eeae96e7965db1eb92f34f23ca6d8745aaac3a
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 07ce4db1e3cca141ccbddde61f9dc196da801698
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707990"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044450"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrer la stratégie de groupe dans un domaine géré par Azure Active Directory Domain Services
 
@@ -24,6 +24,8 @@ Les paramètres des objets utilisateur et ordinateur dans Azure Active Directo
 Dans un environnement hybride, les stratégies de groupe configurées dans un environnement AD DS local ne sont pas synchronisées avec Azure AD DS. Pour définir les paramètres de configuration des utilisateurs ou des ordinateurs dans Azure AD DS, modifiez l’un des objets de stratégie de groupe par défaut ou créez un objet de stratégie de groupe personnalisé.
 
 Cet article indique comment installer les outils de gestion de stratégie de groupe, modifier les objets de stratégie de groupe intégrés et créer des objets de stratégie de groupe personnalisés.
+
+Si vous vous intéressez à la stratégie de gestion des serveurs, y compris les machines Azure et [hybrides connectées](../azure-arc/servers/overview.md), pensez à lire comment [convertir le contenu de la stratégie de groupe](../governance/policy/how-to/guest-configuration-create-group-policy.md) vers la fonctionnalité de [configuration des invités](../governance/policy/concepts/guest-configuration.md) d’[Azure Policy](../governance/policy/overview.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

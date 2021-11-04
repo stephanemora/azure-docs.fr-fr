@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 07/28/2021
 ms.custom: mvc
-ms.openlocfilehash: 3d3fc18ebceb18e7411a68c19e069a0db4889854
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dfeb24812c2fa735500d4a29429dece17747ebe8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124797112"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037926"
 ---
 # <a name="tutorial-discover-servers-running-in-a-vmware-environment-with-azure-migrate"></a>Tutoriel : Découvrir les serveurs fonctionnant dans un environnement VMware avec Azure Migrate
 
@@ -318,7 +318,7 @@ Pour démarrer la découverte de vCenter Server, sélectionnez **Démarrer la d
 * L’[inventaire logiciel](how-to-discover-applications.md) identifie le rôle de serveur web existant sur les serveurs découverts. Si le rôle de serveur web est activé pour un serveur, Azure Migrate procède à la découverte d’applications web sur le serveur. Les données de configuration des applications web sont mises à jour une fois par jour.
 * Au cours de l’inventaire logiciel, les informations d’identification des serveurs ajoutées sont comparées aux serveurs et validées pour l’analyse des dépendances sans agent. Une fois la découverte des serveurs terminée, vous pouvez activer l’analyse des dépendances sans agent sur les serveurs. Seuls les serveurs pour lesquels la validation réussit peuvent être sélectionnés pour activer l’[analyse des dépendances sans agent](how-to-create-group-machine-dependencies-agentless.md).
 * Les données des applications web ASP.NET et des bases de données et instances SQL Server commencent à apparaître dans le portail dans les 24 heures qui suivent le démarrage de la découverte.
-* Par défaut, Azure Migrate utilise le moyen le plus sûr de se connecter aux instances SQL, c’est-à-dire qu’Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL sources en définissant la propriété TrustServerCertificate sur `true`. En outre, la couche transport utilise SSL pour chiffrer le canal et contourner la chaîne de certificat pour valider l’approbation. Par conséquent, le serveur d’appliance doit être configuré pour approuver l’autorité racine du certificat. Toutefois, vous pouvez modifier les paramètres de connexion en sélectionnant **Modifier les propriétés de connexion de SQL Server** sur l’appliance. [En savoir plus](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) sur ce que vous devez choisir.
+* Par défaut, Azure Migrate utilise le moyen le plus sûr de se connecter aux instances SQL, c’est-à-dire qu’Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL sources en définissant la propriété TrustServerCertificate sur `true`. En outre, la couche transport utilise SSL pour chiffrer le canal et contourner la chaîne de certificat pour valider l’approbation. Par conséquent, le serveur d’appliance doit être configuré pour approuver l’autorité racine du certificat. Toutefois, vous pouvez modifier les paramètres de connexion en sélectionnant **Modifier les propriétés de connexion de SQL Server** sur l’appliance. [Plus d’informations](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) pour comprendre ce que vous devez choisir.
 
     :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Capture d’écran montrant comment modifier les propriétés de connexion de SQL Server.":::
 
@@ -326,9 +326,10 @@ Pour démarrer la découverte de vCenter Server, sélectionnez **Démarrer la d
 
 ### <a name="view-discovered-data"></a>Afficher les données découvertes
 
-1. Revenez au portail Azure Migrate.
-1. Cliquez sur Actualiser comme indiqué dans la capture d’écran ci-dessous pour afficher les données découvertes.
-    :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Capture d’écran montrant comment actualiser les données dans la vignette de découverte et d’évaluation.":::
+1. Retournez à Azure Migrate dans le portail Azure.
+1. Sélectionnez **Actualiser** pour afficher les données découvertes.
+
+   :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Capture d’écran montrant comment actualiser les données dans la vignette de découverte et d’évaluation.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2021
 ms.author: thwimmer
-ms.openlocfilehash: 82fdfb7621762828a32ad67774e9b0141c6b0464
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 462accaebda816fee959a5a586e331151badc269
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122207304"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058853"
 ---
 # <a name="tutorial-configure-holmes-cloud-for-automatic-user-provisioning"></a>Tutoriel : Configurer Holmes Cloud pour l’approvisionnement automatique d’utilisateurs
 
@@ -51,7 +51,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 ## <a name="step-2-configure-holmes-cloud-to-support-provisioning-with-azure-ad"></a>Étape 2. Configurer Holmes Cloud pour prendre en charge l’approvisionnement avec Azure AD
 
 > [!NOTE]
-> * Vous allez recevoir l’URL du locataire Holmes Cloud de l’équipe **Support Cloud Holmes** <cs@holmescloud.com> après avoir acheté l’abonnement.
+> * Vous allez recevoir l’URL du locataire Holmes Cloud de l’équipe **Support cloud Holmes** <cs@holmescloud.com> après avoir acheté l’abonnement.
 > * Vous trouverez les informations requises (URL de point de terminaison, jeton, etc.) pour configurer le service d’approvisionnement sur la page **Paramètres de la société**, à condition de vous abonner à l’authentification unique et au service d’approvisionnement d’utilisateurs.
  
 1. Connectez-vous au compte Holmes Cloud avec vos informations d’identification Holmes Cloud.

@@ -6,12 +6,12 @@ ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.openlocfilehash: f9d47c3c08c450000da34742459a62977e82808a
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 83c574ca578247389f8bc8c53c07847e1f01fb8b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615109"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003627"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Présentation des fonctions de fenêtrage de Stream Analytics
 
@@ -29,17 +29,97 @@ Les fonctions de fenêtre [**bascule**](/stream-analytics-query/tumbling-window-
 
 ![Fenêtre bascule Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
 
+Avec les données d’entrée suivantes (illustrées ci-dessus) :
+
+|Marqueur|CreatedAt|TimeZone|
+|-|-|-|
+|1|2021-10-26T10:15:01|PST|
+|5|2021-10-26T10:15:03|PST|
+|4|2021-10-26T10:15:06|PST|
+|...|...|...|
+
+Cette requête :
+
+```SQL
+SELECT System.Timestamp() as WindowEndTime, TimeZone, COUNT(*) AS Count
+FROM TwitterStream TIMESTAMP BY CreatedAt
+GROUP BY TimeZone, TumblingWindow(second,10)
+```
+
+Retourne :
+
+|WindowEndTime|TimeZone|Count|
+|-|-|-|
+|2021-10-26T10:15:10|PST|5|
+|2021-10-26T10:15:20|PST|2|
+|2021-10-26T10:15:30|PST|4|
+
+
 ## <a name="hopping-window"></a>Fenêtre récurrente
 
 Les fonctions de [**fenêtre récurrente**](/stream-analytics-query/hopping-window-azure-stream-analytics) font des bonds d’une durée fixe dans le temps. Il peut être facile de les considérer comme des fenêtres bascule qui peuvent se chevaucher et être émises plus souvent que la taille de la fenêtre. Les événements peuvent appartenir à plusieurs jeux de résultats de fenêtres récurrentes. Pour créer une fenêtre récurrente identique à une fenêtre bascule, spécifiez une taille de bond égale à la taille de la fenêtre. 
 
 ![Fenêtre récurrente Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
+Avec les données d’entrée suivantes (illustrées ci-dessus) :
+
+|Marqueur|CreatedAt|Rubrique|
+|-|-|-|
+|1|2021-10-26T10:15:01|Diffusion en continu|
+|5|2021-10-26T10:15:03|Diffusion en continu|
+|4|2021-10-26T10:15:06|Diffusion en continu|
+|...|...|...|
+
+Cette requête :
+
+```SQL
+SELECT System.Timestamp() as WindowEndTime, Topic, COUNT(*) AS Count
+FROM TwitterStream TIMESTAMP BY CreatedAt
+GROUP BY Topic, HoppingWindow(second,10,5)
+```
+
+Retourne :
+
+|WindowEndTime|Rubrique|Count|
+|-|-|-|
+|2021-10-26T10:15:10|Diffusion en continu|5|
+|2021-10-26T10:15:15|Diffusion en continu|3|
+|2021-10-26T10:15:20|Diffusion en continu|2|
+|2021-10-26T10:15:25|Diffusion en continu|4|
+|2021-10-26T10:15:30|Diffusion en continu|4|
+
+
 ## <a name="sliding-window"></a>Fenêtre glissante
 
 Les [**fenêtres glissantes**](/stream-analytics-query/sliding-window-azure-stream-analytics), à la différence des fenêtres bascules ou récurrentes, génèrent des événements uniquement pour les points temporels où le contenu de la fenêtre change réellement. En d’autres termes, lorsqu’un événement entre dans la fenêtre ou la quitte. Par conséquent, chaque fenêtre affiche au moins un événement. Comme pour les fenêtres récurrentes, les événements peuvent appartenir à plusieurs fenêtres glissantes.
 
 ![Fenêtre défilante Stream Analytics 10 secondes](media/stream-analytics-window-functions/sliding-window-updated.png)
+
+Avec les données d’entrée suivantes (illustrées ci-dessus) :
+
+|Marqueur|CreatedAt|Rubrique|
+|-|-|-|
+|1|2021-10-26T10:15:10|Diffusion en continu|
+|5|2021-10-26T10:15:12|Diffusion en continu|
+|9|2021-10-26T10:15:15|Diffusion en continu|
+|7|2021-10-26T10:15:15|Diffusion en continu|
+|8|2021-10-26T10:15:27|Diffusion en continu|
+
+Cette requête :
+
+```SQL
+SELECT System.Timestamp() as WindowEndTime, Topic, COUNT(*) AS Count
+FROM TwitterStream TIMESTAMP BY CreatedAt
+GROUP BY Topic, SlidingWindow(second,10)
+HAVING COUNT(*) >=3
+```
+
+Retourne :
+
+|WindowEndTime|Rubrique|Count|
+|-|-|-|
+|2021-10-26T10:15:15|Diffusion en continu|4|
+|2021-10-26T10:15:20|Diffusion en continu|3|
 
 ## <a name="session-window"></a>Fenêtre session
 
@@ -53,11 +133,63 @@ Si des événements continuent à se produire durant le délai d’expiration sp
 
 Lorsqu’une clé de partition est fournie, les événements sont regroupés par la clé et la fenêtre de session est appliquée indépendamment à chaque groupe. Ce partitionnement est utile lorsque vous avez besoin de fenêtres de session différentes pour différents utilisateurs ou appareils.
 
+Avec les données d’entrée suivantes (illustrées ci-dessus) :
+
+|Marqueur|CreatedAt|Rubrique|
+|-|-|-|
+|1|2021-10-26T10:15:01|Diffusion en continu|
+|2|2021-10-26T10:15:04|Diffusion en continu|
+|3|2021-10-26T10:15:13|Diffusion en continu|
+|...|...|...|
+
+Cette requête :
+
+```SQL
+SELECT System.Timestamp() as WindowEndTime, Topic, COUNT(*) AS Count
+FROM TwitterStream TIMESTAMP BY CreatedAt
+GROUP BY Topic, SessionWindow(second,5,10)
+```
+
+Retourne :
+
+|WindowEndTime|Rubrique|Count|
+|-|-|-|
+|2021-10-26T10:15:09|Diffusion en continu|2|
+|2021-10-26T10:15:24|Diffusion en continu|4|
+|2021-10-26T10:15:31|Diffusion en continu|2|
+|2021-10-26T10:15:39|Diffusion en continu|1|
+
 ## <a name="snapshot-window"></a>Fenêtre d’instantané
 
 Les fenêtres d’[**instantanés**](/stream-analytics-query/snapshot-window-azure-stream-analytics) regroupent les événements qui ont le même horodatage. Contrairement à d’autres types de fenêtrage, qui requièrent une fonction de fenêtre spécifique [par exemple, [SessionWindow()](/stream-analytics-query/session-window-azure-stream-analytics)], vous pouvez appliquer une fenêtre d’instantané en ajoutant System.Timestamp() à la clause GROUP BY.
 
-![Fenêtre d’instantané Stream Analytics](media/stream-analytics-window-functions/snapshot.png)
+![Fenêtre d’instantané Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-snapshot-intro.png)
+
+Avec les données d’entrée suivantes (illustrées ci-dessus) :
+
+|Marqueur|CreatedAt|Rubrique|
+|-|-|-|
+|1|2021-10-26T10:15:04|Diffusion en continu|
+|2|2021-10-26T10:15:04|Diffusion en continu|
+|3|2021-10-26T10:15:04|Diffusion en continu|
+|...|...|...|
+
+Cette requête :
+
+```SQL
+SELECT System.Timestamp() as WindowEndTime, Topic, COUNT(*) AS Count
+FROM TwitterStream TIMESTAMP BY CreatedAt
+GROUP BY Topic, System.Timestamp()
+```
+
+Retourne :
+
+|WindowEndTime|Rubrique|Count|
+|-|-|-|
+|2021-10-26T10:15:04|Diffusion en continu|4|
+|2021-10-26T10:15:10|Diffusion en continu|2|
+|2021-10-26T10:15:13|Diffusion en continu|1|
+|2021-10-26T10:15:22|Diffusion en continu|2|
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

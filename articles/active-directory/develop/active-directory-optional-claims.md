@@ -12,12 +12,12 @@ ms.date: 7/19/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 91dfb7c7a4a25ba741d7b2dc21b42705a9b79c34
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 1d910871008bee6ba1a2820a68b3225c3fdfd67d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034269"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032256"
 ---
 # <a name="provide-optional-claims-to-your-app"></a>Fournir des revendications facultatives à votre application
 
@@ -163,7 +163,7 @@ Vous pouvez configurer des revendications facultatives pour votre application pa
 
 1. Sous **Gérer**, sélectionnez **Manifeste**. Un éditeur de manifeste web s’ouvre, vous permettant de modifier le manifeste. Si vous le souhaitez, vous pouvez sélectionner **Télécharger** et modifier localement le manifeste, puis utiliser **Charger** afin de l’appliquer de nouveau à votre application. Pour plus d’informations sur le manifeste de l’application, consultez l’[article Connaître le manifeste de l’application Azure AD](reference-app-manifest.md).
 
-    L’entrée suivante du manifeste de l’application ajoute les revendications facultatives auth_time, ipaddr et upn aux jetons d’ID, d’accès et SAML.
+    L’entrée suivante du manifeste de l’application ajoute les revendications facultatives `auth_time`, `ipaddr` et `upn` aux jetons d’ID, d’accès et SAML.
 
     ```json
     "optionalClaims": {

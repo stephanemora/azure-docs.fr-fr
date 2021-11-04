@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a9a9bd0c48eda6ab218fa4b8245c4a6b415e16c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3d833e341f6adf50f1f9dd2c5d141daf16db2d76
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124783042"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046125"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tivitz"></a>Didacticiel : Intégration d’Azure AD avec TiViTz
 
@@ -183,7 +183,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, un utilisateur appelé Britta Simon est créé dans TiViTz. TiViTz prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans TiViTz, il en est créé un après l’authentification.
 
 >[!NOTE]
->Si vous devez créer un utilisateur manuellement, contactez l’équipe du support technique [TiViTz](mailto:info@tivitz.com).
+>Si vous devez créer un utilisateur manuellement, contactez [l’équipe du support technique TiViTz](mailto:info@tivitz.com).
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

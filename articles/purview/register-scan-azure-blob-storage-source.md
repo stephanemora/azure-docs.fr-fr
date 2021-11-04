@@ -1,168 +1,292 @@
 ---
-title: Comment enregistrer et analyser un blob de stockage Azure
-description: Découvrez comment analyser Stockage Blob Azure dans votre catalogue de données Azure Purview.
-author: shsandeep123
-ms.author: sandeepshah
+title: Inscrire et analyser Stockage Blob Azure
+description: Cet article décrit le processus d’inscription d’une source de données Stockage Blob Azure dans Azure Purview, et fournit des instructions pour l’authentification auprès de la source Stockage Blob Azure et l’interaction avec celle-ci
+author: athenads
+ms.author: athenadsouza
 ms.service: purview
-ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/08/2021
-ms.openlocfilehash: 40105f18cce8fe515350903837f49d273bd39d03
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: 9f6f13805a1b93f415bd7398299ed5e4b2f27947
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209981"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131062343"
 ---
-# <a name="register-and-scan-azure-blob-storage"></a>Inscrire et analyser Stockage Blob Azure
+# <a name="connect-to-azure-blob-storage-in-azure-purview"></a>Se connecter à un stockage Blob Azure dans Azure Purview
 
-Cet article explique comment inscrire un compte Stockage Blob Azure dans Purview et comment configurer une analyse.
+Cet article décrit le processus d’inscription d’un compte Stockage Blob Azure dans Azure Purview, et fournit des instructions pour l’authentification auprès de la source Stockage Blob Azure et l’interaction avec celle-ci
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
-Stockage Blob Azure prend en charge les analyses incrémentielles et complètes pour capturer les métadonnées et le schéma. Il classe également les données automatiquement selon des règles de classification système et personnalisées.
+|**Extraction des métadonnées**|  **Analyse complète**  |**Analyse incrémentielle**|**Analyse délimitée**|**Classification**|**Stratégie d'accès**|**Traçabilité**|
+|---|---|---|---|---|---|---|
+| [Oui](#register) | [Oui](#scan)|[Oui](#scan) | [Oui](#scan)|[Oui](#scan)| Oui | Non|
 
 Pour les types de fichiers comme CSV, TSV, PSV et SSV, le schéma est extrait quand les logiques suivantes sont en place :
 
-1. Les valeurs de la première ligne ne sont pas vides
-2. Les valeurs de la première ligne sont uniques
-3. Les valeurs de la première ligne ne sont ni une date ni un nombre
+* Les valeurs de la première ligne ne sont pas vides
+* Les valeurs de la première ligne sont uniques
+* Les valeurs de la première ligne ne sont ni une date ni un nombre
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Avant d’inscrire des sources de données, créez un compte Azure Purview. Pour plus d’informations sur la création d’un compte Purview, consultez [Démarrage rapide : Créer un compte Azure Purview](create-catalog-portal.md).
-- Vous devez être administrateur de la source de données Azure Purview.
+* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="setting-up-authentication-for-a-scan"></a>Configuration de l’authentification pour une analyse
+* Une [ressource Purview](create-catalog-portal.md) active.
 
-Il existe trois façons de configurer l’authentification pour Stockage Blob Azure :
+* Vous devez être un administrateur de source de données et un lecteur de données pour inscrire une source et la gérer dans Purview Studio. Pour plus d’informations, consultez notre [page d’autorisations Azure Purview](catalog-permissions.md).
 
-- Identité managée
-- Clé du compte
-- Principal de service
+## <a name="register"></a>Inscrire
 
-### <a name="managed-identity-recommended"></a>Identité managée (recommandé)
+Cette section vous permet d’inscrire le compte de stockage Blob Azure et de configurer un mécanisme d’authentification approprié pour garantir la réussite de l’analyse de la source de données.
 
-Lorsque vous choisissez **Identité managée**, pour configurer la connexion, vous devez d’abord accorder à votre compte Purview l’autorisation d’analyser la source de données :
+### <a name="steps-to-register"></a>Procédure d’inscription
 
-1. Accédez à votre compte de stockage.
-1. Dans le menu de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** . 
-1. Sélectionnez **Ajouter**.
-1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom de votre compte Azure Purview dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre compte Purview.
+Il est important d’inscrire la source de données dans Azure Purview avant de configurer une analyse de la source de données.
+
+1. Allez sur le [portail Azure](https://portal.azure.com) et accédez à la page des **comptes Purview** et sélectionnez votre _compte Azure Purview_
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-purview-acct.png" alt-text="Capture d’écran montrant le compte Purview utilisé pour enregistrer la source de données":::
+
+1. **Ouvrez Purview Studio** et accédez à **Data Map --> Sources**
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-open-purview-studio.png" alt-text="Capture d’écran montrant le lien permettant d’ouvrir Purview Studio":::
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sources.png" alt-text="Capture d’écran qui navigue jusqu’au lien sources dans le mappage de données":::
+
+1. Créez la [hiérarchie de collection](./quickstart-create-collection.md) à l’aide du menu **Collections** et attribuez des autorisations à des sous-collections individuelles, selon les besoins
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-collections.png" alt-text="Capture d’écran montrant le menu de collection pour créer une hiérarchie de collections":::
+
+1. Accédez à la collection appropriée dans le menu **Sources** et sélectionnez l’icône de **Inscrire** pour inscrire une nouvelle source de données de Blob Azure
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-register-source.png" alt-text="Capture d’écran montrant la collection utilisée pour enregistrer la source de données":::
+
+1. Sélectionnez la source de données **Stockage Blob Azure**, puis choisissez **Continuer**
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-select-data-source.png" alt-text="Capture d’écran qui permet de sélectionner la source de données":::
+
+1. Fournissez un **Nom** approprié pour la source de données, sélectionnez l’**Abonnement Azure** approprié, un **nom de compte Stockage Blob Azure** et la **collection**, puis choisissez **Appliquer**
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-data-source-details.png" alt-text="Capture d’écran montrant les détails à entrer pour inscrire la source de données":::
+
+1. Le compte de stockage Blob Azure s’affiche sous la collection sélectionnée
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-data-source-collection.png" alt-text="Capture d’écran montrant la source de données mappée à la collection pour lancer l’analyse":::
+
+## <a name="scan"></a>Analyser
+
+### <a name="authentication-for-a-scan"></a>Authentification pour une analyse
+
+Pour pouvoir analyser la source de données, une méthode d’authentification dans le compte Stockage Blob Azure doit être configurée.
+
+Les options suivantes sont prises en charge :
 
 > [!Note]
-> Pour plus d’informations, consultez les étapes sous [Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
+> Si un pare-feu est activé pour le compte de stockage, vous devez utiliser la méthode d’authentification Identité managée lors de la configuration d’une analyse.
 
-### <a name="account-key"></a>Clé du compte
+- **Identité managée (recommandé)**  : dès que le compte Azure Purview est créé, une **identité managée** système est créée automatiquement dans le locataire Azure AD. Selon le type de ressource, des attributions de rôles RBAC spécifiques sont nécessaires pour permettre au MSI Azure Purview d’effectuer les analyses.
 
-Lorsque la méthode d’authentification sélectionnée est **Clé de compte**, vous devez récupérer votre clé d’accès et la stocker dans le coffre de clés :
+- **Clé de compte** : les secrets peuvent être créés à l’intérieur d’un Azure Key Vault pour stocker les informations d’identification afin d’autoriser l’accès à Azure Purview pour analyser les sources de données en toute sécurité à l’aide des secrets. Un secret peut être une clé de compte de stockage, un mot de passe de connexion SQL ou un mot de passe.
 
-1. Accédez à votre compte de stockage
-1. Sélectionnez **Paramètres > Clés d’accès**
-1. Copiez votre *clé* et enregistrez-la quelque part pour les étapes suivantes
-1. Accédez à votre coffre de clés.
-1. Sélectionnez **Paramètres > Secrets**.
-1. Sélectionnez **+ Générer/importer**, puis entrez le **Nom** et la **Valeur** comme *clé* de votre compte de stockage.
-1. Sélectionnez **Créer** pour terminer.
-1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
-1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide de la clé pour configurer votre analyse.
+   > [!Note]
+   > Si vous utilisez cette option, vous devez déployer une ressource _coffre de clés Azure_ dans votre abonnement et attribuer le MSI du _compte Azure Purview_ avec l’autorisation d’accès nécessaire aux secrets dans le _coffre de clés Azure_.
 
-### <a name="service-principal"></a>Principal du service
+- **Principal de service** : dans cette méthode, vous pouvez créer un principal de service ou en utiliser un existant dans votre locataire Azure Active Directory.
 
-Vous pouvez utiliser un principal de service existant ou en créer un nouveau. 
+#### <a name="using-managed-identity-for-scanning"></a>Utilisation d’une identité managée pour l’analyse
 
-> [!Note]
-> Si vous devez créer un principal de service, procédez comme suit :
-> 1. Accédez au [portail Azure](https://portal.azure.com).
-> 1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
-> 1. Sélectionnez **Inscriptions d’applications**.
-> 1. Sélectionnez **+ Nouvelle inscription d’application**.
-> 1. Entrez un nom pour l’**application** (nom du principal de service).
-> 1. Sélectionnez **Comptes dans ce répertoire organisationnel uniquement**.
-> 1. Pour l’URI de redirection, sélectionnez **Web** et entrez l’URL de votre choix. Il n’est pas nécessaire qu’elle soit réelle ni qu’elle fonctionne.
-> 1. Sélectionnez ensuite **Inscription**.
-
-Il est nécessaire de récupérer l’ID d’application et le secret du principal de service :
-
-1. Accédez à votre principal de service sur le [Portail Azure](https://portal.azure.com).
-1. Copiez les valeurs **ID d’application (client)** dans **Vue d’ensemble** et **Secret client** dans **Certificats et secrets**.
-1. Accédez à votre coffre de clés.
-1. Sélectionnez **Paramètres > Secrets**.
-1. Sélectionnez **+ Générer/importer** et entrez le **nom** de votre choix et la **valeur** comme **secret client** de votre principal de service.
-1. Sélectionnez **Créer** pour terminer.
-1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
-1. Enfin, [créez de nouvelles informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide du principal de service pour configurer votre analyse.
-
-#### <a name="granting-the-service-principal-access-to-your-blob-storage"></a>Accorder au principal de service l’accès à votre stockage blob
-
-1. Accédez à votre compte de stockage.
-1. Dans le menu de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** . 
-1. Sélectionnez **Ajouter**.
-1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom ou ID d’objet de votre principal de service dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre principal de service.
-
-## <a name="firewall-settings"></a>Paramètres du pare-feu
+Il est important de donner à votre compte Purview l’autorisation d’analyser la source de données Blob Azure. Vous pouvez ajouter le MSI de Data Catalog au niveau de l’abonnement, du groupe de ressources ou de la ressource, en fonction des autorisations d’analyse que vous souhaitez lui accorder.
 
 > [!NOTE]
 > Si un pare-feu est activé pour le compte de stockage, vous devez utiliser la méthode d’authentification **Identité managée** lors de la configuration d’une analyse.
 
-1. Accédez à votre compte de stockage dans le [portail Azure](https://portal.azure.com)
-1. Accédez à **Paramètres > Mise en réseau** et
+> [!Note]
+> Vous devez être propriétaire de l’abonnement pour pouvoir ajouter une identité managée sur une ressource Azure.
+
+1. Dans le [portail Azure](https://portal.azure.com), recherchez l’abonnement, le groupe de ressources ou la ressource (par exemple, un compte de stockage Blob Azure) que le catalogue doit être autorisé à analyser.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-storage-acct.png" alt-text="Capture d’écran montrant le compte de stockage":::
+
+1. Sélectionnez **Contrôle d’accès (IAM)** dans le menu de navigation de gauche, puis sélectionnez **+ Ajouter** --> **Ajouter une attribution de rôle**
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-access-control.png" alt-text="Capture d’écran montrant le contrôle d’accès pour le compte de stockage":::
+
+1. Définissez le **Rôle** sur **Lecteur des données Blob du stockage**, puis entrez votre _nom de compte Azure Purview_ sous la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre compte Purview.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-assign-permissions.png" alt-text="Capture d’écran montrant les détails permettant d’attribuer des autorisations pour le compte Purview":::
+
+1. Accédez à votre compte de stockage Blob Azure sur le [portail Azure](https://portal.azure.com)
+1. Accédez à **Sécurité + réseau >Réseau**
+
 1. Sélectionnez **Réseaux sélectionnés** sous **Autoriser l’accès depuis**
-1. Dans la section **Pare-feu**, sélectionnez **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** et appuyez sur **Enregistrer**
 
-:::image type="content" source="./media/register-scan-azure-blob-storage-source/firewall-setting.png" alt-text="Capture d’écran montrant la configuration du pare-feu":::
+1. Dans la section **Exceptions**, sélectionnez **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** et appuyez sur **Enregistrer**
 
-## <a name="register-an-azure-blob-storage-account"></a>Inscrire un compte Stockage Blob Azure
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-permission.png" alt-text="Capture d’écran montrant les exceptions pour autoriser les services Microsoft approuvés à accéder au compte de stockage":::
 
-Pour inscrire un nouveau compte blob dans votre catalogue de données, procédez comme suit :
+> [!Note]
+> Pour plus d’informations, consultez les étapes sous [Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
 
-1. Accédez à [Purview Studio](https://web.purview.azure.com/resource/) à partir de votre compte Purview dans le portail.
-1. Sélectionnez **Registres sources** sur la page d’accueil de Purview Studio.
-1. Sélectionnez **Inscrire**.
-1. Sous **Inscrire des sources**, sélectionnez **Stockage Blob Azure**
-1. Sélectionnez **Continue** (Continuer)
+#### <a name="using-account-key-for-scanning"></a>Utilisation de la clé de compte pour l’analyse
 
-Dans l’écran **Inscrire des sources (Stockage Blob Azure)** , procédez comme suit :
+Lorsque la méthode d’authentification sélectionnée est **Clé de compte**, vous devez récupérer votre clé d’accès et la stocker dans le coffre de clés :
 
-1. Entrez le **nom** avec lequel la source de données sera listée dans le catalogue. 
-1. Choisissez votre abonnement pour filtrer les comptes de stockage.
-1. Sélectionnez un compte de stockage.
-1. Sélectionnez une collection ou créez-en une (facultatif).
-1. Sélectionnez **Inscrire** pour inscrire la source de données.
+1. Accédez à votre compte de stockage Blob Azure
+1. Sélectionnez **Sécurité + mise en réseau > Clés d’accès**.
 
-:::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-access-keys.png" alt-text="Capture d’écran montrant les clés d’accès dans le compte de stockage":::
 
-## <a name="creating-and-running-a-scan"></a>Création et exécution d’une analyse
+1. Copiez votre *clé* et enregistrez-la quelque part pour la suite
 
-Pour créer une analyse et l’exécuter, procédez comme suit :
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-key.png" alt-text="Capture d’écran montrant la clé d’accès à copier":::
 
-1. Sélectionnez l’onglet **Data Map** dans le volet gauche de [Purview Studio](https://web.purview.azure.com/resource/).
+1. Accédez à votre coffre de clés.
 
-1. Sélectionnez la source de données Azure Blob que vous avez inscrite.
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-key-vault.png" alt-text="Capture d’écran montrant le coffre de clés":::
 
-1. Sélectionnez **Nouvelle analyse**.
+1. Sélectionnez **Paramètres > Secrets**, puis **+ Générer/Importer**
 
-1. Sélectionnez les informations d’identification pour vous connecter à votre source de données. 
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-generate-secret.png" alt-text="Capture d’écran montrant l’option de coffre de clés pour générer une clé secrète":::
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/set-up-scan-blob.png" alt-text="Configurer l’analyse":::
+1. Entrez le **Nom** et la **Valeur** comme *clé* de votre compte de stockage
 
-1. Vous pouvez étendre votre analyse à des dossiers ou des sous-dossiers spécifiques en choisissant les éléments appropriés dans la liste.
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-secret-values.png" alt-text="Capture d’écran montrant l’option de coffre de clés pour entrer les valeurs de secret":::
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/blob-scope-your-scan.png" alt-text="Définir la portée de votre analyse":::
+1. Sélectionnez **Créer** pour terminer.
+
+1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
+1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide de la clé pour configurer votre analyse.
+
+#### <a name="using-service-principal-for-scanning"></a>Utilisation du principal de service pour l’analyse
+
+##### <a name="creating-a-new-service-principal"></a>Création d’un principal de service
+
+Si vous avez besoin de [Créer un principal de service](./create-service-principal-azure.md), vous devez inscrire une application dans votre locataire Azure AD et fournir l’accès au principal de service dans vos sources de données. Votre Administrateur général Azure AD ou d’autres rôles, comme l’Administrateur d’application, peuvent effectuer cette opération.
+
+##### <a name="getting-the-service-principals-application-id"></a>Obtention de l’ID d’application du principal de service
+
+1. Copiez l’**ID d’application (client)** présent dans la **Vue d’ensemble** du [_Principal de service_](./create-service-principal-azure.md) déjà créé
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sp-appln-id.png" alt-text="Capture d’écran montrant l’ID d’application (client) pour le principal de service":::
+
+##### <a name="granting-the-service-principal-access-to-your-azure-blob-account"></a>Octroi au principal de service de l’accès à votre compte Blob Azure
+
+Il est important de donner à votre principal de service l’autorisation d’analyser la source de données Blob Azure. Vous pouvez ajouter le MSI de Data Catalog au niveau de l’abonnement, du groupe de ressources ou de la ressource, en fonction des autorisations d’analyse que vous souhaitez lui accorder.
+
+> [!Note]
+> Vous devez être propriétaire de l’abonnement pour pouvoir ajouter un principal de service sur une ressource Azure.
+
+1. Dans le [portail Azure](https://portal.azure.com), recherchez l’abonnement, le groupe de ressources ou la ressource (par exemple, un compte de stockage Blob Azure) que le catalogue doit être autorisé à analyser.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-storage-acct.png" alt-text="Capture d’écran montrant le compte de stockage":::
+
+1. Sélectionnez **Contrôle d’accès (IAM)** dans le menu de navigation de gauche, puis sélectionnez **+ Ajouter** --> **Ajouter une attribution de rôle**
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-access-control.png" alt-text="Capture d’écran montrant le contrôle d’accès pour le compte de stockage":::
+
+1. Définissez le **Rôle** sur **Lecteur des données Blob du stockage**, puis entrez votre _principal de service_ dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre compte Purview.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sp-permission.png" alt-text="Capture d’écran montrant les détails permettant de fournir des autorisations de compte de stockage au principal du service":::
+
+### <a name="creating-the-scan"></a>Création de l’analyse
+
+1. Ouvrez votre **compte Purview** et sélectionnez **Ouvrir Purview Studio**
+1. Accéder aux **sources** -->  **de mappage de données** pour afficher la hiérarchie de collection
+1. Sélectionnez l’icône **Nouvelle analyse** sous la **source de données Blob Azure** inscrite précédemment
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-new-scan.png" alt-text="Capture d’écran montrant l’écran de création d’une nouvelle analyse":::
+
+#### <a name="if-using-managed-identity"></a>Si vous utilisez l’identité managée
+
+Donnez un **Nom** à l’analyse, sélectionnez **MSI Purview** sous **Informations d’identification**, choisissez la collection appropriée pour l’analyse, puis **Tester la connexion**. Sur une connexion réussie, sélectionnez **Continuer**
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-managed-identity.png" alt-text="Capture d’écran montrant l’option Identité managée pour exécuter l’analyse":::
+
+#### <a name="if-using-account-key"></a>Si vous utilisez une clé de compte
+
+Donnez un **Nom** à l’analyse, choisissez la collection appropriée pour l’analyse et sélectionnez **Méthode d’authentification** comme _Clé de compte_, puis choisissez **Créer**
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-acct-key.png" alt-text="Capture d’écran montrant l’option de clé de compte pour l’analyse":::
+
+#### <a name="if-using-service-principal"></a>Si vous utilisez le principal de service
+
+1. Donnez un **Nom** à l’analyse, choisissez la collection appropriée pour l’analyse et sélectionnez **+ Nouveau** sous **Informations d’identification**
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sp-option.png" alt-text="Capture d’écran montrant l’option permettant au principal de service d’activer l’analyse":::
+
+1. Sélectionnez la **Connexion de coffre de clés** approprié et le **Nom de secret** qui a été utilisé lors de la création du _principal de service_. L’**ID du principal de service** est l’**ID d’application (client)** copié précédemment
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-service-principal-option.png" alt-text="Capture d’écran montrant l’option du principal de service":::
+
+1. Sélectionnez **Tester la connexion**. Sur une connexion réussie, sélectionnez **Continuer**
+
+### <a name="scoping-and-running-the-scan"></a>Étendue et exécution de l’analyse
+
+1. Vous pouvez limiter votre analyse à des dossiers ou sous-dossiers spécifiques en choisissant les éléments appropriés dans la liste.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-scope-scan.png" alt-text="Définir la portée de votre analyse":::
 
 1. Sélectionnez ensuite un ensemble de règles pour l’analyse. Vous pouvez choisir entre l’ensemble système par défaut, les ensembles de règles personnalisés existants ou créer un ensemble de règles inline.
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/blob-scan-rule-set.png" alt-text="Ensemble de règles d’analyse":::
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-scan-rule-set.png" alt-text="Ensemble de règles d’analyse":::
+
+1. Si vous créez un _ensemble de règles d’analyse_, sélectionnez les **types de fichiers** à inclure dans la règle d’analyse.
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-file-types.png" alt-text="Types de fichiers de l’ensemble de règles d’analyse":::
+
+1. Vous pouvez sélectionner les **règles de classification** à inclure dans la règle d’analyse
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-classification rules.png" alt-text="Règles de classification de l’ensemble de règles d’analyse":::
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-select-scan-rule-set.png" alt-text="Sélection de l’ensemble de règles d’analyse":::
 
 1. Choisissez votre déclencheur d’analyse. Vous pouvez configurer une planification ou exécuter l’analyse une seule fois.
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/trigger-scan.png" alt-text="trigger":::
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-scan-trigger.png" alt-text="déclencheur d’analyse":::
 
 1. Passez en revue votre analyse et sélectionnez **Enregistrer et exécuter**.
 
-[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-review-scan.png" alt-text="Vérifier l’analyse":::
+
+### <a name="viewing-scan"></a>Affichage de l’analyse
+
+1. Accédez à la _source de données_ dans la _Collection_ et sélectionnez **Afficher les détails** pour vérifier l’état de l’analyse
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-view-scan.png" alt-text="Afficher l’analyse":::
+
+1. Les détails de l’analyse indiquent la progression de l’analyse dans l’**état de la dernière exécution** et le nombre de ressources _analysées_ et _classées_
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-scan-details.png" alt-text="Afficher les détails de l’analyse":::
+
+1. L’**État de la dernière exécution** est mis à jour sur **En cours**, puis **Terminé** une fois l’analyse complète exécutée avec succès
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-scan-in-progress.png" alt-text="afficher l’analyse en cours":::
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-scan-completed.png" alt-text="afficher l’analyse terminée":::
+
+### <a name="managing-scan"></a>Gestion de l’analyse
+
+Les analyses peuvent être gérées ou réexécutées à la fin
+
+1. Sélectionner le **Nom de l’analyse** pour gérer l’analyse
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-manage-scan.png" alt-text="Gérer l’analyse":::
+
+1. Vous pouvez _réexécuter l'analyse_, _modifier l’analyse_, _Supprimer l’analyse_  
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-manage-scan-options.png" alt-text="gérer les options d’analyse":::
+
+1. Vous pouvez de nouveau _exécuter une analyse incrémentielle_ ou une _analyse complète_ 
+
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-full-inc-scan.png" alt-text="analyse complète ou incrémentielle":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Navigation dans le catalogue de données Azure Purview](how-to-browse-catalog.md)
-- [Recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)
+Maintenant que vous avez inscrit votre source, suivez les guides ci-dessous pour en savoir plus sur Purview et sur vos données.
+
+- [Insights de données dans Azure Purview](concept-insights.md)
+- [Lignage dans Azure Purview](catalog-lineage-user-guide.md)
+- [Rechercher dans un catalogue de données](how-to-search-catalog.md)

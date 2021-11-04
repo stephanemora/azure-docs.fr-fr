@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1e409fa879f4a541f1f3da7b1c68c06d01e1f8d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a9d56443885c79f6d5aa153695df76156f4f9407
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128587116"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012678"
 ---
 # <a name="conditional-access-cloud-apps-actions-and-authentication-context"></a>Accès conditionnel : applications, actions et contexte d’authentification cloud
 
@@ -71,7 +71,7 @@ Les administrateurs peuvent affecter une stratégie d’accès conditionnel aux 
 - Windows Defender ATP
 
 > [!IMPORTANT]
-> Les applications disponibles pour l’accès conditionnel ont suivi un processus d’intégration et de validation. Cette liste n’inclut pas toutes les applications Microsoft, car nombre d’entre elles sont des services principaux non censés être régis par une stratégie qui leur est directement appliquée. Si vous recherchez une application manquante, vous pouvez contacter l’équipe d’application spécifique ou formuler une demande sur [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
+> Les applications disponibles pour l’accès conditionnel ont suivi un processus d’intégration et de validation. Cette liste n’inclut pas toutes les applications Microsoft, car nombre d’entre elles sont des services principaux non censés être régis par une stratégie qui leur est directement appliquée. Si vous recherchez une application manquante, vous pouvez contacter l’équipe d’application spécifique ou formuler une demande sur [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ### <a name="office-365"></a>Office 365
 
@@ -160,7 +160,7 @@ Les contextes d’authentification sont gérés dans le portail Azure sous **Azu
 
 Créez de nouvelles définitions de contexte d’authentification en sélectionnant **Nouveau contexte d’authentification** dans le portail Azure. Configurez les attributs suivants :
 
-- Le **Nom d’affichage** est le nom utilisé pour identifier le contexte d’authentification dans Azure AD et dans les applications qui utilisent des contextes d’authentification. Nous recommandons de choisir des noms utilisables dans des ressources, comme « appareils de confiance », afin de réduire le nombre de contextes d’authentification requis. Le fait de disposer d’un ensemble de contextes réduit limite le nombre de redirections et offre une meilleure expérience utilisateur final.
+- Le **Nom d’affichage** est le nom utilisé pour identifier le contexte d’authentification dans Azure AD et dans les applications qui utilisent des contextes d’authentification. Nous recommandons de choisir des noms utilisables dans l’ensemble des ressources, comme « appareils de confiance », afin de réduire le nombre de contextes d’authentification requis. Le fait de disposer d’un ensemble de contextes réduit limite le nombre de redirections et offre une meilleure expérience utilisateur final.
 - La **Description** fournit des informations supplémentaires sur les stratégies. Elle est utilisée par les administrateurs Azure AD et les personnes qui appliquent des contextes d’authentification à des ressources.
 - La case à cocher **Publier sur les applications**, quand elle est activée, publie le contexte d’authentification sur les applications et rend celle-ci disponibles pour affectation. Si elle n’est pas activée, le contexte d’authentification n’est pas disponible pour les ressources en aval. 
 - L’ **ID**, en lecture seule, est utilisé dans des jetons et des applications pour des définitions de contexte d’authentification spécifiques d’une demande. Il est indiqué ici à des fins de résolution des problèmes et de développement. 

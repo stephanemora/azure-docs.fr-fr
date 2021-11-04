@@ -1,20 +1,20 @@
 ---
 title: Créer un groupe identique qui utilise des machines virtuelles Azure Spot
 description: Découvrez comment créer des groupes identiques de machines virtuelles Azure qui utilisent des machines virtuelles Azure Spot pour réaliser des économies sur les coûts.
-author: JagVeerappan
-ms.author: jagaveer
+author: mimckitt
+ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.date: 02/26/2021
+ms.date: 10/22/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b0c0ffdce85450900c0d4ca0da936b8675820f79
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 842394ed341da88fdb37ff6deb7ccdc519ac2f8e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690563"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060501"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Machines virtuelles Azure Spot et groupes de machines virtuelles identiques 
 
@@ -24,6 +24,20 @@ L’utilisation de machines virtuelles Azure Spot sur des groupes identiques vou
 
 La capacité disponible dépend de divers facteurs, tels que la taille, la région, l’heure, etc. Lors du déploiement d’instances de machine virtuelle Azure Spot sur des groupes identiques, Azure alloue l’instance uniquement si la capacité est disponible, mais qu’il n’existe aucun contrat SLA pour ces instances. Un groupe de machines virtuelles identiques Azure Spot est déployé dans un domaine d’erreur unique. Il n’offre aucune garantie de haute disponibilité.
 
+## <a name="limitations"></a>Limites
+
+Les tailles suivantes ne sont pas prises en charge pour les machines virtuelles Azure Spot :
+ - Série B
+ - Versions promotionnelles de toutes les tailles (Dv2, NV, NC, H, etc.)
+
+Une machine virtuelle Azure Spot peut être déployée dans n’importe quelle région, à l’exception de Microsoft Azure China 21Vianet.
+
+Les [types d’offres](https://azure.microsoft.com/support/legal/offer-details/) suivants sont pris en charge :
+
+-   Contrat Entreprise
+-   Code de l’offre de paiement à l’utilisation (003P)
+-   Sponsorisé (0036P et 0136P)
+- Pour le fournisseur de services cloud (CSP), consultez l’[Espace partenaires](/partner-center/azure-plan-get-started) ou contactez directement votre partenaire.
 
 ## <a name="pricing"></a>Tarifs
 
@@ -33,22 +47,6 @@ Les tarifs des instances de machine virtuelle Azure Spot sont variables, en fonc
 En raison de la variabilité des tarifs, vous avez la possibilité de définir un prix maximal en dollars américains (USD) ayant jusqu’à cinq décimales. Par exemple, la valeur `0.98765` correspond à un prix maximal de 0,98765 $ USD par heure. Si vous définissez `-1` comme prix maximal, l’instance n’est pas supprimée en fonction du prix. Le prix de l’instance sera le prix actuel de la machine virtuelle Azure Spot ou le prix d’une instance standard, la valeur la plus faible étant retenue, à condition que la capacité et le quota soient disponibles.
 
 
-## <a name="limitations"></a>Limites
-
-Les tailles suivantes ne sont pas prises en charge pour les machines virtuelles Azure Spot :
- - Série B
- - Versions promotionnelles de toutes les tailles (Dv2, NV, NC, H, etc.)
-
-Une machine virtuelle Azure Spot peut être déployée dans n’importe quelle région, à l’exception de Microsoft Azure China 21Vianet.
-
-<a name="channel"></a>
-
-Les [types d’offres](https://azure.microsoft.com/support/legal/offer-details/) suivants sont pris en charge :
-
--   Contrat Entreprise
--   Code de l’offre de paiement à l’utilisation (003P)
--   Sponsorisé (0036P et 0136P)
-- Pour le fournisseur de services cloud (CSP), consultez l’[Espace partenaires](/partner-center/azure-plan-get-started) ou contactez directement votre partenaire.
 
 ## <a name="eviction-policy"></a>Stratégie d’éviction
 
@@ -60,14 +58,20 @@ Si vous souhaitez que les instances soient supprimées après avoir été écart
 
 Les utilisateurs peuvent s’abonner pour recevoir des notifications dans la machine virtuelle via [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). Vous serez ainsi informé si vos machines virtuelles sont en cours d’éviction, et vous aurez 30 secondes pour terminer vos tâches et arrêter la machine virtuelle avant que ne commence l’éviction. 
 
-<a name="bkmk_try"></a>
-## <a name="try--restore-preview"></a>Essayer et restaurer (préversion)
+## <a name="eviction-history"></a>Historique d’éviction
+Vous pouvez voir l’historique des tarifs et des taux d’éviction par taille dans une région du portail. Sélectionnez **Voir l'historique des prix et comparer les prix dans les régions proches** pour afficher une table ou un graphique de tarification pour une taille spécifique.  Les tarifs et les taux d’éviction des images suivantes sont uniquement des exemples. 
 
-Cette nouvelle fonctionnalité au niveau de la plateforme utilise l’intelligence artificielle pour essayer automatiquement de restaurer les instances de machine virtuelle spot Azure écartées à l’intérieur d’un groupe identique afin de conserver le nombre d’instances cibles. 
+**Graphique**:
 
-> [!IMPORTANT]
-> La fonctionnalité Essayer et restaurer est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+:::image type="content" source="../virtual-machines/media/spot-chart.png" alt-text="Capture d’écran des options de région avec la différence de tarification et les taux d’éviction sous forme de graphique.":::
+
+**Table**:
+
+:::image type="content" source="../virtual-machines/media/spot-table.png" alt-text="Capture d’écran des options de région avec la différence de tarification et les taux d’éviction sous forme de table.":::
+
+## <a name="try--restore"></a>Essayer & restaurer 
+
+Cette fonctionnalité au niveau de la plateforme utilise l’intelligence artificielle pour essayer automatiquement de restaurer les instances de machine virtuelle spot Azure écartées à l’intérieur d’un groupe identique afin de conserver le nombre d’instances cibles. 
 
 Avantages de la fonctionnalité Essayer et restaurer :
 - Tentatives de restauration des machines virtuelles spot Azure écartées en raison de la capacité.
@@ -77,49 +81,6 @@ Avantages de la fonctionnalité Essayer et restaurer :
 
 La fonctionnalité Essayer et restaurer est désactivée dans les groupes identiques qui utilisent la [mise à l’échelle automatique](virtual-machine-scale-sets-autoscale-overview.md). Le nombre de machines virtuelles dans le groupe identique est piloté par les règles de mise à l’échelle automatique.
 
-### <a name="register-for-try--restore"></a>S’inscrire pour utiliser la fonctionnalité Essayer et restaurer
-
-Avant de pouvoir utiliser la fonctionnalité Essayer et restaurer, vous devez inscrire votre abonnement à la préversion. L’inscription peut prendre plusieurs minutes. Vous pouvez utiliser Azure CLI ou PowerShell pour inscrire la fonctionnalité.
-
-
-**Utiliser l’interface de ligne de commande 2.0**
-
-Utilisez [az feature register](/cli/azure/feature#az_feature_register) pour activer la préversion pour votre abonnement. 
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name SpotTryRestore 
-```
-
-L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription : 
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name SpotTryRestore 
-```
-
-Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul. 
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute 
-```
-**Utiliser PowerShell** 
-
-Utilisez l’applet de commande [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) pour activer la préversion pour votre abonnement. 
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
-```
-
-L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour vérifier l’état de l’inscription : 
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
-```
-
-Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul. 
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute 
-```
 
 ## <a name="placement-groups"></a>Groupes de placement
 
@@ -138,7 +99,7 @@ Pour déployer des machines virtuelles Azure Spot dans des groupes identiques, d
 
 ## <a name="portal"></a>Portail
 
-Le processus de création d’un groupe identique qui utilise des machines virtuelles Azure Spot est le même que celui décrit dans l’[article Bien démarrer](quick-create-portal.md). Lorsque vous déployez un groupe identique, vous pouvez choisir de définir l’indicateur Spot et la stratégie d’éviction : ![Créer un groupe identique avec des machines virtuelles Azure Spot](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
+Le processus de création d’un groupe identique qui utilise des machines virtuelles Azure Spot est le même que celui décrit dans l’[article Bien démarrer](quick-create-portal.md). Lorsque vous déployez un groupe identique, vous pouvez choisir de définir l’indicateur Spot, le type d’éviction, la stratégie d’éviction et si vous souhaitez activer la tentative de restauration des instances : ![Créer un groupe identique avec Azure Spot Virtual Machines](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-1.png)
 
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -155,7 +116,10 @@ az vmss create \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
-    --max-price -1 
+    --eviction-policy Deallocate \
+    --max-price -1 \
+    --enable-spot-restore True \
+    --spot-restore-timeout PT1H
 ```
 
 ## <a name="powershell"></a>PowerShell
@@ -170,7 +134,10 @@ $vmssConfig = New-AzVmssConfig `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic `
     -Priority "Spot" `
-    -max-price -1
+    -max-price -1 `
+    -EnableSpotRestore `
+    -SpotRestoreTimeout 60 `
+    -EvictionPolicy delete
 ```
 
 ## <a name="resource-manager-templates"></a>Modèles Resource Manager
@@ -179,7 +146,7 @@ Le processus de création d’un groupe identique qui utilise des machines virtu
 
 Pour le déploiement de modèles de machine virtuelle Azure Spot, utilisez`"apiVersion": "2019-03-01"` ou une version ultérieure. 
 
-Ajoutez les propriétés `priority`, `evictionPolicy` et `billingProfile` à la section `"virtualMachineProfile":` et la propriété `"singlePlacementGroup": false,` à la section `"Microsoft.Compute/virtualMachineScaleSets"` de votre modèle :
+Ajoutez les propriétés `priority`, `evictionPolicy`, `billingProfile` et `spotRestoryPolicy` à la section `"virtualMachineProfile":` et la propriété `"singlePlacementGroup": false,` à la section `"Microsoft.Compute/virtualMachineScaleSets"` de votre modèle :
 
 ```json
 
@@ -195,7 +162,11 @@ Ajoutez les propriétés `priority`, `evictionPolicy` et `billingProfile` à la 
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
-                }
+                },
+                "spotRestorePolicy": {
+                  "enabled": "bool",
+                  "restoreTimeout": "string"
+    },
             },
 ```
 

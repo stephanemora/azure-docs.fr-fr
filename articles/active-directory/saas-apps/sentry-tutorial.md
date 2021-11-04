@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 5a8cbdc77a7570037645b350b62787aeaea7374f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dac1c67868fb99c59ee4bae73209132669188ae1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124821501"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443962"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sentry"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Sentry
 
@@ -88,7 +88,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez ces valeurs à jour avec les valeurs réelles de l’identificateur, de l’URL de réponse et de l’URL de connexion. Pour plus d’informations sur la recherche de ces valeurs, consultez la [documentation de Sentry](https://docs.sentry.io/product/accounts/sso/azure-sso/#installation). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur l’icône Copier pour copier l’**URL des métadonnées de l’application** et enregistrez-la sur votre ordinateur.
+1. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur l’icône Copier pour copier la valeur **URL des métadonnées de l’application** et enregistrez-la sur votre ordinateur.
 
    ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
     

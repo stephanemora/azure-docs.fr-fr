@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: b42b3c9146b99ee6e65dc83968ba8e97c8f209fb
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 6bc664d5f7dab7d000f1ea540db56e240c307e15
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730486"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006655"
 ---
 # <a name="design-your-private-link-setup"></a>Conception de votre configuration Private Link
 
@@ -151,9 +151,9 @@ Si votre installation de liaison privée a été créée avant le 19 avril 2021,
     |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Règle de trafic sortant
 
 ### <a name="collecting-custom-logs-and-iis-log-over-private-link"></a>Collecter des journaux personnalisés et un journal IIS via une liaison privée
-Des comptes de stockage sont utilisés dans le processus d’ingestion de journaux personnalisés. Par défaut, des comptes de stockage gérés par le service sont utilisés. Toutefois, pour ingérer des journaux personnalisés via des liaisons privées, vous devez utiliser vos propres comptes de stockage et les associer aux espaces de travail Log Analytics. Pour plus d’informations sur la configuration de ces comptes, utilisez la [ligne de commande](/cli/azure/monitor/log-analytics/workspace/linked-storage).
+Des comptes de stockage sont utilisés dans le processus d’ingestion de journaux personnalisés. Par défaut, des comptes de stockage gérés par le service sont utilisés. Toutefois, pour ingérer des journaux personnalisés via des liaisons privées, vous devez utiliser vos propres comptes de stockage et les associer aux espaces de travail Log Analytics.
 
-Pour plus d’informations sur la connexion de votre propre compte de stockage, consultez [Comptes de stockage appartenant au client pour l’ingestion des journaux](private-storage.md).
+Pour plus d’informations sur la connexion de votre propre compte de stockage, consultez [Comptes de stockage appartenant aux clients pour l’ingestion de journaux](private-storage.md) et, en particulier, [Utilisation de liens privés](private-storage.md#using-private-links) et [Lier des comptes de stockage à votre espace de travail Log Analytics](private-storage.md#link-storage-accounts-to-your-log-analytics-workspace).
 
 ### <a name="automation"></a>Automatisation
 Si vous utilisez des solutions Log Analytics qui requièrent un compte Automation, comme Update Management, Change Tracking ou Inventory, vous devez également créer une liaison privée pour votre compte Automation. Pour plus d’informations, consultez [Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Automation](../../automation/how-to/private-link-security.md).
@@ -206,5 +206,5 @@ L’[opérateur `externaldata`](/azure/data-explorer/kusto/query/externaldata-op
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Apprenez à [Configurer votre liaison privée](private-link-configure.md)
-- Découvrir le [stockage privé](private-storage.md)
+- En savoir plus sur le [stockage privé](private-storage.md) pour les journaux personnalisés et les clés gérées par le client (CMK)
 - Découvrir [Private Link pour Automation](../../automation/how-to/private-link-security.md)

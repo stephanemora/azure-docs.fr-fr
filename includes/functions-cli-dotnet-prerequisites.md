@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 3861d5d9dde33e54d523cb6b379cab7ccc73d2f1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 21a81714f977054530daa0b486b7bf6cd126fb87
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559877"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031465"
 ---
-# <a name="in-process"></a>[In-process](#tab/in-process)    
+# <a name="in-process"></a>[In-process](#tab/in-process)
 
 + [Kit SDK .NET Core 3.1](https://dotnet.microsoft.com/download)
 
@@ -16,7 +16,7 @@ ms.locfileid: "128559877"
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 ou ultérieure.
 
-    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 ou ultérieure.
+    + Le [module Azure Az PowerShell](/powershell/azure/install-az-ps) version 5.9.0 ou ultérieure.
 
 # <a name="isolated-process"></a>[Processus isolé](#tab/isolated-process)
 
@@ -30,5 +30,5 @@ ms.locfileid: "128559877"
 
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 ou ultérieure.
 
-    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 ou ultérieure.
+    + Le [module Azure Az PowerShell](/powershell/azure/install-az-ps) version 5.9.0 ou ultérieure.
 ---

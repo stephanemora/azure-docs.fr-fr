@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 09/28/2021
 ms.author: danlep
-ms.openlocfilehash: 3fa10f238b3047b97e5d4d4c8c472010cfff883b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: e286cbb64078a2568d2aa3d0c523d782445470d4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130222530"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049137"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory B2C dans Gestion des API Azure
 
@@ -129,7 +129,7 @@ Le widget **Formulaire d’inscription : OAuth** représente un formulaire util
 1. Vous êtes redirigé vers la stratégie d’inscription que vous avez configurée dans la section précédente. Choisissez de vous inscrire avec votre adresse de messagerie ou l’un de vos comptes sociaux existants.
 
    > [!NOTE]
-   > Si Azure Active Directory B2C est la seule option sous l’onglet **Identités** du portail des éditeurs, vous êtes redirigé directement vers la stratégie d’inscription.
+   > Si Azure Active Directory B2C est la seule option activée sous l’onglet **Identités** du portail Azure, vous êtes redirigé directement vers la stratégie d’inscription.
 
    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-options.png" alt-text="S’inscrire aux options dans le portail des développeurs hérité":::
 
