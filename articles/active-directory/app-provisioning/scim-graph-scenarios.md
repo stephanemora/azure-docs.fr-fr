@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ac78950f4268155c4c7c0f37e20229044d62ab81
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: f97ff11a1a7e3829ef16aa4e903f88e2ad66949a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990707"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432754"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Utiliser SCIM et Microsoft Graph ensemble pour provisionner des utilisateurs et enrichir votre application avec les données dont elle a besoin.
 
@@ -113,7 +113,7 @@ Mon application crée des informations sur un utilisateur dont les clients ont b
 **Recommandation** : Microsoft Graph expose les points de terminaison/Users et /Groups que vous pouvez intégrer pour provisionner des utilisateurs dans Azure AD. Notez qu’Azure Active Directory ne prend pas en charge la réécriture de ces utilisateurs dans Active Directory. 
 
 > [!NOTE]
-> Microsoft dispose d’un service de provisionnement qui extrait les données des applications RH, telles que Workday et SuccessFactors. Ces intégrations sont créées et gérées par Microsoft. Pour l’intégration d’une nouvelle application RH à notre service, vous pouvez envoyer une demande sur [UserVoice](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests). 
+> Microsoft dispose d’un service de provisionnement qui extrait les données des applications RH, telles que Workday et SuccessFactors. Ces intégrations sont créées et gérées par Microsoft. Pour l’intégration d’une nouvelle application RH à notre service, vous pouvez envoyer une demande sur [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). 
 
 ## <a name="related-articles"></a>Articles connexes
 

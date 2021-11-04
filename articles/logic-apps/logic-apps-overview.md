@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q4
 ms.date: 08/18/2021
-ms.openlocfilehash: 3b327472304874bc91879a21c2ec6adac49fc987
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: a5b1b0f6d4d51874dd330c2336e5f342aaedeec9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130066810"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131085864"
 ---
 # <a name="what-is-azure-logic-apps"></a>Qu’est-ce qu’Azure Logic Apps ?
 
@@ -28,7 +28,7 @@ La liste suivante décrit simplement quelques exemples de tâches, de processus 
 
 * Superviser des tweets, analyser les sentiments et créer des alertes ou des tâches pour des éléments à passer en revue.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/player]
 
 Selon le type de ressource d’application logique que vous choisissez et créez, vos applications logiques s’exécutent dans des applications logiques Azure mutualisées, des [applications logiques Azure monolocataires](single-tenant-overview-compare.md) ou un [environnement de service d’intégration ](connect-virtual-network-vnet-isolated-environment-overview.md) dédié lorsqu’elles accèdent à un réseau virtuel Azure. Pour exécuter des applications logiques dans des conteneurs, [créez des applications logiques monolocataires via Logic Apps avec Azure Arc](azure-arc-enabled-logic-apps-create-deploy-workflows.md). Pour plus d’informations, consultez [Qu’est-ce que Logic Apps avec Azure Arc ?](azure-arc-enabled-logic-apps-overview.md) et [Différences entre le type de ressource et l’environnement hôte pour Logic Apps](#resource-environment-differences).
 
@@ -222,8 +222,6 @@ Vous pouvez également explorer d’autres guides de démarrage rapide pour Azur
 
 Découvrez-en plus sur la plateforme Azure Logic Apps avec ces vidéos d’introduction :
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/player]
->
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps/player]
 
 ## <a name="next-steps"></a>Étapes suivantes

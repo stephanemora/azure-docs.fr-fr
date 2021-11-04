@@ -7,26 +7,24 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 04/1/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: b6a430c70d59ff980063139e71daf76d1ede220a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3ed931d0f972caa2e4a49012ad09afe9df9d3233
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610141"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422764"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-with-azure-cli"></a>Gérer la haute disponibilité redondante interzone dans le serveur flexible Azure Database pour MySQL avec Azure CLI
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!NOTE]
-> Le serveur flexible Azure Database pour MySQL est en préversion publique.
 
 Cet article explique comment vous pouvez activer ou désactiver la configuration de la haute disponibilité avec redondance interzone au moment de la création du serveur dans votre serveur flexible. Vous pouvez également désactiver la haute disponibilité redondante interzone après la création du serveur. L’activation de la haute disponibilité redondante interzone après la création du serveur n’est pas prise en charge.
 
 La fonctionnalité de haute disponibilité provisionne physiquement des réplicas principaux et secondaires séparés dans différentes zones. Pour plus d’informations, consultez la [documentation sur les concepts de haute disponibilité](./concepts/../concepts-high-availability.md). L’activation ou la désactivation de la haute disponibilité ne change pas vos autres paramètres, notamment la configuration du réseau virtuel, les paramètres du pare-feu et la conservation des sauvegardes. La désactivation de la haute disponibilité n’a pas d’impact sur la connectivité et le fonctionnement de votre application.
 
 > [!IMPORTANT]
-> La haute disponibilité redondante interzone est disponible dans un ensemble limité de régions. Consultez [ici](./overview.md#azure-regions) les régions prises en charge. 
+> La haute disponibilité redondante interzone est disponible dans un ensemble limité de régions. Consultez [ici](./overview.md#azure-regions) les régions prises en charge.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -69,7 +67,7 @@ Vous pouvez uniquement créer des serveurs en utilisant les niveaux tarifaires U
 
 ## <a name="disable-high-availability"></a>Désactiver la haute disponibilité
 
-Vous pouvez désactiver la haute disponibilité à l’aide de la commande [az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update). Notez que la désactivation de la haute disponibilité est prise en charge seulement si le serveur a été créé avec une haute disponibilité. 
+Vous pouvez désactiver la haute disponibilité à l’aide de la commande [az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update). Notez que la désactivation de la haute disponibilité est prise en charge seulement si le serveur a été créé avec une haute disponibilité.
 
 ```azurecli
 az mysql flexible-server update [--high-availability {Disabled, SameZone, ZoneRedundant}]

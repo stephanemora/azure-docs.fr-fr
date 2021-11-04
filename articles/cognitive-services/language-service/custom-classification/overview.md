@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: c31a348376f41bf61a4632d991fc02f08b360be7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 729cf1ed5d17345c530bd78f9c5c75c15990ab12
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131450245"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131096820"
 ---
 # <a name="what-is-custom-text-classification-preview"></a>Qu’est-ce que la classification de texte personnalisée (préversion) ?
 
@@ -27,13 +27,7 @@ La classification de texte personnalisée est proposée dans le cadre des foncti
 La classification de texte personnalisée prend en charge deux types de projets : 
 
 * **Classification avec une seule étiquette** : vous pouvez attribuer une seule classe à chaque fichier de votre jeu de données. Par exemple, un script de film peut uniquement être classé comme « Action » ou « Thriller ». 
-* **Classification avec plusieurs étiquettes** : vous pouvez attribuer plusieurs classes à chaque fichier de votre jeu de données. Par exemple, un script de film peut être classé comme « Action », ou « Action » et « Thriller ».
-
-Cette documentation contient les types d’articles suivants :
-
-* Les [Démarrages rapides](quickstart.md) sont des instructions de prise en main qui vous guident dans la formulation de vos requêtes au service.
-* Des [concepts](concepts/evaluation.md) fournissent des explications sur les fonctionnalités du service.
-* Les [Guides pratiques](how-to/tag-data.md) contiennent des instructions sur l’utilisation du service de manière plus spécifique ou personnalisée.
+* **Classification avec plusieurs étiquettes** : vous pouvez attribuer plusieurs classes à chaque fichier de votre jeu de données. Par exemple, un script de film peut être classé comme « Action », ou « Action » et « Thriller ». 
 
 ## <a name="example-usage-scenarios"></a>Exemples de scénarios d’utilisation
 

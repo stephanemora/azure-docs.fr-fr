@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 10/01/2021
 ms.author: jasteppe
-ms.openlocfilehash: 07f1ed78abe90b2967335322f0eea17e721a44bc
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: d5111425c6377cf16d3fbd4afceb7fcacc1e539a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005406"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077417"
 ---
 # <a name="iot-connector-troubleshooting-guide"></a>Guide de résolution des problèmes du connecteur IoT
 
@@ -25,11 +25,14 @@ Cet article explique comment résoudre les problèmes courants liés aux message
 > [!TIP]
 > Lors de l’ouverture d’un ticket de [support technique Azure](https://azure.microsoft.com/support/create-ticket/) pour le connecteur IOT, incluez des copies de votre appareil et des mappages de destination FHIR pour faciliter le processus de dépannage.
 
-## <a name="device-and-fhir-destination-mapping-validations"></a>Validations de mappage de destination de périphérique et FHIR
+## <a name="device-and-fhir-destination-mappings-validations"></a>Validations des mappages de destination des appareils et des FHIR
 
 Cette section décrit le processus de validation que fait le connecteur IoT. Le processus de validation valide les mappages de destination de l’appareil et de la FHIR avant de les autoriser à être enregistrés pour utilisation. Ces éléments sont requis dans les mappages de destination Device et FHIR.
 
-**Mappage des appareils**
+> [!TIP]
+> Consultez l’outil [Mappeur de données du connecteur IoMT](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) pour la modification, le test et la résolution des problèmes des mappages de destination FHIR et des appareils IOT Connector. Exportez les mappages de chargement vers le connecteur IoT dans le Portail Azure ou utilisez avec la [version open source](https://github.com/microsoft/iomt-fhir) du connecteur IOT.
+
+**Mappages d’appareils**
 
 |Élément|Obligatoire|
 |:-------|:------|
@@ -47,7 +50,7 @@ Cette section décrit le processus de validation que fait le connecteur IoT. Le 
 > 
 >Lorsqu’un appareil IoMT portable est mis en place ou supprimé, les éléments n’ont pas de valeurs à l’exception du nom que le connecteur IoT correspond et émet. Lors de la conversion FHIR, IoT Connector le mappe à un concept de code pouvant être basé sur le type sémantique. Cela signifie qu’aucune valeur réelle n’est remplie.
 
-**Mappage de destination FHIR**
+**Mappages de destination FHIR**
 
 |Élément|Obligatoire|
 |:------|:-------|
@@ -110,7 +113,7 @@ Cette propriété représente l’opération exécutée par le connecteur IoT lo
 
 Cette propriété représente la gravité de l’erreur qui s’est produite. Vous trouverez ci-dessous une liste des valeurs possibles pour cette propriété.
 
-|Gravité|Description|
+|severity|Description|
 |---------------|-----------|
 |Avertissement|Il existe un problème mineur dans le processus de distribution de données, mais le traitement du message de l’appareil ne s’arrête pas.|
 |Erreur|Ce message s’affiche lorsque le traitement d’un message d’appareil spécifique a rencontré une erreur et que d’autres messages peuvent continuer de s’exécuter comme prévu.|
@@ -156,7 +159,7 @@ Les copies de mappage doivent être fournies au support technique Azure lors de 
 > JSON est le seul format pris en charge pour les mappages de destination appareil et FHIR pour l’instant.
 
 > [!TIP]
-> En savoir plus sur [les mappages de destination des appareils IOT Connector et FHIR](how-to-use-fhir-mapping-iot.md)
+> En savoir plus sur les [mappages d’appareils](how-to-use-device-mapping-iot.md) IOT Connector et les [mappages de destination FHIR](how-to-use-fhir-mapping-iot.md)
 
 1. Sélectionnez **« connecteurs IOT »** sur le côté gauche de l’espace de travail API de santé.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/07/2021
 ms.author: kumud
-ms.openlocfilehash: 072c26444c3a3fe84cfc9a0690571a524f7db6dc
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 30346fa6c837484613acc4cb48a82e8854d13a3f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113436043"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076639"
 ---
 # <a name="azure-networking-services-overview"></a>Vue d’ensemble des services de mise en réseau Azure
 
@@ -35,7 +35,7 @@ Cette section décrit les services qui assurent la connectivité entre ressource
 Le réseau virtuel Azure (VNet) est le bloc de construction fondamental pour votre réseau privé dans Azure. Vous pouvez utiliser des réseaux virtuels pour :
 - **Communiquer entre les ressources Azure** : vous pouvez déployer des machines virtuelles et plusieurs autres types de ressources Azure sur un réseau virtuel, comme des environnements Azure App Service, Azure Kubernetes Service et des groupes de machines virtuelles identiques Azure. Pour obtenir la liste complète des ressources Azure que vous pouvez déployer sur un réseau virtuel, consultez [Intégration des services de réseau virtuel](../../virtual-network/virtual-network-for-azure-services.md).
 - **Communiquer mutuellement** : Vous pouvez connecter des réseaux virtuels entre eux, ce qui permet aux ressources de ces réseaux virtuels de communiquer entre eux à l’aide d’un peering. Les réseaux virtuels que vous connectez peuvent être situés dans des régions Azure identiques ou différentes. Pour en savoir plus, consultez [Peering de réseaux virtuels](../../virtual-network/virtual-network-peering-overview.md).
-- **Communiquer vers Internet** : Par défaut, toutes les ressources d’un réseau virtuel peuvent communiquer en sortie vers Internet. Vous pouvez effectuer des communications entrantes vers une ressource en lui assignant une adresse IP publique ou un équilibreur de charge publique. Vous pouvez également utiliser des [adresses IP publique](../../virtual-network/virtual-network-public-ip-address.md) ou [Load Balancer](../../load-balancer/load-balancer-overview.md) pour gérer vos connexions sortantes.
+- **Communiquer vers Internet** : Par défaut, toutes les ressources d’un réseau virtuel peuvent communiquer en sortie vers Internet. Vous pouvez effectuer des communications entrantes vers une ressource en lui assignant une adresse IP publique ou un équilibreur de charge publique. Vous pouvez également utiliser des [adresses IP publique](../../virtual-network/ip-services/virtual-network-public-ip-address.md) ou [Load Balancer](../../load-balancer/load-balancer-overview.md) pour gérer vos connexions sortantes.
 - **Communiquer avec des réseaux locaux** : Vous pouvez connecter vos ordinateurs et réseaux locaux à un réseau virtuel à l’aide la [passerelle VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou d’[ExpressRoute](../../expressroute/expressroute-introduction.md).
 
 Pour plus d’informations, consultez [Présentation du réseau virtuel Azure](../../virtual-network/virtual-networks-overview.md).

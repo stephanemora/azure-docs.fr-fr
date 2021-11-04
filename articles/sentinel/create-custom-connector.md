@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: 7d69235d1d7131df8b5abcb1c9073defab8f2354
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: df33492b544a9d8875d6996b89acf225f3ace4f4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023345"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449276"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Ressources pour la création de connecteurs Azure Sentinel personnalisés
 
@@ -177,7 +177,7 @@ Bien que l’appel d’un point de terminaison RESTful nécessite directement da
 Pour plus d’informations, consultez l’[API de collecteur de données Log Analytics](../azure-monitor/logs/data-collector-api.md), en particulier les exemples suivants :
 
 - [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
-- [Python 2](../azure-monitor/logs/data-collector-api.md#python-2-sample)
+- [Python](../azure-monitor/logs/data-collector-api.md#python-sample)
 
 ## <a name="connect-with-azure-functions"></a>Se connecter avec Azure Functions
 
@@ -210,7 +210,7 @@ Pour plus d’informations sur l’analyse au moment de la requête, consultez [
 
 > [!NOTE]
 > La mise à jour de votre analyseur s’applique également aux données que vous avez déjà ingérées dans Azure Sentinel.
-> 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Utilisez les données ingérées dans Azure Sentinel pour sécuriser votre environnement à l’aide de l’un des processus suivants :

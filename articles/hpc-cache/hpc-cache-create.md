@@ -1,18 +1,18 @@
 ---
 title: Créer un cache Azure HPC Cache
 description: Comment créer une instance de cache Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/15/2021
-ms.author: v-erkel
+ms.author: femila
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b7789af76572eeaa3dfdfe4c6ff379889341033e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6f457dcf69b0f38173a3816ea1ac16c2cc7c5935
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128557457"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015330"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Créer un cache Azure HPC Cache
 
@@ -179,7 +179,7 @@ Fournissez ces valeurs :
   | Taille du cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
   | 3072 Go    | oui         | non          | Non          |
-  | 6144 Go    | oui         | oui         | Non          |
+  | 6144 Go    | Oui         | oui         | Non          |
   | 12288 Go   | oui         | oui         | oui         |
   | 24576 Go   | Non          | oui         | oui         |
   | <49152 Go   | Non          | non          | Oui         |

@@ -8,12 +8,12 @@ ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
 ms.date: 09/21/2021
-ms.openlocfilehash: c18e932aecbce25e4766b4b5a134f350af2d6193
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 71668909cb888da26155a5ae50135e30fa276ab1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128700618"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079297"
 ---
 # <a name="configure-power-bi-visual-offer-listing-details"></a>Configurer les détails de la liste d’offres de visuels Power BI
 
@@ -27,7 +27,7 @@ Fournissez les détails de la liste dans une ou plusieurs langues prises en char
 
 ## <a name="marketplace-details"></a>Détails de la Place de marché
 
-- Le **[nom](https://aka.ms/PBIvisualreservename)** que vous entrez ici est présenté aux clients comme le titre de l’offre. Ce champ est prérempli avec le nom que vous avez entré lorsque vous avez créé l’offre, mais vous pouvez le modifier. Si vous souhaitez réserver d’autres noms (par exemple, dans une autre langue), sélectionnez [Réserver plus de noms](power-bi-visual-manage-names.md).
+- Le **[nom](/office/dev/store/reserve-solution-name)** que vous entrez ici est présenté aux clients comme le titre de l’offre. Ce champ est prérempli avec le nom que vous avez entré lorsque vous avez créé l’offre, mais vous pouvez le modifier. Si vous souhaitez réserver d’autres noms (par exemple, dans une autre langue), sélectionnez [Réserver plus de noms](power-bi-visual-manage-names.md).
 - Entrez un **résumé** de votre offre pour le résumé qui s’affiche dans les résultats de la recherche. Cette description pourra être utilisée dans les résultats de recherche de la place de marché.
 - Entrez une **description** détaillée de votre offre, jusqu’à 3 000 caractères. C’est ce que verront les clients dans la vue d’ensemble du référencement sur la Place de marché.
 - Ajoutez jusqu’à trois **mots clés de recherche** pour aider les utilisateurs à trouver votre offre.
@@ -51,7 +51,7 @@ Fournissez au minimum une à cinq captures d’écran. Celles-ci doivent être a
 
 Pour augmenter l’intérêt des utilisateurs pour votre visuel personnalisé, fournissez un lien **YouTube** ou **Vimeo** vers une vidéo en lie avec votre visuel. Le format de votre URL doit inclure https:// ou https://.
 
-Pour obtenir des conseils sur la façon de rendre votre offre plus efficace, consultez [Astuces pour la création de listes efficaces](https://aka.ms/PBIvisualeffectivelisting).
+Pour obtenir des conseils sur la façon de rendre votre offre plus efficace, consultez [Astuces pour la création de listes efficaces]().
 
 Pour obtenir des ressources supplémentaires concernant la place de marché, consultez [Meilleures pratiques pour les annonces d’offre d’une place de marché](gtm-offer-listing-best-practices.md).
 

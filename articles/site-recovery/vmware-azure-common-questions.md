@@ -3,12 +3,12 @@ title: Questions courantes sur la récupération d’urgence pour VMware avec Az
 description: Obtenez des réponses à des questions courantes sur la récupération d’urgence de machines virtuelles VMware locales sur Azure à l’aide d’Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8480598cc872a051b6b81f928e92740e39353598
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 02e903c876a2e4cdec29006090ed8ddfbe9e4b45
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621216"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452601"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -165,7 +165,7 @@ La réplication est continue quand il s’agit de la réplication des machines v
 
 ### <a name="can-i-extend-replication"></a>Puis-je étendre la réplication ?
 
-La réplication étendue ou chaînée n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+La réplication étendue ou chaînée n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/d365community/forum/3ccca344-2d25-ec11-b6e6-000d3a4f0f84).
 
 ### <a name="how-can-i-track-progress-of-initial-replicationsynchronization"></a>Comment puis-je suivre la progression de la réplication/synchronisation initiale ?
 
@@ -173,7 +173,7 @@ Cette fonctionnalité est récemment devenue Site Recovery Services. Mettez à j
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Puis-je effectuer une réplication initiale hors connexion ?
 
-La réplication hors connexion n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+La réplication hors connexion n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/d365community/idea/7c09c396-2e25-ec11-b6e6-000d3a4f0f84).
 
 ### <a name="what-is-asrseeddisk"></a>Qu’est-ce qu’asrseeddisk ?
 

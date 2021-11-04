@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Migrer des services web de Bing Cartes vers Microsoft Azure Maps'
 description: Tutoriel sur la migration des services web de Bing Cartes vers Microsoft Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 04/26/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 361eca16094f48c957437eeb5ebdbf9b701d1049
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 244305dcc454287f2c68ec9b9c71145fb9a28641
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130265228"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473981"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>Tutoriel : Migrer un service web à partir de Bing Cartes
 
@@ -48,23 +48,23 @@ Le tableau suivant présente les API du service Azure Maps qui offrent des fonct
 
 Actuellement, les API de service suivantes ne sont pas disponibles dans Azure Maps :
 
--   Itinéraires optimisés : planifié. L’API Itinéraire Azure Maps prend en charge l’optimisation pour les commerciaux en déplacement avec un seul véhicule
--   Métadonnées d’imagerie : principalement utilisées pour obtenir des URL de mosaïques dans Bing Cartes. Azure Maps a un service autonome pour accéder directement aux mosaïques
+* Itinéraires optimisés : planifié. L’API Itinéraire Azure Maps prend en charge l’optimisation pour les commerciaux en déplacement avec un seul véhicule
+* Métadonnées d’imagerie : principalement utilisées pour obtenir des URL de mosaïques dans Bing Cartes. Azure Maps a un service autonome pour accéder directement aux mosaïques
 
 Azure Maps offre plusieurs autres services web REST qui peuvent être utiles :
 
--   [Créateur Azure Maps](./creator-indoor-maps.md) : créez un jumeau numérique privé et personnalisé de bâtiments et d’espaces.
--   [opérations spatiales](/rest/api/maps/spatial) : déplacez vers un service les calculs et les opérations spatiales complexes, par exemple le geofencing.
--   [Mosaïques](/rest/api/maps/render/getmaptile) : accédez aux mosaïques d’imagerie et de route à partir d’Azure Maps en tant que mosaïques vectorielles et raster.
--   [Itinéraires par lot](/rest/api/maps/route/postroutedirectionsbatchpreview) : permet d’effectuer jusqu’à 1000 requêtes d’itinéraires dans un lot unique sur une période donnée. Les itinéraires sont calculés en parallèle sur le serveur pour un traitement plus rapide.
--   [Circulation](/rest/api/maps/traffic) : accédez aux données de circulation en temps réel à la fois sous la forme de mosaïques raster et vectorielles.
--   [API de géolocalisation (préversion)](/rest/api/maps/geolocation/get-ip-to-location) : permet d’obtenir la localisation d’une adresse IP.
--   [Services météo](/rest/api/maps/weather) : permet d’accéder aux données météo en temps réel et aux prévisions.
+* [Créateur Azure Maps](./creator-indoor-maps.md) : créez un jumeau numérique privé et personnalisé de bâtiments et d’espaces.
+* [opérations spatiales](/rest/api/maps/spatial) : déplacez vers un service les calculs et les opérations spatiales complexes, par exemple le geofencing.
+* [Mosaïques](/rest/api/maps/render/getmaptile) : accédez aux mosaïques d’imagerie et de route à partir d’Azure Maps en tant que mosaïques vectorielles et raster.
+* [Itinéraires par lot](/rest/api/maps/route/postroutedirectionsbatchpreview) : permet d’effectuer jusqu’à 1000 requêtes d’itinéraires dans un lot unique sur une période donnée. Les itinéraires sont calculés en parallèle sur le serveur pour un traitement plus rapide.
+* [Circulation](/rest/api/maps/traffic) : accédez aux données de circulation en temps réel à la fois sous la forme de mosaïques raster et vectorielles.
+* [API de géolocalisation (préversion)](/rest/api/maps/geolocation/get-ip-to-location) : permet d’obtenir la localisation d’une adresse IP.
+* [Services météo](/rest/api/maps/weather) : permet d’accéder aux données météo en temps réel et aux prévisions.
 
 Veillez également à consulter les guides de bonnes pratiques suivants :
 
--   [Bonnes pratiques pour la recherche](./how-to-use-best-practices-for-search.md)
--   [Bonne pratiques en matière de routage](./how-to-use-best-practices-for-routing.md)
+* [Bonnes pratiques pour la recherche](./how-to-use-best-practices-for-search.md)
+* [Bonne pratiques en matière de routage](./how-to-use-best-practices-for-routing.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -78,11 +78,11 @@ Le géocodage est le processus de conversion d’une adresse (par exemple `"1 Mi
 
 Azure Maps propose plusieurs méthodes pour le géocodage des adresses :
 
--   [Géocodage d’adresses de forme libre](/rest/api/maps/search/getsearchaddress) : spécifiez une chaîne d’adresse unique (comme `"1 Microsoft way, Redmond, WA"`) et traitez immédiatement la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles.
--   [Géocodage d’adresses structurées](/rest/api/maps/search/getsearchaddressstructured) : Précisez les parties d’une même adresse, par exemple le nom de la rue, la ville, le pays et le code postal, et traitez aussitôt la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles, et que les données sont déjà analysées en leurs parties d’adresse individuelles.
--   [Géocodage des adresses par lots](/rest/api/maps/search/postsearchaddressbatchpreview) : Créez une requête contenant jusqu'à 10 000 adresses, puis traitez-les sur une certaine période. Toutes les adresses seront géocodées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé. Ce service est recommandé pour le géocodage de grands jeux de données.
--   [Recherche approximative](/rest/api/maps/search/getsearchfuzzy) : Cette API combine le géocodage des adresses et la recherche de points d’intérêt. Cette API prend en compte une chaîne de forme libre qui peut être une adresse, un lieu, un point de repère, un point d'intérêt ou une catégorie de point d'intérêt, puis traite immédiatement la requête. Cette API est recommandée pour les applications où les utilisateurs peuvent rechercher des adresses ou des points d'intérêt à partir d'une même zone de texte.
--   [Recherche approximative par lot](/rest/api/maps/search/postsearchfuzzybatchpreview)  : Créez une requête contenant jusqu'à 10 000 adresses, lieux, points de repère ou centres d'intérêt, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
+* [Géocodage d’adresses de forme libre](/rest/api/maps/search/getsearchaddress) : spécifiez une chaîne d’adresse unique (comme `"1 Microsoft way, Redmond, WA"`) et traitez immédiatement la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles.
+* [Géocodage d’adresses structurées](/rest/api/maps/search/getsearchaddressstructured) : Précisez les parties d’une même adresse, par exemple le nom de la rue, la ville, le pays et le code postal, et traitez aussitôt la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles, et que les données sont déjà analysées en leurs parties d’adresse individuelles.
+* [Géocodage des adresses par lots](/rest/api/maps/search/postsearchaddressbatchpreview) : Créez une requête contenant jusqu'à 10 000 adresses, puis traitez-les sur une certaine période. Toutes les adresses seront géocodées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé. Ce service est recommandé pour le géocodage de grands jeux de données.
+* [Recherche approximative](/rest/api/maps/search/getsearchfuzzy) : Cette API combine le géocodage des adresses et la recherche de points d’intérêt. Cette API prend en compte une chaîne de forme libre qui peut être une adresse, un lieu, un point de repère, un point d'intérêt ou une catégorie de point d'intérêt, puis traite immédiatement la requête. Cette API est recommandée pour les applications où les utilisateurs peuvent rechercher des adresses ou des points d'intérêt à partir d'une même zone de texte.
+* [Recherche approximative par lot](/rest/api/maps/search/postsearchfuzzybatchpreview)  : Créez une requête contenant jusqu'à 10 000 adresses, lieux, points de repère ou centres d'intérêt, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
 
 Les tableaux suivants référencent de manière croisée les paramètres de l’API Bing Cartes et les paramètres d’API comparables dans Azure Maps pour le géocodage d’adresses structurées et de forme libre.
 
@@ -135,9 +135,9 @@ Le géocodage inverse est le processus de conversion de coordonnées géographiq
 
 Azure Maps propose plusieurs méthodes de géocodage inverse :
 
--   [Géocodeur inverse d’adresse](/rest/api/maps/search/getsearchaddressreverse) : Spécifiez une seule coordonnée géographique pour obtenir son adresse approximative et traitez aussitôt la requête.
--   [Géocodeur inverse d’intersection](/rest/api/maps/search/getsearchaddressreversecrossstreet) : Spécifiez une seule coordonnée géographique pour obtenir des informations sur les intersections proches (par exemple, 1re et rue principale) et traitez aussitôt la requête.
--   [Géocodeur inverse d’adresses par lots](/rest/api/maps/search/postsearchaddressreversebatchpreview) : Créez une requête contenant jusqu'à 10 000 coordonnées, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
+* [Géocodeur inverse d’adresse](/rest/api/maps/search/getsearchaddressreverse) : Spécifiez une seule coordonnée géographique pour obtenir son adresse approximative et traitez aussitôt la requête.
+* [Géocodeur inverse d’intersection](/rest/api/maps/search/getsearchaddressreversecrossstreet) : Spécifiez une seule coordonnée géographique pour obtenir des informations sur les intersections proches (par exemple, 1re et rue principale) et traitez aussitôt la requête.
+* [Géocodeur inverse d’adresses par lots](/rest/api/maps/search/postsearchaddressreversebatchpreview) : Créez une requête contenant jusqu'à 10 000 coordonnées, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
 
 Le tableau suivant référence de manière croisée les paramètres de l’API Bing Cartes et les paramètres d’API comparables dans Azure Maps.
 
@@ -178,10 +178,10 @@ Le tableau suivant référencent les valeurs de types d’entités Bing Cartes a
 
 Plusieurs des API de recherche Azure Maps prennent en charge le mode prédictif, qui peut être utilisé pour les scénarios de suggestion automatique. L’API Azure Maps de [recherche approximative](/rest/api/maps/search/getsearchfuzzy) est celle qui s’apparente le plus à l’API de suggestion automatique de Bing Cartes. Les API suivantes prennent également en charge le mode prédictif ; ajoutez `&typeahead=true` à la requête.
 
--   [Géocodage d’adresses de forme libre](/rest/api/maps/search/getsearchaddress) : spécifiez une chaîne d’adresse unique (comme `"1 Microsoft way, Redmond, WA"`) et traitez immédiatement la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles.
--   [Recherche approximative](/rest/api/maps/search/getsearchfuzzy) : Cette API combine le géocodage des adresses et la recherche de points d’intérêt. Cette API prend en compte une chaîne de forme libre qui peut être une adresse, un lieu, un point de repère, un point d'intérêt ou une catégorie de point d'intérêt, puis traite immédiatement la requête. Cette API est recommandée pour les applications où les utilisateurs peuvent rechercher des adresses ou des points d'intérêt à partir d'une même zone de texte.
--   [Recherche de points d'intérêt](/rest/api/maps/search/getsearchpoi) : Rechercher des points d’intérêt par nom. Par exemple : `"starbucks"`.
--   [Recherche de catégories de points d'intérêt](/rest/api/maps/search/getsearchpoicategory) : Rechercher des points d’intérêt par catégorie. Par exemple : « restaurant ».
+* [Géocodage d’adresses de forme libre](/rest/api/maps/search/getsearchaddress) : spécifiez une chaîne d’adresse unique (comme `"1 Microsoft way, Redmond, WA"`) et traitez immédiatement la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles.
+* [Recherche approximative](/rest/api/maps/search/getsearchfuzzy) : Cette API combine le géocodage des adresses et la recherche de points d’intérêt. Cette API prend en compte une chaîne de forme libre qui peut être une adresse, un lieu, un point de repère, un point d'intérêt ou une catégorie de point d'intérêt, puis traite immédiatement la requête. Cette API est recommandée pour les applications où les utilisateurs peuvent rechercher des adresses ou des points d'intérêt à partir d'une même zone de texte.
+* [Recherche de points d'intérêt](/rest/api/maps/search/getsearchpoi) : Rechercher des points d’intérêt par nom. Par exemple : `"starbucks"`.
+* [Recherche de catégories de points d'intérêt](/rest/api/maps/search/getsearchpoicategory) : Rechercher des points d’intérêt par catégorie. Par exemple : « restaurant ».
 
 ## <a name="calculate-routes-and-directions"></a>Calculer des itinéraires et des directions
 
@@ -197,8 +197,8 @@ Azure Maps permet de calculer des itinéraires et des directions. Azure Maps off
 
 Le service d’itinéraire Azure Maps fournit les API suivantes pour le calcul des itinéraires :
 
--   [Calculer l’itinéraire](/rest/api/maps/route/getroutedirections) : Calculez un itinéraire et traitez aussitôt la requête. Cette API prend en charge les requêtes GET et POST. Les requêtes POST sont recommandées lors de la spécification d'un grand nombre de points de cheminement ou lors de l'utilisation de nombreuses options de routage pour s'assurer que la requête URL ne devienne pas trop longue et n’entraîne des problèmes.
--   [Itinéraire par lots](/rest/api/maps/route/postroutedirectionsbatchpreview) : Créez une requête contenant jusqu'à 1 000 requêtes d’itinéraire, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
+* [Calculer l’itinéraire](/rest/api/maps/route/getroutedirections) : Calculez un itinéraire et traitez aussitôt la requête. Cette API prend en charge les requêtes GET et POST. Les requêtes POST sont recommandées lors de la spécification d'un grand nombre de points de cheminement ou lors de l'utilisation de nombreuses options de routage pour s'assurer que la requête URL ne devienne pas trop longue et n’entraîne des problèmes.
+* [Itinéraire par lots](/rest/api/maps/route/postroutedirectionsbatchpreview) : Créez une requête contenant jusqu'à 1 000 requêtes d’itinéraire, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
 
 Le tableau suivant référence de manière croisée les paramètres de l’API Bing Cartes et les paramètres d’API comparables dans Azure Maps.
 
@@ -363,8 +363,8 @@ Pour plus d’informations, consultez le [Guide pratique de l’API de rendu des
 
 En plus de pouvoir générer une image de carte statique, le service de rendu Azure Maps permet également d’accéder directement aux mosaïques au format raster (PNG) et vectoriel :
 
--   [Mosaïque](/rest/api/maps/render/getmaptile) : récupérez les mosaïques raster (PNG) et vectorielles pour les cartes de base (routes, frontières, fond).
--   [Mosaïque d’imagerie de carte](/rest/api/maps/render/getmapimagerytile) : récupérez les mosaïques d’images aériennes et satellites.
+* [Mosaïque](/rest/api/maps/render/getmaptile) : récupérez les mosaïques raster (PNG) et vectorielles pour les cartes de base (routes, frontières, fond).
+* [Mosaïque d’imagerie de carte](/rest/api/maps/render/getmapimagerytile) : récupérez les mosaïques d’images aériennes et satellites.
 
 ### <a name="pushpin-url-parameter-format-comparison"></a>Comparaison du format du paramètre URL des punaises
 
@@ -471,7 +471,7 @@ Par exemple, dans Azure Maps, une ligne bleue avec une opacité de 50 % et une 
 
 Azure Maps fournit une API pour le calcul des durées de déplacement et des distances entre un jeu d'emplacements sous forme de matrice des distances. L’API de matrice des distances Azure Maps est comparable à l’API de matrice des distances Bing Cartes :
 
--   [Matrice d’itinéraire](/rest/api/maps/route/postroutematrixpreview) : Calcule de manière asynchrone les durées de déplacement et les distances pour un jeu d'origines et de destinations. Jusqu'à 700 cellules par requête sont prises en charge (le nombre d'origines multiplié par le nombre de destinations). En gardant cette contrainte à l’esprit, voici des exemples de dimensions matricielles possibles : `700x1`, `50x10`, `10x10`, `28x25`, `10x70`.
+* [Matrice d’itinéraire](/rest/api/maps/route/postroutematrixpreview) : Calcule de manière asynchrone les durées de déplacement et les distances pour un jeu d'origines et de destinations. Jusqu'à 700 cellules par requête sont prises en charge (le nombre d'origines multiplié par le nombre de destinations). En gardant cette contrainte à l’esprit, voici des exemples de dimensions matricielles possibles : `700x1`, `50x10`, `10x10`, `28x25`, `10x70`.
 
 > [!NOTE]
 > Une requête à l'API de matrice des distances ne peut être faite qu'en utilisant une requête POST avec les informations d'origine et de destination dans le corps de la requête.</p>
@@ -500,7 +500,7 @@ Le tableau suivant référence de manière croisée les paramètres de l’API B
 
 Azure Maps fournit une API pour calculer un isochrone, un polygone couvrant une zone qui peut être parcourue dans n’importe quelle direction à partir d’un point d’origine selon un intervalle de temps ou un montant de frais/carburant spécifié. L’API Zone d’itinéraire Azure Maps est comparable à l’API d’isochrone dans Bing Cartes.
 
--   Zone d’[itinéraire](/rest/api/maps/route/getrouterange) ** : calculer un polygone couvrant une zone qui peut être parcourue dans n’importe quelle direction à partir d’un point d’origine selon un intervalle de temps, une distance ou un montant de frais/carburant spécifié disponible.
+* Zone d’[itinéraire](/rest/api/maps/route/getrouterange) ** : calculer un polygone couvrant une zone qui peut être parcourue dans n’importe quelle direction à partir d’un point d’origine selon un intervalle de temps, une distance ou un montant de frais/carburant spécifié disponible.
 
 > [!NOTE]
 > Azure Maps exige que l’origine de la requête soit une coordonnée. Les adresses devront d’abord être géocodées.</p>
@@ -529,19 +529,19 @@ Le tableau suivant référence de manière croisée les paramètres de l’API B
 
 Vous pouvez rechercher des données de point d’intérêt dans Bing Cartes à l’aide des API suivantes :
 
--   **Recherche locale :** recherche les points d’intérêt proches (recherche radiale), par nom ou par type d’entité (catégorie). Les API de [recherche de points d’intérêt](/rest/api/maps/search/getsearchpoi) et de [recherche de catégorie de points d’intérêt](/rest/api/maps/search/getsearchpoicategory) Azure Maps sont celles qui s’apparentent le plus à cette API.
--   **Reconnaissance des localisations** : recherche les points d'intérêt se trouvant à une certaine distance d'un endroit. L’API de [recherche de proximité](/rest/api/maps/search/getsearchnearby) Azure Maps est celle qui s’apparente le plus à cette API.
--   **Local Insights** : recherche les points d’intérêt qui se trouvent dans le temps de conduite ou la distance maximal(e) spécifié(e) par rapport à une coordonnée spécifique. Cela est possible avec Azure Maps en calculant d’abord un isochrone, puis en le transmettant dans l’API de [recherche dans une géométrie](/rest/api/maps/search/postsearchinsidegeometry).
+* **Recherche locale :** recherche les points d’intérêt proches (recherche radiale), par nom ou par type d’entité (catégorie). Les API de [recherche de points d’intérêt](/rest/api/maps/search/getsearchpoi) et de [recherche de catégorie de points d’intérêt](/rest/api/maps/search/getsearchpoicategory) Azure Maps sont celles qui s’apparentent le plus à cette API.
+* **Reconnaissance des localisations** : recherche les points d'intérêt se trouvant à une certaine distance d'un endroit. L’API de [recherche de proximité](/rest/api/maps/search/getsearchnearby) Azure Maps est celle qui s’apparente le plus à cette API.
+* **Local Insights** : recherche les points d’intérêt qui se trouvent dans le temps de conduite ou la distance maximal(e) spécifié(e) par rapport à une coordonnée spécifique. Cela est possible avec Azure Maps en calculant d’abord un isochrone, puis en le transmettant dans l’API de [recherche dans une géométrie](/rest/api/maps/search/postsearchinsidegeometry).
 
 Azure Maps fournit plusieurs API de recherche de points d'intérêt :
 
--   [Recherche de points d'intérêt](/rest/api/maps/search/getsearchpoi) : Rechercher des points d’intérêt par nom. Par exemple : `"starbucks"`.
--   [Recherche de catégories de points d'intérêt](/rest/api/maps/search/getsearchpoicategory) : Rechercher des points d’intérêt par catégorie. Par exemple : « restaurant ».
--   [Recherche à proximité](/rest/api/maps/search/getsearchnearby) : Recherche des points d'intérêt se trouvant à une certaine distance d'un endroit.
--   [Recherche approximative](/rest/api/maps/search/getsearchfuzzy) : Cette API combine le géocodage des adresses et la recherche de points d’intérêt. Cette API prend en compte une chaîne de forme libre qui peut être une adresse, un lieu, un point de repère, un point d'intérêt ou une catégorie de point d'intérêt, puis traite immédiatement la requête. Cette API est recommandée pour les applications où les utilisateurs peuvent rechercher des adresses ou des points d'intérêt à partir d'une même zone de texte.
--   [Rechercher dans une géométrie](/rest/api/maps/search/postsearchinsidegeometry) : recherche de points d'intérêt dans une géométrie spécifiée (polygone).
--   [Recherche le long d’un itinéraire](/rest/api/maps/search/postsearchalongroute) : Recherche de points d'intérêt qui se trouvent le long d'un itinéraire spécifié.
--   [Recherche approximative par lot](/rest/api/maps/search/postsearchfuzzybatchpreview)  : Créez une requête contenant jusqu'à 10 000 adresses, lieux, points de repère ou centres d'intérêt, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
+* [Recherche de points d'intérêt](/rest/api/maps/search/getsearchpoi) : Rechercher des points d’intérêt par nom. Par exemple : `"starbucks"`.
+* [Recherche de catégories de points d'intérêt](/rest/api/maps/search/getsearchpoicategory) : Rechercher des points d’intérêt par catégorie. Par exemple : « restaurant ».
+* [Recherche à proximité](/rest/api/maps/search/getsearchnearby) : Recherche des points d'intérêt se trouvant à une certaine distance d'un endroit.
+* [Recherche approximative](/rest/api/maps/search/getsearchfuzzy) : Cette API combine le géocodage des adresses et la recherche de points d’intérêt. Cette API prend en compte une chaîne de forme libre qui peut être une adresse, un lieu, un point de repère, un point d'intérêt ou une catégorie de point d'intérêt, puis traite immédiatement la requête. Cette API est recommandée pour les applications où les utilisateurs peuvent rechercher des adresses ou des points d'intérêt à partir d'une même zone de texte.
+* [Rechercher dans une géométrie](/rest/api/maps/search/postsearchinsidegeometry) : recherche de points d'intérêt dans une géométrie spécifiée (polygone).
+* [Recherche le long d’un itinéraire](/rest/api/maps/search/postsearchalongroute) : Recherche de points d'intérêt qui se trouvent le long d'un itinéraire spécifié.
+* [Recherche approximative par lot](/rest/api/maps/search/postsearchfuzzybatchpreview)  : Créez une requête contenant jusqu'à 10 000 adresses, lieux, points de repère ou centres d'intérêt, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
 
 Veillez à consulter la documentation [Bonnes pratiques pour la recherche](./how-to-use-best-practices-for-search.md).
 
@@ -556,11 +556,11 @@ Bing Cartes fournit des données de circulation et d’incident dans ses contrô
 
 Les données de trafic sont également intégrées dans les contrôles de carte interactifs Azure Maps. Azure Maps fournit également les API de services de trafic suivantes :
 
--   [Segments de circulation](/rest/api/maps/traffic/gettrafficflowsegment) : fournit des informations sur les vitesses et les temps de trajet du fragment routier le plus proche des coordonnées données.
--   [Mosaïques de circulation](/rest/api/maps/traffic/gettrafficflowtile) : fournit des mosaïques raster et vectorielles contenant des données de circulation. Elles peuvent être utilisées avec les contrôles Azure Maps ou dans des contrôles de carte tiers, tels que Leaflet. Les mosaïques vectorielles peuvent également être utilisées pour l’analyse avancée des données.
--   [Détails des incidents de trafic](/rest/api/maps/traffic/gettrafficincidentdetail) : fournit des détails sur les incidents de trafic qui se trouvent dans les limites d’un cadre englobant, d’un niveau de zoom et d’un modèle de trafic.
--   [Mosaïques d’incident de trafic](/rest/api/maps/traffic/gettrafficincidenttile) : fournit des mosaïques raster et vectorielles contenant des données sur les incidents de trafic.
--   [Fenêtre d’affichage des incidents de trafic](/rest/api/maps/traffic/gettrafficincidentviewport) : récupère les informations juridiques et techniques pour la fenêtre d’affichage décrite dans la requête, telles que l’ID du modèle de trafic.
+* [Segments de circulation](/rest/api/maps/traffic/gettrafficflowsegment) : fournit des informations sur les vitesses et les temps de trajet du fragment routier le plus proche des coordonnées données.
+* [Mosaïques de circulation](/rest/api/maps/traffic/gettrafficflowtile) : fournit des mosaïques raster et vectorielles contenant des données de circulation. Elles peuvent être utilisées avec les contrôles Azure Maps ou dans des contrôles de carte tiers, tels que Leaflet. Les mosaïques vectorielles peuvent également être utilisées pour l’analyse avancée des données.
+* [Détails des incidents de trafic](/rest/api/maps/traffic/gettrafficincidentdetail) : fournit des détails sur les incidents de trafic qui se trouvent dans les limites d’un cadre englobant, d’un niveau de zoom et d’un modèle de trafic.
+* [Mosaïques d’incident de trafic](/rest/api/maps/traffic/gettrafficincidenttile) : fournit des mosaïques raster et vectorielles contenant des données sur les incidents de trafic.
+* [Fenêtre d’affichage des incidents de trafic](/rest/api/maps/traffic/gettrafficincidentviewport) : récupère les informations juridiques et techniques pour la fenêtre d’affichage décrite dans la requête, telles que l’ID du modèle de trafic.
 
 Le tableau suivant référence de manière croisée les paramètres de l’API de trafic Bing Cartes et les paramètres d’API de détails des incidents de trafic comparables dans Azure Maps.
 
@@ -578,7 +578,7 @@ Le tableau suivant référence de manière croisée les paramètres de l’API d
 
 Azure Maps fournit une API pour obtenir le fuseau horaire dans lequel se trouve une coordonnée. L’API de fuseau horaire d’Azure Maps est comparable à l’API de fuseau horaire de Bing Cartes :
 
--   [Fuseau horaire par coordonnée](/rest/api/maps/timezone/gettimezonebycoordinates) : Spécifiez une coordonnée et obtenez les détails du fuseau horaire dans lequel elle se trouve.
+* [Fuseau horaire par coordonnée](/rest/api/maps/timezone/gettimezonebycoordinates) : Spécifiez une coordonnée et obtenez les détails du fuseau horaire dans lequel elle se trouve.
 
 Le tableau suivant référence de manière croisée les paramètres de l’API Bing Cartes et les paramètres d’API comparables dans Azure Maps.
 
@@ -594,11 +594,11 @@ Le tableau suivant référence de manière croisée les paramètres de l’API B
 
 Par ailleurs, la plateforme Azure Maps fournit également un certain nombre d’API de fuseau horaire supplémentaires pour faciliter les conversions avec les noms de fuseaux horaires et les ID :
 
--   [Fuseau horaire par ID](/rest/api/maps/timezone/gettimezonebyid) : Renvoie les informations de fuseau horaire actuelles, historiques et futures pour l'ID de fuseau horaire IANA spécifié.
--   [Fuseau horaire avec Enum IANA](/rest/api/maps/timezone/gettimezoneenumiana) : Renvoie une liste complète des ID de fuseau horaire IANA. Les mises à jour du service IANA sont reflétées dans le système dans un délai de 24 heures. 
--   [Fuseau horaire avec Enum Windows](/rest/api/maps/timezone/gettimezoneenumwindows) : Renvoie une liste complète des ID de fuseau horaire Windows.
--   [Fuseau horaire avec version IANA](/rest/api/maps/timezone/gettimezoneianaversion) : Renvoie le numéro de la version actuelle IANA utilisée par Azure Maps. 
--   [Fuseau horaire Windows à IANA](/rest/api/maps/timezone/gettimezonewindowstoiana) : Renvoie un ID IANA correspondant, avec un ID de fuseau horaire Windows valide. Plusieurs ID IANA peuvent être renvoyés pour un seul ID Windows.
+* [Fuseau horaire par ID](/rest/api/maps/timezone/gettimezonebyid) : Renvoie les informations de fuseau horaire actuelles, historiques et futures pour l'ID de fuseau horaire IANA spécifié.
+* [Fuseau horaire avec Enum IANA](/rest/api/maps/timezone/gettimezoneenumiana) : Renvoie une liste complète des ID de fuseau horaire IANA. Les mises à jour du service IANA sont reflétées dans le système dans un délai de 24 heures. 
+* [Fuseau horaire avec Enum Windows](/rest/api/maps/timezone/gettimezoneenumwindows) : Renvoie une liste complète des ID de fuseau horaire Windows.
+* [Fuseau horaire avec version IANA](/rest/api/maps/timezone/gettimezoneianaversion) : Renvoie le numéro de la version actuelle IANA utilisée par Azure Maps. 
+* [Fuseau horaire Windows à IANA](/rest/api/maps/timezone/gettimezonewindowstoiana) : Renvoie un ID IANA correspondant, avec un ID de fuseau horaire Windows valide. Plusieurs ID IANA peuvent être renvoyés pour un seul ID Windows.
 
 ## <a name="spatial-data-services-sds"></a>Services de données spatiales
 
@@ -618,11 +618,11 @@ Azure Maps dispose d’un service de géocodage par lot, mais il permet de trans
 
 Une autre option pour géocoder un grand nombre d’adresses avec Azure Maps consiste à effectuer des requêtes parallèles aux API de recherche standard. Ces services acceptent une seule adresse par requête, mais peuvent être utilisés avec le niveau S0 qui fournit également des limites d’utilisation gratuites. Le niveau S0 autorise jusqu’à 50 requêtes par seconde à la plateforme Azure Maps à partir d’un compte unique. Ainsi, si votre traitement ne dépasse pas cette limite, il est possible de géocoder jusqu’à 180 000 adresses par heure. Le niveau tarifaire Gen 2 ou S1 n’a pas de limite documentée quant au nombre de requêtes par seconde qui peuvent être effectuées à partir d’un compte. Par conséquent, beaucoup plus de données peuvent être traitées plus rapidement lors de l’utilisation de ce niveau tarifaire. Toutefois, l’utilisation du service de géocodage par lot aide à réduire la quantité totale de données transférées et réduit considérablement le trafic réseau.
 
--   [Géocodage d’adresses de forme libre](/rest/api/maps/search/getsearchaddress) : spécifiez une chaîne d’adresse unique (comme `"1 Microsoft way, Redmond, WA"`) et traitez immédiatement la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles.
--   [Géocodage d’adresses structurées](/rest/api/maps/search/getsearchaddressstructured) : Précisez les parties d’une même adresse, par exemple le nom de la rue, la ville, le pays et le code postal, et traitez aussitôt la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles, et que les données sont déjà analysées en leurs parties d’adresse individuelles.
--   [Géocodage des adresses par lots](/rest/api/maps/search/postsearchaddressbatchpreview) : Créez une requête contenant jusqu'à 10 000 adresses, puis traitez-les sur une certaine période. Toutes les adresses seront géocodées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé. Ce service est recommandé pour le géocodage de grands jeux de données.
--   [Recherche approximative](/rest/api/maps/search/getsearchfuzzy) : Cette API combine le géocodage des adresses et la recherche de points d’intérêt. Cette API prend en compte une chaîne de forme libre qui peut être une adresse, un lieu, un point de repère, un point d'intérêt ou une catégorie de point d'intérêt, puis traite immédiatement la requête. Cette API est recommandée pour les applications où les utilisateurs peuvent rechercher des adresses ou des points d'intérêt à partir d'une même zone de texte.
--   [Recherche approximative par lot](/rest/api/maps/search/postsearchfuzzybatchpreview)  : Créez une requête contenant jusqu'à 10 000 adresses, lieux, points de repère ou centres d'intérêt, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
+* [Géocodage d’adresses de forme libre](/rest/api/maps/search/getsearchaddress) : spécifiez une chaîne d’adresse unique (comme `"1 Microsoft way, Redmond, WA"`) et traitez immédiatement la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles.
+* [Géocodage d’adresses structurées](/rest/api/maps/search/getsearchaddressstructured) : Précisez les parties d’une même adresse, par exemple le nom de la rue, la ville, le pays et le code postal, et traitez aussitôt la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles, et que les données sont déjà analysées en leurs parties d’adresse individuelles.
+* [Géocodage des adresses par lots](/rest/api/maps/search/postsearchaddressbatchpreview) : Créez une requête contenant jusqu'à 10 000 adresses, puis traitez-les sur une certaine période. Toutes les adresses seront géocodées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé. Ce service est recommandé pour le géocodage de grands jeux de données.
+* [Recherche approximative](/rest/api/maps/search/getsearchfuzzy) : Cette API combine le géocodage des adresses et la recherche de points d’intérêt. Cette API prend en compte une chaîne de forme libre qui peut être une adresse, un lieu, un point de repère, un point d'intérêt ou une catégorie de point d'intérêt, puis traite immédiatement la requête. Cette API est recommandée pour les applications où les utilisateurs peuvent rechercher des adresses ou des points d'intérêt à partir d'une même zone de texte.
+* [Recherche approximative par lot](/rest/api/maps/search/postsearchfuzzybatchpreview)  : Créez une requête contenant jusqu'à 10 000 adresses, lieux, points de repère ou centres d'intérêt, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
 
 ### <a name="get-administrative-boundary-data"></a>Obtenir des données de frontière administrative
 
@@ -632,13 +632,15 @@ Azure Maps permet également d’accéder aux frontières administratives (pays,
 
 Pour récapituler :
 
-1.  Transmettez une requête pour la frontière que vous souhaitez recevoir dans l’une des API de recherche suivantes.
-    -   [Géocodage d’adresses de forme libre](/rest/api/maps/search/getsearchaddress)
-    -   [Géocodage d’adresses structurées](/rest/api/maps/search/getsearchaddressstructured)
-    -   [Géocodage d’adresses par lots](/rest/api/maps/search/postsearchaddressbatchpreview)
-    -   [Recherche partielle](/rest/api/maps/search/getsearchfuzzy)
-    -   [Recherche approximative par lot](/rest/api/maps/search/postsearchfuzzybatchpreview)
-2.  Si le ou les résultats souhaités ont un ou plusieurs ID géométriques, transmettez-les dans l’[API de polygone de recherche](/rest/api/maps/search/getsearchpolygon).
+1. Transmettez une requête pour la frontière que vous souhaitez recevoir dans l’une des API de recherche suivantes.
+
+   * [Géocodage d’adresses de forme libre](/rest/api/maps/search/getsearchaddress)
+   * [Géocodage d’adresses structurées](/rest/api/maps/search/getsearchaddressstructured)
+   * [Géocodage d’adresses par lots](/rest/api/maps/search/postsearchaddressbatchpreview)
+   * [Recherche partielle](/rest/api/maps/search/getsearchfuzzy)
+   * [Recherche approximative par lot](/rest/api/maps/search/postsearchfuzzybatchpreview)
+
+1. Si le ou les résultats souhaités ont un ou plusieurs ID géométriques, transmettez-les dans l’[API de polygone de recherche](/rest/api/maps/search/getsearchpolygon).
 
 ### <a name="host-and-query-spatial-business-data"></a>Héberger et interroger des données métier spatiales
 
@@ -650,15 +652,15 @@ Azure Cosmos DB fournit également un ensemble limité de capacités spatiales q
 
 Voici quelques ressources utiles concernant l’hébergement et l’interrogation des données spatiales dans Azure.
 
--   [Présentation des types de données spatiales Azure SQL](/sql/relational-databases/spatial/spatial-data-types-overview)
--   [Azure SQL – Interroger des données spatiales au sujet du plus proche voisin](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor)
--   [Présentation des fonctionnalités géospatiales Azure Cosmos DB](../cosmos-db/sql-query-geospatial-intro.md)
+* [Présentation des types de données spatiales Azure SQL](/sql/relational-databases/spatial/spatial-data-types-overview)
+* [Azure SQL – Interroger des données spatiales au sujet du plus proche voisin](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor)
+* [Présentation des fonctionnalités géospatiales Azure Cosmos DB](../cosmos-db/sql-query-geospatial-intro.md)
 
 ## <a name="client-libraries"></a>Bibliothèques clientes
 
 Azure Maps fournit des bibliothèques de client pour les langages de programmation suivants :
 
--   JavaScript, TypeScript, Node.js : [documentation](./how-to-use-services-module.md) \| [Package NPM](https://www.npmjs.com/package/azure-maps-rest)
+* JavaScript, TypeScript, Node.js : [documentation](./how-to-use-services-module.md) \| [Package NPM](https://www.npmjs.com/package/azure-maps-rest)
 
 Bibliothèques de client open source pour d’autres langages de programmation :
 

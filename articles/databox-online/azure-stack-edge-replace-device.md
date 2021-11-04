@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: c3c029826ccd4430f935b63b74bc958ad8de4c1e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 96b6b32a694e39a7e227a5b98949f8eb1d4891e4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460630"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475955"
 ---
 # <a name="replace-your-azure-stack-edge-device"></a>Remplacer votre appareil Azure Stack Edge
 
@@ -62,7 +62,7 @@ Suivez toutes les étapes pour retourner l’appareil d’origine :
 1. [Effacez les données sur l’appareil](azure-stack-edge-return-device.md#erase-data-from-the-device).
 2. [Initiez le retour de l’appareil](azure-stack-edge-return-device.md#initiate-device-return) pour l’appareil d’origine.
 3. [Planifiez un enlèvement](azure-stack-edge-return-device.md#schedule-a-pickup).
-4. Une fois que l’appareil est reçu chez Microsoft, vous pouvez [supprimer la ressource](azure-stack-edge-return-device.md#delete-the-resource) associée à l’appareil retourné.
+4. Une fois que l’appareil est reçu chez Microsoft, vous pouvez [supprimer la ressource](azure-stack-edge-return-device.md#complete-return) associée à l’appareil retourné.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -3,15 +3,13 @@ title: 'Démarrage rapide : Créer une requête partagée avec Azure PowerShell
 description: Dans ce guide de démarrage rapide, vous allez suivre les étapes indiquées pour créer une requête partagée Resource Graph avec Azure PowerShell.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-- devx-track-azurepowershell
-- mode-api
-ms.openlocfilehash: 95057d0c1016bf030f21c9cab9281e9fe51dd897
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 8281e2bb2ff53fea28ff43a69e8b16cf9d1f7ddf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122325077"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016123"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-powershell"></a>Démarrage rapide : Créer une requête partagée Resource Graph avec Azure PowerShell
 

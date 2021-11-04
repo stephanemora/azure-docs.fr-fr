@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/22/2021
+ms.date: 11/02/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 7b3b8386adbfd6fc39bd115837dd0580a27006db
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 6221566c83f50891792bd037a82b90d29fd76c68
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130037421"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424455"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Notes à destination des développeurs pour Azure Active Directory B2C
 
@@ -103,13 +103,13 @@ Le tableau suivant récapitule les flux d’authentification d’application Sec
 |---------|:---------:|:---------:|---------|
 |[AD FS](identity-provider-adfs.md) | N/D | GA | |
 |[Amazon](identity-provider-amazon.md) | GA | GA | |
-|[Apple](identity-provider-apple-id.md) | PRÉVERSION | PRÉVERSION | |
+|[Apple](identity-provider-apple-id.md) | GA | GA | |
 |[Azure AD (un seul locataire)](identity-provider-azure-ad-single-tenant.md) | GA | GA | |
 |[Azure AD (plusieurs locataires)](identity-provider-azure-ad-multi-tenant.md) | N/D  | GA | |
 |[Azure AD B2C](identity-provider-azure-ad-b2c.md) | GA | GA | |
 |[Ebay](identity-provider-ebay.md) | N/D | PRÉVERSION | |
 |[Facebook](identity-provider-facebook.md) | GA | GA | |
-|[GitHub](identity-provider-github.md) | GA | GA | |
+|[GitHub](identity-provider-github.md) | PRÉVERSION | GA | |
 |[Google](identity-provider-google.md) | GA | GA | |
 |[ID.me](identity-provider-id-me.md) | GA | GA | |
 |[LinkedIn](identity-provider-linkedin.md) | GA | GA | |

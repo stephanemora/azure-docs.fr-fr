@@ -3,7 +3,7 @@ title: Rapports personnalisés de Verizon | Microsoft Docs
 description: 'Vous pouvez afficher les modèles d’utilisation pour votre CDN en utilisant les rapports suivants : la bande passante, les données transférées, les correspondances, les statuts de cache, le taux d’accès au cache, les données transférées IPV4/IPV6.'
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 10/11/2017
-ms.author: allensu
-ms.openlocfilehash: cff355aeb74efc9dec2780840ae57fea4c5764cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: duau
+ms.openlocfilehash: f461e310b44063035e2e21e4dbeb8dd340ea053b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84888704"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434785"
 ---
 # <a name="custom-reports-from-verizon"></a>Rapports personnalisés de Verizon
 
@@ -81,7 +81,7 @@ Vous pouvez exporter les données au format Excel en cliquant sur le symbole Exc
 | Correspondances                      | Indique le nombre total de demandes adressées à l’Edge CNAME. |
 | Absences                    | Indique le nombre total des demandes ou des données transférées (Mo) pour l’Edge CNAME qui produit un absence du cache (par exemple, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS, or TCP_MISS). Une absence dans le cache se produit lorsque le contenu demandé n’a pas mis en cache sur le serveur Edge qui a satisfait la demande. | 
 | Aucun cache                  | Indique le nombre total des demandes ou des données transférées (Mo) pour l’Edge CNAME qui produit un code d’état CONFIG_NOCACHE.  |
-| Autre                     | Indique le nombre total des demandes ou des données transférées (Mo) pour l’Edge CNAME indiqué, qui produit un code d’état HTTP ne s’inscrivant pas dans la plage 2xx - 5xx. |
+| Autres                     | Indique le nombre total des demandes ou des données transférées (Mo) pour l’Edge CNAME indiqué, qui produit un code d’état HTTP ne s’inscrivant pas dans la plage 2xx - 5xx. |
 | Plateforme                  | Indique la plateforme qui gère le trafic de l’Edge CNAME. |
 | Non affecté               | Indique le nombre total des demandes ou des données transférées (Mo) pour l’Edge CNAME pour lequel les informations de code d’état du cache ou de code d’état HTTP n’ont pas été consignées.  |
 | Non mis en cache               | Indique le nombre total des demandes ou des données transférées (Mo) pour l’Edge CNAME, qui entraîne un code d’état de cache UNCACHEABLE.  |

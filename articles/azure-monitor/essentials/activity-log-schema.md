@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 09/30/2020
 ms.author: bwren
-ms.openlocfilehash: 721563fa140dfddbfb5984db8465187fb90018e5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1052ccb854248cb107e6e0b1bf99e2df9156d181
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102049166"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473791"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
 Le [journal d’activité Azure](./platform-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans Azure. Cet article décrit les catégories du journal d’activité et le schéma de chacune d’elles. 

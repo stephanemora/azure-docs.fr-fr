@@ -1,14 +1,14 @@
 ---
 title: Gestion de l’agent des serveurs avec Azure Arc
 description: Cet article décrit les différentes tâches de gestion à effectuer en règle générale pendant le cycle de vie de l’agent de machine connectée des serveurs avec Azure Arc.
-ms.date: 10/14/2021
+ms.date: 10/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: d0b4d32100a8063346d9a6f7bd2b4bd70156d868
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 707e264b2abac0d9f3ba8418cc2eebd25b53b4a9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130041174"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423828"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestion et maintenance de l’agent Connected Machine
 
@@ -50,7 +50,7 @@ Pour des serveurs avec Azure Arc, avant de renommer la machine, il est nécessai
 
 1. Vérifiez les extensions de machine virtuelle installées sur la machine et notez leur configuration à l’aide d’[Azure CLI](manage-vm-extensions-cli.md#list-extensions-installed) ou d’[Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed).
 
-2. Supprimez les extensions de machine virtuelle installées du [portail Azure](manage-vm-extensions-portal.md#uninstall-extensions) à l’aide d’[Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension) ou d’[Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
+2. Supprimez les extensions de machine virtuelle installées du [portail Azure](manage-vm-extensions-portal.md#remove-extensions) à l’aide d’[Azure CLI](manage-vm-extensions-cli.md#remove-extensions) ou d’[Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions).
 
 3. Utilisez l’outil **azcmagent** avec le paramètre [Disconnect](manage-agent.md#disconnect) pour déconnecter la machine d’Azure Arc et supprimer la ressource machine d’Azure. La déconnexion de la machine des serveurs avec Azure Arc n’a pas pour effet de supprimer l’agent de la machine connectée et vous n’avez pas besoin de supprimer l’agent dans le cadre de ce processus. Vous pouvez exécuter azcmagent manuellement quand vous êtes connecté de manière interactive, l’automatiser à l’aide du principal de service utilisé pour intégrer plusieurs agents ou utiliser un [jeton d’accès](../../active-directory/develop/access-tokens.md) de la plateforme d’identités Microsoft. Si vous n’avez pas utilisé de principal de service pour inscrire la machine auprès des serveurs avec Azure Arc, consultez l’[article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) suivant pour créer un principal de service.
 
@@ -236,7 +236,7 @@ Pour vous déconnecter à l’aide de vos informations d’identification d’ou
 
 Utilisez l’une des méthodes suivantes pour désinstaller l’agent Connected Machine Windows ou Linux de l’ordinateur. La suppression de l’agent n’entraîne pas la désinscription de la machine auprès des serveurs avec Azure Arc ni la suppression des extensions de machine virtuelle Azure installées. Pour les serveurs ou les machines que vous ne souhaitez plus gérer avec les serveurs avec Azure Arc, vous devez effectuer les étapes ci-dessous pour arrêter la gestion : 
 
-1. Supprimez les extensions de machine virtuelle installées à partir du [portail Azure](manage-vm-extensions-portal.md#uninstall-extensions) et que vous ne souhaitez pas conserver sur l’ordinateur à l’aide [d’Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension) ou [d’Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
+1. Supprimez les extensions de machine virtuelle installées à partir du [portail Azure](manage-vm-extensions-portal.md#remove-extensions) et que vous ne souhaitez pas conserver sur l’ordinateur à l’aide [d’Azure CLI](manage-vm-extensions-cli.md#remove-extensions) ou [d’Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions).
 1. Annulez l’inscription de la machine en exécutant `azcmagent disconnect` pour supprimer la ressource de serveurs avec Azure Arc dans Azure. En cas d’échec, vous pouvez supprimer manuellement la ressource dans Azure. Dans le cas contraire, si la ressource a été supprimée dans Azure, vous devez exécuter `azcmagent disconnect --force-local-only` sur le serveur pour supprimer la configuration locale.
 
 ### <a name="windows-agent"></a>Agent Windows

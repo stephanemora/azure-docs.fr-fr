@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/28/2021
+ms.date: 10/8/2021
 ms.author: pafarley
-ms.openlocfilehash: 4673d15b9e64e8e4bb54a71f9d2383da78080380
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: fa9a1391b6f222156c94a829586309220838ea89
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131434443"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058347"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Options d’aide et de support Azure Cognitive Services
 
@@ -22,7 +22,7 @@ Commencez-vous juste à explorer les fonctionnalités d’Azure Cognitive Servic
 ## <a name="create-an-azure-support-request"></a>Créer une demande de support Azure
 
 <div class='icon is-large'>
-    <img alt='Azure support' src='/media/logos/logo_azure.svg'>
+    <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
 </div>
 
 Découvrez l’éventail des [options de support Azure et choisissez le plan](https://azure.microsoft.com/support/plans) qui vous convient, que vous soyez un développeur qui commence à explorer le cloud ou une grande organisation déployant des applications stratégiques et critiques. Les clients Azure peuvent créer et gérer des demandes de support dans le Portail Azure.
@@ -52,7 +52,7 @@ Si vous ne trouvez pas la réponse à votre problème à l’aide de la fonction
 * [Lecteur immersif](/answers/topics/azure-immersive-reader.html)
 * [Language Understanding (LUIS)](/answers/topics/azure-language-understanding.html)
 * [QnA Maker](/answers/topics/azure-qna-maker.html)
-* [Service Language](/answers/topics/azure-text-analytics.html)
+* [Analyse de texte](/answers/topics/azure-text-analytics.html)
 * [Translator](/answers/topics/azure-translator.html)
 
 **Speech**
@@ -70,7 +70,7 @@ Si vous ne trouvez pas la réponse à votre problème à l’aide de la fonction
 ## <a name="post-a-question-to-stack-overflow"></a>Publication d’une question sur Stack Overflow
 
 <div class='icon is-large'>
-    <img alt='Stack Overflow' src='/media/logos/logo_stackoverflow.svg'>
+    <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
 </div>
 
 Pour obtenir des réponses à vos questions de développeur auprès du plus grand écosystème de développeurs de la communauté, posez votre question sur Stack Overflow.
@@ -92,7 +92,7 @@ Si vous envoyez une nouvelle question à Stack Overflow, utilisez un ou plusieur
 * [Lecteur immersif](https://stackoverflow.com/search?q=azure+immersive+reader)
 * [Language Understanding (LUIS)](https://stackoverflow.com/search?q=azure+luis+language+understanding)
 * [QnA Maker](https://stackoverflow.com/search?q=azure+qna+maker)
-* [Service Language](https://stackoverflow.com/search?q=azure+text+analytics)
+* [Analyse de texte](https://stackoverflow.com/search?q=azure+text+analytics)
 * [Translator](https://stackoverflow.com/search?q=azure+translator+text)
 
 **Speech**
@@ -126,7 +126,7 @@ Pour demander de nouvelles fonctionnalités, publiez-les sur https://feedback.az
 * [Lecteur immersif](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
 * [Language Understanding (LUIS)](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
 * [QnA Maker](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
-* [Service Language](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
+* [Analyse de texte](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
 * [Translator](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
 
 **Speech**

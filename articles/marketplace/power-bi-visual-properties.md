@@ -8,20 +8,20 @@ ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
 ms.date: 09/21/2021
-ms.openlocfilehash: a1426d8ed0a97c2ec1715f4b0c368b9b9b9770f7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c0a683cbca2f29c7c4f8250b07ebcb5937400723
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128700704"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079321"
 ---
 # <a name="configure-power-bi-visual-offer-properties"></a>Configurer les propriétés de l’offre de visuel Power BI
 
-C’est dans cette page que vous définissez les [catégories](/azure/marketplace/categories) utilisées pour regrouper votre offre sur Microsoft AppSource, les contrats associés à votre offre et la documentation de support.
+C’est dans cette page que vous définissez les [catégories](./categories.md) utilisées pour regrouper votre offre sur Microsoft AppSource, les contrats associés à votre offre et la documentation de support.
 
 ## <a name="general-info"></a>Informations générales
 
-- Sélectionnez une à trois **[catégories](/azure/marketplace/categories)** pour grouper votre offre dans les zones de recherche appropriées de la Place de marché.
+- Sélectionnez une à trois **[catégories](./categories.md)** pour grouper votre offre dans les zones de recherche appropriées de la Place de marché.
 - Sélectionnez un ou deux **secteurs** qui seront utilisés pour afficher votre offre quand les clients filtrent leur recherche selon des secteurs et des sous-secteurs dans le Store.
 
 ## <a name="legal-and-support-info"></a>Informations juridiques et de support

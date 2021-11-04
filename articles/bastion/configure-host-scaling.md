@@ -6,18 +6,19 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/30/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: d5087994a72b52ce091dac98987b8e0bc60e287e
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c5ab750319ffdad58269c909bd14d660d8bdc252
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224737"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087171"
 ---
-# <a name="configure-host-scaling-preview"></a>Configurer la mise à l’échelle de l’hôte (préversion)
+# <a name="configure-host-scaling"></a>Configurer la mise à l’échelle de l’hôte
 
-Cet article vous aide à ajouter des unités d’échelle (instances) supplémentaires à Azure Bastion afin de prendre en charge des connexions clientes simultanées supplémentaires. Dans la préversion, ce paramètre ne peut être configuré que dans le Portail Azure. Pour plus d’informations sur la mise à l’échelle des hôtes, consultez [Paramètres de configuration](configuration-settings.md#instance). 
+Cet article vous aide à ajouter des unités d’échelle (instances) supplémentaires à Azure Bastion afin de prendre en charge des connexions clientes simultanées supplémentaires. Dans la préversion, ce paramètre ne peut être configuré que dans le Portail Azure. Pour plus d’informations sur la mise à l’échelle des hôtes, consultez [Paramètres de configuration](configuration-settings.md#instance).
 
 ## <a name="configuration-steps"></a>Étapes de configuration
 

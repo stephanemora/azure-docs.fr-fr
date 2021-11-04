@@ -4,19 +4,19 @@ description: Liste des services qui prennent en charge les identités managées 
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 07/13/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: c9167111a1799575b5dc0d06cb26bf7cc20002e9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ca43e9d1e54566da374ccbae011e66ae54297af4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124826798"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432564"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -28,7 +28,6 @@ Les identités managées pour ressources Azure fournissent automatiquement aux s
 ## <a name="azure-services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités gérées pour les ressources Azure
 
 Les services Azure prenant en charge les identités managées pour les ressources Azure sont les suivants :
-
 
 ### <a name="azure-api-management"></a>Gestion des API Azure
 
@@ -102,12 +101,12 @@ Reportez-vous au document suivant pour reconfigurer une identité managée si vo
 
 | Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Attribuée par le système | PRÉVERSION | PRÉVERSION | Non disponible | PRÉVERSION |
-| Attribuée par l'utilisateur | PRÉVERSION | PRÉVERSION | Non disponible | PRÉVERSION |
+| Attribuée par le système | ![Disponible][Check]| ![Disponible][Check] | Non disponible | ![Disponible][Check] |
+| Attribuée par l'utilisateur | ![Disponible][Check] | ![Disponible][Check] | Non disponible | ![Disponible][Check] |
 
 Reportez-vous aux documents suivants pour utiliser une identité managée avec [Azure Automation](../../automation/automation-intro.md) :
 
-* [Vue d’ensemble de l’authentification des comptes Automation - Identités managées](../../automation/automation-security-overview.md#managed-identities-preview)
+* [Vue d’ensemble de l’authentification des comptes Automation - Identités managées](../../automation/automation-security-overview.md#managed-identities)
 * [Activer et utiliser l’identité managée pour Automation](../../automation/enable-managed-identity-for-automation.md)
 
 ### <a name="azure-blueprints"></a>Azure Blueprints

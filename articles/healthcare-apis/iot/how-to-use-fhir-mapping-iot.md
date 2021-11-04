@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 10/26/2021
 ms.author: jasteppe
-ms.openlocfilehash: dec9cd45fd4f581a4a041dba090c53fd4ecd8233
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 856355f2f511a9fecdce586e3b7ef4b176366f68
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131068529"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468816"
 ---
 # <a name="how-to-use-the-fhir-destination-mappings"></a>Comment utiliser les mappages de destination FHIR
 
@@ -267,6 +267,6 @@ Représente le type de données [CodeableConcept](http://hl7.org/fhir/datatypes.
 ## <a name="next-steps"></a>Étapes suivantes
 
 >[!div class="nextstepaction"]
->[Comment utiliser les mappages de périphérique](how-to-use-device-mapping-iot.md)
+>[Utilisation du mappage des appareils](how-to-use-device-mapping-iot.md)
 
 (FHIR&#174;) est une marque déposée de [HL7](https://hl7.org/fhir/) qui est utilisée avec l’autorisation de HL7.
