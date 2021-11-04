@@ -3,21 +3,21 @@ title: Présentation de Reconnaissance de l’orateur – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Le service Reconnaissance de l’orateur fournit des algorithmes qui vérifient et identifient les orateurs d’après leurs caractéristiques vocales propres en utilisant la biométrie vocale. Le service Reconnaissance de l’orateur est utilisé pour répondre à la question « qui parle ? ». Cet article est une présentation des avantages et des capacités du service Reconnaissance de l’orateur.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 keywords: speaker recognition, voice biometry
-ms.openlocfilehash: 44772137d9b9e3366a2a04fded34fa81dafe8886
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4096e04678c3ce0b10ac54a190f3074525469b54
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131058385"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509454"
 ---
 # <a name="what-is-speaker-recognition"></a>Qu’est-ce que la reconnaissance de l’orateur ?
 

@@ -3,19 +3,19 @@ title: À propos du SDK Speech – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Le kit de développement logiciel (SDK) Speech expose de nombreuses fonctionnalités du service Speech, ce qui facilite le développement d'applications à reconnaissance vocale.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: pafarley
-ms.openlocfilehash: 6078fdd823160b6ea5e76efd5940342d333e84f1
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: b3d7eab14adb2e880b6c140f3dbe3a0d9145b189
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539984"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506574"
 ---
 # <a name="about-the-speech-sdk"></a>À propos du kit SDK Speech
 

@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2020
+ms.date: 11/03/2021
 ms.author: rortloff
-ms.reviewer: jrasnick
+ms.reviewer: wiassaf
 ms.custom: azure-synapse
-ms.openlocfilehash: 14c3ad30bac7cec4c11822d825323bb9db2ba440
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0dc05f32ca3f2fec1e19106e93178dcc40e4d0b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96454540"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501340"
 ---
 # <a name="analyze-your-workload-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Analyser votre charge de travail pour un pool SQL dédié dans Azure Synapse Analytics
 
@@ -103,8 +103,7 @@ SELECT  w.[wait_id]
 FROM    sys.dm_pdw_waits w
 JOIN    sys.dm_pdw_exec_sessions s  ON w.[session_id] = s.[session_id]
 JOIN    sys.dm_pdw_exec_requests r  ON w.[request_id] = r.[request_id]
-WHERE    w.[session_id] <> SESSION_ID()
-;
+WHERE    w.[session_id] <> SESSION_ID();
 ```
 
 La DMV `sys.dm_pdw_resource_waits` affiche les informations d’attente pour une requête donnée. Le temps d’attente d’une ressource mesure le temps d’attente avant que la ressource soit fournie. Le temps d’attente du signal désigne le temps nécessaire pour que les serveurs SQL sous-jacents planifient la requête dans l’UC.
@@ -122,8 +121,7 @@ SELECT  [session_id]
 ,       [resource_class]
 ,       [wait_id]                                   AS queue_position
 FROM    sys.dm_pdw_resource_waits
-WHERE    [session_id] <> SESSION_ID()
-;
+WHERE    [session_id] <> SESSION_ID();
 ```
 
 Vous pouvez aussi utiliser la DMV `sys.dm_pdw_resource_waits` pour calculer la quantité d’emplacements de concurrence accordée.
@@ -133,8 +131,7 @@ SELECT  SUM([concurrency_slots_used]) as total_granted_slots
 FROM    sys.[dm_pdw_resource_waits]
 WHERE   [state]           = 'Granted'
 AND     [resource_class] is not null
-AND     [session_id]     <> session_id()
-;
+AND     [session_id]     <> session_id();
 ```
 
 Vous pouvez utiliser la DMV `sys.dm_pdw_wait_stats` pour l’analyse des tendances historiques des attentes.
@@ -147,10 +144,9 @@ SELECT   w.[pdw_node_id]
 ,        w.[signal_time]
 ,        w.[completed_count]
 ,        w.[wait_time]
-FROM    sys.dm_pdw_wait_stats w
-;
+FROM    sys.dm_pdw_wait_stats w;
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la gestion de la sécurité et des utilisateurs de base de données, consultez [Sécuriser un pool SQL dédié (anciennement SQL DW)](sql-data-warehouse-overview-manage-security.md). Pour plus d’informations sur la façon dont des classes de ressources plus importantes peuvent améliorer la qualité des index columnstore en cluster, consultez [Reconstruire des index pour améliorer la qualité de segment](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Pour plus d’informations sur la gestion de la sécurité et des utilisateurs de base de données, consultez [Sécuriser un pool SQL dédié (anciennement SQL DW)](sql-data-warehouse-overview-manage-security.md). Pour plus d’informations sur la façon dont les classes de ressources plus élevées peuvent améliorer la qualité des index columnstore en cluster, consultez [Reconstruire des index pour améliorer la qualité de segment](sql-data-warehouse-tables-index.md#rebuild-indexes-to-improve-segment-quality).

@@ -10,13 +10,13 @@ ms.custom: troubleshooting, devplatv2
 ms.reviewer: laobri
 ms.author: tracych
 author: tracych
-ms.date: 05/05/2021
-ms.openlocfilehash: ba0dfb7c86250a55de5967bbffafd40823709dce
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/21/2021
+ms.openlocfilehash: 97b235e45e1f988fde94272252e738d38b0a53e6
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425787"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564667"
 ---
 # <a name="troubleshooting-batch-endpoints-preview"></a>Résolution des problèmes de points de terminaison de traitement de lots (préversion)
 
@@ -29,22 +29,8 @@ Le tableau suivant présente les problèmes courants liés au développement et 
 | Problème | Solution possible |
 |--|--|
 | Configuration de code ou environnement manquant. | Veillez à fournir le script de scoring et une définition d’environnement si vous utilisez un modèle non-MLflow. Le déploiement sans code est pris en charge pour le modèle MLflow uniquement. Pour plus d’informations, consultez [Suivre des modèles ML avec MLflow et Azure Machine Learning](how-to-use-mlflow.md)|
-| Impossible de mettre à jour le modèle, le code, l’environnement et le calcul pour un point de terminaison de traitement de lots existant. | Créez un point de terminaison de traitement de lots avec un nouveau nom. La mise à jour de ces ressources pour un point de terminaison de traitement de lots existant n’est pas encore prise en charge. |
-| La ressource est introuvable. | Veillez à utiliser `--type batch` dans votre commande CLI. Si cet argument n’est pas spécifié, le type `online` par défaut est utilisé.|
 | Données d’entrée non prises en charge. | Le point de terminaison de traitement de lots accepte les données d’entrée sous trois formes : 1) données inscrites 2) données dans le cloud 3) données locales. Vérifiez que vous utilisez le format approprié. Pour plus d’informations, consultez [Utiliser des points de terminaison de traitement de lots (préversion) pour le scoring par lot](how-to-use-batch-endpoint.md)|
-| Le nom du point de terminaison fourni existe ou est en cours de suppression. | Créez un point de terminaison de traitement de lots avec un nouveau nom. La commande `endpoint delete` marque le point de terminaison pour suppression. Vous ne pouvez pas réutiliser le même nom pour créer un autre point de terminaison dans la même région. |
 | La sortie existe déjà. | Si vous configurez votre propre emplacement de sortie, veillez à spécifier une nouvelle sortie pour chaque appel de point de terminaison. |
-
-##  <a name="scoring-script-requirements"></a>Exigences liées au script de scoring
-
-Si vous utilisez un modèle non-MLflow, vous devez fournir un script de scoring. Le script de scoring doit contenir deux fonctions :
-
-- `init()`: utilisez cette fonction pour toute préparation coûteuse ou courante à une prochaine inférence. Par exemple, utilisez-la pour charger le modèle dans un objet global. Cette fonction est appelée une seule fois au début du processus.
--  `run(mini_batch)` : Cette fonction s’exécute pour chaque instance de `mini_batch`.
-    -  `mini_batch` : La valeur `mini_batch` est une liste de chemins de fichier.
-    -  `response` : La méthode `run()` doit retourner un dataframe pandas ou un tableau. Ces éléments retournés sont ajoutés au fichier de sortie commun. Chaque élément de sortie retourné indique une exécution réussie d’un élément d’entrée dans le mini-lot d’entrée. Vérifiez que suffisamment de données sont incluses dans le résultat de l’exécution pour mapper une entrée unique au résultat de la sortie de l’exécution. La sortie de l’exécution sera écrite dans le fichier de sortie mais ne sera pas nécessairement dans l’ordre. Vous devez donc utiliser une clé dans la sortie pour la mapper à l’entrée correcte.
-
-:::code language="python" source="~/azureml-examples-cli-preview/cli/endpoints/batch/mnist/code/digit_identification.py" :::
 
 ## <a name="understanding-logs-of-a-batch-scoring-job"></a>Comprendre les journaux d’un travail de scoring par lot
 

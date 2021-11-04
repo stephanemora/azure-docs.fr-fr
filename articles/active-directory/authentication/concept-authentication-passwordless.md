@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30e8d0234014e710506e0a6897edd218b93b442b
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 4f9e12d8d112bd9c3d9ea44b29803bc475baa9e4
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178934"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500257"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Options d’authentification sans mot de passe pour Azure Active Directory
 
@@ -107,26 +107,6 @@ Le processus suivant est utilisé lorsqu’un utilisateur se connecte avec une c
 7. La demande de jeton d'actualisation principal (PRT) contenant le nonce signé est envoyée à Azure AD.
 8. Azure AD vérifie le nonce signé à l’aide de la clé publique FIDO2.
 9. Azure AD renvoie le PRT pour activer l’accès aux ressources locales.
-
-Bien qu’il existe de nombreuses clés FIDO2 certifiées par la FIDO Alliance, Microsoft exige que certaines des extensions facultatives de la spécification FIDO2 CTAP (Client-to-Authenticator Protocol) soient implémentées par le fournisseur, afin de garantir une sécurité maximale et la meilleure expérience possible.
-
-Une clé de sécurité DOIT implémenter les fonctionnalités et extensions du protocole FIDO2 CTAP suivantes pour être compatible avec Microsoft. Le fournisseur de l’authentificateur doit implémenter les versions FIDO_2_0 et FIDO_2_1 de la spécification. Pour plus d’informations, voir [Protocole client à authentificateur](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html).
-
-| # | Fonctionnalité/Extension de confiance | Pourquoi cette fonctionnalité ou extension est-elle nécessaire ? |
-| --- | --- | --- |
-| 1 | Clé résidente/détectable | Cette fonctionnalité permet à la clé de sécurité d’être portable. Vos informations d’identification sont alors stockées sur la clé de sécurité et sont détectables, ce qui rend possible les flux sans nom d’utilisateur. |
-| 2 | Code confidentiel client | Cette fonctionnalité vous permet de protéger vos informations d’identification avec un deuxième facteur et s’applique aux clés de sécurité qui n’ont pas d’interface utilisateur.<br>[PIN protocol 1](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#pinProto1) et [PIN protocol 2](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#pinProto2) DOIVENT être implémentés. |
-| 3 | hmac-secret | Cette extension garantit que vous pouvez vous connecter à votre appareil lorsqu’il est hors connexion ou en mode avion. |
-| 4 | Plusieurs comptes par fournisseur de ressources | Cette fonctionnalité garantit que vous pouvez utiliser la même clé de sécurité dans plusieurs services, comme un compte Microsoft et Azure Active Directory. |
-| 5 | Gestion des informations d’identification    | Cette fonctionnalité permet aux utilisateurs de gérer leurs informations d’identification sur les clés de sécurité sur les plateformes et s’applique aux clés de sécurité qui n’ont pas cette fonctionnalité intégrée.<br>L’authentificateur DOIT implémenter les commandes [authenticatorCredentialManagement](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#authenticatorCredentialManagement) et [credentialMgmtPreview](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#prototypeAuthenticatorCredentialManagement) pour cette fonctionnalité  |
-| 6 | Inscription biométrique           | Cette fonctionnalité permet aux utilisateurs d’inscrire leur biométrie sur leurs authentificateurs et s’applique aux clés de sécurité pour lesquelles cette fonctionnalité n’est pas intégrée.<br> L’authentificateur DOIT implémenter les commandes [authenicatorBioEnrollment](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#authenticatorBioEnrollment) et [userVerificationMgmtPreview](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#prototypeAuthenticatorBioEnrollment) pour cette fonctionnalité |
-| 7 | pinUvAuthToken           | Cette fonctionnalité permet à la plateforme d’avoir des jetons d’authentification à l’aide d’un code confidentiel ou d’une recherche biométrique, ce qui permet une meilleure expérience utilisateur lorsque plusieurs informations d’identification sont présentes sur l’authentificateur.  |
-| 8 | forcePinChange           | Cette fonctionnalité permet aux entreprises de demander aux utilisateurs de modifier leur code PIN dans les déploiements à distance.  |
-| 9 | setMinPINLength          | Cette fonctionnalité permet aux entreprises d’avoir une longueur minimale personnalisée pour leurs utilisateurs. L’authentificateur DOIT implémenter l’extension minPinLength et avoir une valeur d’au moins 1 pour maxRPIDsForSetMinPINLength.  |
-| 10 | alwaysUV                | Cette fonctionnalité permet aux entreprises ou aux utilisateurs de toujours demander à l’utilisateur de vérifier l’utilisation de cette clé de sécurité. Authenticator DOIT implémenter la sous-commande toggleAlwaysUv. Il revient au fournisseur de décider de la valeur par défaut d’alwaysUV. À ce stade, en raison de la nature des différentes versions de système d’exploitation et d’adoption de RP, la valeur recommandée pour les authentificateurs à base de biométrie est vrai et celle pour les authentificateurs non basés sur la biométrie est faux.  |
-| 11 | credBlob                | Cette extension permet aux sites web de stocker des informations de petite taille dans la clé de sécurité. maxCredBlobLength doit être au moins de 32 octets.  |
-| 12 | largeBlob               | Cette extension permet aux sites web de stocker des informations plus volumineuses, comme des certificats, dans la clé de sécurité. maxSerializedLargeBlobArray doit être d’au moins 1024 octets.  |
-
 
 ### <a name="fido2-security-key-providers"></a>Fournisseurs de clés de sécurité FIDO2
 

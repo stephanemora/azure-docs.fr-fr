@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment créer un cluster de service Azure Kubernetes via Azure Machine Learning ou comment attacher un cluster AKS existant à votre espace de travail.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/16/2021
-ms.openlocfilehash: 7a0b2f24b10ace50d1e994284cb48b50799dfd57
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/21/2021
+ms.openlocfilehash: 2b1d99beea620d0e88705d76df05f52af0c26f89
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618188"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554865"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Créer et attacher un cluster Azure Kubernetes Service
 
@@ -83,9 +83,6 @@ Lorsque vous **créez** un cluster Azure Kubernetes Service à l’aide de l’u
 Ces méthodes de création d’un cluster AKS utilisent la version __par défaut__ du cluster. *La version par défaut change au fil du temps* et de la publication de nouvelles versions de Kubernetes.
 
 Lors de l’**attachement** d’un cluster AKS existant, nous prenons en charge toutes les versions d’AKS actuellement prises en charge.
-
-> [!IMPORTANT]
-> Actuellement, Azure Machine Learning ne prend pas en charge le déploiement de modèles vers AKS version **1.21.x**
 
 > [!IMPORTANT]
 > Azure Kubernetes Service utilise le [pilote Blobfuse FlexVolume](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) pour les versions 1.16 et antérieures et le [pilote CSI des objets blob](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md) pour les versions 1.17 et ultérieures. Ainsi, il est important de redéployer ou de [mettre à jour le service web](how-to-deploy-update-web-service.md) après la mise à niveau du cluster afin d’effectuer le déploiement avec la méthode blobfuse adéquate pour la version du cluster.

@@ -3,21 +3,21 @@ title: Vue d’ensemble de la synthèse vocale – service Speech
 titleSuffix: Azure Cognitive Services
 description: La synthèse vocale du service Speech est une fonctionnalité qui permet à vos applications, outils ou appareils de convertir du texte en parole naturelle synthétisée quasi humaine. Cet article est une vue d’ensemble des avantages et des capacités du service de conversion de texte par synthèse vocale.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversion de texte par synthèse vocale
-ms.openlocfilehash: 7be06937cf9f3117d426fd9c19cbb6059826e6ec
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a086ebf1d7e9da9f8394a6cdde411e5ee55a5f28
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736907"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131511049"
 ---
 # <a name="what-is-neural-text-to-speech"></a>Qu’est-ce que la synthèse vocale neuronale ?
 

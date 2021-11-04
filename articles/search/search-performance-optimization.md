@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 60dd14be7d420d5aac5da5ba85d3e78e72a5ba42
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 22f037751c913e05dde84395ed18252b16d01a6e
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002526"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554371"
 ---
 # <a name="availability-and-business-continuity-in-azure-cognitive-search"></a>Disponibilité et continuité opérationnelle dans Recherche cognitive Azure
 
@@ -125,11 +125,6 @@ Sinon, le code de votre application utilisé pour créer et remplir un index est
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les niveaux tarifaires et les limites de service de chacun d’eux, consultez [Limites de service](search-limits-quotas-capacity.md). Consultez [Planifier la capacité](search-capacity-planning.md) pour en savoir plus sur les combinaisons de partitions et de réplicas, ou consultez [Étude de cas : La recherche cognitive au service de scénarios d’intelligence artificielle complexes](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078) pour obtenir des conseils concrets.
-
-Pour une discussion sur les performances et des démonstrations des techniques présentées dans cet article, regardez la vidéo suivante :
-
-> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
->
 
 <!--Image references-->
 [1]: ./media/search-performance-optimization/geo-redundancy.png

@@ -2,13 +2,13 @@
 title: Points de terminaison publics et réseau
 description: Azure Video Analyzer expose un ensemble de points de terminaison réseau publics qui autorisent différents scénarios de produit, notamment la gestion, l’ingestion et la lecture. Cet article explique comment accéder aux points de terminaison publics et aux réseaux.
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: ad02a9ddd0ff2893e14d48f6698c83108f1acd63
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.date: 11/04/2021
+ms.openlocfilehash: 2285408cbdc6fd9f633e8c34c253c2d5921bc4db
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129659599"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131552902"
 ---
 # <a name="public-endpoints-and-networking"></a>Points de terminaison publics et réseau
 

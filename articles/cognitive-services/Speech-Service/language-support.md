@@ -3,20 +3,20 @@ title: Prise en charge des langues – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Le service Speech prend en charge de nombreuses langues, que ce soit pour la reconnaissance vocale, la synthèse vocale ou la traduction vocale. Cet article fournit une liste complète des langues prise en charge, par fonctionnalité de service.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.author: pafarley
+ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 84841dff43fa827a942eee28cb9cbcc1499e1fcc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: da7d2acfe48d4d598e2bbbfddccb55e2a7d20241
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131011804"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505362"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -62,7 +62,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Chinois (mandarin, simplifié)     | `zh-CN` | Audio (20200910)<br>Texte                 |     Oui                      | Oui                         |
 | Chinois (mandarin, taïwanais)       | `zh-TW` | Audio (20190701, 20201015)<br>Texte                 |           Oui                |                          |
 | Croate (Croatie)                 | `hr-HR` | Texte<br>Prononcer                  |                           |                          |
-| Tchèque (République tchèque)             | `cs-CZ` | Texte<br>Prononcer                  |                           |                          |
+| Tchèque (Tchéquie)             | `cs-CZ` | Texte<br>Prononcer                  |                           |                          |
 | Danois (Danemark)                   | `da-DK` | Texte<br>Prononcer                  | Oui                          |                          |
 | Néerlandais (Pays-Bas)                | `nl-NL` | Audio (20201015)<br>Texte<br>Prononcer|    Oui                       |                          |
 | Anglais (Australie)                | `en-AU` | Audio (20201019)<br>Texte<br>Prononcer| Oui                          |                          |
@@ -483,7 +483,7 @@ Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètr
 
 | Langage | Paramètres régionaux (BCP-47) | Sexe | Nom de la voix |
 |--|--|--|--|
-| Arabe (arabe) | `ar-EG` | Female | `ar-EG-Hoda`|
+| Arabe (Égypte) | `ar-EG` | Female | `ar-EG-Hoda`|
 | Arabe (Arabie saoudite) | `ar-SA` | Male | `ar-SA-Naayf`|
 | Bulgare (Bulgarie) | `bg-BG` | Male | `bg-BG-Ivan`|
 | Catalan (Espagne) | `ca-ES` | Female | `ca-ES-HerenaRUS`|
@@ -496,7 +496,7 @@ Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètr
 | Chinois (mandarin, taïwanais) |  `zh-TW` | Female | `zh-TW-Yating`|
 | Chinois (mandarin, taïwanais) |  `zh-TW` | Male | `zh-TW-Zhiwei`|
 | Croate (Croatie) | `hr-HR` | Male | `hr-HR-Matej`|
-| Tchèque (République tchèque) | `cs-CZ` | Male | `cs-CZ-Jakub`|
+| Tchèque (Tchéquie) | `cs-CZ` | Male | `cs-CZ-Jakub`|
 | Danois (Danemark) | `da-DK` | Female | `da-DK-HelleRUS`|
 | Néerlandais (Pays-Bas) | `nl-NL` | Female | `nl-NL-HannaRUS`|
 | Anglais (Australie) | `en-AU` | Female | `en-AU-Catherine`|
@@ -576,25 +576,36 @@ Custom Voice est disponible au niveau neuronal (Voix neuronale personnalisée). 
 
 | Langage | Paramètres régionaux | Neuronale | Multilingue |
 |--|--|--|--|
-| Bulgare (Bulgarie)| `bg-BG` | Oui | Non |
+| Arabe (Égypte) | `ar-EG` | Oui | Non |
+| Bulgare (Bulgarie) | `bg-BG` | Oui | Non |
 | Chinois (mandarin, simplifié) | `zh-CN` | Oui | Oui |
 | Chinois (mandarin, simplifié), anglais bilingue | `zh-CN` bilingue | Oui | Oui |
-| Néerlandais (Pays-Bas)   | `nl-NL` | Oui | Non |
+| Chinois (mandarin, taïwanais) | `zh-TW` | Oui | Non |
+| Tchèque (Tchéquie) | `cs-CZ` | Oui | Non |
+| Néerlandais (Pays-Bas) | `nl-NL` | Oui | Non |
 | Anglais (Australie) | `en-AU` | Oui | Oui |
+| Anglais (Canada) | `en-CA` | Oui | Non |
 | Anglais (Inde) | `en-IN` | Oui | Non |
+| Anglais (Irlande) | `en-IE` | Oui | Non |
 | Anglais (Royaume-Uni) | `en-GB` | Oui | Oui |
 | Anglais (États-Unis) | `en-US` | Oui | Oui |
 | Français (Canada) | `fr-CA` | Oui | Oui |
 | Français (France) | `fr-FR` | Oui | Oui |
+| Allemand (Autriche) | `de-AT` | Oui | Non |
 | Allemand (Allemagne) | `de-DE` | Oui | Oui |
+| Hongrois (Hongrie) | `hu-HU` | Oui | Non |
 | Italien (Italie) | `it-IT` | Oui | Oui |
 | Japonais (Japon) | `ja-JP` | Oui | Oui |
 | Coréen (Corée) | `ko-KR` | Oui | Oui |
 | Norvégien (bokmål, Norvège) | `nb-NO` | Oui | Non |
 | Portugais (Brésil) | `pt-BR` | Oui | Oui |
+| Portugais (Portugal) | `pt-PT` | Oui | Non |
 | Russe (Russie) | `ru-RU` | Oui | Oui |
+| Slovaque (Slovaquie) | `sk-SK` | Oui | Non |
 | Espagnol (Mexique) | `es-MX` | Oui | Oui |
 | Espagnol (Espagne) | `es-ES` | Oui | Oui |
+| Turc (Turquie) | `tr-TR` | Oui | Non |
+| Vietnamien (Vietnam) | `vi-VN` | Oui | Non |
 
 Sélectionnez les paramètres régionaux qui correspondent aux données d’apprentissage servant à entraîner un modèle vocal personnalisé. Par exemple, si vos données d’enregistrement sont en anglais avec un accent britannique, sélectionnez `en-GB`.
 
@@ -708,19 +719,19 @@ La reconnaissance de l’orateur est principalement indépendante du langage. No
 | Langage | Paramètres régionaux (BCP-47) | Vérification dépendante du texte | Vérification indépendante du texte | Identification indépendante du texte |
 |----|----|----|----|----|
 |Anglais (US)  |  `en-US`  |  Oui  |  oui  |  Oui |
-|Chinois (mandarin, simplifié) | `zh-CN`     |     n/a |     oui |     Oui|
-|Anglais (Australie)     | `en-AU`    | n/a     | oui     | Oui|
-|Anglais (Canada)     | `en-CA`     | n/a |     oui |     oui|
-|Anglais (Inde)     | `en-IN`     | n/a |     oui |     Oui|
-|Anglais (Royaume-Uni)     | `en-GB`     | n/a     | oui     | Oui|
-|Français (Canada)     | `fr-CA`     | n/a     | oui |     Oui|
+|Chinois (mandarin, simplifié) | `zh-CN`     |     n/a |     Oui |     Oui|
+|Anglais (Australie)     | `en-AU`    | n/a     | Oui     | Oui|
+|Anglais (Canada)     | `en-CA`     | n/a |     Oui |     oui|
+|Anglais (Inde)     | `en-IN`     | n/a |     Oui |     Oui|
+|Anglais (Royaume-Uni)     | `en-GB`     | n/a     | Oui     | Oui|
+|Français (Canada)     | `fr-CA`     | n/a     | Oui |     Oui|
 |Français (France)     | `fr-FR`     | n/a     | Oui     | Oui|
-|Allemand (Allemagne)     | `de-DE`     | n/a     | oui     | Oui|
-|Italien | `it-IT`     |     n/a     | oui |     Oui|
-|Japonais     | `ja-JP` | n/a     | oui     | Oui|
-|Portugais (Brésil) | `pt-BR` |     n/a |     oui |     Oui|
-|Espagnol (Mexique)     | `es-MX`     | n/a |     oui |     Oui|
-|Espagnol (Espagne)     | `es-ES` | n/a     | oui |     oui|
+|Allemand (Allemagne)     | `de-DE`     | n/a     | Oui     | Oui|
+|Italien | `it-IT`     |     n/a     | Oui |     Oui|
+|Japonais     | `ja-JP` | n/a     | Oui     | Oui|
+|Portugais (Brésil) | `pt-BR` |     n/a |     Oui |     Oui|
+|Espagnol (Mexique)     | `es-MX`     | n/a |     Oui |     Oui|
+|Espagnol (Espagne)     | `es-ES` | n/a     | Oui |     oui|
 
 ## <a name="custom-keyword-and-keyword-verification"></a>Vérification par mot clé et mot clé personnalisé
 
