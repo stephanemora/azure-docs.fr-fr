@@ -2,17 +2,17 @@
 title: Utiliser un moteur de règles pour appliquer le protocole HTTPS dans Azure CDN Standard | Microsoft Docs
 description: Utilisez le moteur de règles de Microsoft Standard Azure Content Delivery Network (Azure CDN) pour personnaliser la façon dont Azure CDN gère les requêtes HTTP, notamment le blocage de la livraison de certains types de contenu, la définition d’une stratégie de mise en cache et la modification des en-têtes HTTP. Dans cet article, vous allez apprendre à créer une règle pour rediriger les utilisateurs vers HTTPS.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 11/01/2019
-ms.author: allensu
-ms.openlocfilehash: b94798580b2d4ba746c152486c0de753cf64d2c9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: duau
+ms.openlocfilehash: 7e3215c82acf476d84c58a6c6fb2bc4eeac13d99
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564898"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426427"
 ---
 # <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Configurer le moteur de règles Standard pour Azure CDN
 

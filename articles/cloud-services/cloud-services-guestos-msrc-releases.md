@@ -11,21 +11,18 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/18/2021
-ms.author: gunnarc
-ms.openlocfilehash: 194e425ca62cbe36fa163efaf88a75fb7e1f09f9
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.date: 11/01/2021
+ms.author: ibthampy
+ms.openlocfilehash: 77f6eaf0cbd9478df6659310c61fa4616c17c749
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130175880"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458491"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
->[!NOTE] 
-
->Le système d’exploitation invité octobre est actuellement déployé sur les machines virtuelles du service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité octobre. Cette liste est susceptible d’être modifiée. 
 
 ## <a name="october-2021-guest-os"></a>Système d’exploitation invité, octobre 2021
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
@@ -1267,7 +1264,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Version 10-19   |  [4514368]  |  .NET Framework 4.5.2   |  [3.78]  |  10 septembre 2019  |
 |  Version 10-19   |  [4516067]  |  Non liée à la sécurité   |  [4.71]  |  10 septembre 2019  |
 |  Version 10-19   |  [4512938]  |  SSU   |  [4.71]  |  10 septembre 2019  |
-|  Version 10-19   |  [4514371]  |  .NET Framework 3.5   |  [4.71]  |  10 septembre 2019  |
+|  Version 10-19   |  [4514371]  |  .NET Framework 3.5   |  [4.71]  |  10 septembre 2019  |
 |  Version 10-19   |  [4514367]  |  .NET Framework 4.5.2   |  [4.71]  |  10 septembre 2019  |
 |  Version 10-19   |  [4512574]  |  SSU   |  [5.36]  |  10 septembre 2019  |
 |  Version 10-19   |  [4512577]  |  SSU   |  [6.12]  |  10 septembre 2019  |

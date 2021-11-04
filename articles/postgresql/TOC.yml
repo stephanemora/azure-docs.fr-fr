@@ -658,7 +658,7 @@
               href: concepts-hyperscale-colocation.md
         - name: Accès aux données et sécurité
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: concepts-hyperscale-security-overview.md
             - name: Accès public
               href: concepts-hyperscale-firewall-rules.md
@@ -821,7 +821,7 @@
             - name: Connecter les données d’une application à Power BI
               href: 'https://aka.ms/postg-powerbi-vid'
     - name: Forum de commentaires
-      href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'
+      href: 'https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0'
     - name: Disponibilité des régions
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Options de support

@@ -3,7 +3,7 @@ title: Contrôler le comportement de mise en cache du CDN Azure avec des chaîne
 description: La mise en cache des chaînes de requête du CDN Azure contrôle la manière dont les fichiers sont mis en cache lorsqu’une requête Web contient une chaîne de requête. Cet article décrit la chaîne de requête mise en cache dans les produits standard du CDN Azure.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: 17410e4f-130e-489c-834e-7ca6d6f9778d
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 06/11/2018
-ms.author: allensu
-ms.openlocfilehash: 1521d08ef9d431bbe8b3fd3a578297d440ed56b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: duau
+ms.openlocfilehash: 6e95ae75ab125f824c5125a4441d50257bea6551
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96018577"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454824"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Contrôler le comportement de mise en cache du CDN Azure avec des chaînes de requête - niveau standard
 > [!div class="op_single_selector"]

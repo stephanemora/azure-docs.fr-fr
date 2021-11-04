@@ -3,19 +3,19 @@ title: Démarrage rapide de l’interface CLI Speech – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Démarrez avec l’interface CLI Azure Speech. Vous pouvez interagir avec les services Speech que sont la reconnaissance vocale, la synthèse vocale et la traduction vocale sans écrire de code.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/28/2021
-ms.author: pafarley
-ms.openlocfilehash: 55d84da6f7ebdbf45bbf6c90b5cb881319a62aa9
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: cd953953e927472a822b0f1031081a212d6339f6
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540808"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510170"
 ---
 # <a name="get-started-with-the-azure-speech-cli"></a>Bien démarrer avec l’interface CLI Azure Speech
 

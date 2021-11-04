@@ -8,20 +8,17 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/19/2021
-ms.openlocfilehash: 7f95dc74c4346e1053e963ba6d4ad458881df727
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/02/2021
+ms.openlocfilehash: 7315b27fccf261dcf25ffe347a22fbb41e0d52cb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130255854"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458795"
 ---
 # <a name="azure-policy-for-azure-active-directory-only-authentication-with-azure-sql"></a>Azure Policy pour l’authentification Azure Active Directory uniquement avec Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
-> [!NOTE]
-> L’**authentification Azure AD uniquement** et la fonctionnalité Azure Policy associée présentée dans cet article sont en **préversion publique**. 
 
 Azure Policy peut imposer la création d’une base de données Azure SQL ou d’une instance managée Azure SQL avec l’[authentification Azure AD](authentication-azure-ad-only-authentication.md) uniquement activée pendant le provisionnement. Une fois cette stratégie en place, toute tentative de création d’un [serveur logique dans Azure](logical-servers.md) ou d’une instance managée échoue s’il ou elle n’est pas créé(e) avec l’authentification Azure AD uniquement activée.
 

@@ -1,19 +1,19 @@
 ---
 title: Afficher l’utilisation d’une réservation Azure
 description: Découvrez comment obtenir l’utilisation et les détails d’une réservation.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 15726451525d3ffcaf2d059b9e6c9dee86058591
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: f69c39205ddc465ee4634ec621905fed2d701682
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710198"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446236"
 ---
 # <a name="view-reservation-utilization-after-purchase"></a>Afficher l’utilisation d’une réservation après achat
 
