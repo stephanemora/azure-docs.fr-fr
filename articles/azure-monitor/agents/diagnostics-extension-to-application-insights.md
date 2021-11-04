@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: b9e9d6b1b5939804b24fd523bf8b7444ed41178f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8589caaa888e9a9b1156563bd38090c922ebfcc4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708592"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020860"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights
 Cloud services, Machines virtuelles, Virtual Machine Scale Sets et Service Fabric utilisent tous l’extension Diagnostics Azure pour collecter des données.  Les diagnostics Azure envoient les données dans des tables de stockage Azure.  Toutefois, vous pouvez également transmettre toutes les données ou un sous-ensemble de données vers d’autres emplacements à l’aide de l’extension Diagnostics Azure version 1.5 ou ultérieure.
@@ -22,7 +22,7 @@ L’extension des diagnostics Azure 1.5 a introduit des récepteurs, qui sont de
 
 Exemple de configuration d’un récepteur pour Application Insights :
 
-```XML
+```xml
 <SinksConfig>
     <Sink name="ApplicationInsights">
       <ApplicationInsights>{Insert InstrumentationKey}</ApplicationInsights>
@@ -85,7 +85,7 @@ Voici un exemple complet de fichier de configuration publique qui
 1. envoie toutes les erreurs à Application Insights (spécifiées au niveau du nœud **DiagnosticMonitorConfiguration**)
 2. envoie également des journaux d’activité détaillés pour les journaux des applications (spécifiés au niveau du nœud **Logs**).
 
-```XML
+```xml
 <WadCfg>
   <DiagnosticMonitorConfiguration overallQuotaInMB="4096"
        sinks="ApplicationInsights.MyTopDiagData"> <!-- All info below sent to this channel -->
@@ -197,7 +197,7 @@ Dans la configuration précédente, les lignes ci-dessous ont les significations
 
 ### <a name="send-verbose-application-logs-to-application-insights"></a>Envoyer les journaux d’activité d’application détaillés à Application Insights
 
-```XML
+```xml
 <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
 ```
 ```JSON

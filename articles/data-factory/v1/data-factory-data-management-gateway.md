@@ -9,12 +9,12 @@ ms.date: 10/22/2021
 ms.author: abnarain
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: cb827e3603bb00e1c1aa435847dc58fe03d0a389
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ae9dd04f2bacdbe6a45b11e3d9c535b01953c90b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130255483"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065339"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
@@ -277,6 +277,7 @@ Vous voyez s’afficher la progression de l’opération de mise à jour (manuel
 Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique comme suit :
 
 [Pour une passerelle à nœud unique]
+
 1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
 2. Accédez au dossier *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* .
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.
@@ -284,20 +285,26 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off
     ```
+
 4. Pour la réactiver :
 
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
-   [Pour une passerelle multinœud à haute disponibilité et scalable](data-factory-data-management-gateway-high-availability-scalability.md)
+[Pour une passerelle multinœud à haute disponibilité et scalable](data-factory-data-management-gateway-high-availability-scalability.md)
+
 1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
+
 2. Accédez au dossier *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* .
+
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.
 
     Pour une passerelle avec une fonctionnalité de haute disponibilité, un paramètre AuthKey supplémentaire est nécessaire.
+
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off -AuthKey <your auth key>
     ```
+
 4. Pour la réactiver :
 
     ```powershell
@@ -305,6 +312,7 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
     ```
 
 ## <a name="configuration-manager"></a>Gestionnaire de configuration
+
 Une fois la passerelle installée, vous pouvez lancer le Gestionnaire de configuration de passerelle de gestion des données de l’une des manières suivantes :
 
 1. Dans la fenêtre **Rechercher**, saisissez **passerelle de gestion de données** pour accéder à cet utilitaire.
@@ -452,7 +460,7 @@ Pour chiffrer les informations d’identification dans Data Factory Editor, proc
    4. Cliquez sur **OK** pour chiffrer les informations d’identification et fermer la boîte de dialogue.
 8. Vous devez maintenant voir une propriété **encryptedCredential** dans **connectionString**.
 
-    ```JSON
+    ```json
     {
         "name": "SqlServerLinkedService",
         "properties": {
@@ -465,7 +473,8 @@ Pour chiffrer les informations d’identification dans Data Factory Editor, proc
         }
     }
     ```
-   Si vous accédez au portail à partir d’un ordinateur différent de l’ordinateur de passerelle, vous devrez peut-être vous assurer que l’application Gestionnaire d’informations d’identification peut se connecter à l’ordinateur de passerelle. Sinon, vous ne pourrez pas définir les informations d’identification de la source de données, ni tester la connexion à la source de données.
+
+    Si vous accédez au portail à partir d’un ordinateur différent de l’ordinateur de passerelle, vous devrez peut-être vous assurer que l’application Gestionnaire d’informations d’identification peut se connecter à l’ordinateur de passerelle. Sinon, vous ne pourrez pas définir les informations d’identification de la source de données, ni tester la connexion à la source de données.
 
 Quand vous utilisez l’application **Définition des informations d’identification**, le portail chiffre les informations d’identification avec le certificat que vous avez spécifié dans l’onglet **Certificat** du **Gestionnaire de configuration de passerelle** sur l’ordinateur de passerelle.
 
@@ -524,10 +533,11 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
     ```
 2. Vous pouvez utiliser la cmdlet **Get-AzDataFactoryGateway** pour obtenir la liste des passerelles dans votre fabrique de données. Lorsque **l’état** est **online**, cela signifie que votre passerelle est prête.
 
-    ```powershell        
+    ```powershell
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
-   Vous pouvez supprimer une passerelle à l’aide de la cmdlet **Remove-AzDataFactoryGateway** et mettre à jour la description de la passerelle en utilisant les cmdlets **Set-AzDataFactoryGateway**. Pour obtenir la syntaxe et d’autres détails sur ces applets de commande, consultez la rubrique Référence des applets de commande Azure Data Factory.  
+
+    Vous pouvez supprimer une passerelle à l’aide de la cmdlet **Remove-AzDataFactoryGateway** et mettre à jour la description de la passerelle en utilisant les cmdlets **Set-AzDataFactoryGateway**. Pour obtenir la syntaxe et d’autres détails sur ces applets de commande, consultez la rubrique Référence des applets de commande Azure Data Factory.  
 
 ### <a name="list-gateways-using-powershell"></a>Répertorier les passerelles à l’aide de PowerShell
 

@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: yelevin
-ms.openlocfilehash: d6afd8e1d4c70d818257007993aedfe3a48ce4f4
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e7fa9ec18c39ff3c58c45dde445f4b10fbd198fd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129752110"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009450"
 ---
 # <a name="automate-threat-response-with-playbooks-in-azure-sentinel"></a>Automatiser la réponse aux menaces à l’aide de playbooks dans Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Cet article explique ce que sont les playbooks Azure Sentinel, et comment les utiliser pour implémenter vos opérations d’orchestration, d’automatisation et de réponse aux problèmes de sécurité (SOAR), en obtenant de meilleurs résultats tout en économisant du temps et des ressources.
 

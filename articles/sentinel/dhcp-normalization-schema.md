@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/04/2021
 ms.author: bagol
-ms.openlocfilehash: f8ad30e833e7b400c7d308b1f99dd457af438fa0
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: aa633024754c82e1a9879f79c9410e6948405eeb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129621090"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004001"
 ---
 # <a name="azure-sentinel-dhcp-normalization-schema-reference-public-preview"></a>Informations de référence du schéma de normalisation DHCP Azure Sentinel (préversion publique)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Le modèle d’informations DHCP sert à décrire les événements signalés par un serveur DHCP. Azure Sentinel l’utilise pour activer l’analytique indépendante de la source.
 

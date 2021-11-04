@@ -2,21 +2,21 @@
 title: Configurer l’authentification dans un exemple d’application web Python à l’aide d’Azure Active Directory B2C
 description: Cet article explique comment utiliser Azure Active Directory B2C pour inscrire et connecter des utilisateurs dans une application web Python.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 1b315343b524dc165fb6464728a5a9700d4e22c8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1466e62e50cac9d24616c9662f73ad23f3f6eea7
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128572632"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007914"
 ---
 # <a name="configure-authentication-in-a-sample-python-web-app-by-using-azure-ad-b2c"></a>Configurer l’authentification dans un exemple d’application web Python à l’aide d’Azure AD B2C
 

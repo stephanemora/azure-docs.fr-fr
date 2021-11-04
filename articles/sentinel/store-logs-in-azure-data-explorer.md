@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-ms.openlocfilehash: 1f9d0a146c557f50c0cea776c6e3ae6853377df5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: f906502ce03ffcad42f07cd951c5944eb3e55501
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525146"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009089"
 ---
 # <a name="integrate-azure-data-explorer-for-long-term-log-retention"></a>Intégrer Azure Data Explorer pour la conservation des journaux à long terme
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Par défaut, les journaux ingérés dans Azure Sentinel sont stockés dans Azure Monitor Log Analytics. Cet article explique comment réduire les coûts de conservation des données dans Azure Sentinel en les envoyant à Azure Data Explorer pour une conservation à long terme.
 

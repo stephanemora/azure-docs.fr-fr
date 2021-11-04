@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: harshacs
-ms.openlocfilehash: 4b88ed44632aa255837d8fb499782e11c716d443
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2dfb7a185a4fac41059f5f987c4fa602abf4a894
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048185"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003672"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Se connecter à des machines virtuelles Azure après le basculement d’un environnement local 
 
@@ -60,7 +60,7 @@ Sur les ordinateurs Linux locaux, effectuez les tâches suivantes :
 
 Après le basculement, effectuez les tâches suivantes sur les machines virtuelles Azure qui ont été créées.
 
-1. Pour vous connecter à la machine virtuelle via Internet, attribuez-lui une adresse IP publique. Vous ne pouvez pas attribuer à la machine virtuelle Azure la même adresse IP publique que celle que vous avez utilisée pour votre ordinateur local. [En savoir plus](../virtual-network/virtual-network-public-ip-address.md)
+1. Pour vous connecter à la machine virtuelle via Internet, attribuez-lui une adresse IP publique. Vous ne pouvez pas attribuer à la machine virtuelle Azure la même adresse IP publique que celle que vous avez utilisée pour votre ordinateur local. [En savoir plus](../virtual-network/ip-services/virtual-network-public-ip-address.md)
 2. Vérifiez que les règles de groupe de sécurité réseau (NSG) de la machine virtuelle autorisent les connexions entrantes sur le port RDP ou SSH.
 3. Cochez [Diagnostics de démarrage](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine) pour afficher la machine virtuelle.
 

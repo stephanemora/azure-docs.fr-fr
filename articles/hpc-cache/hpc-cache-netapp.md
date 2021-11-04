@@ -1,17 +1,17 @@
 ---
 title: Utiliser Azure HPC Cache et Azure NetApp Files
 description: Comment utiliser Azure HPC Cache pour améliorer l’accès aux données stockées avec Azure NetApp Files
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 05/05/2021
-ms.author: v-erkel
-ms.openlocfilehash: 8dca61a9debad2c743c66b15d6f721edc7538178
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.author: femila
+ms.openlocfilehash: 9a4e682b03ef93e0762dd8dc8117741329064caa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737291"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032921"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Utiliser Azure HPC Cache avec Azure NetApp Files
 

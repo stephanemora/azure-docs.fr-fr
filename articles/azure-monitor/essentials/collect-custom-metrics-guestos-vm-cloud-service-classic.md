@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 02918b4f33c01aab5a250e3228b6ad7ec5930394
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 7be1aa846ee53edf0c23594d89af59e3c7f7aa32
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322236"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051512"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envoyer des métriques de système d’exploitation invité au magasin de métriques Azure Monitor pour les services cloud classiques 
 
@@ -61,7 +61,7 @@ Attribuez à l’application créée à l’étape précédente des autorisation
 
 Préparez le fichier config de l’extension Diagnostics. Ce fichier détermine quels journaux d’activité et compteurs de performances doivent être collectés par l’extension Diagnostics pour votre service cloud. Vous trouverez ci-dessous un exemple de fichier config Diagnostics :  
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?> 
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
   <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
@@ -103,7 +103,7 @@ Préparez le fichier config de l’extension Diagnostics. Ce fichier détermine 
 
 Dans la section « SinksConfig » de votre fichier de diagnostics, définissez un nouveau récepteur Azure Monitor : 
 
-```XML
+```xml
   <SinksConfig> 
     <Sink name="AzMonSink"> 
     <AzureMonitor> 
@@ -125,7 +125,7 @@ Dans la section de votre fichier config où vous répertoriez les compteurs de p
 
 Enfin, dans la configuration privée, ajoutez une section *Azure Monitor Account* (Compte Azure Monitor). Entrez l’ID de client du principal de service et le secret que vous avez créés précédemment. 
 
-```XML
+```xml
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
   <StorageAccount name="" endpoint="" /> 
     <AzureMonitorAccount> 

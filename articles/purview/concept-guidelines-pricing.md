@@ -6,12 +6,13 @@ ms.author: athenadsouza
 ms.service: purview
 ms.topic: conceptual
 ms.date: 10/03/2021
-ms.openlocfilehash: 393414ad1d2c50f2a3bb76ce045614e19b50f928
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ee7364637e79b2603c6eca31d986dbcc3e153db3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534058"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084309"
 ---
 # <a name="azure-purview-pricing"></a>Tarification d’Azure Purview   
 
@@ -123,7 +124,7 @@ Les coûts indirects ayant un impact sur la tarification d’Azure Purview sont 
 - [Coûts liés au runtime d’intégration (IR) auto-hébergé](./manage-integration-runtimes.md) 
     - Le runtime d’intégration auto-hébergé nécessite une infrastructure, ce qui entraîne des coûts supplémentaires
     - Il est requis pour déployer et inscrire le runtime d’intégration auto-hébergé (SHIR) à l’intérieur du même réseau virtuel où les points de terminaison privés d’ingestion Azure Purview sont déployés
-    - [Mémoire supplémentaire requise pour l’analyse](./register-scan-sapecc-source.md#creating-and-running-a-scan)
+    - [Mémoire supplémentaire requise pour l’analyse](./register-scan-sapecc-source.md#create-and-run-scan)
         - Certaines sources de données telles que SAP requièrent de la mémoire supplémentaire sur la machine SHIR pour l’analyse
 
 

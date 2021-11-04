@@ -16,12 +16,12 @@ ms.date: 04/16/2021
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 141322495fe31283b90f34bbf77a7d1ebb86d00d
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: f754d527a1b469ae420ca1af53e2c3b73692a5ef
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730467"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051835"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planification d’un déploiement de révision d’accès Azure Active Directory
 
@@ -191,7 +191,7 @@ Le rôle administratif requis pour créer, gérer ou lire une révision d’acc�
 
 | Type de ressource| Création et gestion des révisions d’accès (créateurs)| Lecture des résultats de la révision d’accès |
 | - | - | -|
-| Groupe ou application| Administrateur général <p>Administrateur d'utilisateurs<p>Administrateur Identity Governance<p>Administrateur de rôle privilégié (uniquement les révisions pour les groupes assignables au rôle Azure AD)<p>Propriétaire du groupe ([si activé par un administrateur]( create-access-review.md#allow--group-owners-to-create-and-manage-access-reviews-preview))| Administrateur général<p>Lecteur général<p>Administrateur d'utilisateurs<p>Administrateur Identity Governance<p>Administrateur de rôle privilégié<p>Lecteur de sécurité<p>Propriétaire du groupe ([si activé par un administrateur]( create-access-review.md#allow--group-owners-to-create-and-manage-access-reviews-preview)) |
+| Groupe ou application| Administrateur général <p>Administrateur d'utilisateurs<p>Administrateur Identity Governance<p>Administrateur de rôle privilégié (uniquement les révisions pour les groupes assignables au rôle Azure AD)<p>Propriétaire du groupe ([si activé par un administrateur]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview))| Administrateur général<p>Lecteur général<p>Administrateur d'utilisateurs<p>Administrateur Identity Governance<p>Administrateur de rôle privilégié<p>Lecteur de sécurité<p>Propriétaire du groupe ([si activé par un administrateur]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview)) |
 |Rôles Azure AD| Administrateur général <p>Administrateur de rôle privilégié|  Administrateur général<p>Lecteur général<p>Administrateur d'utilisateurs<p>Administrateur de rôle privilégié<p> <p>Lecteur de sécurité |
 | Rôles de ressources Azure| Administrateur général<p>Propriétaire de la ressource| Administrateur général<p>Lecteur général<p>Administrateur d'utilisateurs<p>Administrateur de rôle privilégié<p> <p>Lecteur de sécurité  |
 | Package d’accès| Administrateur général<p>Administrateur d'utilisateurs<p>Administrateur Identity Governance| Administrateur général<p>Lecteur général<p>Administrateur d'utilisateurs<p>Administrateur Identity Governance<p> <p>Lecteur de sécurité  |

@@ -5,26 +5,28 @@ description: Dans ce tutoriel, apprenez à déployer une fonction réseau en tan
 author: prmitt
 ms.service: network-function-manager
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 11/02/2021
 ms.author: prmitt
-ms.openlocfilehash: 0e45f8db150505b323f45cd79eed40215b3a44f8
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3ac4c4e0654e1d5f22c128c45106079916676a4f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130223326"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005078"
 ---
-# <a name="tutorial-deploy-network-functions-on-azure-stack-edge-preview"></a>Tutoriel : Déployer des fonctions réseau sur Azure Stack Edge (préversion)
+# <a name="tutorial-deploy-network-functions-on-azure-stack-edge"></a>Tutoriel : Déployer des fonctions réseau sur Azure Stack Edge
 
 Dans ce tutoriel, vous allez apprendre à déployer une fonction réseau sur Azure Stack Edge à l’aide de Place de marché Azure. Network Function Manager active l’expérience Applications managées Azure pour simplifier le déploiement sur Azure Stack Edge.
 
 > [!div class="checklist"]
-> * Vérifier les [prérequis](overview.md#prereq)
+> * Vérifier les [prérequis](#prereq)
 > * Créer une fonction réseau
 > * Vérifier les détails de la fonction réseau
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a><a name="prereq"></a>Configuration requise
 
+* Vous respectez toutes les conditions préalables indiquées dans l’article conditions [Prérequis et configuration requise](requirements.md).
 * Vous avez créé une ressource d’appareil pour Network Function Manager. Si vous n’avez pas terminé ces étapes, consultez [Comment créer une ressource d’appareil](create-device.md).
 * Sous l’onglet **Vue d’ensemble** de l’appareil, vérifiez que les valeurs suivantes sont présentes :
   * État d’approvisionnement = Réussi
@@ -32,7 +34,7 @@ Dans ce tutoriel, vous allez apprendre à déployer une fonction réseau sur Azu
 
 ## <a name="create-a-network-function"></a><a name="create"></a>Créer une fonction réseau
 
-1. Connectez-vous au [portail Azure en préversion](https://aka.ms/AzureNetworkFunctionManager).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Accédez à la ressource d’**appareil** dans laquelle vous souhaitez déployer une fonction réseau, puis sélectionnez **+Créer une fonction réseau**.
 
    :::image type="content" source="./media/deploy-functions/create-network-function.png" alt-text="Capture d’écran de +Créer une fonction réseau." lightbox="./media/deploy-functions/create-network-function.png":::
@@ -57,7 +59,7 @@ Dans ce tutoriel, vous allez apprendre à déployer une fonction réseau sur Azu
 1. Configurez les paramètres Informations de base.
 
    :::image type="content" source="./media/deploy-functions/basics-blade.png" alt-text="Capture d’écran des paramètres Informations de base." lightbox="./media/deploy-functions/basics-blade.png":::
-1. Appliquez une identité managée. Pour plus d’informations, consultez [Identité managée](overview.md#managed-identity).
+1. Appliquez une identité managée. Pour plus d’informations, consultez [Identité managée](resources-permissions.md).
 
    :::image type="content" source="./media/deploy-functions/managed-identity.png" alt-text="Capture d’écran d’Identité managée." lightbox="./media/deploy-functions/managed-identity.png":::
 1. Entrez les informations d’adresse IP pour les interfaces de gestion, de réseau local et de réseau étendu de la machine virtuelle Fusion Core.

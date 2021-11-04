@@ -3,20 +3,20 @@ title: Profils techniques d’accès conditionnel dans les stratégies personnal
 titleSuffix: Azure AD B2C
 description: Informations de référence sur les stratégies personnalisées pour les profils techniques d’accès conditionnel dans Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/18/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 902d9251c7393d3f6e693ba37c587398136493e6
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: d44ae627279131004bdac2f755eb26b59e375381
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112368945"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007949"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique d’accès conditionnel dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=
 
 L’exemple suivant présente un profil technique d’accès conditionnel :
 
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessEvaluation">
   <DisplayName>Conditional Access Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -64,7 +64,6 @@ L’élément **InputClaims** contient une liste de revendications à envoyer à
 | IsFederated | Oui |boolean | Indique si un utilisateur s’est connecté avec un compte fédéré. La valeur doit être `false`. |
 | IsMfaRegistered | Oui |boolean | Indique si l’utilisateur a déjà inscrit un numéro de téléphone pour l’authentification multifacteur. |
 
-
 L’élément **InputClaimsTransformations** peut contenir une collection d’éléments **InputClaimsTransformation** utilisés pour modifier les revendications d’entrée ou en générer de nouvelles avant de les envoyer au service d’accès conditionnel.
 
 ### <a name="output-claims"></a>Revendications de sortie
@@ -82,7 +81,7 @@ L’élément **OutputClaimsTransformations** peut contenir une collection d’�
 
 L’exemple suivant présente un profil technique d’accès conditionnel utilisé pour évaluer la menace de connexion.
 
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessEvaluation">
   <DisplayName>Conditional Access Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -122,7 +121,6 @@ L’élément **InputClaims** contient une liste de revendications à envoyer au
 | ClaimReferenceId | Obligatoire | Type de données | Description |
 | --------- | -------- | ----------- |----------- |
 | ChallengesSatisfied | Oui | stringCollection| Liste des défis relevés pour corriger la menace identifiée lorsque le retour du mode d’évaluation conteste la revendication.|
-
 
 L’élément **InputClaimsTransformations** peut contenir une collection d’éléments **InputClaimsTransformation** utilisés pour modifier les revendications d’entrée ou en générer de nouvelles avant l’appel du service d’accès conditionnel.
 

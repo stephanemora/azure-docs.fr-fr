@@ -3,12 +3,12 @@ title: Restreindre l’accès avec un point de terminaison de service
 description: Restreignez l’accès à un registre de conteneurs Azure à l’aide d’un point de terminaison de service dans un réseau virtuel Azure. L’accès au point de terminaison de service est une fonctionnalité du niveau de service Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 0fa721a4a4cf59c93123c98c500b693f05667054
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6c76e7e98f049a46c161c5f4ff00b5282ba52c1a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641614"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043468"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restreindre l’accès à un registre de conteneurs à l’aide d’un point de terminaison de service dans un réseau virtuel Azure
 
@@ -112,7 +112,7 @@ az acr update --name myContainerRegistry --default-action Deny
 
 Utilisez la commande [az acr network-rule add][az-acr-network-rule-add] pour ajouter à votre registre une règle de réseau qui autorise l’accès à partir du sous-réseau de la machine virtuelle. Substituez le nom du registre de conteneur et l’ID de ressource du sous-réseau dans la commande suivante : 
 
- ```azurecli
+```azurecli
 az acr network-rule add \
   --name mycontainerregistry \
   --subnet <subnet-resource-id>

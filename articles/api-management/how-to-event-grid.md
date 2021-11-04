@@ -5,16 +5,16 @@ author: dlepow
 ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
-ms.date: 07/12/2021
-ms.custom: ''
-ms.openlocfilehash: 9e81fbe26c8b98a0694789567cef9126d5ca02fc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 11/2/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: b98e958869b30a90d7006020768cdc7d8c1d62c7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563124"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063059"
 ---
-# <a name="send-events-from-api-management-to-event-grid-preview"></a>Envoyer les événements Gestion des API à Event Grid (préversion)
+# <a name="send-events-from-api-management-to-event-grid"></a>Envoyer les événements de la Gestion des API à Event Grid
 
 La Gestion des API s’intègre à [Azure Event Grid](../event-grid/overview.md) pour vous permettre d’envoyer des notifications d’événements à d’autres services et de déclencher des processus en aval. Event Grid est un service de routage d’événements complètement managé qui utilise un modèle de publication-abonnement. Event Grid offre une prise en charge intégrée des services Azure comme [Azure Functions](../azure-functions/functions-overview.md) et [Azure Logic Apps](../logic-apps/logic-apps-overview.md), et peut fournir des alertes d’événements à des services non-Azure à l’aide de webhooks.
 
@@ -63,7 +63,7 @@ Vous devez voir l’exemple d’application sans aucun message d’événement a
 Dans Event Grid, vous vous abonnez à un *sujet* pour lui indiquer les événements qui vous intéressent, et où les envoyer. Ici, vous créez un abonnement aux événements dans votre instance Gestion des API.
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre instance APIM.
-1. Sélectionnez **Événements (préversion) > + Abonnement à un événement**. 
+1. Sélectionnez **Événements > + Abonnement aux événements**. 
 1. Sous l’onglet **Informations de base** :
     * Entrez un **nom** descriptif pour l’abonnement à l’événement.
     * Dans **Types d’événements**, sélectionnez un ou plusieurs types d’événements Gestion des API à envoyer à Event Grid. Pour l’exemple de cet article, sélectionnez au moins **Microsoft.APIManagement.ProductCreated**. 

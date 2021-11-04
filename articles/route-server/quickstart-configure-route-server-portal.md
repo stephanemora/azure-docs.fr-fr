@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/08/2021
 ms.author: duau
-ms.openlocfilehash: a6714867b5b863f608e3282c5e6f3bb0d2425969
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 7dfded652c14ec6805b7fa48004cf5dfe8d72b5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091480"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131061102"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-the-azure-portal"></a>Démarrage rapide : Créer et configurer Route Server en utilisant le portail Azure
 
@@ -65,7 +65,7 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
 
 La section va vous aider à configurer l’appairage de BGP avec votre appliance virtuelle réseau.
 
-1. Accédez à [Route Server](https://aka.ms/routeserver) dans le portail Azure et sélectionnez le serveur de routage à configurer.
+1. Accédez à [Route Server](./overview.md) dans le portail Azure et sélectionnez le serveur de routage à configurer.
 
     :::image type="content" source="./media/quickstart-configure-route-server-portal/select-route-server.png" alt-text="Capture d’écran de la liste des serveurs de routage."::: 
 
@@ -95,7 +95,7 @@ Vous aurez besoin des adresses IP et du numéro ASN du pair d’Azure Route Serv
 
 Si vous disposez d’une passerelle ExpressRoute et/ou d’une passerelle VPN, et que vous voulez qu’elles échangent des routes avec le serveur de routage, vous pouvez activer l’échange de routes.
 
-1. Accédez à [Route Server](https://aka.ms/routeserver) dans le portail Azure et sélectionnez le serveur de routage à configurer.
+1. Accédez à [Route Server](./overview.md) dans le portail Azure et sélectionnez le serveur de routage à configurer.
 
 1. Dans le volet de navigation de gauche, sélectionnez **Configuration** sous *Paramètres*.
 

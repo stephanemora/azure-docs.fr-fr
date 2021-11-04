@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e610c6dd2763a029ddc0f18fe5526d77e5ff685a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 353c80be29a5bf62ed98d82374fda61a4e7b7021
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531905"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051569"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simuler la détection des risques dans Identity Protection
 
@@ -93,7 +93,7 @@ Cette section décrit les étapes à suivre pour tester les stratégies d’util
 Pour tester une stratégie de sécurité d’utilisateur à risque, suivez les étapes ci-dessous :
 
 1. Accédez au [portail Azure](https://portal.azure.com).
-1. Accédez à **Azure Active Directory** > **Sécurité** > **Vue d’ensemble**.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Identity Protection** > **Vue d’ensemble**.
 1. Sélectionnez **Configurer la stratégie d’utilisateur à risque**.
    1. Sous **Affectations**
       1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
@@ -113,7 +113,7 @@ Pour tester une stratégie de sécurité d’utilisateur à risque, suivez les �
 Pour tester une stratégie de connexion à risque, suivez les étapes ci-dessous :
 
 1. Accédez au [portail Azure](https://portal.azure.com).
-1. Accédez à **Azure Active Directory** > **Sécurité** > **Vue d’ensemble**.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Identity Protection** > **Vue d’ensemble**.
 1. Sélectionnez **Configurer la stratégie de connexion à risque**.
    1. Sous **Affectations**
       1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.

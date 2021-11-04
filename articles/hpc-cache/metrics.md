@@ -1,17 +1,17 @@
 ---
 title: Métriques et supervision Azure HPC Cache
 description: Comment voir les statistiques relatives à votre cache Azure HPC
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2021
-ms.author: v-erkel
-ms.openlocfilehash: 0963a412ac3939ad9421c2f7c1de7d72c24995ac
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.author: femila
+ms.openlocfilehash: e52ee6e3ae9960418a72f7eaf5c4068e31943d4a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113589716"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005344"
 ---
 # <a name="cache-metrics-and-monitoring"></a>Mesures et supervision du cache
 

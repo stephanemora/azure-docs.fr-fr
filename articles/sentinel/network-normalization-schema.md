@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/17/2021
 ms.author: ofshezaf
-ms.openlocfilehash: 388f7b0d3ed26c10ad91e17ccbbeabf705b3894c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: bca951ee50a503aa91a0dec680a787a5c2f95ad8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128560694"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083861"
 ---
 # <a name="azure-sentinel-network-session-normalization-schema-reference-public-preview"></a>Référence de schéma de normalisation de la session réseau Azure Sentinel (préversion publique)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Le schéma de normalisation de la session réseau permet de décrire une activité du réseau IP. Cela comprend les connexions réseau et les sessions réseau. Ces événements sont signalés, par exemple, par les systèmes d’exploitation, les routeurs, les pare-feu, les systèmes de prévention des intrusions et les passerelles de sécurité Web.
 
@@ -154,7 +156,7 @@ Les champs suivants sont générés par Log Analytics pour chaque enregistrement
 | | | |
 
 > [!NOTE]
-> Log Analytics ajoute également d’autres champs qui sont moins pertinents pour les cas d’usage de sécurité. Pour plus d’informations, consultez [Colonnes standard dans les journaux Azure Monitor](../azure-monitor/logs/log-standard-columns.md).
+> Log Analytics ajoute également d’autres champs qui sont moins pertinents pour les cas d’usage de sécurité. Pour plus d’informations, consultez [Colonnes standard dans les journaux d’Azure Monitor](../azure-monitor/logs/log-standard-columns.md).
 >
 
 ### <a name="event-fields"></a>Champs de l’événement
@@ -356,4 +358,3 @@ Pour plus d'informations, consultez les pages suivantes :
 - [Informations de référence de schéma de normalisation du DNS Azure Sentinel](dns-normalization-schema.md)
 - [Informations de référence du schéma de normalisation des événements de processus Azure Sentinel](process-events-normalization-schema.md)
 - [Informations de référence sur le schéma de normalisation des événements du registre Azure Sentinel (préversion publique)](registry-event-normalization-schema.md)
-

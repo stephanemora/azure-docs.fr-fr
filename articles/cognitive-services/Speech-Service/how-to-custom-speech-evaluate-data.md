@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: pafarley
-ms.openlocfilehash: b188ccde91f82a9d03cf83386315d0ee80ac41d0
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9dd957ccc877e09020a9f50b927ff5c2aafec7cd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538828"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080590"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Évaluer et améliorer la justesse de Custom Speech
 
@@ -96,12 +97,21 @@ Prévoyez de maintenir votre modèle personnalisé en ajoutant régulièrement d
 
 Les sections suivantes décrivent comment chaque type de données d’entraînement supplémentaires peut réduire les erreurs.
 
-### <a name="add-related-text-sentences"></a>Ajouter des phrases de texte associées
+### <a name="add-plain-text-data"></a>Ajouter des données de texte brut
 
-Lorsque vous formez un nouveau modèle personnalisé, commencez par ajouter du texte associé pour améliorer la reconnaissance des mots et des expressions spécifiques à un domaine. L’ajout de phrases de texte associées permet principalement de réduire les erreurs de substitution liées à la reconnaissance erronée des mots courants et des mots spécifiques à un domaine en les présentant en contexte. Les mots spécifiques à un domaine peuvent être des mots rares ou inventés, mais leur prononciation doit être facile à reconnaître.
+Lorsque vous formez un nouveau modèle personnalisé, commencez par ajouter des phrases en texte brut associées pour améliorer la reconnaissance des mots et des expressions spécifiques à un domaine. L’ajout de phrases de texte associées permet principalement de réduire les erreurs de substitution liées à la reconnaissance erronée des mots courants et des mots spécifiques à un domaine en les présentant en contexte. Les mots spécifiques à un domaine peuvent être des mots rares ou inventés, mais leur prononciation doit être facile à reconnaître.
 
 > [!NOTE]
 > Évitez les phrases de texte associées qui incluent du bruit, comme des caractères ou des mots non reconnaissables.
+
+### <a name="add-structured-text-data"></a>Ajouter des données des texte structurées
+
+Vous pouvez utiliser des données de texte structurées dans le format Markdown de la même façon que les phrases en texte brut, mais vous pouvez utiliser des données de texte structurées lorsque vos données suivent un modèle particulier dans des énoncés qui diffèrent uniquement par des mots ou des expressions d’une liste. Pour plus d’informations, consultez [Données de texte structurées pour la formation](how-to-custom-speech-test-and-train.md#structured-text-data-for-training-public-preview). 
+
+> [!NOTE]
+> La formation avec du texte structuré est prise en charge uniquement pour ces paramètres régionaux : `en-US`, `de-DE`, `en-UK`, `en-IN`, `fr-FR`, `fr-CA`, `es-ES`, `es-MX`. Vous devez utiliser le modèle de base le plus récent pour ces paramètres régionaux. Pour obtenir la liste des modèles de base prenant en charge la formation avec des données de texte, consultez les informations relatives à la [Prise en charge des langues](language-support.md).
+> 
+> Pour les paramètres régionaux qui ne prennent pas en charge la formation avec du texte structuré, le service prend toutes les phrases de formation qui ne font pas référence à des classes dans le cadre de la formation avec des données de texte brut.
 
 ### <a name="add-audio-with-human-labeled-transcripts"></a>Ajouter de l’audio avec des transcriptions étiquetées à la main
 
@@ -137,7 +147,7 @@ Les mots inventés ou hautement spécialisés peuvent avoir des prononciations u
 
 Le tableau suivant présente les scénarios de reconnaissance vocale et liste les documents sources à prendre en compte dans les trois catégories de contenu d’entraînement ci-dessus.
 
-| Scénario | Phrases de texte associées | Transcriptions audio + étiquetées à la main | Nouveaux mots avec prononciation |
+| Scénario | Ajouter des données de texte brut <br> données de texte structurées | Transcriptions audio + étiquetées à la main | Nouveaux mots avec prononciation |
 |----------|------------------------|------------------------------|------------------------------|
 | Centre d’appels             | documents marketing, site web, évaluations de produits relatives à l’activité du centre d’appels | appels du centre d’appels transcrits à la main | termes qui ont des prononciations ambiguës (voir Xbox ci-dessus) |
 | Assistant vocal         | lister les phrases à l’aide de toutes les combinaisons de commandes et d’entités | enregistrer les commandes vocales sur l’appareil et transcrire en texte | noms (films, chansons, produits) qui ont des prononciations uniques |

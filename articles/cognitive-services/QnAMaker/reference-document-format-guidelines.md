@@ -5,12 +5,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 53baa580d2f2c68fa32f38bddb07b5d9e362d190
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 875987a881e8e370d99530bfa975a73964d7d80c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787746"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080654"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Instructions relatives au format pour les documents et les URL importés
 
@@ -69,7 +70,7 @@ Voici ci-dessous un exemple de document PDF non structuré :
  Actuellement, cette fonctionnalité est disponible uniquement via le chargement de documents et pour les formats de fichier PDF et DOC.
 
 > [!IMPORTANT]
-> La prise en charge des fichiers/contenus non structurés est disponible uniquement dans Réponses aux questions personnalisées (préversion)
+> La prise en charge des fichiers/contenus non structurés est disponible uniquement dans Réponses aux questions.
 
 ### <a name="structured-qna-document"></a>Document QnA structuré
 

@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 09/27/2021
-ms.openlocfilehash: 6ec86ff575e4848f79dfe8c6e444e47ed6d1f8f1
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/25/2021
+ms.openlocfilehash: 1875b32d5a5f964b3a602b60d820ca377e0ee927
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129277894"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040905"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Connecter Data Factory à Azure Purview (préversion)
 
@@ -59,7 +59,7 @@ Les informations de connexion de Purview sont stockées dans la ressource de la 
     ...
     "identity": {...},
     "tags": {
-        "catalogUri": "<PurviewAccountName>.catalog.purview.azure.com //Note: used for SSIS lineage only"
+        "catalogUri": "<PurviewAccountName>.purview.azure.com/catalog //Note: used for SSIS lineage only"
     }
 }
 ```

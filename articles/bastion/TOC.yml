@@ -57,6 +57,8 @@
       href: upgrade-sku.md
     - name: Configurer la mise à l’échelle de l’hôte
       href: configure-host-scaling.md
+    - name: Se connecter à la machine virtuelle via un client Windows natif
+      href: connect-native-client-windows.md
     - name: Se connecter à un groupe de machines virtuelles identiques
       href: bastion-connect-vm-scale-set.md
     - name: Se connecter à des machines virtuelles DevTest Labs

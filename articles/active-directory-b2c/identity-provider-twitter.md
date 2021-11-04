@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 11cc9a7e58001b515e3332717bc4ccdc4f9832f6
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: dc7e2a22e07f131019e701b54ca24b978454b9ae
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130227780"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007150"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Twitter à l’aide d’Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ ms.locfileid: "130227780"
 
 ## <a name="create-an-application"></a>Créer une application
 
-Pour permettre aux utilisateurs disposant d'un compte Twitter dans Azure AD B2C de se connecter, vous devez créer une application Twitter. Si vous ne disposez pas encore d’un compte Twitter, vous pouvez en créer un à l’adresse [https://twitter.com/signup](https://twitter.com/signup). Vous devez également [Effectuer une demande de compte de développeur](https://developer.twitter.com/en/apply/user.html). Pour plus d'informations, consultez [Demande d'accès](https://developer.twitter.com/en/apply-for-access).
+Pour permettre aux utilisateurs disposant d'un compte Twitter dans Azure AD B2C de se connecter, vous devez créer une application Twitter. Si vous ne disposez pas encore d’un compte Twitter, vous pouvez en créer un à l’adresse [`https://twitter.com/signup`](https://twitter.com/signup). Vous devez également [Effectuer une demande de compte de développeur](https://developer.twitter.com/en/apply/user.html). Pour plus d'informations, consultez [Demande d'accès](https://developer.twitter.com/en/apply-for-access).
 
 1. Connectez-vous au [Portail des développeurs Twitter](https://developer.twitter.com/portal/projects-and-apps) avec les informations d'identification de votre compte Twitter.
 1. Sous **Applications autonomes**, sélectionnez **+ Créer une application**.

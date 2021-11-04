@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: c5f64fa958d8f4e4750518ed0ff4eaa691f9cbd8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 823c01dc3c6f6856bfc8cac2249da6bc1ddc411f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124786899"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054321"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Utiliser Microsoft Authenticator ou le Portail d’entreprise Intune sur des applications Xamarin
 
@@ -133,7 +133,7 @@ Dans le schéma d’URL, `BundleId` identifie de manière unique l’application
 > [!NOTE]
 > Ce schéma d’URL fait alors partie de l’URI de redirection qui identifie de manière unique votre application lorsqu’elle reçoit la réponse du répartiteur.
 
-```XML
+```xml
  <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -155,7 +155,7 @@ MSAL utilise `–canOpenURL:` pour vérifier si le répartiteur est installé su
 
 Ajoutez `msauthv2` à la section `LSApplicationQueriesSchemes` du fichier *Info.plist*, comme dans l’exemple suivant :
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>

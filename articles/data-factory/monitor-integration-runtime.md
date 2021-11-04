@@ -4,16 +4,16 @@ description: Découvrez comment surveiller plusieurs types de runtime d’intég
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 08/11/2020
-author: minhe-msft
-ms.author: hemin
+ms.date: 10/27/2021
+author: jasonwhowell
+ms.author: jasonh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e0136fe9ec7274a1788b11134527c8625c2cace
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: e51fb365939181acc3dfa509f791458ecc54bf7f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129400455"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033377"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory
 
@@ -270,7 +270,7 @@ Sur la vignette **DIAGNOSTIQUER LA CONNECTIVITÉ** de la page de supervision de 
 
 #### <a name="static-public-ip-addresses-tile"></a>Vignette ADRESSES IP PUBLIQUES STATIQUES
 
-Si vous apportez vos propres adresses IP publiques statiques pour Azure-SSIS IR, la vignette **ADRESSES IP PUBLIQUES STATIQUES** apparaît sur votre page d’analyse de Azure-SSIS IR (voir [Intégration de vos propres adresses IP publiques statiques pour Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md#publicIP)). Sur cette vignette, vous pouvez sélectionner des liens désignant vos premières/deuxième adresses IP publiques statiques pour Azure-SSIS IR pour afficher une fenêtre contextuelle, dans laquelle vous pouvez copier leur ID de ressource (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) à partir d’une zone de texte. Dans la fenêtre contextuelle, vous pouvez également sélectionner le lien **Afficher votre premier/deuxième paramètre d’adresse IP publique statique** pour gérer votre première/deuxième adresse IP publique statique dans le Portail Azure.
+Si vous apportez vos propres adresses IP publiques statiques pour Azure-SSIS IR, la vignette **ADRESSES IP PUBLIQUES STATIQUES** apparaît sur votre page d’analyse de Azure-SSIS IR (voir [Intégration de vos propres adresses IP publiques statiques pour Azure-SSIS IR](azure-ssis-integration-runtime-standard-virtual-network-injection.md#ip)). Sur cette vignette, vous pouvez sélectionner des liens désignant vos premières/deuxième adresses IP publiques statiques pour Azure-SSIS IR pour afficher une fenêtre contextuelle, dans laquelle vous pouvez copier leur ID de ressource (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) à partir d’une zone de texte. Dans la fenêtre contextuelle, vous pouvez également sélectionner le lien **Afficher votre premier/deuxième paramètre d’adresse IP publique statique** pour gérer votre première/deuxième adresse IP publique statique dans le Portail Azure.
 
 :::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png" alt-text="Supervision de votre IR Azure-SSIS – Vignette STATIQUE":::
 
