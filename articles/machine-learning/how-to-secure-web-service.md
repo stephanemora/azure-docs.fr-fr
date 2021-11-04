@@ -9,12 +9,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 07/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 8194b5c170186c5498e181e00f27c91156ae4ada
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: dcc46e36f85642380cb1c3d2a773698e9807e0f9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428176"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438319"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning
 
@@ -112,9 +112,6 @@ Vous pouvez activer TLS à l’aide d’un certificat Microsoft ou d’un certif
     ```
     > [!IMPORTANT]
     > Lorsque vous utilisez un certificat fourni par Microsoft, vous n'êtes pas tenu d'acheter votre propre certificat ou nom de domaine.
-
-    > [!WARNING]
-    > Si votre cluster AKS est configuré avec un équilibreur de charge interne, l'utilisation d'un certificat fourni par Microsoft n’est __pas prise en charge__ et vous devez utiliser un certificat personnalisé pour activer TLS.
 
 * **Lorsque vous utilisez un certificat personnalisé que vous avez acheté**, vous utilisez les paramètres *ssl_cert_pem_file*, *ssl_key_pem_file* et *ssl_cname*. L’exemple suivant montre comment utiliser les fichiers .pem pour créer une configuration s'appuyant sur un certificat TLS/SSL que vous avez acheté :
  

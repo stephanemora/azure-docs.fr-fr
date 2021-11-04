@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 10/26/2021
 ms.author: jasteppe
-ms.openlocfilehash: ef22404d96599768ad55c3c3687e3df9fb4bbf35
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3550bab190c2b5bbec5a03faa8131094003ee85b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131040468"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446008"
 ---
 # <a name="how-to-use-device-mapping"></a>Utilisation du mappage des appareils
 
@@ -454,6 +454,6 @@ IotCentralJsonPathContentTemplate ne nécessite pas non plus DeviceIdExpression 
 ## <a name="next-steps"></a>Étapes suivantes
 
 >[!div class="nextstepaction"]
->[Utilisation des mappages de destination FHIR](how-to-use-fhir-mapping-iot.md)
+>[Utilisation du mappage de destination FHIR](how-to-use-fhir-mapping-iot.md)
 
 (FHIR&#174;) est une marque déposée de [HL7](https://hl7.org/fhir/) qui est utilisée avec l’autorisation de HL7.

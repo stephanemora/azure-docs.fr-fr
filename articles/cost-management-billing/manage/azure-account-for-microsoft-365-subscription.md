@@ -1,7 +1,7 @@
 ---
 title: S’inscrire à Microsoft 365 avec un compte Azure
 description: Apprenez à créer un abonnement Microsoft 365 avec un compte Azure. Vous pouvez également associer des comptes Azure et Microsoft 365 existants entre eux.
-author: JiangChen79
+author: bandersmsft
 ms.reviewer: adwise
 tags: billing,top-support-issue
 ms.service: cost-management-billing
@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 383f9a2f2b4cd3b1e3ed1a4330f0b91f16dca74c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4320e3c40cd7d7f9c9cbfa70959de775965e17a0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128648731"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473259"
 ---
 # <a name="sign-up-for-a-microsoft-365-subscription-with-your-azure-account"></a>Souscrire un abonnement Microsoft 365 avec un compte Azure
 

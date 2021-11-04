@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.date: 09/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f94a21268625adf3df4dda2f022868f7cc40f72f
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 19101cea8f435f09cb37aa2340f0bc02788442f3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060317"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459061"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gérer des pré-scripts et des post-scripts
 
@@ -181,7 +181,7 @@ Les pré-scripts et les post-scripts s’exécutent sous la forme de runbooks da
 
 Les tâches antérieures et les tâches postérieures s’exécutent sous la forme de runbooks, et non de manière native, sur les machines Azure de votre déploiement. Pour interagir avec vos machines Azure, vous devez disposer des éléments suivants :
 
-* Une [identité managée](../automation-security-overview.md#managed-identities-preview) ou un compte d’identification
+* Une [identité managée](../automation-security-overview.md#managed-identities) ou un compte d’identification
 * runbook à exécuter.
 
 Pour interagir avec des machines Azure, vous devez utiliser la cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) pour interagir avec vos machines virtuelles Azure. Pour savoir comment faire, consultez l’exemple de runbook [Update Management - run script with Run command](https://github.com/azureautomation/update-management-run-script-with-run-command).
@@ -190,7 +190,7 @@ Pour interagir avec des machines Azure, vous devez utiliser la cmdlet [Invoke-Az
 
 Les tâches antérieures et les tâches postérieures s’exécutent dans le contexte Azure et n’ont pas accès aux machines non Azure. Pour interagir avec les machines non-Azure, vous devez disposer des éléments suivants :
 
-* Une [identité managée](../automation-security-overview.md#managed-identities-preview) ou un compte d’identification
+* Une [identité managée](../automation-security-overview.md#managed-identities) ou un compte d’identification
 * fonctionnalité Runbook Worker hybride installée sur la machine ;
 * runbook à exécuter localement ;
 * runbook parent.

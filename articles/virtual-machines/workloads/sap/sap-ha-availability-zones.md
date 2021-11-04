@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/29/2020
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 120936f3d2b76fd1e66fc12bfad9bf2f0959de5a
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: e84bd6b69c19a40fe660f17d8b41c38e66bd28d8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070163"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448991"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurations de la charge de travail SAP avec des zones de disponibilité Azure
 En plus du déploiement des différentes couches d’architecture SAP dans les groupes à haute disponibilité Azure, les nouvelles [Zones de disponibilité Azure](../../../availability-zones/az-overview.md) peuvent également être utilisées pour le déploiements des charges de travail SAP. La définition des zones de disponibilité Azure est la suivante : « Emplacements physiques uniques dans une région. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. » Les zones de disponibilité Azure ne sont pas disponibles dans toutes les régions. Pour les régions Azure qui fournissent des Zones de disponibilité, consultez la [carte des régions Azure](https://azure.microsoft.com/global-infrastructure/geographies/). Cette carte vous montre quelles régions fournissent ou vont prochainement fournir des Zones de disponibilité. 
@@ -112,6 +112,7 @@ Les régions Azure où un tel déploiement actif/actif doit être possible sans 
 - USA Est (deux des trois zones)
 - USA Centre Sud (deux des trois zones)
 - Royaume-Uni Sud (deux des trois zones)
+- Asie Sud-Est
 
 Les régions Azure dans lesquelles cette architecture de déploiement SAP entre zones n’est pas recommandée sont les suivantes :
 
@@ -153,7 +154,6 @@ Si vous ne trouvez pas un delta acceptable entre la latence réseau au sein d’
 
 Les régions Azure dans lesquelles ce type d’architecture de déploiement dans les différentes zones peut être préférable sont les suivantes :
 
-- Asie Sud-Est
 - Australie Est
 - Brésil Sud
 - Allemagne Centre-Ouest

@@ -3,7 +3,7 @@ title: 'Didacticiel : Ajouter Azure CDN à une application web Azure App Service
 description: Dans ce didacticiel, vous allez apprendre à ajouter un réseau de distribution de contenu (CDN) à une application web Azure App Service pour mettre en cache et distribuer vos fichiers statiques à partir des serveurs situés à proximité de vos clients, partout dans le monde.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/14/2018
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: 3f1dacb57931913edfb181f023bdf98717777d50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae9c98f75e722f42adcd7cdec4f8a7df6c334c9a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97562240"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423714"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutoriel : Ajouter Azure CDN à une application web Azure App Service
 

@@ -78,7 +78,7 @@
 - name: Ressources
   items:
     - name: Feedback sur l’informatique confidentielle
-      href: 'https://feedback.azure.com/forums/919792-azure-confidential-compute'
+      href: 'https://feedback.azure.com/d365community/'
     - name: Stackoverflow
       href: 'https://stackoverflow.com/questions/tagged/azure-confidential-computing'
     - name: Consortium sur l’informatique confidentielle

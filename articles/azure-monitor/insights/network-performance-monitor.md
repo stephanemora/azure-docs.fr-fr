@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: bd0fb0720218b938b8c10454afeafba85887fa2c
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 5cb27140e38fa264973bb29d8137b270297a3b0e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779123"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462080"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -295,7 +295,7 @@ Les informations sur les tarifs sont disponibles [en ligne](network-performance-
 
 ## <a name="provide-feedback"></a>Fournir des commentaires 
 
-* **UserVoice** : Vous pouvez poster vos idées concernant les fonctionnalités Network Performance Monitor que vous aimeriez voir améliorer. Visitez la [page UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
+* **UserVoice** : Vous pouvez poster vos idées concernant les fonctionnalités Network Performance Monitor que vous aimeriez voir améliorer. Visitez la [page UserVoice](https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0?c=611733d4-1b25-ec11-b6e6-000d3a4f09d0). 
 
 * **Rejoignez notre cohorte** : Nous sommes toujours ravis d’accueillir de nouveaux clients dans notre cohorte. Dans ce cadre, vous pouvez accéder en avant-première aux nouvelles fonctionnalités et avoir l’opportunité de nous aider à améliorer Network Performance Monitor. Si vous souhaitez y participer, répondez à cette [enquête rapide](https://aka.ms/npmcohort). 
 

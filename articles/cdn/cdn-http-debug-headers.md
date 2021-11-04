@@ -3,7 +3,7 @@ title: En-têtes HTTP X-EC-Debug pour le moteur de règles Azure CDN | Microsoft
 description: L’en-tête de requête de cache de débogage X-EC-Debug fournit des informations supplémentaires sur la stratégie de cache qui est appliquée à la ressource demandée. Ces en-têtes sont spécifiques à Verizon.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
-ms.author: allensu
-ms.openlocfilehash: 7b0171b2bf74f60e2cc1ea7600f313934737103e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: duau
+ms.openlocfilehash: 2a066fa60956992dcc05e1f6b54d1513949a2a43
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639638"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454919"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>En-têtes HTTP X-EC-Debug pour le moteur de règles Azure CDN
 L’en-tête de requête de cache de débogage `X-EC-Debug` fournit des informations supplémentaires sur la stratégie de cache qui est appliquée à la ressource demandée. Ces en-têtes sont spécifiques aux produits **Azure CDN Premium de Verizon**.
