@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/12/2021
 ms.author: azfuncdf
-ms.openlocfilehash: c5d3ac097efd81b369db16d6f7b6a4bf59b7540a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 16de5f5950cf305115de4c2849b3ebbbc4cf2536
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377396"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507718"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Contrôle de version dans l’extension Fonctions durables (Azure Functions)
 
@@ -35,7 +35,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-Cette fonction simpliste récupère les résultats de **Foo** et les passe à **Bar**. Partons du principe que nous devons modifier la valeur renvoyée par **Foo**, en remplaçant `bool` par `int`, afin de prendre en charge un plus grand éventail de valeurs de résultats. Le résultat ressemble à ceci :
+Cette fonction simpliste récupère les résultats de **Foo** et les passe à **Bar**. Partons du principe que nous devons modifier la valeur renvoyée par **Foo**, en remplaçant `bool` par `string`, afin de prendre en charge un plus grand éventail de valeurs de résultats. Le résultat ressemble à ceci :
 
 ```csharp
 [FunctionName("FooBar")]

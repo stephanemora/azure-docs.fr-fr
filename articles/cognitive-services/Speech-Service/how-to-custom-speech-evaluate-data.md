@@ -3,20 +3,20 @@ title: Évaluer et améliorer la justesse de Custom Speech - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Dans ce document, vous allez apprendre à mesurer et à améliorer de manière quantitative la qualité de notre modèle de conversion de parole en texte ou de votre modèle personnalisé. Des données de transcription audio et étiquetées à la main sont nécessaires pour tester la précision ; il faut également fournir entre 30 minutes et 5 heures d’audio représentatif.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: pafarley
+ms.author: eur
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9dd957ccc877e09020a9f50b927ff5c2aafec7cd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2a0ad4a926365ffe8bed5ebda5b9848ce72c7845
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080590"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501112"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Évaluer et améliorer la justesse de Custom Speech
 

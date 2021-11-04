@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/05/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 117fe7d8c624c0776c6ec6f61296101a2f844f1b
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: a60ab8498076eb6380657b9cd57a3f8d0db31da2
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432803"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576412"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Prise en charge des zones de disponibilité pour les environnements App Service
 
@@ -58,29 +58,29 @@ La seule modification nécessaire dans un modèle ARM pour spécifier un enviro
 L’exemple d’extrait de modèle ARM ci-dessous montre la nouvelle propriété ***zones*** spécifiant que l’ASE ILB doit être épinglé à la zone 2.
 
 ```
-   "resources": [
-      {
-         "type": "Microsoft.Web/hostingEnvironments",
-         "kind": "ASEV2",
-         "name": "yourASENameHere",
-         "apiVersion": "2015-08-01",
-         "location": "your location here",
-         "zones": [
+"resources": [
+    {
+        "type": "Microsoft.Web/hostingEnvironments",
+        "kind": "ASEV2",
+        "name": "yourASENameHere",
+        "apiVersion": "2015-08-01",
+        "location": "your location here",
+        "zones": [
             "2"
-         ],
-         "properties": {
-         "name": "yourASENameHere",
-         "location": "your location here",
-         "ipSslAddressCount": 0,
-         "internalLoadBalancingMode": "3",
-         "dnsSuffix": "contoso-internal.com",
-         "virtualNetwork": {
-             "Id": "/subscriptions/your-subscription-id-here/resourceGroups/your-resource-group-here/providers/Microsoft.Network/virtualNetworks/your-vnet-name-here",
-             "Subnet": "yourSubnetNameHere"
-          }
-         }
-      }
-    ]
+        ],
+        "properties": {
+            "name": "yourASENameHere",
+            "location": "your location here",
+            "ipSslAddressCount": 0,
+            "internalLoadBalancingMode": "3",
+            "dnsSuffix": "contoso-internal.com",
+            "virtualNetwork": {
+                "Id": "/subscriptions/your-subscription-id-here/resourceGroups/your-resource-group-here/providers/Microsoft.Network/virtualNetworks/your-vnet-name-here",
+                "Subnet": "yourSubnetNameHere"
+            }
+        }
+    }
+]
 ```
 
 Pour que votre zone d’applications soit redondante, vous devez déployer deux ASE ILB zonaux. Les deux ASE ILB zonaux doivent se trouver dans des zones de disponibilité distinctes. Vous devez ensuite déployer vos applications dans chacun des ASE ILB. Une fois vos applications créées, vous devez configurer une solution d’équilibrage de charge. La solution recommandée consiste à déployer une [passerelle applicative avec redondance interzone](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) en amont de l’ASE ILB zonal. 

@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 11/03/2021
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 65deecee71871d1417f49878ec0dcf7c58ac94bc
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: ccf2079347ec2be85457161fd6c21b3cf6145fce
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116065"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131559007"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -377,6 +377,7 @@ Le code suivant montre comment inscrire un pré-déclencheur à l’aide du kit 
 
 ```python
 import azure.cosmos.cosmos_client as cosmos_client
+from azure.cosmos import documents
 
 url = "your_cosmos_db_account_URI"
 key = "your_cosmos_db_account_key"
@@ -532,6 +533,7 @@ Le code suivant montre comment inscrire un post-déclencheur à l’aide du kit 
 
 ```python
 import azure.cosmos.cosmos_client as cosmos_client
+from azure.cosmos import documents
 
 url = "your_cosmos_db_account_URI"
 key = "your_cosmos_db_account_key"

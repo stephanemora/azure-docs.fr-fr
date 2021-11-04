@@ -18,6 +18,208 @@
     - name: Politique de support des versions
       href: concepts-version-policy.md
       displayName: version policy
+- name: Serveur flexible
+  items:
+    - name: Documentation Serveur flexible
+      href: flexible-server/index.yml
+    - name: Vue d’ensemble
+      items:
+        - name: "Qu’est-ce que Serveur flexible\_?"
+          href: flexible-server/overview.md
+        - name: Calcul et stockage
+          href: flexible-server/concepts-compute-storage.md
+    - name: Démarrages rapides
+      expanded: true
+      items:
+        - name: Créer un serveur flexible MySQL
+          items:
+            - name: Portail Azure
+              href: flexible-server/quickstart-create-server-portal.md
+            - name: Azure CLI
+              href: flexible-server/quickstart-create-server-cli.md
+            - name: Modèle ARM
+              displayName: Resource Manager
+              href: flexible-server/quickstart-create-arm-template.md
+        - name: Se connecter et interroger
+          items:
+            - name: Azure CLI
+              href: flexible-server/connect-azure-cli.md
+            - name: PHP
+              href: flexible-server/connect-php.md
+            - name: MySQL Workbench
+              href: flexible-server/connect-workbench.md
+            - name: Python
+              href: flexible-server/connect-python.md
+            - name: Java
+              href: flexible-server/connect-java.md
+            - name: .NET
+              href: flexible-server/connect-csharp.md
+            - name: Se connecter au serveur dans le réseau virtuel
+              href: flexible-server/quickstart-create-connect-server-vnet.md
+        - name: Se connecter avec TLS/SSL
+          href: flexible-server/how-to-connect-tls-ssl.md
+        - name: Configurer les paramètres du serveur
+          items:
+            - name: Portail Azure
+              href: flexible-server/how-to-configure-server-parameters-portal.md
+              displayName: server parameters
+            - name: Azure CLI
+              href: flexible-server/how-to-configure-server-parameters-cli.md
+              displayName: 'server parameters, cli'
+        - name: Créer des bases de données et des utilisateurs
+          href: howto-create-users.md
+          displayName: users
+    - name: Concepts
+      items:
+        - name: Gestion de serveur
+          items:
+            - name: Serveurs
+              href: flexible-server/concept-servers.md
+            - name: Paramètres de serveur
+              href: flexible-server/concepts-server-parameters.md
+            - name: Limites
+              href: flexible-server/concepts-limitations.md
+        - name: Mise en réseau
+          items:
+            - name: Concepts réseau
+              href: flexible-server/concepts-networking.md
+              displayName: 'virtual network, IP address, public access'
+            - name: Accès privé
+              href: flexible-server/concepts-networking-vnet.md
+              displayName: virtual network
+            - name: Accès public
+              href: flexible-server/concepts-networking-public.md
+              displayName: 'Public access,'
+        - name: Maintenance des services
+          items:
+            - name: Maintenance planifiée
+              href: flexible-server/concepts-maintenance.md
+        - name: Haute disponibilité
+          items:
+            - name: Vue d’ensemble de la continuité des activités
+              href: flexible-server/concepts-business-continuity.md
+            - name: Haute disponibilité
+              href: flexible-server/concepts-high-availability.md
+        - name: Surveillance
+          items:
+            - name: Vue d'ensemble de la surveillance
+              href: flexible-server/concepts-monitoring.md
+            - name: Journaux de requêtes lentes
+              href: flexible-server/concepts-slow-query-logs.md
+            - name: Journaux d’audit
+              href: flexible-server/concepts-audit-logs.md
+            - name: Workbooks
+              href: flexible-server/concepts-workbooks.md
+        - name: Réplication
+          items:
+            - name: Réplication de données entrantes
+              href: flexible-server/concepts-data-in-replication.md
+              displayName: 'replication, read replica'
+            - name: Réplicas en lecture
+              href: flexible-server/concepts-read-replicas.md
+        - name: Sauvegarder et restaurer
+          items:
+            - name: Concepts de sauvegarde et de restauration
+              href: flexible-server/concepts-backup-restore.md
+    - name: Tutoriels
+      items:
+        - name: Développement d'applications
+          items:
+            - name: WordPress sur Azure Kubernetes
+              href: flexible-server/tutorial-deploy-wordpress-on-aks.md
+            - name: Créer une application PHP (Laravel) avec une base de données
+              href: flexible-server/tutorial-php-database-app.md
+            - name: Se connecter avec une application web privée
+              href: flexible-server/tutorial-webapp-server-vnet.md
+            - name: Déploiement de base de données
+              items:
+                - name: GitHub Actions
+                  href: quickstart-mysql-github-actions.md
+                - name: Azure Pipelines
+                  href: flexible-server/azure-pipelines-deploy-database-task.md
+        - name: Gestion de serveur
+          items:
+            - name: Gérer un serveur
+              items:
+                - name: Portail Azure
+                  href: flexible-server/how-to-manage-server-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-server-cli.md
+            - name: Arrêter/démarrer le serveur
+              items:
+                - name: Portail Azure
+                  href: flexible-server/how-to-stop-start-server-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-restart-stop-start-server-cli.md
+            - name: Redémarrer le serveur
+              items:
+                - name: Portail Azure
+                  href: flexible-server/how-to-restart-server-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-restart-stop-start-server-cli.md
+        - name: Mise en réseau
+          items:
+            - name: Configurer un accès privé (intégration de VNet)
+              items:
+                - name: Portail Azure
+                  href: flexible-server/how-to-manage-virtual-network-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-virtual-network-cli.md
+            - name: Configurer un accès public (adresses IP autorisées)
+              items:
+                - name: Portail Azure
+                  href: flexible-server/how-to-manage-firewall-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-firewall-cli.md
+        - name: Maintenance des services
+          items:
+            - name: Configurer une maintenance planifiée avec le portail Azure
+              href: flexible-server/how-to-maintenance-portal.md
+        - name: Haute disponibilité
+          items:
+            - name: Configurer la haute disponibilité redondante interzone
+              items:
+                - name: Portail Azure
+                  href: flexible-server/how-to-configure-high-availability.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-configure-high-availability-cli.md
+        - name: Surveillance
+          items:
+            - name: Analyse des performances des requêtes
+              href: flexible-server/tutorial-query-performance-insights.md
+            - name: Audit
+              href: flexible-server/tutorial-configure-audit.md
+            - name: Alertes
+              href: flexible-server/how-to-alert-on-metric.md
+        - name: Réplication
+          items:
+            - name: Configurer la réplication de données entrantes
+              href: flexible-server/how-to-data-in-replication.md
+              displayName: 'data-in replication, replica, failover'
+            - name: Créer des réplicas en lecture
+              items:
+                - name: Portail Azure
+                  href: flexible-server/how-to-read-replicas-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-read-replicas-cli.md
+        - name: Sauvegarder et restaurer
+          items:
+            - name: Restaurer un serveur
+              items:
+                - name: Portail Azure
+                  href: flexible-server/how-to-restore-server-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-restore-server-cli.md
+        - name: Dépannage
+          items:
+            - name: Résoudre les erreurs de connexion
+              href: flexible-server/how-to-troubleshoot-common-connection-issues.md
+            - name: Résoudre les erreurs CLI
+              href: flexible-server/how-to-troubleshoot-cli-errors.md
+    - name: Exemples
+      items:
+        - name: Exemples d’interface de ligne de commande Azure
+          href: flexible-server/sample-scripts-azure-cli.md
 - name: Serveur unique
   items:
     - name: Documentation Serveur unique
@@ -388,208 +590,6 @@
           href: sample-scripts-azure-cli.md
         - name: Configurer le regroupement de connexions Java
           href: sample-scripts-java-connection-pooling.md
-- name: Serveur flexible
-  items:
-    - name: Documentation Serveur flexible
-      href: flexible-server/index.yml
-    - name: Vue d’ensemble
-      items:
-        - name: "Qu’est-ce que Serveur flexible\_?"
-          href: flexible-server/overview.md
-        - name: Calcul et stockage
-          href: flexible-server/concepts-compute-storage.md
-    - name: Démarrages rapides
-      expanded: true
-      items:
-        - name: Créer un serveur flexible MySQL
-          items:
-            - name: Portail Azure
-              href: flexible-server/quickstart-create-server-portal.md
-            - name: Azure CLI
-              href: flexible-server/quickstart-create-server-cli.md
-            - name: Modèle ARM
-              displayName: Resource Manager
-              href: flexible-server/quickstart-create-arm-template.md
-        - name: Se connecter et interroger
-          items:
-            - name: Azure CLI
-              href: flexible-server/connect-azure-cli.md
-            - name: PHP
-              href: flexible-server/connect-php.md
-            - name: MySQL Workbench
-              href: flexible-server/connect-workbench.md
-            - name: Python
-              href: flexible-server/connect-python.md
-            - name: Java
-              href: flexible-server/connect-java.md
-            - name: .NET
-              href: flexible-server/connect-csharp.md
-            - name: Se connecter au serveur dans le réseau virtuel
-              href: flexible-server/quickstart-create-connect-server-vnet.md
-        - name: Se connecter avec TLS/SSL
-          href: flexible-server/how-to-connect-tls-ssl.md
-        - name: Configurer les paramètres du serveur
-          items:
-            - name: Portail Azure
-              href: flexible-server/how-to-configure-server-parameters-portal.md
-              displayName: server parameters
-            - name: Azure CLI
-              href: flexible-server/how-to-configure-server-parameters-cli.md
-              displayName: 'server parameters, cli'
-        - name: Créer des bases de données et des utilisateurs
-          href: howto-create-users.md
-          displayName: users
-    - name: Concepts
-      items:
-        - name: Gestion de serveur
-          items:
-            - name: Serveurs
-              href: flexible-server/concept-servers.md
-            - name: Paramètres de serveur
-              href: flexible-server/concepts-server-parameters.md
-            - name: Limites
-              href: flexible-server/concepts-limitations.md
-        - name: Mise en réseau
-          items:
-            - name: Concepts réseau
-              href: flexible-server/concepts-networking.md
-              displayName: 'virtual network, IP address, public access'
-            - name: Accès privé
-              href: flexible-server/concepts-networking-vnet.md
-              displayName: virtual network
-            - name: Accès public
-              href: flexible-server/concepts-networking-public.md
-              displayName: 'Public access,'
-        - name: Maintenance des services
-          items:
-            - name: Maintenance planifiée
-              href: flexible-server/concepts-maintenance.md
-        - name: Haute disponibilité
-          items:
-            - name: Vue d’ensemble de la continuité des activités
-              href: flexible-server/concepts-business-continuity.md
-            - name: Haute disponibilité
-              href: flexible-server/concepts-high-availability.md
-        - name: Surveillance
-          items:
-            - name: Vue d'ensemble de la surveillance
-              href: flexible-server/concepts-monitoring.md
-            - name: Journaux de requêtes lentes
-              href: flexible-server/concepts-slow-query-logs.md
-            - name: Journaux d’audit
-              href: flexible-server/concepts-audit-logs.md
-            - name: Workbooks
-              href: flexible-server/concepts-workbooks.md
-        - name: Réplication
-          items:
-            - name: Réplication de données entrantes
-              href: flexible-server/concepts-data-in-replication.md
-              displayName: 'replication, read replica'
-            - name: Réplicas en lecture
-              href: flexible-server/concepts-read-replicas.md
-        - name: Sauvegarder et restaurer
-          items:
-            - name: Concepts de sauvegarde et de restauration
-              href: flexible-server/concepts-backup-restore.md
-    - name: Tutoriels
-      items:
-        - name: Développement d'applications
-          items:
-            - name: WordPress sur Azure Kubernetes
-              href: flexible-server/tutorial-deploy-wordpress-on-aks.md
-            - name: Créer une application PHP (Laravel) avec une base de données
-              href: flexible-server/tutorial-php-database-app.md
-            - name: Se connecter avec une application web privée
-              href: flexible-server/tutorial-webapp-server-vnet.md
-            - name: Déploiement de base de données
-              items:
-                - name: GitHub Actions
-                  href: quickstart-mysql-github-actions.md
-                - name: Azure Pipelines
-                  href: flexible-server/azure-pipelines-deploy-database-task.md
-        - name: Gestion de serveur
-          items:
-            - name: Gérer un serveur
-              items:
-                - name: Portail Azure
-                  href: flexible-server/how-to-manage-server-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-manage-server-cli.md
-            - name: Arrêter/démarrer le serveur
-              items:
-                - name: Portail Azure
-                  href: flexible-server/how-to-stop-start-server-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-restart-stop-start-server-cli.md
-            - name: Redémarrer le serveur
-              items:
-                - name: Portail Azure
-                  href: flexible-server/how-to-restart-server-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-restart-stop-start-server-cli.md
-        - name: Mise en réseau
-          items:
-            - name: Configurer un accès privé (intégration de VNet)
-              items:
-                - name: Portail Azure
-                  href: flexible-server/how-to-manage-virtual-network-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-manage-virtual-network-cli.md
-            - name: Configurer un accès public (adresses IP autorisées)
-              items:
-                - name: Portail Azure
-                  href: flexible-server/how-to-manage-firewall-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-manage-firewall-cli.md
-        - name: Maintenance des services
-          items:
-            - name: Configurer une maintenance planifiée avec le portail Azure
-              href: flexible-server/how-to-maintenance-portal.md
-        - name: Haute disponibilité
-          items:
-            - name: Configurer la haute disponibilité redondante interzone
-              items:
-                - name: Portail Azure
-                  href: flexible-server/how-to-configure-high-availability.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-configure-high-availability-cli.md
-        - name: Surveillance
-          items:
-            - name: Analyse des performances des requêtes
-              href: flexible-server/tutorial-query-performance-insights.md
-            - name: Audit
-              href: flexible-server/tutorial-configure-audit.md
-            - name: Alertes
-              href: flexible-server/how-to-alert-on-metric.md
-        - name: Réplication
-          items:
-            - name: Configurer la réplication de données entrantes
-              href: flexible-server/how-to-data-in-replication.md
-              displayName: 'data-in replication, replica, failover'
-            - name: Créer des réplicas en lecture
-              items:
-                - name: Portail Azure
-                  href: flexible-server/how-to-read-replicas-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-read-replicas-cli.md
-        - name: Sauvegarder et restaurer
-          items:
-            - name: Restaurer un serveur
-              items:
-                - name: Portail Azure
-                  href: flexible-server/how-to-restore-server-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-restore-server-cli.md
-        - name: Dépannage
-          items:
-            - name: Résoudre les erreurs de connexion
-              href: flexible-server/how-to-troubleshoot-common-connection-issues.md
-            - name: Résoudre les erreurs CLI
-              href: flexible-server/how-to-troubleshoot-cli-errors.md
-    - name: Exemples
-      items:
-        - name: Exemples d’interface de ligne de commande Azure
-          href: flexible-server/sample-scripts-azure-cli.md
 - name: Migration
   items:
     - name: Choisir les outils appropriés en vue de la migration vers Azure Database pour MySQL

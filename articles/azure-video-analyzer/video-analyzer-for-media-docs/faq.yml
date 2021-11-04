@@ -10,11 +10,11 @@ metadata:
   ms.subservice: azure-video-analyzer-media
   ms.date: 05/25/2021
   ms.author: juliako
-  ms.openlocfilehash: 8776f899a21639162448e681fdf8b32247b16fc4
-  ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+  ms.openlocfilehash: b6b28c84c8a46df55394a026c0998be8bbc2c7bb
+  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/15/2021
+  ms.lasthandoff: 11/04/2021
   ms.locfileid: "130044191"
 title: Forum aux questions sur Video Analyzer for Media
 summary: Cet article répond aux questions fréquemment posées sur Azure Video Analyzer for Media (anciennement Video Indexer).
@@ -118,10 +118,10 @@ sections:
   questions:
   - question: Quelles sont les API proposées par Video Analyzer for Media ?
     answer: >
-      Les API Video Analyzer for Media permettent d’effectuer des opérations telles que l’indexation, l’extraction de métadonnées, la gestion des ressources, la traduction, l’incorporation, la personnalisation des modèles, et bien d’autres choses encore. Des informations détaillées sur l’utilisation de l’API Video Analyzer for Media sont disponibles sur le [portail de développement de Video Analyzer for Media](https://api-portal.videoindexer.ai/).
+      Les API de Video Analyzer for Media permettent l’indexation, l’extraction de métadonnées, la gestion des ressources, la traduction, l’incorporation, la personnalisation de modèles, etc. Des informations détaillées sur l’utilisation de l’API Video Analyzer for Media sont disponibles sur le [portail de développement de Video Analyzer for Media](https://api-portal.videoindexer.ai/).
   - question: Quels sont les kits SDK clients proposés par Video Analyzer for Media ?
     answer: Il n’y a aucun kit SDK client disponible actuellement. L’équipe de Video Analyzer for Media travaille en ce moment à l’élaboration des kits SDK et prévoit de les diffuser prochainement.
-  - question: Comment bien démarrer avec l’API Video Analyzer for Media ?
+  - question: Comment démarrer avec l’API Video Analyzer for Media ?
     answer: >
       Suivez le [tutoriel pour bien démarrer avec l’API Video Analyzer for Media](video-indexer-use-apis.md).
   - question: Quelle différence y a-t-il entre l’API Video Analyzer for Media et l’API Azure Media Services v3 ?

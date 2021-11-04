@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: b99df2f95838fe1913876a3e6a138935806df836
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 05dd347914d7be942c00232de78cf89484f07555
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531472"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555321"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Placement d’un groupe de serveurs PostgreSQL Hyperscale pour Azure Arc
 
@@ -139,7 +139,7 @@ Effectuons maintenant un scale-out pour ajouter un troisième nœud Worker au gr
 Pour effectuer un scale-out, exécutez la commande suivante :
 
 ```azurecli
-az postgres arc-server edit --name postgres01 --workers 3 --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit --name postgres01 --workers 3 --k8s-namespace arc3 --use-k8s
 ```
 
 Ce qui génère la sortie suivante :
@@ -152,15 +152,20 @@ postgres01 is Ready
 Répertoriez les groupes de serveurs déployés dans le contrôleur de données Azure Arc et vérifiez que le groupe de serveurs s'exécute désormais avec trois Workers. Exécutez la commande suivante :
 
 ```azurecli
-az postgres arc-server list --k8s-namespace <namespace> --use-k8s
+az postgres arc-server list --k8s-namespace arc3 --use-k8s
 ```
 
 Et notez que nous sommes passés de deux à trois Workers :
 
 ```output
-Name        State    Workers
-----------  -------  ---------
-postgres01  Ready    3
+[
+  {
+    "name": "postgres01",
+    "replicas": 1,
+    "state": "Ready",
+    "workers": 3
+  }
+]
 ```
 
 Comme précédemment, notez que le groupe de serveurs utilise désormais un total de quatre pods :
@@ -198,10 +203,10 @@ Le placement des instances PostgreSQL sur les nœuds physiques du cluster est ma
 
 |Rôle du groupe de serveurs|Pod du groupe de serveurs|Nœud physique Kubernetes hébergeant le pod
 |-----|-----|-----
-|Coordinatrice|postgres01-0|aks-agentpool-42715708-vmss000000
-|Worker|postgres01-1|aks-agentpool-42715708-vmss000002
-|Worker|postgres01-2|aks-agentpool-42715708-vmss000003
-|Worker|postgres01-3|aks-agentpool-42715708-vmss000000
+|Coordinatrice|postgres01c-0|aks-agentpool-42715708-vmss000000
+|Worker|postgres01w-1|aks-agentpool-42715708-vmss000002
+|Worker|postgres01w-2|aks-agentpool-42715708-vmss000003
+|Worker|postgres01w-3|aks-agentpool-42715708-vmss000000
 
 Et notez que le pod du nouveau Worker (postgres01w-2) a été placé sur le même nœud que le coordinateur. 
 
@@ -287,7 +292,7 @@ Nous constatons que le nouveau nœud physique du cluster Kubernetes héberge uni
 Le cinquième nœud physique n'héberge pas encore de charge de travail. Au fil du scale-out de PostgreSQL Hyperscale pour Azure Arc, Kubernetes optimisera le placement du nouveau pod PostgreSQL, et il ne devrait pas le colocaliser sur des nœuds physiques qui hébergent déjà plus de charges de travail. Exécutez la commande suivante pour faire passer PostgreSQL Hyperscale pour Azure Arc de 3 à 4 Workers. À la fin de l'opération, le groupe de serveurs sera constitué et réparti sur cinq instances PostgreSQL, un coordinateur et quatre Workers.
 
 ```azurecli
-az postgres arc-server edit --name postgres01 --workers 4 --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit --name postgres01 --workers 4 --k8s-namespace arc3 --use-k8s
 ```
 
 Ce qui génère la sortie suivante :
@@ -300,15 +305,20 @@ postgres01 is Ready
 Répertoriez les groupes de serveurs déployés dans le contrôleur de données et vérifiez que le groupe de serveurs s'exécute désormais avec quatre Workers :
 
 ```azurecli
-az postgres arc-server list --k8s-namespace <namespace> --use-k8s
+az postgres arc-server list --k8s-namespace arc3 --use-k8s
 ```
 
 Et notez que nous sommes passés de trois à quatre Workers. 
 
 ```console
-Name        State    Workers
-----------  -------  ---------
-postgres01  Ready    4
+[
+  {
+    "name": "postgres01",
+    "replicas": 1,
+    "state": "Ready",
+    "workers": 4
+  }
+]
 ```
 
 Comme précédemment, notez que le groupe de serveurs utilise maintenant quatre pods :

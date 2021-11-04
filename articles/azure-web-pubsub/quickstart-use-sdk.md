@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
-ms.date: 08/06/2021
-ms.openlocfilehash: 42bcaa9697733662b3a5b890461b917fc466c492
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 11/01/2021
+ms.openlocfilehash: 39a451b241952d40467e75f5a463baa3b76ab2b9
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445172"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576469"
 ---
 # <a name="quickstart-publish-messages-using-the-service-sdk-for-the-azure-web-pubsub-instance"></a>Démarrage rapide : Publier des messages en utilisant le SDK du service pour l’instance Azure Web PubSub
 
@@ -53,7 +53,7 @@ Nous allons maintenant utiliser le kit de développement logiciel (SDK) Azure We
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-* [Node.js 12.x ou version ultérieure](https://nodejs.org)
+* [Node.js 12.x (ou version ultérieure)](https://nodejs.org)
 
 # <a name="python"></a>[Python](#tab/python)
 * [Python](https://www.python.org/)
@@ -74,7 +74,7 @@ Nous allons maintenant utiliser le kit de développement logiciel (SDK) Azure We
     mkdir publisher
     cd publisher
     dotnet new console
-    dotnet add package Azure.Messaging.WebPubSub --prerelease
+    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
     ```
 
 2. Mettez à jour le fichier `Program.cs` de façon à utiliser la classe `WebPubSubServiceClient` et à envoyer des messages aux clients.
@@ -130,23 +130,22 @@ Nous allons maintenant utiliser le kit de développement logiciel (SDK) Azure We
     mkdir publisher
     cd publisher
     npm init -y
-    npm install --save @azure/web-pubsub
-
+    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
     ```
+
 2. Nous allons maintenant utiliser le kit de développement logiciel (SDK) Azure Web PubSub pour publier un message dans le service. Créez un fichier `publish.js` avec le code ci-dessous :
 
     ```javascript
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
-    if (process.argv.length !== 5) {
-    console.log('Usage: node publish <connection-string> <hub-name> <message>');
-    return 1;
+    if (process.argv.length !== 3) {
+      console.log('Usage: node publish <message>');
+      return 1;
     }
-
-    let serviceClient = new WebPubSubServiceClient(process.argv[2], process.argv[3]);
-
+    const hub = "pubsub";
+    let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
     // by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
-    serviceClient.sendToAll(process.argv[4], { contentType: "text/plain" });
+    serviceClient.sendToAll(process.argv[2], { contentType: "text/plain" });
     ```
 
     L’appel `sendToAll()` envoie simplement un message à tous les clients connectés dans un hub.
@@ -154,7 +153,8 @@ Nous allons maintenant utiliser le kit de développement logiciel (SDK) Azure We
 3. Exécutez la commande ci-dessous, en remplaçant `<connection_string>` par la chaîne **ConnectionString** extraite à l’[étape précédente](#get-the-connectionstring-for-future-use) :
 
     ```bash
-    node publish "<connection_string>" "myHub1" "Hello World"
+    export WebPubSubConnectionString="<connection-string>"
+    node publish "Hello World"
     ```
 
 4. Vous pouvez voir que le client CLI précédent a reçu le message.
@@ -178,7 +178,7 @@ Nous allons maintenant utiliser le kit de développement logiciel (SDK) Azure We
 
         # Or call .\env\Scripts\activate when you are using CMD
 
-        pip install azure-messaging-webpubsubservice
+        pip install azure-messaging-webpubsubservice==1.0.0b1
 
         ```
 2. Nous allons maintenant utiliser le kit de développement logiciel (SDK) Azure Web PubSub pour publier un message dans le service. Créez un fichier `publish.py` avec le code ci-dessous :
@@ -296,7 +296,7 @@ Nous allons maintenant utiliser le kit de développement logiciel (SDK) Azure We
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce guide de démarrage rapide vous donne une idée de base de la façon de se connecter au service Web PubSub et de publier des messages sur les clients connectés.
+Ce tutoriel donne une idée de base de la procédure à suivre pour se connecter au service Web PubSub et publier des messages sur les clients connectés.
 
 Dans les applications réelles, vous pouvez utiliser des kits de développement logiciel (SDK) dans différents langages pour créer votre propre application. Nous fournissons également des extensions de fonction qui vous permettent de créer facilement des applications serverless.
 

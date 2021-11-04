@@ -9,12 +9,12 @@ ms.subservice: flexible-scale-sets
 ms.date: 10/14/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: b6cdeff69c1d9a919651d68b937af1c7b328edbe
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b4662c2fd6c5a0950bc3b2b6f336fabab12fc1aa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130257952"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008471"
 ---
 # <a name="migrate-deployments-and-resources-to-virtual-machine-scale-sets-in-flexible-orchestration"></a>Effectuer la migration de déploiements et de ressources vers des groupes de machines virtuelles identiques dans une orchestration Flexible 
 
@@ -86,23 +86,31 @@ Il n’existe actuellement aucun outil automatisé permettant de déplacer direc
 
 Les groupes de machines virtuelles identiques avec orchestration Flexible vous permettent de combiner la scalabilité des [groupes de machines virtuelles identiques utilisant le mode d’orchestration Uniform](../virtual-machine-scale-sets/overview.md) avec les garanties de disponibilité régionale des groupes à haute disponibilité. Voici les points clés à prendre en compte lorsque vous décidez d’utiliser le mode d’orchestration Flexible. 
 
-### <a name="explicit-network-outbound-connectivity-required"></a>Connectivité réseau sortante explicite nécessaire 
+### <a name="create-scalable-network-connectivity"></a>Créer une connectivité réseau évolutive 
+<!-- the following is an important link to use in FLEX documentation to reference this section:
+/virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity
+-->
 
-Pour améliorer la sécurité réseau par défaut, les groupes de machines virtuelles identiques avec une orchestration flexible requièrent que les instances créées implicitement via le profil de mise à l’échelle automatique disposent d’une connectivité sortante définie explicitement à l’aide de l’une des méthodes suivantes : 
+Le comportement de l’accès sortant de la mise en réseau varie selon la façon dont vous choisissez de créer des machines virtuelles au sein de votre groupe identique. Les **instances de machine virtuelle ajoutées manuellement** disposent d’un accès de connectivité sortant par défaut. Les **instances de machine virtuelle créées implicitement** n’ont pas d’accès par défaut. 
+
+Afin d’améliorer la sécurité réseau par défaut, **les instances de machine virtuelle créées implicitement par le biais du profil de mise à l’échelle automatique n’ont pas d’accès sortant par défaut**. Pour utiliser des groupes de machines virtuelles identiques avec des instances de machine virtuelle créées implicitement, l’accès sortant doit être défini explicitement à l’aide de l’une des méthodes suivantes : 
 
 - Pour la plupart des scénarios, nous recommandons le service [NAT Gateway attaché au sous-réseau](../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md).
 - Pour les scénarios assortis d’exigences de sécurité élevées ou lors de l’utilisation d’un Pare-feu Azure ou d’une Appliance virtuelle réseau (NVA), vous pouvez spécifier un Itinéraire personnalisé défini par l’utilisateur en tant que tronçon suivant via le pare-feu. 
 - Les instances se trouvent dans le pool principal d’un Équilibreur de charge Azure de Référence SKU standard. 
 - Attachez une adresse IP publique à l’interface réseau de l’instance. 
 
-Avec des machines virtuelles à instance unique et des groupes de machines virtuelles identiques avec orchestration uniforme, la connectivité sortante est fournie automatiquement. 
-
 Les scénarios courants nécessitant une connectivité sortante explicite sont les suivants : 
 
 - L’activation d’une machine virtuelle Windows nécessite que vous ayez défini une connectivité sortante à partir de l’instance de machine virtuelle vers le Service de gestion des clés d’activation Windows (KMS). Pour plus d’informations, consultez [Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems).  
 - Accédez aux comptes de stockage ou au Coffre de clés. La connectivité aux services Azure peut également être établie via une [Liaison privée](../private-link/private-link-overview.md). 
+- Mises à jour Windows.
+- Accès aux gestionnaires de packages Linux. 
 
-Pour plus d’informations sur la définition de connexions sortantes sécurisées, consultez [Accès sortant par défaut dans Azure](../virtual-network/ip-services/default-outbound-access.md).
+Pour plus d’informations sur la définition de la connectivité sortante, consultez [Accès sortant par défaut dans Azure](../virtual-network/ip-services/default-outbound-access.md).
+
+Avec les machines virtuelles à instance unique où vous créez explicitement la carte réseau, l’accès sortant par défaut est fourni. Les groupes de machines virtuelles identiques en mode d’orchestration uniforme disposent également d’une connectivité sortante par défaut. 
+
 
 > [!IMPORTANT]
 > Vérifiez que vous disposez d’une connectivité réseau sortante explicite. Consultez [Réseaux virtuels et machines virtuelles dans Azure](../virtual-network/network-overview.md) pour en savoir plus à ce sujet, et veillez à suivre les [bonnes pratiques](../virtual-network/concepts-and-best-practices.md) Azure concernant les réseaux. 
@@ -155,17 +163,9 @@ Utilisez les API et commandes de machine virtuelle standard pour récupérer les
 Utilisez les extensions ciblant les machines virtuelles standard plutôt que celles ciblant les instances en mode d’orchestration Uniform.
 
 
+### <a name="protect-instances-from-delete"></a>Protéger les instances de la suppression
 
-
-
-
-
-
-
-
-
-
-
+Les groupes de machines virtuelles identiques en mode d’orchestration flexible ne disposent pas actuellement d’options de protection d’instance. Si la mise à l’échelle automatique est activée sur un groupe de machines virtuelles identiques, certaines machines virtuelles risquent d’être supprimées lors de la mise à l’échelle en cours. Si vous souhaitez protéger certaines instances de machine virtuelle de la suppression, utilisez [le verrouillage Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
 
 

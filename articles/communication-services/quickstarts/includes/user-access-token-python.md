@@ -1,5 +1,5 @@
 ---
-title: fichier descriptif
+title: Fichier Include
 description: inclure fichier
 services: azure-communication-services
 author: tomaschladek
@@ -10,12 +10,12 @@ ms.date: 09/13/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 0d69e35af1cc7adc30a7b616897f3147f9a04281
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ea706f98e7da8295305fd0a7cdccfd841e1ce3f3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128677280"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131520876"
 ---
 > [!NOTE]
 > Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/access-tokens-quickstart).

@@ -3,14 +3,14 @@ title: Analyser des vidéos en direct avec l’extension Intel OpenVINO™ DL St
 description: Ce tutoriel montre comment utiliser l’extension Intel OpenVINO™ DL Streamer – Edge AI pour analyser le flux vidéo en direct d’une caméra IP (simulée).
 ms.topic: tutorial
 ms.service: azure-video-analyzer
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 55ce6a7afc47e614bf080a21106f1a26388126f8
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ebdbc116e106ab03a9b4ca7b2a56eb4ce19444f9
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030299"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131554295"
 ---
 # <a name="tutorial-analyze-live-video-with-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutoriel : Analyser une vidéo en direct avec l’extension Intel OpenVINO™ DL Streamer – Edge AI 
 

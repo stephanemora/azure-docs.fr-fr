@@ -5,12 +5,12 @@ description: Découvrez comment sécuriser le trafic qui transite par des pods �
 services: container-service
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: b05c4add0a62f07b187376d670f23179ba97f3a8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4ceb9059456a4f5b20a346e1688b82320e5041fe
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767436"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577647"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
 
@@ -305,7 +305,7 @@ kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.
 À l’invite de l’interpréteur de commandes, utilisez `wget` pour voir si vous pouvez accéder à la page web NGINX par défaut. Cette fois, définissez une valeur de délai d’attente sur *2* secondes. La stratégie réseau bloque à présent tout le trafic entrant, de sorte que la page ne peut pas être chargée, comme illustré dans l’exemple suivant :
 
 ```console
-wget -qO- --timeout=2 http://backend
+wget -O- --timeout=2 --tries=1 http://backend
 ```
 
 ```output
@@ -392,7 +392,7 @@ kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.
 À l’invite de l’interpréteur de commandes, utilisez `wget` pour voir si vous pouvez accéder à la page web NGINX par défaut. La stratégie réseau bloque le trafic entrant, de sorte que la page ne peut pas être chargée, comme indiqué dans l’exemple suivant :
 
 ```console
-wget -qO- --timeout=2 http://backend
+wget -O- --timeout=2 --tries=1 http://backend
 ```
 
 ```output
@@ -489,7 +489,7 @@ kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubu
 À l’invite de l’interpréteur de commandes, utilisez `wget` pour vérifier que la stratégie réseau refuse désormais le trafic :
 
 ```console
-wget -qO- --timeout=2 http://backend.development
+wget -O- --timeout=2 --tries=1 http://backend.development
 ```
 
 ```output

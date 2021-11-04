@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: a9a3c76cb931a5683cf6fd52a806979c430f3f72
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: bdeb9336aa94198d0448d697ca01304825877bd4
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580923"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561363"
 ---
 # <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Exemple : Créer et déployer une compétence personnalisée avec Azure Machine Learning 
 
@@ -77,8 +77,6 @@ Les opérations de création et de déploiement du cluster d’inférence peuven
 ## <a name="update-the-skillset"></a>Mettre à jour l’ensemble de compétences
 
 La section 4 du notebook comporte quatre cellules qui mettent à jour l’ensemble de compétences et l’indexeur. Vous pouvez également utiliser le portail pour sélectionner et appliquer la nouvelle compétence à l’ensemble de compétences, puis exécuter l’indexeur pour mettre à jour le service de recherche.
-
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Active-Learning-with-Azure-Cognitive-Search/player#time=19m35s:paused/03/player]
 
 Dans le portail, accédez à Ensemble de compétences, puis sélectionnez le lien Définition de l’ensemble de compétences (JSON). Le portail affiche le fichier JSON de l’ensemble de compétences qui a été créé dans les premières cellules du notebook. Dans la partie droite de l’écran, un menu déroulant vous permet de sélectionner le modèle de définition de l’ensemble de compétences. Sélectionnez le modèle Azure Machine Learning (AML). Indiquez le nom de l’espace de travail Azure Machine Learning ainsi que le point de terminaison du modèle déployé sur le cluster d’inférence. Le modèle sera mis à jour avec l’URI et la clé du point de terminaison.
 

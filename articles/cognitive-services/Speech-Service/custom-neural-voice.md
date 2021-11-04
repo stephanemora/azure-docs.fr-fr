@@ -3,19 +3,19 @@ title: Présentation de la voix neuronale personnalisée – Service Speech
 titleSuffix: Azure Cognitive Services
 description: La voix neuronale personnalisée est une fonctionnalité de synthèse vocale qui vous permet de créer une voix de synthèse personnalisée unique en son genre pour vos applications en fournissant vos propres données audio à titre d’échantillon.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/18/2021
-ms.author: pafarley
-ms.openlocfilehash: 9f0af5c38bc41ab6ae3926d41564682257137575
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: a4893f4f6205c79c22c0edf08059529bb7e00fcc
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541042"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509192"
 ---
 # <a name="what-is-custom-neural-voice"></a>Qu’est-ce qu’une voix neuronale personnalisée ?
 

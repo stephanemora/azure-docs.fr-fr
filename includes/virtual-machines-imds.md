@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 60b4e1ac82574cab16feee9c436d9521eaf58ad4
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: f61c01c05412ea79aa955c599bd4dacd1eea7297
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130173355"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131571221"
 ---
 Azure Instance Metadata Service fournit des informations sur les instances de machine virtuelle en cours d’exécution. Vous pouvez l’utiliser pour gérer et configurer vos machines virtuelles.
 Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour connaître la liste complète des données disponibles, consultez le [Résumé des catégories de points de terminaison](#endpoint-categories).
@@ -1398,7 +1398,7 @@ Si vous ne pouvez pas obtenir une réponse de métadonnées après plusieurs ten
 
 ## <a name="product-feedback"></a>Commentaires sur le produit
 
-Vous pouvez formuler des commentaires sur le produit et des idées sur notre [canal de commentaires des utilisateurs](https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627), sous Machines virtuelles > Instance Metadata Service.
+Vous pouvez formuler des commentaires sur le produit et des idées sur notre [canal de commentaires des utilisateurs](https://feedback.azure.com/d365community/forum/ec2f1827-be25-ec11-b6e6-000d3a4f0f1c?c=a60ebac8-c125-ec11-b6e6-000d3a4f0f1c), sous Machines virtuelles > Instance Metadata Service.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

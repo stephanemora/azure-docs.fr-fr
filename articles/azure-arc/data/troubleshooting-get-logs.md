@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 82152756b5caf5bfbe0301a14185d8ffed1d1afe
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4b61faba9abd2f4c1af5db559dd28fa5a8e7c013
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531626"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555245"
 ---
 # <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Obtenir les journaux pour résoudre les problèmes liés aux services de données activés par Azure Arc
 
@@ -33,13 +33,13 @@ Vous pouvez obtenir les journaux de service pour l’ensemble des pods ou pour d
 Exécutez la commande suivante pour sauvegarder les journaux :
 
    ```azurecli
-   az arcdata dc debug copy-logs --exclude-dumps --skip-compress
+   az arcdata dc debug copy-logs --exclude-dumps --skip-compress --use-k8s
    ```
 
    Par exemple :
 
    ```azurecli
-   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress
+   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress --use-k8s
    ```
 
 Le contrôleur de données crée les fichiers journaux dans le répertoire de travail actuel dans un sous-répertoire appelé `logs`. 
@@ -186,4 +186,3 @@ L’arborescence des dossiers suivante est un exemple. Elle est organisée par n
             ├───journal
             └───openvpn
 ```
-

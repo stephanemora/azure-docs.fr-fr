@@ -6,16 +6,19 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/22/2021
+ms.date: 11/03/2021
 ms.author: jasteppe
-ms.openlocfilehash: d1a02502a13d2702b8965cebefe6935b4e457891
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 00f3153981a07e436b714dadfd2785aac61dd8ab
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130268419"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578891"
 ---
 # <a name="frequently-asked-questions-about-iot-connector"></a>Forum aux questions sur le connecteur IoT
+
+> [!IMPORTANT]
+> Les API Azure Healthcare sont actuellement en version préliminaire. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
 
 Voici quelques-unes des questions fréquemment posées sur le connecteur IoT.
 

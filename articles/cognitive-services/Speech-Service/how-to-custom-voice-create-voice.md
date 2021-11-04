@@ -3,19 +3,19 @@ title: Créer une voix personnalisée Custom Voice - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Pour charger vos données, accédez au portail Custom Voice. Créez ou sélectionnez un projet Custom Voice. Il doit avoir des paramètres régionaux et des propriétés de langue et de sexe adaptés aux données qui seront utilisées pour l’apprentissage de votre voix.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: pafarley
-ms.openlocfilehash: 1f444ca13224c27918812c12f0a9e86a50e0b994
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: eur
+ms.openlocfilehash: 16f9d66b669e792d0bccc2676bdc1db327de3229
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644673"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507205"
 ---
 # <a name="create-and-use-your-voice-model"></a>Créer et utiliser votre modèle vocal
 

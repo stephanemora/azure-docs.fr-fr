@@ -5,12 +5,12 @@ ms.topic: how-to
 ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 7e4d861418739660eb948e289af32d673a269b91
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: bfcd178a43e7a21ea6ef35d4462956bd49037e6f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131435754"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006864"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurer un conteneur personnalisé pour Azure App Service
 
@@ -126,10 +126,10 @@ Vous êtes prêt, et l’application web utilise désormais l’identité manag�
 
 ## <a name="use-an-image-from-a-network-protected-registry"></a>Utiliser une image à partir d’un registre protégé par un réseau
 
-Pour vous connecter et effectuer une extraction à partir d’un registre à l’intérieur d’un réseau virtuel ou d’un réseau local, votre application doit être connectée à un réseau virtuel à l’aide de la fonctionnalité d’intégration au réseau virtuel. Cela est également nécessaire pour Azure Container Registry avec un point de terminaison privé. Une fois votre réseau et la résolution DNS configurés, vous activez le routage de l’extraction de l’image à travers le réseau virtuel en définissant le paramètre d’application `WEBSITE_PULL_IMAGE_OVER_VNET=true` :
+Pour vous connecter et effectuer une extraction à partir d’un registre à l’intérieur d’un réseau virtuel ou d’un réseau local, votre application doit être connectée à un réseau virtuel à l’aide de la fonctionnalité d’intégration au réseau virtuel. Cela est également nécessaire pour Azure Container Registry avec un point de terminaison privé. Une fois votre réseau et la résolution DNS configurés, vous activez le routage de l’extraction de l’image à travers le réseau virtuel en définissant le paramètre d’application `WEBISTE_PULL_IMAGE_OVER_VNET=true` :
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_PULL_IMAGE_OVER_VNET=true
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBISTE_PULL_IMAGE_OVER_VNET=true
 ```
 
 ::: zone-end
@@ -261,7 +261,7 @@ Il existe plusieurs moyens d’accéder aux journaux du Docker :
 - [Dans le portail Azure](#in-azure-portal)
 - [À partir de la console Kudu](#from-the-kudu-console)
 - [Avec l’API Kudu](#with-the-kudu-api)
-- [Envoyer des journaux à Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
+- [Envoyer des journaux à Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview)
 
 ### <a name="in-azure-portal"></a>Dans le portail Azure
 

@@ -7,12 +7,13 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 10/20/2021
 ms.author: memildin
-ms.openlocfilehash: 5e2524121aea09142a04b06b5ee6736e977b2b94
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c8fb5a75cd9254023555e7765cf4678c7431bec5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452791"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131096696"
 ---
 # <a name="automate-onboarding-of-microsoft-defender-for-cloud-using-powershell"></a>Automatiser l’intégration de Microsoft Defender pour le cloud à l’aide de PowerShell
 

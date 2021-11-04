@@ -4,12 +4,12 @@ description: Découvrez comment demander un quota ou une capacité d’hôte pou
 ms.topic: how-to
 ms.custom: contperf-fy21q3
 ms.date: 09/27/2021
-ms.openlocfilehash: 985b17183d8e3373f03f156857ee0697c769e28d
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: a95f152c5e55b1750aa34c9a4093e311eb27df29
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044816"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131504490"
 ---
 # <a name="request-host-quota-for-azure-vmware-solution"></a>Demander un quota hôte pour Azure VMware Solution
 
@@ -40,8 +40,7 @@ Vous devez disposer d’un compte Azure dans un abonnement Azure qui adhère à 
    - **Sous-type de problème :** Demande client de capacité/quota d’hôtes supplémentaire
 
 1. Dans la **Description** du ticket de support, sous l’onglet **Détails**, fournissez les informations suivantes :
-
-   - Production 
+ 
    - Nom de la région
    - Nombre d’hôtes
    - Autres détails
@@ -94,7 +93,6 @@ Accédez au portail Azure en utilisant la procédure **Administrateur pour le co
    
    1. Dans la **Description** du ticket de support, sous l’onglet **Détails**, fournissez les informations suivantes :
    
-      - Production 
       - Nom de la région
       - Nombre d’hôtes
       - Autres détails

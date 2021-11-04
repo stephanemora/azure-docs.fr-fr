@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier include
 services: service-bus-messaging, event-hubs
 author: spelluru
@@ -8,17 +8,16 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 38a2f3cd5f1b391b651c89801e4ab3abe92ed448
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 3cb87b130b0dd7888664f0bcc1522c99c1c56a4b
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112255112"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131571234"
 ---
 ## <a name="what-is-a-replication-task"></a>Qu’est-ce qu’une tâche de réplication ?
 
-Une tâche de réplication reçoit des événements d’une source et les transfère à une cible.
-La plupart des tâches de réplication transfèrent des événements non modifiés et, au maximum, effectuent le mappage entre les structures de métadonnées si les protocoles source et cible diffèrent. 
+Une tâche de réplication reçoit des événements d’une source et les transfère à une cible. La plupart des tâches de réplication transfèrent des événements non modifiés et, au maximum, effectuent le mappage entre les structures de métadonnées si les protocoles source et cible diffèrent. 
 
 Les tâches de réplication sont généralement sans état. Cela signifie qu’elles ne partagent pas l’état ou d’autres effets secondaires sur les exécutions séquentielles ou parallèles d’une tâche. C’est également vrai pour le traitement par lot et le chaînage, qui peuvent être implémentés, en plus de l’état existant d’un flux. 
 

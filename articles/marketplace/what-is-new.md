@@ -6,12 +6,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/28/2021
-ms.openlocfilehash: 5f51dd3cb31fa0b1ada8efb098aa0814a6a603c5
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 419258da22c82939f0e3959ffbf97547977b393a
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129230890"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577685"
 ---
 # <a name="whats-new-in-the-microsoft-commercial-marketplace"></a>Nouveautés de la place de marché commerciale Microsoft
 
@@ -38,7 +38,6 @@ Découvrez les mises à jour importantes dont a fait l’objet le programme de p
 | Taxes | La taxation sur les clients finaux en Australie est gérée par Microsoft, à l’exception des achats que font les clients dans le cadre d’un contrat Entreprise, lesquels sont gérés par l’éditeur. | 01-07-2021 |
 | Taxes | Mise à jour de la liste des pays dans la [page de détails des taxes](/partner-center/tax-details-marketplace) pour inclure les éléments suivants : <ul><li>Argentine</li><li>Bulgarie</li><li>Hong Kong (R.A.S.)</li><li>Corée du Sud</li><li>Pakistan</li><li>Autorité palestinienne</li><li>Panama</li><li>Paraguay</li><li>Pérou</li><li>Philippines</li><li>Saint-Kitts-et-Nevis</li><li>Sénégal</li><li>Sri Lanka</li><li>Tadjikistan</li><li>Tanzanie</li><li>Thaïlande</li><li>Trinité-et-Tobago</li><li>Tunisie</li><li>Turkménistan</li><li>Ouganda</li><li>Ouzbékistan</li><li>Zimbabwe</li></ul> | 01-07-2021 |
 | Taxes | Le Nigeria a été déplacé de la liste « Pays où l’éditeur et le développeur se partagent la gestion » vers « Taxation sur les clients finaux qui varie selon les places de marché ».  | 01-07-2021 |
-| Paiements | Ajout de scénarios de paiement de la place de marché commerciale à la [page de détails des taxes](/partner-center/tax-details-marketplace). | 26-04-2021 |
 |
 
 ## <a name="documentation-updates"></a>Mises à jour de la documentation
@@ -56,7 +55,4 @@ Découvrez les mises à jour importantes dont a fait l’objet le programme de p
 | Offres | Ajout d’informations sur les options et les descriptions des tarifs des machines virtuelles. Pour en savoir plus, consultez [Planifier une offre SaaS pour la place de marché commerciale](plan-saas-offer.md). | 2021-05-25|
 | Guide des API | Cette rubrique offre aux éditeurs un emplacement unique et pratique pour rechercher les modifications récentes apportées à la place de marché commerciale, y compris les mises à jour de la stratégie de certification, les modifications des règles fiscales et plus encore. Pour en savoir plus, consultez [Aligner votre activité avec notre plateforme d’e-commerce](marketplace-apis-guide.md). | 13-05-2021 |
 | Stratégie | Mise à jour de la stratégie de [certification](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context) ; consultez l’[historique des changements](/legal/marketplace/offer-policies-change-history). | 07-05-2021 |
-| Policy | Le [Contrat Microsoft Publisher](/legal/marketplace/msft-publisher-agreement) a été mis à jour. Pour voir ce qui a changé, consultez [Historique des changements pour le Contrat de l’éditeur Microsoft](/legal/marketplace/mpa-change-history). | 16-04-2021 |
-| Offres | Les éditeurs de logiciels indépendants (ISV) Microsoft 365 peuvent désormais lier leur offre SaaS (Software as a Service) à leurs applications Teams, compléments Office (WXPO) et solutions SharePoint SPFx associés dans l’Espace partenaires. Les ISV SaaS peuvent aussi préciser si leur offre SaaS est intégrée à l’API Microsoft Graph. Pour plus d’informations, consultez [Tester et déployer des applications Microsoft 365 de partenaires sur le portail des applications intégrées](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps). | 08-04-2021 |
-| Stratégie | Mise à jour de la stratégie de [certification](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context) ; consultez l’[historique des changements](/legal/marketplace/offer-policies-change-history). | 02-04-2021 |
 |

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-ms.openlocfilehash: 7254ed303e45c69f291aa5c7a06f63390aaed162
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 95bda32a3ffc305a4523e952f0cc975917996292
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525256"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555302"
 ---
 # <a name="list-the-azure-arc-enabled-postgresql-hyperscale-server-groups-created-in-an-azure-arc-data-controller"></a>Lister les groupes de serveurs PostgreSQL Hyperscale avec Azure Arc créés dans un contrôleur de données Azure Arc
 
@@ -33,10 +33,14 @@ az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 
 Elle renverra une sortie comme suit :
 ```console
-Name        State    Workers
-----------  -------  ---------
-postgres01  Ready    2
-postgres02  Ready    2
+[
+  {
+    "name": "postgres01",
+    "replicas": 1,
+    "state": "Ready",
+    "workers": 4
+  }
+]
 ```
 Pour plus d’informations sur les paramètres disponibles pour cette commande, exécutez :
 ```azurecli
@@ -48,21 +52,13 @@ Exécutez l’une des commandes suivantes.
 
 **Pour répertorier les groupes de serveurs, quelle que soit la version de Postgres, exécutez :**
 ```console
-kubectl get postgresqls
+kubectl get postgresqls -n <namespace>
 ```
 Elle renverra une sortie comme suit :
 ```console
-NAME                                             STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
-postgresql-12.arcdata.microsoft.com/postgres01   Ready   3/3          10.0.0.4:30499      51s
-postgresql-12.arcdata.microsoft.com/postgres02   Ready   3/3          10.0.0.4:31066      6d
+NAME         STATE   READY-PODS   PRIMARY-ENDPOINT     AGE
+postgres01   Ready   5/5          12.345.67.890:5432   12d
 ```
-
-**Pour répertorier les groupes de serveurs d’une version spécifique de Postgres, exécutez :**
-```console
-kubectl get postgresql-12
-```
-
-Pour répertorier les groupes de serveurs qui exécutent la version 11 de postgres, remplacez _postgresql-12_ par _postgresql-11_.
 
 ## <a name="next-steps"></a>Étapes suivantes :
 

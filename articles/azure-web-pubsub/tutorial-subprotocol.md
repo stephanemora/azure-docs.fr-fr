@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
-ms.date: 08/16/2021
-ms.openlocfilehash: 232489ea06020d5f2f06cfc7d841c888b2b5a5d0
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.date: 11/01/2021
+ms.openlocfilehash: ababc116ea9d53fa790b20336cb54e71d6bc2f26
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122773204"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131579043"
 ---
 # <a name="tutorial-publish-and-subscribe-messages-between-websocket-clients-using-subprotocol"></a>Tutoriel : Publication de messages et abonnement entre clients WebSocket avec le sous-protocole
 
@@ -36,7 +36,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 [!INCLUDE [Create a resource group](includes/cli-rg-creation.md)]
 
-### <a name="create-a-web-pubsub-instance"></a>Création d’une instance Web PubSub
+### <a name="create-a-web-pubsub-instance"></a>Créer une instance Web PubSub
 
 [!INCLUDE [Create a Web PubSub instance](includes/cli-awps-creation.md)]
 
@@ -79,7 +79,7 @@ Créons maintenant une application web avec le sous-protocole `json.webpubsub.az
     cd logstream
     dotnet new web
     dotnet add package Microsoft.Extensions.Azure
-    dotnet add package Azure.Messaging.WebPubSub --prerelease
+    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
     ```
     
     # <a name="javascript"></a>[JavaScript](#tab/javascript)
@@ -91,7 +91,7 @@ Créons maintenant une application web avec le sous-protocole `json.webpubsub.az
     npm install --save express
     npm install --save ws
     npm install --save node-fetch
-    npm install --save @azure/web-pubsub
+    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
     ```
 
     # <a name="python"></a>[Python](#tab/python)
@@ -108,7 +108,7 @@ Créons maintenant une application web avec le sous-protocole `json.webpubsub.az
 
     # Or call .\env\Scripts\activate when you are using CMD under Windows
 
-    pip install azure-messaging-webpubsubservice
+    pip install azure-messaging-webpubsubservice==1.0.0b1
     ```
     
     ---
@@ -189,11 +189,11 @@ Créons maintenant une application web avec le sous-protocole `json.webpubsub.az
     const express = require('express');
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
-    let endpoint = new WebPubSubServiceClient(process.argv[2], 'stream');
+    let endpoint = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, 'stream');
     const app = express();
 
     app.get('/negotiate', async (req, res) => {
-      let token = await endpoint.getAuthenticationToken({
+      let token = await endpoint.getClientAccessToken({
         roles: ['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream']
       });
       res.send({
@@ -303,8 +303,8 @@ Créons maintenant une application web avec le sous-protocole `json.webpubsub.az
     Exécutez la commande suivante, en remplaçant `<connection-string>` par la chaîne **ConnectionString** récupérée à [l’étape précédente](#get-the-connectionstring-for-future-use), et ouvrez http://localhost:8080 dans un navigateur :
 
     ```bash
-    
-    node server "<connection-string>"
+    export WebPubSubConnectionString="<connection-string>"
+    node server
     ```
     
     # <a name="python"></a>[Python](#tab/python)
@@ -408,17 +408,19 @@ Cette fonctionnalité est utile pour diffuser en temps réel une grande quantit�
       let res = await fetch(`http://localhost:8080/negotiate`);
       let data = await res.json();
       let ws = new WebSocket(data.url, 'json.webpubsub.azure.v1');
+      let ackId = 0;
       ws.on('open', () => {
         process.stdin.on('data', data => {
           ws.send(JSON.stringify({
             type: 'sendToGroup',
             group: 'stream',
+            ackId: ++ackId,
             dataType: 'text',
             data: data.toString()
           }));
-          process.stdout.write(data);
         });
       });
+      ws.on('message', data => console.log("Received: %s", data));
       process.stdin.on('close', () => ws.close());
     }
 
@@ -492,11 +494,13 @@ Cette fonctionnalité est utile pour diffuser en temps réel une grande quantit�
 2.  Dans la mesure où nous utilisons un groupe, nous devons également mettre à jour la page web `index.html` pour joindre le groupe lorsque la connexion WebSocket est établie dans le rappel `ws.onopen`.
     
     ```javascript
+    let ackId = 0;
     ws.onopen = () => {
       console.log('connected');
       ws.send(JSON.stringify({
         type: 'joinGroup',
-        group: 'stream'
+        group: 'stream',
+        ackId: ++ackId
       }));
     };
     ```
@@ -527,11 +531,11 @@ Cette fonctionnalité est utile pour diffuser en temps réel une grande quantit�
 
     # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-    Ajoutez `roles` quand `getAuthenticationToken` dans `server.js` :
+    Ajoutez `roles` quand `getClientAccessToken` dans `server.js` :
 
     ```javascript
     app.get('/negotiate', async (req, res) => {
-      let token = await endpoint.getAuthenticationToken({
+      let token = await endpoint.getClientAccessToken({
         roles: ['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream']
       });
       ...

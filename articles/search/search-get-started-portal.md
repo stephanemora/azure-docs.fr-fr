@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.openlocfilehash: 4af576587d5d0e87053fb31cdd2c1d073d1ea97e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 244b7070d73eb96f584a1a50b49e24b44ba41a7e
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714762"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131561401"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans le portail Azure
 
@@ -134,10 +134,6 @@ Pour comprendre clairement ce que vous pouvez et ne pouvez pas modifier lors de 
 Vous devriez maintenant avoir un index de recherche prêt à lancer des requêtes à l’aide de la page de requête [**Explorateur de recherche**](search-explorer.md) intégrée. Il fournit une zone de recherche afin que vous puissiez tester les chaînes de requête arbitraires.
 
 L’**Explorateur de recherche** est uniquement équipé pour gérer des [demandes d’API REST](/rest/api/searchservice/search-documents), mais il accepte à la fois une syntaxe de [requête simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) et celle de l’[analyseur complet de requêtes Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search), ainsi que tous les paramètres de recherche disponibles dans des opérations d’[API REST de recherche dans des documents](/rest/api/searchservice/search-documents#bkmk_examples).
-
-> [!TIP]
-> Les étapes suivantes font l’objet d’une démonstration à 6:08 dans la [vidéo de présentation de la Recherche cognitive Azure](https://channel9.msdn.com/Events/Connect/2016/138).
->
 
 1. Cliquez sur **Explorateur de recherche** dans la barre de commandes.
 

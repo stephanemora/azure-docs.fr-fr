@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/16/2021
 ms.author: jeedes
-ms.openlocfilehash: 2a7675f4a31971e37af192f84a997c5f2200e78c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 434bf617f675d879545b8b4fadd6a0743cf6b704
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124760710"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007141"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Tutoriel : Intégration d’Azure Active Directory à TAS
 
@@ -145,7 +145,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     f. Copiez l’URL **Single Sign On** (Authentification unique) et collez-la dans les zones de texte **Identificateur (ID d’entité)** et **URL de connexion** de **Configuration SAML de base** dans le portail Azure. Veuillez noter que l’URL respecte la casse et doit se terminer par une barre oblique (/).
 
-    g. Copiez la valeur de **Assertion Service** (Service d’assertion) et collez-la dans la zone de texte **URL de réponse** de **Configuration SAML de base** du portail Azure.
+    g. Copiez l’URL **Assertion Service** (Service d’assertion) dans la page de configuration et collez-la dans la zone de texte **URL de réponse** de **Configuration SAML de base** dans le portail Azure.
 
     h. Cliquez sur **Insert SSO row** (Insérer la ligne d’authentification unique).
 

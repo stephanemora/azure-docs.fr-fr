@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 author: wenxwei
 ms.author: wenxwei
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.reviewer: peterlu
 ms.custom: devplatv2
-ms.openlocfilehash: 89fb2c08aa76b88110bb5832f297d08d5891dda4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f411d33baea7863b9139069f1eefd1282cf7b730
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448312"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562083"
 ---
 # <a name="train-models-with-rest-preview"></a>Entraîner des modèles avec REST (préversion)
 
@@ -92,7 +92,7 @@ L’exemple LightGBM doit s’exécuter dans un environnement LightGBM. Créez l
 
 Vous pouvez configurer l’image Docker avec `Docker` et ajouter des dépendances conda avec `condaFile` : 
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_environment":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_environment":::
 
 ### <a name="datastore"></a>Magasin de données
 
@@ -114,7 +114,7 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 
 Maintenant que le magasin de données est à votre disposition, vous pouvez créer un jeu de données. Pour cet exemple, utilisez le jeu de données commun `iris.csv` et pointez dessus dans `path`. 
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_data":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_data":::
 
 ### <a name="code"></a>Code
 
@@ -128,7 +128,7 @@ az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
 
 Une fois le code chargé, vous pouvez le spécifier avec une requête PUT et faire référence au magasin de données avec `datastoreId`. 
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_code":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_code":::
 
 ## <a name="submit-a-training-job"></a>Soumettre une tâche d’apprentissage
 
@@ -145,7 +145,7 @@ Maintenant que vos ressources sont en place, vous pouvez exécuter le travail Li
 
 Utilisez les commandes suivantes pour envoyer le travail d’entraînement :
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_job":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_job":::
 
 ## <a name="submit-a-hyperparameter-sweep-job"></a>Envoyer un travail de balayage hyperparamétrique
 
@@ -162,7 +162,7 @@ Azure Machine Learning vous permet également de régler efficacement les hyperp
 
 Pour créer un travail de balayage avec le même exemple LightGBM, utilisez les commandes suivantes : 
 
-:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_a_sweep_job":::
+:::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_a_sweep_job":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
