@@ -21,7 +21,7 @@ Cet article vous montre comment configurer et utiliser Helm dans un cluster Kube
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
+Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou avec le [Portail Azure][aks-quickstart-portal].
 
 En outre, cet article suppose que vous disposez d’un cluster AKS avec un ACR intégré. Pour plus d’informations sur la création d’un cluster AKS avec un ACR intégré, consultez [S’authentifier auprès d’Azure Container Registry à partir du service Kubernetes Azure][aks-integrated-acr].
 
